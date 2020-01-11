@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="오버라이딩(Overriding) 메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다. 이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른">
+  <meta name="description" content="오버로딩(Overloading) 메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다. 이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른">
 <meta property="og:type" content="article">
-<meta property="og:title" content="overriding,constructors and variables">
+<meta property="og:title" content="overloading,constructors and variables">
 <meta property="og:url" content="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/overriding-constructors-variables/index.html">
 <meta property="og:site_name" content="Dev Blog">
-<meta property="og:description" content="오버라이딩(Overriding) 메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다. 이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른">
+<meta property="og:description" content="오버로딩(Overloading) 메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다. 이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-11T11:12:26.000Z">
-<meta property="article:modified_time" content="2020-01-11T11:14:47.242Z">
+<meta property="article:modified_time" content="2020-01-11T11:18:59.971Z">
 <meta property="article:author" content="Dohyeon Robert Lee">
 <meta property="article:tag" content="Develop">
 <meta property="article:tag" content="Java">
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title>overriding,constructors and variables | Dev Blog</title>
+  <title>overloading,constructors and variables | Dev Blog</title>
   
 
 
@@ -192,7 +192,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          overriding,constructors and variables
+          overloading,constructors and variables
         </h1>
 
         <div class="post-meta">
@@ -203,7 +203,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-11 20:12:26 / Modified: 20:14:47" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
+              <time title="Created: 2020-01-11 20:12:26 / Modified: 20:18:59" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,11 +228,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="오버라이딩-Overriding"><a href="#오버라이딩-Overriding" class="headerlink" title="오버라이딩(Overriding)"></a>오버라이딩(Overriding)</h3><hr>
+        <h3 id="오버로딩-Overloading"><a href="#오버로딩-Overloading" class="headerlink" title="오버로딩(Overloading)"></a>오버로딩(Overloading)</h3><hr>
 <p>메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다.</p>
-<p>이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른 동작을 하는 메서드를 <strong>메서드 오버라이딩, 혹은 오버로딩</strong> 이라고 한다. </p>
-<h3 id="오버라이딩을-사용하기-위한-조건"><a href="#오버라이딩을-사용하기-위한-조건" class="headerlink" title="오버라이딩을 사용하기 위한 조건"></a>오버라이딩을 사용하기 위한 조건</h3><hr>
-<p>오버라이딩을 하기 위해서는 다음과 같은 조건을 만족 시켜야한다.</p>
+<p>이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른 동작을 하는 메서드를 <strong>메서드 오버로딩, 혹은 오버로딩</strong> 이라고 한다. </p>
+<h3 id="오버로딩을-사용하기-위한-조건"><a href="#오버로딩을-사용하기-위한-조건" class="headerlink" title="오버로딩을 사용하기 위한 조건"></a>오버로딩을 사용하기 위한 조건</h3><hr>
+<p>오버로딩을 하기 위해서는 다음과 같은 조건을 만족 시켜야한다.</p>
 <ol>
 <li>같은 클래스 내부에 동일 한 이름을 갖은 메서드가 존재 해야한다</li>
 <li>매개변수의 개수 또는 타입이 달라야한다</li>
@@ -240,12 +240,12 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">18</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>위 예제를 보면 People 이라는 클래스 내부에 두개의 People 디폴트 생성자 함수가 존재한다. 동일한 이름을 갖기 때문에 에러를 발생 시킬것 같지만, 둘은 다른 메서드 이다. 첫번째 생성자 함수는 두개의 매개변수(이름, 나이)를 입력해야 하지만 두번째 생성자 함수는 이름만입력을 하면 된다. </p>
-<p>메소드 오버라이딩을 사용하게 되면:</p>
+<p>메소드 오버로딩을 사용하게 되면:</p>
 <ol>
 <li>동일한 기능을 하는 메소드를 다른 이름으로 여러개를 만들 필요가 없다</li>
 <li>메소드의 이름을 절약할 수 있다.</li>
 </ol>
-<h3 id="가변인자-varargs-와-오버라이딩"><a href="#가변인자-varargs-와-오버라이딩" class="headerlink" title="가변인자(varargs) 와 오버라이딩"></a>가변인자(varargs) 와 오버라이딩</h3><hr>
+<h3 id="가변인자-varargs-와-오버로딩"><a href="#가변인자-varargs-와-오버로딩" class="headerlink" title="가변인자(varargs) 와 오버로딩"></a>가변인자(varargs) 와 오버로딩</h3><hr>
 <p>가변인자(variable arguments): 동적으로 매개변수의 개수를 지정.</p>
 <p>가변인자는 <code>타입...변수명</code> 과 같은 형식으로 선언한다.</p>
 <ul>
@@ -418,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#오버라이딩-Overriding"><span class="nav-number">1.</span> <span class="nav-text">오버라이딩(Overriding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#오버라이딩을-사용하기-위한-조건"><span class="nav-number">2.</span> <span class="nav-text">오버라이딩을 사용하기 위한 조건</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#가변인자-varargs-와-오버라이딩"><span class="nav-number">3.</span> <span class="nav-text">가변인자(varargs) 와 오버라이딩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#생성자-Constructor"><span class="nav-number">3.1.</span> <span class="nav-text">생성자(Constructor)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#디폴트-생성자"><span class="nav-number">4.</span> <span class="nav-text">디폴트 생성자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#생성자에서-다른-생성자-호출하기-–-this"><span class="nav-number">5.</span> <span class="nav-text">생성자에서 다른 생성자 호출하기 – this()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#생성자를-이용한-인스턴스-복사"><span class="nav-number">6.</span> <span class="nav-text">생성자를 이용한 인스턴스 복사</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#변수의-초기화"><span class="nav-number">7.</span> <span class="nav-text">변수의 초기화</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#명시적-초기화-블럭"><span class="nav-number">8.</span> <span class="nav-text">명시적 초기화 블럭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#초기화-블럭"><span class="nav-number">9.</span> <span class="nav-text">초기화 블럭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#멤버변수의-초기화-시기와-순서-IMPORTANT"><span class="nav-number">10.</span> <span class="nav-text">멤버변수의 초기화 시기와 순서(IMPORTANT!!)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#오버로딩-Overloading"><span class="nav-number">1.</span> <span class="nav-text">오버로딩(Overloading)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#오버로딩을-사용하기-위한-조건"><span class="nav-number">2.</span> <span class="nav-text">오버로딩을 사용하기 위한 조건</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#가변인자-varargs-와-오버로딩"><span class="nav-number">3.</span> <span class="nav-text">가변인자(varargs) 와 오버로딩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#생성자-Constructor"><span class="nav-number">3.1.</span> <span class="nav-text">생성자(Constructor)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#디폴트-생성자"><span class="nav-number">4.</span> <span class="nav-text">디폴트 생성자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#생성자에서-다른-생성자-호출하기-–-this"><span class="nav-number">5.</span> <span class="nav-text">생성자에서 다른 생성자 호출하기 – this()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#생성자를-이용한-인스턴스-복사"><span class="nav-number">6.</span> <span class="nav-text">생성자를 이용한 인스턴스 복사</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#변수의-초기화"><span class="nav-number">7.</span> <span class="nav-text">변수의 초기화</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#명시적-초기화-블럭"><span class="nav-number">8.</span> <span class="nav-text">명시적 초기화 블럭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#초기화-블럭"><span class="nav-number">9.</span> <span class="nav-text">초기화 블럭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#멤버변수의-초기화-시기와-순서-IMPORTANT"><span class="nav-number">10.</span> <span class="nav-text">멤버변수의 초기화 시기와 순서(IMPORTANT!!)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
