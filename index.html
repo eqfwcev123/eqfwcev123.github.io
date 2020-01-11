@@ -173,6 +173,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/overriding-constructors-variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Robert Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/11/%EC%9E%90%EB%B0%94/overriding-constructors-variables/" class="post-title-link" itemprop="url">overriding,constructors and variables</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-11 20:12:26 / Modified: 20:14:47" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="오버라이딩-Overriding"><a href="#오버라이딩-Overriding" class="headerlink" title="오버라이딩(Overriding)"></a>오버라이딩(Overriding)</h3><hr>
+<p>메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다.</p>
+<p>이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른 동작을 하는 메서드를 <strong>메서드 오버라이딩, 혹은 오버로딩</strong> 이라고 한다. </p>
+<h3 id="오버라이딩을-사용하기-위한-조건"><a href="#오버라이딩을-사용하기-위한-조건" class="headerlink" title="오버라이딩을 사용하기 위한 조건"></a>오버라이딩을 사용하기 위한 조건</h3><hr>
+<p>오버라이딩을 하기 위해서는 다음과 같은 조건을 만족 시켜야한다.</p>
+<ol>
+<li>같은 클래스 내부에 동일 한 이름을 갖은 메서드가 존재 해야한다</li>
+<li>매개변수의 개수 또는 타입이 달라야한다</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">18</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제를 보면 People 이라는 클래스 내부에 두개의 People 디폴트 생성자 함수가 존재한다. 동일한 이름을 갖기 때문에 에러를 발생 시킬것 같지만, 둘은 다른 메서드 이다. 첫번째 생성자 함수는 두개의 매개변수(이름, 나이)를 입력해야 하지만 두번째 생성자 함수는 이름만입력을 하면 된다. </p>
+<p>메소드 오버라이딩을 사용하게 되면:</p>
+<ol>
+<li>동일한 기능을 하는 메소드를 다른 이름으로 여러개를 만들 필요가 없다</li>
+<li>메소드의 이름을 절약할 수 있다.</li>
+</ol>
+<h3 id="가변인자-varargs-와-오버라이딩"><a href="#가변인자-varargs-와-오버라이딩" class="headerlink" title="가변인자(varargs) 와 오버라이딩"></a>가변인자(varargs) 와 오버라이딩</h3><hr>
+<p>가변인자(variable arguments): 동적으로 매개변수의 개수를 지정.</p>
+<p>가변인자는 <code>타입...변수명</code> 과 같은 형식으로 선언한다.</p>
+<ul>
+<li><code>public printStream printf(String format, Object... args) // 가변인자 사용방법</code></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/11/%EC%9E%90%EB%B0%94/overriding-constructors-variables/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,7 +286,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/" class="post-title-link" itemprop="url">class_instance_method_variable</a>
+            <a href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/" class="post-title-link" itemprop="url">class/instance methods and variables</a>
         </h1>
 
         <div class="post-meta">
@@ -198,7 +297,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-11 15:22:04 / Modified: 15:23:04" itemprop="dateCreated datePublished" datetime="2020-01-11T15:22:04+09:00">2020-01-11</time>
+              <time title="Created: 2020-01-11 15:22:04 / Modified: 20:13:46" itemprop="dateCreated datePublished" datetime="2020-01-11T15:22:04+09:00">2020-01-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -298,7 +397,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/10/%EC%9E%90%EB%B0%94/java-variable/" class="post-title-link" itemprop="url">java_variable</a>
+            <a href="/2020/01/10/%EC%9E%90%EB%B0%94/java-variable/" class="post-title-link" itemprop="url">java variable</a>
         </h1>
 
         <div class="post-meta">
@@ -315,7 +414,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 14:02:20" itemprop="dateModified" datetime="2020-01-11T14:02:20+09:00">2020-01-11</time>
+                <time title="Modified: 2020-01-11 20:12:45" itemprop="dateModified" datetime="2020-01-11T20:12:45+09:00">2020-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -672,108 +771,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/06/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/Queue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Robert Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/06/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/Queue/" class="post-title-link" itemprop="url">Queue 자료구조</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-06 01:48:00 / Modified: 01:49:11" itemprop="dateCreated datePublished" datetime="2020-01-06T01:48:00+09:00">2020-01-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="자료구조-Data-Structure"><a href="#자료구조-Data-Structure" class="headerlink" title="자료구조 Data Structure"></a>자료구조 Data Structure</h3><ul>
-<li><p>가장 먼저 넣은 데이터를 가장 먼저 꺼낼 수 있는 구조</p>
-<ul>
-<li>음식점에서 가장 먼저 줄을 선 사람이 제일 먼저 음식점에 입장하는 것과 동일하다</li>
-<li>FIFO 방식으로 스택과 동작하는 방식이 상반된다.</li>
-</ul>
-</li>
-<li><p>알아 둬야할 용어들</p>
-<ul>
-<li>Enqueue: 큐에 데이터를 넣는 기능</li>
-<li>Dequeue: 큐에서 데이터를 꺼내는 기능</li>
-</ul>
-</li>
-<li><p>파이썬 Queue 라이브러리를 활용해서 큐 자료 구조 사용하기</p>
-<ul>
-<li><p>queue 라이브러리 에는 다양한 큐 구조로 <code>Queue()</code>, <code>LifoQueue()</code>,<code>PriorityQueue()</code> 메서드를 제공</p>
-</li>
-<li><p>프로그램을 작성할 때 프로그램에 따라 적합한 자료구조를 사용</p>
-<ul>
-<li><code>Queue()</code>: 가장 일반적인 큐 자료구조</li>
-<li><code>LifoQueue()</code>: 나중에 입력된 데이터가 먼저 출력되는 구조(스택 구조라고 보면된다)</li>
-<li><code>PriorityQueue()</code>: 데이터마다 우선 순위를 넣어서, 우선순위가 높은 순으로 데이터 출력</li>
-</ul>
-<blockquote>
-<p>일반적인 큐 외에 다양한 정책에 적용되는 큐들이 있다.</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/06/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/Queue/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -846,7 +843,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
