@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="자바 상속(extends) 객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다. 상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다 사용방법: classB extends classA:  클래스B가 클래스A한테서 상속을 받는다는">
+  <meta name="description" content="자바 상속(extends) 객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다. 상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다 사용방법: 자식 클래스 extends 부모클래스&#96;:  자식 클래스가 부모클래스한테서 상속을 받">
 <meta property="og:type" content="article">
 <meta property="og:title" content="inheritance">
 <meta property="og:url" content="http://yoursite.com/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/index.html">
 <meta property="og:site_name" content="Dev Blog">
-<meta property="og:description" content="자바 상속(extends) 객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다. 상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다 사용방법: classB extends classA:  클래스B가 클래스A한테서 상속을 받는다는">
+<meta property="og:description" content="자바 상속(extends) 객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다. 상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다 사용방법: 자식 클래스 extends 부모클래스&#96;:  자식 클래스가 부모클래스한테서 상속을 받">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-07T17:00:34.000Z">
-<meta property="article:modified_time" content="2020-01-10T18:54:37.391Z">
+<meta property="article:modified_time" content="2020-01-12T06:13:18.494Z">
 <meta property="article:author" content="Dohyeon Robert Lee">
 <meta property="article:tag" content="Develop">
 <meta property="article:tag" content="Java">
@@ -209,7 +209,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 03:54:37" itemprop="dateModified" datetime="2020-01-11T03:54:37+09:00">2020-01-11</time>
+                <time title="Modified: 2020-01-12 15:13:18" itemprop="dateModified" datetime="2020-01-12T15:13:18+09:00">2020-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,14 +238,16 @@
 <p>객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다.</p>
 <p>상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다</p>
 <p>사용방법:</p>
-<p><code>classB extends classA</code>:  클래스B가 클래스A한테서 상속을 받는다는 뜻이다.</p>
+<p>자식 클래스 extends 부모클래스`:  자식 클래스가 부모클래스한테서 상속을 받는다는 뜻이다.</p>
 <ul>
 <li><strong>다중 상속을 할 수 없다</strong>: 클래스C 가 클래스A, 클래스B한테서 상속을 받을 수 없다.(부모 클래스는 무조건 한명). 자바는 <strong>single inheritance 만 허용한다</strong></li>
 </ul>
 <p>상위 클래스는 하위 클래스보다 일반적인 개념과 기능을 갖는다</p>
 <p>하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 갖는다</p>
-<a id="more"></a>
-
+<p>생성자함수와 초기화 블럭(클래스 초기화 블럭/인스턴스 초기화 블럭)은 상속되지 않는다</p>
+<p>자식 클래스의 멤버 개수는 조상 클래스보다 항상 같거나 많다</p>
+<p>접근제어자가 Private 이거나 default일 멤버들은 상속되지 않는다기 보다는 상속은 받지만 자식 클래스가 접근을 할 수없는것이다.</p>
+<p>두개의 클래스(자식 클래스 A 와 자식 클래스 B)가 한개의 부모 클래스 한테서 상속을 받더라도 자식 클래스 A 와 B는 아무런 관계가 없다. 상속 관계에서 형제 관계는 없다.</p>
 <p><strong>하위 클래스는 상위 클래스의 기능을 마음대로 사용할 수 있지만, private 한 변수와 메소드는 사용할 수 없다. 만약에 외부 클래스는 내 private 변수/메소드를 사용할 수 없지만 내 자식 클래스는 사용할 수 있게 하고 싶을 경우 private 이 아닌 protected 를 사용하면 된다.</strong></p>
 <blockquote>
 <p><strong>private</strong> 는 선언한 클래스 내부에서만 사용할 수 있다. 상속을 한다고 해도 사용할 수 없다.</p>
@@ -255,6 +257,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 고객관리 프로그램: 고객이라는 부모클래스 밑에 VIP고객 클래스와 다이아회원 클래스가 있다</span></span><br></pre></td></tr></table></figure>
 
 
+
+<h3 id="Object-클래스-모든-클래스의-조상"><a href="#Object-클래스-모든-클래스의-조상" class="headerlink" title="Object 클래스 - 모든 클래스의 조상"></a>Object 클래스 - 모든 클래스의 조상</h3><hr>
+<p><code>Object</code>클래스는 모든 클래스 상속 계층도의 최상위에 있는 조상 클래스이다. 다른 클래스로부터 상속받지 않는 모든 클래스들은 자동적으로 Object 클래스로부터 상속받게 된다.</p>
+<p>예를들어 아무한테서도 상속을 받지 않는 <code>class Tv{}</code>를 만들었을때, 컴파일러는 자동으로 <code>class Tv extends Object{}</code>으로 변환을 한다.</p>
+<p>모든 클래스들과 그의 자식 클래스들이 Object 클래스로부터 상속을 받기 때문에 모든 클래스들은 Object 클래스의 멤버들을 사용할 수 있다. <code>toString(), equals()</code>같은 메서드들을 정의하지 않고 사용할 수 있는 이유는 해당 메소드들이 <code>Object</code>클래스에 정의되어 있기 때문이다.</p>
 <h3 id="접근-제어자-정리"><a href="#접근-제어자-정리" class="headerlink" title="접근 제어자 정리"></a>접근 제어자 정리</h3><hr>
 <table>
 <thead>
@@ -295,6 +302,8 @@
 <td>O</td>
 </tr>
 </tbody></table>
+<a id="more"></a>
+
 <h3 id="상속에서-클래스-생성-과정과-형-변환"><a href="#상속에서-클래스-생성-과정과-형-변환" class="headerlink" title="상속에서 클래스 생성 과정과 형 변환"></a>상속에서 클래스 생성 과정과 형 변환</h3><hr>
 <h3 id="하위-클래스가-생성되는-과정"><a href="#하위-클래스가-생성되는-과정" class="headerlink" title="하위 클래스가 생성되는 과정"></a>하위 클래스가 생성되는 과정</h3><p>하위 클래스가 생성될 때 상위 클래스가 먼저 생성된다(<strong><code>new 하위 생성자클래스()</code>를 통해 하위클래스를 생성할려고 할때 상위 클래스의 생성자가 먼저 호출이된다.</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 상위</span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> 상위()&#123;</span><br><span class="line">    System.out.println(<span class="string">"상위의 생성자 함수가 먼저 호출이 된다."</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 하위 <span class="keyword">extends</span> 상위</span>&#123;</span><br><span class="line">  <span class="keyword">public</span> 하위()&#123;</span><br><span class="line">    System.out.println(<span class="string">"하위의 생성자 함수가 그다음으로 호출이 된다."</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  하위 subclass = <span class="keyword">new</span> 하위()</span><br><span class="line">    <span class="comment">// 리턴값: </span></span><br><span class="line">    <span class="comment">// "상위의 생성자 함수가 먼저 호출이 된다." - 상위 클래스가 먼저 생성된다</span></span><br><span class="line">    <span class="comment">// "하위의 생성자 함수가 그다음으로 호출이 된다." -그다음으로 하위 클래스가 생성된다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -415,7 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#자바-상속-extends"><span class="nav-number">1.</span> <span class="nav-text">자바 상속(extends)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#접근-제어자-정리"><span class="nav-number">2.</span> <span class="nav-text">접근 제어자 정리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#상속에서-클래스-생성-과정과-형-변환"><span class="nav-number">3.</span> <span class="nav-text">상속에서 클래스 생성 과정과 형 변환</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#하위-클래스가-생성되는-과정"><span class="nav-number">4.</span> <span class="nav-text">하위 클래스가 생성되는 과정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#상속에서의-메모리-상태"><span class="nav-number">5.</span> <span class="nav-text">상속에서의 메모리 상태</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#상위-클래스로의-묵시적-형-변환-Upcasting"><span class="nav-number">6.</span> <span class="nav-text">상위 클래스로의 묵시적 형 변환(Upcasting)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#형-변환-에서의-메모리"><span class="nav-number">7.</span> <span class="nav-text">형 변환 에서의 메모리</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#자바-상속-extends"><span class="nav-number">1.</span> <span class="nav-text">자바 상속(extends)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-클래스-모든-클래스의-조상"><span class="nav-number">2.</span> <span class="nav-text">Object 클래스 - 모든 클래스의 조상</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#접근-제어자-정리"><span class="nav-number">3.</span> <span class="nav-text">접근 제어자 정리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#상속에서-클래스-생성-과정과-형-변환"><span class="nav-number">4.</span> <span class="nav-text">상속에서 클래스 생성 과정과 형 변환</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#하위-클래스가-생성되는-과정"><span class="nav-number">5.</span> <span class="nav-text">하위 클래스가 생성되는 과정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#상속에서의-메모리-상태"><span class="nav-number">6.</span> <span class="nav-text">상속에서의 메모리 상태</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#상위-클래스로의-묵시적-형-변환-Upcasting"><span class="nav-number">7.</span> <span class="nav-text">상위 클래스로의 묵시적 형 변환(Upcasting)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#형-변환-에서의-메모리"><span class="nav-number">8.</span> <span class="nav-text">형 변환 에서의 메모리</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

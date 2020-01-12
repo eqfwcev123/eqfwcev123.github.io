@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-11 20:12:26 / Modified: 20:18:59" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
+              <time title="Created: 2020-01-11 20:12:26 / Modified: 20:19:13" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -534,7 +534,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 03:54:37" itemprop="dateModified" datetime="2020-01-11T03:54:37+09:00">2020-01-11</time>
+                <time title="Modified: 2020-01-12 15:13:18" itemprop="dateModified" datetime="2020-01-12T15:13:18+09:00">2020-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -563,12 +563,70 @@
 <p>객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다.</p>
 <p>상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다</p>
 <p>사용방법:</p>
-<p><code>classB extends classA</code>:  클래스B가 클래스A한테서 상속을 받는다는 뜻이다.</p>
+<p>자식 클래스 extends 부모클래스`:  자식 클래스가 부모클래스한테서 상속을 받는다는 뜻이다.</p>
 <ul>
 <li><strong>다중 상속을 할 수 없다</strong>: 클래스C 가 클래스A, 클래스B한테서 상속을 받을 수 없다.(부모 클래스는 무조건 한명). 자바는 <strong>single inheritance 만 허용한다</strong></li>
 </ul>
 <p>상위 클래스는 하위 클래스보다 일반적인 개념과 기능을 갖는다</p>
 <p>하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 갖는다</p>
+<p>생성자함수와 초기화 블럭(클래스 초기화 블럭/인스턴스 초기화 블럭)은 상속되지 않는다</p>
+<p>자식 클래스의 멤버 개수는 조상 클래스보다 항상 같거나 많다</p>
+<p>접근제어자가 Private 이거나 default일 멤버들은 상속되지 않는다기 보다는 상속은 받지만 자식 클래스가 접근을 할 수없는것이다.</p>
+<p>두개의 클래스(자식 클래스 A 와 자식 클래스 B)가 한개의 부모 클래스 한테서 상속을 받더라도 자식 클래스 A 와 B는 아무런 관계가 없다. 상속 관계에서 형제 관계는 없다.</p>
+<p><strong>하위 클래스는 상위 클래스의 기능을 마음대로 사용할 수 있지만, private 한 변수와 메소드는 사용할 수 없다. 만약에 외부 클래스는 내 private 변수/메소드를 사용할 수 없지만 내 자식 클래스는 사용할 수 있게 하고 싶을 경우 private 이 아닌 protected 를 사용하면 된다.</strong></p>
+<blockquote>
+<p><strong>private</strong> 는 선언한 클래스 내부에서만 사용할 수 있다. 상속을 한다고 해도 사용할 수 없다.</p>
+<p><strong>protected</strong> 를 사용해서 내 private 변수/메소드를 오직 내 자식 클래스들만 쓸수 있게 만들 수 있다.</p>
+</blockquote>
+<p>예를들어 포유류 라는 부모클래스를 인간이 상속받는다: <code>class Human extends Mammal{}</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 고객관리 프로그램: 고객이라는 부모클래스 밑에 VIP고객 클래스와 다이아회원 클래스가 있다</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Object-클래스-모든-클래스의-조상"><a href="#Object-클래스-모든-클래스의-조상" class="headerlink" title="Object 클래스 - 모든 클래스의 조상"></a>Object 클래스 - 모든 클래스의 조상</h3><hr>
+<p><code>Object</code>클래스는 모든 클래스 상속 계층도의 최상위에 있는 조상 클래스이다. 다른 클래스로부터 상속받지 않는 모든 클래스들은 자동적으로 Object 클래스로부터 상속받게 된다.</p>
+<p>예를들어 아무한테서도 상속을 받지 않는 <code>class Tv{}</code>를 만들었을때, 컴파일러는 자동으로 <code>class Tv extends Object{}</code>으로 변환을 한다.</p>
+<p>모든 클래스들과 그의 자식 클래스들이 Object 클래스로부터 상속을 받기 때문에 모든 클래스들은 Object 클래스의 멤버들을 사용할 수 있다. <code>toString(), equals()</code>같은 메서드들을 정의하지 않고 사용할 수 있는 이유는 해당 메소드들이 <code>Object</code>클래스에 정의되어 있기 때문이다.</p>
+<h3 id="접근-제어자-정리"><a href="#접근-제어자-정리" class="headerlink" title="접근 제어자 정리"></a>접근 제어자 정리</h3><hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>외부 클래스</th>
+<th>자식 클래스</th>
+<th>동일 패키지</th>
+<th>내부 클래스</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>X</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>default</td>
+<td>X</td>
+<td>X</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>private</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>O</td>
+</tr>
+</tbody></table>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/#more" rel="contents">
