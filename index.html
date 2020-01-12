@@ -622,7 +622,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-12 15:13:18" itemprop="dateModified" datetime="2020-01-12T15:13:18+09:00">2020-01-12</time>
+                <time title="Modified: 2020-01-12 16:41:42" itemprop="dateModified" datetime="2020-01-12T16:41:42+09:00">2020-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -668,53 +668,6 @@
 </blockquote>
 <p>예를들어 포유류 라는 부모클래스를 인간이 상속받는다: <code>class Human extends Mammal{}</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 고객관리 프로그램: 고객이라는 부모클래스 밑에 VIP고객 클래스와 다이아회원 클래스가 있다</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Object-클래스-모든-클래스의-조상"><a href="#Object-클래스-모든-클래스의-조상" class="headerlink" title="Object 클래스 - 모든 클래스의 조상"></a>Object 클래스 - 모든 클래스의 조상</h3><hr>
-<p><code>Object</code>클래스는 모든 클래스 상속 계층도의 최상위에 있는 조상 클래스이다. 다른 클래스로부터 상속받지 않는 모든 클래스들은 자동적으로 Object 클래스로부터 상속받게 된다.</p>
-<p>예를들어 아무한테서도 상속을 받지 않는 <code>class Tv{}</code>를 만들었을때, 컴파일러는 자동으로 <code>class Tv extends Object{}</code>으로 변환을 한다.</p>
-<p>모든 클래스들과 그의 자식 클래스들이 Object 클래스로부터 상속을 받기 때문에 모든 클래스들은 Object 클래스의 멤버들을 사용할 수 있다. <code>toString(), equals()</code>같은 메서드들을 정의하지 않고 사용할 수 있는 이유는 해당 메소드들이 <code>Object</code>클래스에 정의되어 있기 때문이다.</p>
-<h3 id="접근-제어자-정리"><a href="#접근-제어자-정리" class="headerlink" title="접근 제어자 정리"></a>접근 제어자 정리</h3><hr>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>외부 클래스</th>
-<th>자식 클래스</th>
-<th>동일 패키지</th>
-<th>내부 클래스</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>public</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-</tr>
-<tr>
-<td>protected</td>
-<td>X</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-</tr>
-<tr>
-<td>default</td>
-<td>X</td>
-<td>X</td>
-<td>O</td>
-<td>O</td>
-</tr>
-<tr>
-<td>private</td>
-<td>X</td>
-<td>X</td>
-<td>X</td>
-<td>O</td>
-</tr>
-</tbody></table>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/#more" rel="contents">
