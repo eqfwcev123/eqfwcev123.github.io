@@ -173,6 +173,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Robert Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/" class="post-title-link" itemprop="url">abstract</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-13 20:31:54 / Modified: 20:32:19" itemprop="dateCreated datePublished" datetime="2020-01-13T20:31:54+09:00">2020-01-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h3><hr>
+<p>추상 클래스는 미완성 클래스라고 생각하면 된다. 클래스가 미완성 이라는 것은 멤버의 개수에 관계된 것이 아니라, 단지 <strong>미완성 메서드를</strong> 포함하고 있는 클래스 인것이다.</p>
+<p>미완성 클래스로 완성된 제품을 만들 수 없이 추상클래스로 인스턴스를 생성할 수 없다. 추상클래슨은 상속을 통해서 <strong>자손클래스에 의해서만 완성될 수 있다.</strong>( 장고에서 class Meta: abstract = True 를 생각하면 된다. )</p>
+<p>추상 클래스 자체로는 클래스로서의 역할을 다 못하지만, 새로운 클래스르 작성하는데 있어서 바탕이 되는 부모클래스 이다. 자식 클래스들이 부모클래스 한테서 상속을 받는 이유는 부모의 기능을 그대로 사용하기 위해서이다. 하지만 만약에 부모 클래스로 인스턴스를 생성할 필요가 없다고 치면 그때 추상 클래스를 사용하면 된다. </p>
+<p>추상 클래스는 <code>abstract</code>를 클래스 앞에 붙여서 사용한다. 추상 클래스는 <strong>추상 메서드를 포함 하고 있다는것을 제외하고는 일반클래스와 다른점이 없다. 추상 클래스 에도 생성자가 있으며, 멤버변수와 메서드를 모두 사용할 수 있다.</strong></p>
+<h3 id="추상-메서드"><a href="#추상-메서드" class="headerlink" title="추상 메서드"></a>추상 메서드</h3><hr>
+<p>메서드의 구현부가 비어있을 경우 추상 메서드 라고 한다. 메서드를 미완성으로 보류하는 이유는 <strong>메서드의 내용이 상속받는 클래스에 따라 달라질 수 있기 때문에 조상 클래스에 메소드의 구현부를 비워두고, 나중에 자식 클래스가 추상 메서드를 상속 받아서 채워가는 형식이다.(모든 인스턴스들이 동일한 메서드를 가져야 하는데 부모 클래스 입장에서 당장 메서드를 사용할 수 없을 경우 비워두는 것이다.)</strong></p>
+<p>추상 클래스로 부터 상속받는 자손 클래스는 오버라이딩을 통해 조상인 추상클래스의 추상메서드를 모두 구현해주어야 한다. 만일 조상으로부터 추상 메서드 중 하나라도 구현하지 않는다면, <strong>자손 클래스 역시 추상 메서드로 지정해줘야한다(다음 자식 이 상속 받아서 지정하고 사용)</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -198,7 +275,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-13 11:37:21 / Modified: 19:58:36" itemprop="dateCreated datePublished" datetime="2020-01-13T11:37:21+09:00">2020-01-13</time>
+              <time title="Created: 2020-01-13 11:37:21 / Modified: 20:09:16" itemprop="dateCreated datePublished" datetime="2020-01-13T11:37:21+09:00">2020-01-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,53 +315,14 @@
 <p>자식 클래스가 부모 클래스 한테서 상속을 받게 되면 자식 클래스의 인스턴스는 부모 클래스의 모든 멤버(메소드 와 멤버 변수) 와 자기자신이 가지고있는 모든 멤버들을 갖게된다. 다시말해 자식 클래스의 인스턴스는 부모 클래스의 인스턴스보다 <strong>더많은 멤버 변수와 메소드를 갖고 있다는 것이다.</strong></p>
 <p>이제 <code>Human h = new Male()</code> 를 다시 보면 자식 클래스의 인스턴스를 생성 했는데, 참조변수의 타입은 부모 클래스인 것은 10리터의 물을 500ml 패트병으로 담으려고 하는 것이다. 500ml의 패트병으로는 500ml 치 의 물만 담을 수 있다. 마찬가지로 <code>h</code> 참조 변수로는 부모클래스타입이 저장할 수 있는 멤버변수/메소드만 저장할 수 있다.</p>
 <p><strong>다시 말해 인스턴스의 타입과 상관 없이 참조변수의 타입에 따라 해당 인스턴스가 가질수 있는 메버변수와 메소드의 개수가 달라진다.</strong></p>
-<h3 id="자식-클래스-타입의-참조변수가-부모클래스의-인스턴스를-저장할-경우"><a href="#자식-클래스-타입의-참조변수가-부모클래스의-인스턴스를-저장할-경우" class="headerlink" title="자식 클래스 타입의 참조변수가 부모클래스의 인스턴스를 저장할 경우"></a>자식 클래스 타입의 참조변수가 부모클래스의 인스턴스를 저장할 경우</h3><hr>
-<p><code>isMale p = new Human()</code></p>
-<p>위의 예제와 반대로 이번에는 부모클래스의 인스턴스를 자식 타입의 참조변수로 참조를 하고 있다. </p>
-<p><strong>자식 클래스 타입의 참조변수로 부모 클래스의 인스턴스를 참조할 수 없다. 그 이유는 실제 인스턴스인 <code>Human()</code>의 멤버 개수보다 참조변수 <code>p</code>가 사용할 수 잇는 메버 개수가 더 많기 때문이다.그래서 이를 허용하지 않는다.</strong></p>
-<p><code>isMale</code> 자식 클래스에는 <code>isMale</code>,<code>isMale()</code> 멤버 들이있다. <code>p</code> 참조변수는 자식 클래스 이기 때무네 <code>p</code> 참조 변수로 <code>p.isMale 혹은 p.isMale()</code>을 사용 하려 할 수 있다. 하지만 <code>p</code>가 참조하고 있는 클래스에는 <code>isMale 와 isMale()</code>이 존재하지 않기 때문에 이를 사용할려고 하면 문제가 발생한다.</p>
-<p>그렇기 때문에 자손타입의 참조변수로 부모타입은 인스턴스를 참조하는것은 존재 하지않는다. 한가지 기억 해야 하는것은 <strong>참조 변수가 사용할 수 있는 멤버의 개수는 인스턴스의 멤버 개수보다 같거나 적어야 한다.(더많으면 안된다)</strong></p>
-<blockquote>
-<p>​    클래스는 상속을 통해서 확장 될 수 있더라도 축소될 수는 없어서 부모 클래스 인스턴스의 멤버 변수 개수는 자손 클래스 인스턴스의 멤버보다 항상 적거나 같아야 한다. –&gt; <strong>자식 클래스타입의 참조변수에 부모 클래스의 인스턴스를 넣을 수 없다</strong></p>
-</blockquote>
-<p><strong>참조변수의 타입이 참조변수가 참조하고 있는 인스턴스에서 사용할 수 있는 멤버의 개수를 결정한단든 사실을 꼭 알고 있어야 한다.</strong></p>
-<blockquote>
-<p>​    <strong>조상 타입의 참조변수로 자손 타입의 인스턴스를 참조할 수 있다.</strong></p>
-<p><strong>반대로 자손 타입의 참조변수로 조상 타입의 인스터스를 참조할 수 없다.</strong></p>
-</blockquote>
-<h3 id="참조-변수의-다형성"><a href="#참조-변수의-다형성" class="headerlink" title="참조 변수의 다형성"></a>참조 변수의 다형성</h3><hr>
-<p>기본형 변수와 마찬가지로 참조형 변수도 형변환을 할 수 있다. 단, <strong>서로 상속 관계에 있는 클래스 사이에서만 형변환을 할 수 있다.(부모 클래스 타입과 자식 클래스 타입 끼리만 형변환을 할 수 있다).</strong> </p>
-<p>조상 타입의 참조변수를 자식 클래스 타입의 참조변수로 형변환 하는것을 다운 캐스팅, 그 반대를 업캐스팅 이라고 한다.</p>
-<blockquote>
-<p>부모클래스 에서 자식클래스로 형변환: <strong>Down Casting</strong> <strong>형변환 생략 불가</strong></p>
-<p>자식 클래스에서 부모 클래스로 형변환: <strong>Up Casting</strong> <strong>형변환 생략 가능</strong></p>
-</blockquote>
-<p>부모 클래스에서 자식 클래스로 다운 캐스팅을 할때는 생략을 해줘야 하지만 자식 클래스에서 부모클래스로 현변환을 할 때는 암묵적으로 자동 형변환이 가능 하다. 그 이유는 자식 클래스의 데이터 타입이 더 많은 데이터를 가지고 있기 때문에 형변환을 해줘야 한다. 쉽게 생각하면 5리터 물통의 물을 500미리 패트병에 넣을려면 물을 버리고 넣어야 한다. 하지만 500ml의 물을 5리터 물통에 넣을 때는 그냥 넣을 수 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">   String color;</span><br><span class="line">  <span class="keyword">int</span> door;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"운전"</span>)&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"정지"</span>)&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FireEngine</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">water</span><span class="params">()</span><span class="params">(System.out.println(<span class="string">"물대포"</span>)</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ambulance</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"사람 살리기"</span>)&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CarTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    FireEngine fire = <span class="keyword">new</span> FireEngine();</span><br><span class="line">    Ambulance amb = <span class="keyword">new</span> Ambulance();</span><br><span class="line">    </span><br><span class="line">    amb = (FireEngine)amb; <span class="comment">// 형제 관계 자체가 존재하지 않는다. 그렇기 때문에 형변환 을 할 수 없다.</span></span><br><span class="line">    fire = (Ambulance)fire <span class="comment">// 마찬가지로 형변환 불가</span></span><br><span class="line">      </span><br><span class="line">    Car car = <span class="keyword">null</span>;</span><br><span class="line">    FireEngine fe = <span class="keyword">new</span> FireEngine();</span><br><span class="line">    FireEngine fe2 = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    car = fe; <span class="comment">// car = Car(fe)와 동일. Up casting</span></span><br><span class="line">    fe2 = (FireEngine)car <span class="comment">// 다운 캐스팅</span></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>자바에는 형재 관계라는 것이 존재 하지 않고 부모 자식 관계만 있다. 그렇기 때문에 형재 관계끼리 타입 변환을 할 수 없다(위 예제일 경우 엠뷸런스와 소방차 인스턴끼리의 타입변환이 불가능 한 것이다).</p>
-<p><strong>형변환은 참조변수의 타입을 변환하는 것이지 인스턴스를 변환하는 것이 아니다.  그렇기 때문에 참조변수의 형변환은 인스턴스에 아무런 영향을 주지 않는다.</strong></p>
-<p>자식 클래스의 인스턴스 변수를 부모클래스의 타입으로 형변환을 할 경우 전에 배운 다형에서 처럼 자식 클래스는 자식 클래스가 기존에 갖고 있던 자기 자신의 멤버 변수/ 메소드를 사용할 수 없게 된다. 위 예제로 따지면 fe 는 다운캐스팅 되어서 car 참조변수에 저장이 된다. 이제 car 참조변수는 <code>water()</code>메소드를 사용할 수 없다.</p>
-<blockquote>
-<p>서로 상속관계에 있는 클래스 타입의 참조변수간의 형변환은 양방향으로 자유롭게 할 수 있으나, 참조변수가 참조하고 있는 인스턴스의 자손타입으로 형변환을 하는것은 허용되지 않는다. 참조변수가 가리키는 인스턴스의 타입이 무엇인지 확인 하는 것이 중요하다</p>
-</blockquote>
-<blockquote>
-<p><code>인스턴스 instance of(클래스)</code>를 사용하면 해당 인스턴스가 부모 클래스의 인스턴스인지 알 수 있다.</p>
-</blockquote>
-<h3 id="참조-변수와-인스턴스의-연결"><a href="#참조-변수와-인스턴스의-연결" class="headerlink" title="참조 변수와 인스턴스의 연결"></a>참조 변수와 인스턴스의 연결</h3><hr>
-<p>부모 타입의 참조변수와 자식 타입의 참조변수의 차이는 사용할 수 있는 멤버 변수와 메소드의 차이를 제외하고 한가지가 더있다.</p>
-<p><strong>조상 클래스에 선언된 멤버변수와 같은 이름의 인스턴스 변수를 자손 자식 클래스에 중복으로 정의했을 때 조상 타입의 참조변수로 자식인스턴스를 참조하는 경우와 자식 타입의 참조변수로 자식 인스턴스를 참조하는경우 다른 결과가 나온다.</strong></p>
-<p><strong>메서드의 경우 조상 클래스의 메서드를 자손의 클래스에서 오버라이딩 한 경우에도 참조 변수의 타입에 관계없이 항상 실제 인스턴스의 메서드(오버라이딩된 메서드)가 호출되지만, 멤버변수의 경우 참조변수의 타입에 따라 달라진다.</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BindingTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Parent p = <span class="keyword">new</span> Child();</span><br><span class="line">    Child c = <span class="keyword">new</span> Child();</span><br><span class="line">    </span><br><span class="line">    System.out.println(p.x); <span class="comment">// 100</span></span><br><span class="line">    p.method(); <span class="comment">// Child method. 참조변수의 타입과 상관 없이 오버라이딩 된 메서드가 호출된다.</span></span><br><span class="line">    System.out.println(c.x); <span class="comment">// 200</span></span><br><span class="line">    c.method(); <span class="comment">// Child method</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x = <span class="number">100</span>; <span class="comment">// 부모클래스의 x 멤버 변수</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Parent method"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x = <span class="number">200</span>; <span class="comment">// 자식 클래스의 x 멤버 변수</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Child method"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>멤버 변수가 조상 클래스와 자속 클래스에 중복으로 정의된 경우, 조상 타입의 참조변수를 사용했을 때는 조상 클래스에 선언된 멤버가 사용되고, 자손 타입의 참조변수를 사용하면 자식 클래스에 선언되 멤버변수가 사용된다.</strong> 다시말해, 참좁변               수의 타입에 따라 다른 멤버변수가 호출이 된다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Child에서 부모 메서드를 오버라이딩 하지 않을 경우 부모의 method를 그대로 사용한다.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BindingTest2</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Parent p = <span class="keyword">new</span> Child();</span><br><span class="line">    Child c = <span class="keyword">new</span> Child();</span><br><span class="line">    </span><br><span class="line">    System.out.println(p.x); <span class="comment">// 100</span></span><br><span class="line">    p.method(); <span class="comment">// Parent method</span></span><br><span class="line">    System.out.println(c.x); <span class="comment">// </span></span><br><span class="line">    c.method()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x = <span class="number">100</span>; <span class="comment">// 부모클래스의 x 멤버 변수</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Parent method"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>결론: <strong>상속을 받은 자식 클래스가 자기 자신의 메소드와 인스턴스 멤버를 가지고 있으면 자기것을 사용하고, 없으면 부모클래스의 멤벼 변수와 메소드를 빌려온다.</strong></p>
-<p>메소드는 <strong>만약에 오버라이딩 할 경우 부모의 메서드를 덮어 씌운거라고 생각하면 된다. 그렇기 때문에 참조변수의 타입과 상관 없이 호출을 하게되면 부모의 메서드가 아닌 자식 클래스에서 오버라이딩 한 자식클래스의 메서드가 호출 된다.</strong></p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -659,117 +697,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Robert Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/" class="post-title-link" itemprop="url">class/instance methods and variables</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-11 15:22:04 / Modified: 20:13:46" itemprop="dateCreated datePublished" datetime="2020-01-11T15:22:04+09:00">2020-01-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="클래스-메서드-static-메서드-와-인스턴스-메서드"><a href="#클래스-메서드-static-메서드-와-인스턴스-메서드" class="headerlink" title="클래스 메서드(static 메서드) 와 인스턴스 메서드"></a>클래스 메서드(static 메서드) 와 인스턴스 메서드</h3><hr>
-<p>메서드 앞에 static 일 들어가면 해당 메서드는 static 메서드 이고 붙어 있지 않으면 인스턴스 메서드 이다. 클래스 메서드도 클래스변수처럼 객체를 생성하지 않고 ‘클래스이름.클래스메서드( )’ 형식으로 사용한다. 인스턴스 메서드는 인스턴스 변수와 마찬가지로 인스턴스를 생성해야 인스턴스 메서드를 ‘인스턴스.인스턴스메서드( )’ 형식으로 사용할 수 있다.</p>
-<p>인스턴스 메서드는 인스턴스 변수와 관련된 작업을 하는, 즉 메서드의 작업을 수행하는 데 인스턴스를 필요로 하는 메서드 이다. 그런데 인스턴스 변수는 인스턴스를 생성해야하만 만들어 지므로, 인스턴스 메서드 역시 인스턴스를 생성해야만 호출 해야한다.</p>
-<p>반면에 메서드 중에서 인스턴스와 관계없는 메서드를 클래스 메서드(정적 메서드) 로 정의한다.</p>
-<ul>
-<li><p>클래스를 설계할 때, 멤버변수 중 모든 인스턴스에 공통적으로 사용해야하는 것에 <code>static</code>을 붙인다.</p>
-<ul>
-<li><p>생성된 각 인스턴스는 서로 독립적이기 때문에 각 인스턴스의 변수는 서로 다른 값을 유지한다. 그러나 모든 인스턴스에서 같은 값이 유지되어야 하는 변수는 <code>static</code> 으로 선언을 하면 된다.</p>
-</li>
-<li><p>클래스 변수(<code>static</code> 변수) 는 인스턴스를 생성하지 않아도 사용할 수 있다.</p>
-<ul>
-<li>static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동적으로 생성되기 때문이다.</li>
-</ul>
-</li>
-<li><p>클래스 메서드는 인스턴스 변수를 사용할 수 없다.</p>
-<ul>
-<li><p>인스턴스 변수는 인스턴스가 반드시 존재햐아만 사용할 수 있다. <strong>클래스 메서드는 인스턴스 생성 없이 호출 가능하므로 클래스 메서드가 호출되었을 때 인스턴스가 존재하지 않을 수 있다.</strong> 그래서 클래스 메서드에서 인스턴스 변수의 사용을 금지한다. 반면에 인스턴스 변수나 인스턴스 메서드에서는 <code>static</code>이 붙은 멤버들을 사용하는 것이 언제나 가능하다. 인스턴스 변수가 존재한다는 것은 static 변수가 이미 메모리에 존재한다는 것을 의미한다.</p>
-<blockquote>
-<p>​    앞에서 말한것 처럼 클래스 파일이 사용이 되면 JVM 은 해당 <code>.class</code> 파일을 읽어서 분석하여 클래스에 대한 정보를 메소드 영역에 저장을 한다. 이때 클래스의 정적 메소드와 정적 멤버 변수가 최 우선적으로 생성이 된다.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>메서드 내에서 인스턴스 변수를 사용하지 않는다면 static을 붙이는 것을 고려한다.</p>
-<ul>
-<li><p>메서드의 작업내용 중에서 인스턴스 변수를 필요로 한다면, <code>static</code>을 붙일 수 없다. 반대로 인스턴스 변수를 필요로 하지 않는다면 static을 붙이는 것이 좋다. 메서드 호출 시간이 짧아지므로 성능이 향상된다. static을 안붙인 메서드(인스턴스 메서드)는 실행시 호출되어야할 메서드를 찾는 과정이 추가적으로 필요하기 때뭉네 시간이 더 걸린다.</p>
-<blockquote>
-<p>인스턴스 변수 혹은 메서드가 필요하면 <code>static</code>을 안붙이고, 필요로 하면 <code>static</code> 붙이기</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -842,7 +769,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
