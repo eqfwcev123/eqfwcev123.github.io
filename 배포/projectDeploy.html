@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="서버 배포  보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름&#x2F;설명&#x2F;인바운드 입력  인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹&#x2F;새로운 보안 그룹 선택  인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 ~&#x2F;.ssh 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠">
+<meta property="og:type" content="website">
+<meta property="og:title" content="projectDeploy">
+<meta property="og:url" content="http://yoursite.com/%EB%B0%B0%ED%8F%AC/projectDeploy.html">
+<meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="서버 배포  보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름&#x2F;설명&#x2F;인바운드 입력  인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹&#x2F;새로운 보안 그룹 선택  인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 ~&#x2F;.ssh 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-21T11:47:58.000Z">
+<meta property="article:modified_time" content="2020-01-21T11:49:25.904Z">
+<meta property="article:author" content="Dohyeon Robert Lee">
+<meta property="article:tag" content="Develop">
+<meta property="article:tag" content="Server Deploy">
+<meta property="article:tag" content="Django">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/%EB%B0%B0%ED%8F%AC/projectDeploy">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false
+  };
+</script>
+
+  <title>projectDeploy | Dev Blog
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dev Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Web Development blog</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="en">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">projectDeploy
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h3 id="서버-배포"><a href="#서버-배포" class="headerlink" title="서버 배포"></a>서버 배포</h3><hr>
+<ol>
+<li><p>보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름/설명/인바운드 입력</p>
+</li>
+<li><p>인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹/새로운 보안 그룹 선택</p>
+</li>
+<li><p>인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 <code>~/.ssh</code> 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠는 우리가 인스턴스를 생성할 때 AWS 에서 자물쇠를 넣어준다.(다시말해 우리는 열쇠만 가지고 있는것이다.)</p>
+</li>
+<li><p>EC2 서버로 접근하기: ssh -i ~/.ssh/[보안키이름].pem [유저]@[서버 주소]. 이렇게 하면 원래는 서버로 접속을 할 수 있지만 처음 설정 할때는 접근할 수 없다. EC2에 인바운드와 아웃바운드 설정을 해줘야 한다. <strong>인바운드 설정에 유형이라는 항목이 있는데, 항목 내부에 다양한 선택지들이 있다. 그중 SSH를 설정해야 하는데, SSH를 설정하는 이유는 사용자가 SSH를 이용해서 인스턴스에 접근을 해야하기 때문이다.</strong></p>
+<ul>
+<li>인바운드 : 외부에서 인스턴스로 들어오는 요청이다</li>
+<li>아웃바운드 : 인스턴스에서 외부로 나가는 트래픽이다. 0.0.0.0 은 어디든 갈 수 있다</li>
+</ul>
+</li>
+<li><p>인바운드를 설정하고 나서 다시 서버에 접근을 할려고하면 <strong>WARNING: UNPROTECTED PRIVATE KEY</strong> 라고 나온다. 그 이유는 우리가 사용하고 하는 secret키에 대한 보안이 너무 취약하기 때문이다. <code>~/.ssh</code> 파일에서 <code>ls-al</code>을 해보면 <code>-rw-|r--|r--@</code> 라고 나온다.</p>
+<ul>
+<li>맨앞 <code>-</code> 에 <code>d</code>가 있으면 디렉토리라는 뜻이다.</li>
+<li><code>r</code> 는 read 를 read를 의미한다</li>
+<li><code>w</code> 는 write 를 의미한다</li>
+<li><code>x</code> 는 executable을 의미한다</li>
+<li><code>u</code> 는 user(사용자)를 의미한다</li>
+<li><code>g</code> 는 그룹을 의미한다</li>
+<li><code>o</code> 는 기타 를 의미한다.</li>
+<li><strong>(파일타입|user|group|other) || 링크수 || 소유자 || 그룹 || 파일크기 || 파일수정시간 || 파일이름</strong></li>
+</ul>
+</li>
+<li><p><code>chmod</code>와 숫자를 이용해서 해당 파일의 권한 변경하기: 숫자를 이용해서 해당파일의 <code>user|group|other</code>의 권한을 한번에 변경할 수 있다.</p>
+<ul>
+<li>rwx 가 있는데 r 은 2^2, w 는 2^1, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 + 2^1 + 2^0 = 7 을 의미한다.</li>
+<li>r-x 가 있는데 r 은 2^2, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 +  2^0 = 5 을 의미한다.</li>
+<li><strong>쉽게 말해 r 는 4, w 는 2, x 는 1을 의미한다.</strong></li>
+<li>권한을 부여할때 다음과 같이 부여한다. <code>chmod 777 a.py</code>. 이는 즉 <code>a.py</code>파일에 rwx|rwx|rwx를 부여한는 것이다.</li>
+<li><code>chmod 124 b.py</code> 는 <code>b.py</code>파일에 –x|-w-|r– 권한을 부여하는것이다</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>경우의 수</th>
+<th>chmod</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rwx</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rw-</td>
+<td>6</td>
+</tr>
+<tr>
+<td>r-x</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-wx</td>
+<td>3</td>
+</tr>
+<tr>
+<td>–x</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-w-</td>
+<td>2</td>
+</tr>
+<tr>
+<td>r–</td>
+<td>4</td>
+</tr>
+<tr>
+<td>—</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</blockquote>
+<a id="more"></a>
+
+<ol start="7">
+<li><p><code>sudo apt update</code>: apt-get은 인덱스를 가지고 있는데 이 인덱스는 /etc/apt/sources.list 에 있다. 이곳에 저장된 저장소에서 사용할 패키지의 정보를 얻는다.</p>
+</li>
+<li><p><code>sudo apt dist-upgrade</code>: 설치되어 있는 패키지를 모두 의존성 검사를 하며 새버전으로 업그래이드 한다.</p>
+</li>
+<li><p>서버에서 Django 와 runserver 하기. runserver 를 하기 위해서 서버 컴퓨터에 python, Django 가 설치되어 있어야한다.</p>
+</li>
+<li><p><code>sudo apt install python3-pip</code> 와 <code>sudo apt install python[버전]</code>,<code>pip install django</code>를 이용해서 원하는 파이썬 버전과 pip 를 설치</p>
+</li>
+<li><p><code>scp</code>를 이용해서 로컬 컴퓨터에 있는 장고 어플리 케이션을 서버 컴퓨터로 불러오기</p>
+<ul>
+<li><code>scp [옵션] [소스 경로] [타겟]</code></li>
+<li><code>scp -i ~/.ssh/[시크릿키이름].pem [파일이름] ubuntu@[퍼블릭IP]:/[타겟경로]</code></li>
+<li><code>scp -i ~/.ssh/wpsNkp.pem -r ~/projects/wps12th/instagram ubuntu@:13.209.65.54/home/ubuntu/projects/wps12th</code></li>
+<li><strong><code>-r</code> 을 꼭 써줘야 한다. scp로는 원래 파일 하나만 보낼 수 있는데 -r 혹은 recursive를 사용하면 폴더 내부에 있는 폴더 까지 다같이 보낼수 있게 된다. 사용하지 않으면 에러 발생</strong> </li>
+<li>서버컴퓨터의 기본 디렉토리는 <code>home/ubuntu</code> 이다</li>
+</ul>
+</li>
+<li><p>원하는 어플리케이션을 서버로 보낸 후 사용자가 로컬 컴퓨터에서 설치해둔 extensions(기타 설정들)이 존재할 것이다. 장고 같은 경우 <code>requirements.txt</code>에다가 확장자들을 설치 하는데, 서버 컴퓨터에도 이런 확장자 들을 설치 해줘야 한다. <code>sudo pip3 install -r requirements.txt</code>로 확장자를 설치.</p>
+</li>
+<li><p>지금 <code>python manage.py runserver</code>를 하게될 경우 에러가 뜰것이다. <code>runserver</code>를 실행한 후 인스턴스의 public IP주소로 접근을 하는것인데, 이때까지 <code>ssh</code>를 이용해서 EC2인스턴스를 접근하는 것만 설정했지 HTTP로 접근하는 것에 대한 설정을 하지 않았다. <strong>EC2의 인바운드이 HTTP로 80번 포트를 열어주면된다.(다른 포트 번호를 사용해도 무방)</strong></p>
+</li>
+<li><p>파일을 전송한 후 프로젝트 내부에서 runserver를 이용해서 서버를 시작해야하는데, 서버를 실행 시킨다는 것은 우리가 항상 컴퓨터를 켜 놔야 한다는 뜻이다(터미널에서 서버가 돌아가고 있어야 한다). 터미널을 꺼도 서버가 돌아가게 하고 싶으면 <code>Screen</code>을 사용하면된다. Screen을 이용하면 터미널 창을 하나 틀어놓고 안에 서버를 실행후 원래 터미널 창으로 돌아올 수 있다. 우리가 서버컴퓨터에서 나와도 screen은 서버 실행을 유지한다.</p>
+<ul>
+<li><code>Screen 생성: screen -S 스크린명</code></li>
+<li><code>열려있는 screen 접근: screen -R 스크린명</code></li>
+<li><code>사용중인 screen 확인: screen -list</code></li>
+<li>control + a –&gt; d 후 이전 화면으로 돌아오기</li>
+<li><code>screen -S runserver</code> 후 안에 <code>sudo python3 manage.py runserver 0:80</code>를 실행하면 서버가 실행된다. <code>control + a --&gt; d</code> 를 이용해서 기존의 터미널 창으로 빠져나올 수 있다.</li>
+</ul>
+</li>
+<li><p>사용자가 scp를 이용해서 로컬 컴퓨터에서 서버로 파일을 보내면 새로 보내는 파일들이 서버 컴퓨터에 있는 파일들을 덮어쓴다. 하지만 만약에 로컬 컴퓨터에서 파일을 삭제하고 서버컴퓨터로 <code>scp</code>를 이용해 파일을 보낼 경우 로컬 컴퓨터에서 지운 파일 서버 컴퓨터에서 지워지지 않는다. 그리고 사용자가 로컬 컴퓨터에서 파일을 서버로 보낸후 매번 screen으로 서버를 다시 틀어주는 것은 매우 성가신 일이다. 좀더 간편한 방법으로 로컬 컴퓨터에서 <code>sh</code>를 이용해서 바로 배포할 수 있다.</p>
+</li>
+<li><pre><code class="shell"><span class="meta">#</span><span class="bash">!/usr/bin/env sh</span>
+IDENTITY_FILE="$HOME/.ssh/wps12th.pem"
+HOST="ubuntu@54.180.119.84"
+ORIGIN_SOURCE="$HOME/projects/wps12th/instagram"
+DEST_SOURCE="/home/ubuntu/projects/instagram"
+SSH_CMD="ssh -i ${IDENTITY_FILE} ${HOST}"
+
+</code></pre>
+</li>
+</ol>
+<pre><code># 숙제
+# 다시 실행되는 서버 만들기
+#(가능하다면) HOST만 바꾸고 이 스크립트를 실행 하면 전체 서버가 세팅되고 runserver된 화면 볼수 있도록 하기
+
+
+echo &quot;====Runserver 배포====&quot;
+
+echo &quot;pip freeze&quot;
+&quot;$HOME&quot;/.pyenv/versions/wps-instagram-env/bin/pip freeze &gt; &quot;$HOME&quot;/projects/wps12th/instagram/requirements.txt
+
+echo &quot;기존 폴더 삭제&quot;
+#기존 폴더 삭제
+${SSH_CMD} sudo rm -rf ${DEST_SOURCE}
+# ssh -i ~/.ssh/wps12th.pem ubuntu@54.180.119.84 sudo rm -rf /home/ubuntu/projects/instagram
+
+echo &quot;로컬에 있는 파일 업로드&quot;
+# 로컬에 있는 파일 업로드
+scp -q -i &quot;${IDENTITY_FILE}&quot; -r &quot;${ORIGIN_SOURCE}&quot; ${HOST}:${DEST_SOURCE}
+# scp -i ~/.ssh/wps12th.pem -r ~/projects/wps12th/instagram ubuntu@54.180.119.84:/home/ubuntu/projects/
+
+# 실행 중이던 screen 종료
+# ssh -i ~/.ssh/wps12th.pem ubuntu@54.180.119.84 -C &quot;screen -X -S runserver quit&quot;
+${SSH_CMD} -C &quot;screen -X -S runserver quit&quot;
+
+# screen 실행
+# ssh -i ~/.ssh/wps12th.pem ubuntu@54.180.119.84 -C &quot;screen -S runserver -d -m&quot;
+${SSH_CMD} -C &quot;screen -S runserver -d -m&quot;
+
+# 실행중인 세션 명령어 전달
+# ssh -i ~/.ssh/wps12th.pem ubuntu@54.180.119.84 -C &quot;screen -r runserver -X stuff $&apos;sudo python3 /home/ubuntu/projects/instagram/app/manage.py runserver 0:80\n&apos;&quot;
+${SSH_CMD} -C &quot;screen -r runserver -X stuff $&apos;sudo python3 /home/ubuntu/projects/instagram/app/manage.py runserver 0:80\n&apos;&quot;
+
+
+echo &quot;====배포완료====&quot;
+
+```
+
+로컬 컴퓨터의 프로젝트 내부에 `deploy.sh` shell 형식의 파일을 만들고 내부에 shell 명령어를 넣을 수 있다. 해당 shell 파일을 `sh [shell 파일명]`로 실행 해주면 쉘 명령어들을 바로 실행할 수 있다. **위에서  처럼 서버 컴퓨터의 프로젝트를 삭제, 파일 업로드, 실행 중이던 screen을 종료, 새로운 screen을 생성, 서버실행을 한번에 실행할 수 있다.** 
+
+- 참고로 `./deploy.sh`를 하고 싶을 경우 `deploy.sh`의 권한을 executable로 바꿔줘야한다.</code></pre>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#서버-배포"><span class="nav-number">1.</span> <span class="nav-text">서버 배포</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dohyeon Robert Lee"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Dohyeon Robert Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dohyeon Robert Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
