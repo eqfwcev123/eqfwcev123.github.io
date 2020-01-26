@@ -46,24 +46,17 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="브로드캐스팅 주소 계산법 알아야할 용어들:  네트워크 주소: 하나의 네트워크를 통칭하기 위해 사용하는 주소. 브로드캐스 주소: 특정 네트워크에 속하는 모든 호스트&#x2F;클라이언트 들이 듣게되는 주소를 의미한다. 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스르 주소로 사용한다.  IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소를">
+<meta property="og:type" content="article">
 <meta property="og:title" content="broadcastAddress">
 <meta property="og:url" content="http://yoursite.com/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/index.html">
 <meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="브로드캐스팅 주소 계산법 알아야할 용어들:  네트워크 주소: 하나의 네트워크를 통칭하기 위해 사용하는 주소. 브로드캐스 주소: 특정 네트워크에 속하는 모든 호스트&#x2F;클라이언트 들이 듣게되는 주소를 의미한다. 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스르 주소로 사용한다.  IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소를">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-26T13:27:23.000Z">
-<meta property="article:modified_time" content="2020-01-26T13:28:08.415Z">
+<meta property="article:modified_time" content="2020-01-26T13:29:37.677Z">
 <meta property="article:author" content="Dohyeon Robert Lee">
 <meta property="article:tag" content="Develop">
-<meta property="article:tag" content="Server Deploy">
-<meta property="article:tag" content="Js">
-<meta property="article:tag" content="HTML">
-<meta property="article:tag" content="CSS">
-<meta property="article:tag" content="Vue">
-<meta property="article:tag" content="Django">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Algo">
 <meta property="article:tag" content="Network">
 <meta name="twitter:card" content="summary">
 
@@ -210,7 +203,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-26 22:27:23 / Modified: 22:28:08" itemprop="dateCreated datePublished" datetime="2020-01-26T22:27:23+09:00">2020-01-26</time>
+              <time title="Created: 2020-01-26 22:27:23 / Modified: 22:29:37" itemprop="dateCreated datePublished" datetime="2020-01-26T22:27:23+09:00">2020-01-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,55 +211,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue.js</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/Django/" itemprop="url" rel="index">
-                    <span itemprop="name">Django</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/Django/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/Django/Java/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/Django/Java/Algorithm/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/Django/Java/Algorithm/SQL/Server-Deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">Server Deploy</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/Vue-js/Python/Django/Java/Algorithm/SQL/Server-Deploy/Network/" itemprop="url" rel="index">
+                  <a href="/categories/Network/" itemprop="url" rel="index">
                     <span itemprop="name">Network</span>
                   </a>
                 </span>
@@ -283,7 +228,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h3 id="브로드캐스팅-주소-계산법"><a href="#브로드캐스팅-주소-계산법" class="headerlink" title="브로드캐스팅 주소 계산법"></a>브로드캐스팅 주소 계산법</h3><hr>
+<p>알아야할 용어들:</p>
+<ul>
+<li>네트워크 주소: 하나의 네트워크를 통칭하기 위해 사용하는 주소.</li>
+<li>브로드캐스 주소: 특정 네트워크에 속하는 모든 호스트/클라이언트 들이 듣게되는 주소를 의미한다. 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스르 주소로 사용한다.</li>
+</ul>
+<p>IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소를 네트워크 주소와 호스트 주소로 구분해 주는것이 서브넷 마스크(Subnet mask)이다. 추가적으로 서브넷은 추가적인 서브넷 서브 네트워크가 필요할 경우 IP주소 중 호스트 주소를 <strong>서브넷과 호스트주소(&lt;네트워크주소&gt;&lt;서브넷&gt;&lt;호스트주소&gt;)</strong> 로 나누어준다. </p>
+<p>서브넷 마스크라고 불리는 이유는 서브넷 마스크를 이용해서 IP주소의 네트워크 주소를 구분하기 위해서 이다.</p>
+<p>서브넷 마스크는 32비트 숫자로 구성된 IP주소이며, IP주소를 네트워크 주소와 호스트 주소로 나눈다. 서브넷 마스크는 32비트 숫자들 중 네트워크 주소를 모두 1로 표현하고 호스트 주소를 0으로 표기한다. 주어진 네트워크에서 두개의 호스느 주소는 특정 목적을 위해 예약되어있어서 호스트한테 할당될 수 없다. 0 인 주소는 네트워크 주소에 할당되어 있고, 255는 broadcast address이기 때문에 호스트에게 할당될 수 없다.</p>
+<blockquote>
+<p> – AND 연산 – </p>
+<p>1 AND 1 = 1</p>
+<p>1 AND 0 = 0</p>
+<p>0 AND 1 = 0</p>
+<p>0 AND 0 = 0    </p>
+</blockquote>
+<p>1) 11000000 10101000 10111100 10000011 // <strong>IP 주소: 192.168.188.131</strong></p>
+<p>11111111 11111111 11111111 00000000 // <strong>서브넷 마스크: 255.255.255.0</strong></p>
+<p>AND(&amp;) 연산</p>
+<p>11000000 10101000 10111100 00000000 // <strong>네트워크 주소: 192.168.188.0</strong></p>
+<p>192.168.188.0 은 C 클래스 이기 때문에 브로드 캐스트 주소는 할당할수 있는 가장 큰 값 인</p>
+<p><strong>192.168.188.255 // 브로드캐스팅 주소</strong></p>
+<p>2) 11000000 10101000 10111100 10000011 // <strong>IP 주소: 192.168.188.131</strong></p>
+<p>11111111 11111111 11111111 10000000 // <strong>서브넷 마스크: 255.255.255.128</strong></p>
+<p>AND(&amp;) 연산</p>
+<p>11000000 10101000 10111100 10000000 // <strong>네트워크 주소: 192.168.188.128</strong></p>
+<p><strong>192.168.188.255 // 브로드캐스팅 주소</strong></p>
+<p>3) 11000000 10101000 00010000 00000001 // <strong>IP 주소: 192.168.16.1</strong></p>
+<p>11111111 11111111 11111111 11100000 // <strong>서브넷 마스크: 255.255.255.224</strong></p>
+<p>AND 연산</p>
+<p>11000000 10101000 00010000 00000000 // <strong>네트워크주소: 192.168.16.0</strong></p>
+<p>192.168.16.31 // <strong>브로드캐스팅 주소</strong></p>
+<p>4) 11000000 10101000 10111100 01111000 //<strong>IP주소: 192.168.188.120</strong></p>
+<p>11111111 11111111 11111111 10000000 // <strong>서브넷 마스크: 255.255.255.128</strong></p>
+<p>AND(&amp;) 연산</p>
+<p>11000000 10101000 10111100 00000000 // <strong>네트워크 주소 192.168.188.0</strong></p>
+<p><strong>192.168.188.127 // 브로드캐스팅 주소</strong></p>
+<p><strong>서브넷 마스크 값이 최대값이 128이면 2개로 네트워크를 나누는 것인데(0<del>127, 128</del>255) 이중 ip가 어느 서브넷에 속하는지 판단하고 그 주소에서 표현 가능한 최대로 적은 값이 네트워크 주소이고 가장 큰 값이 브로드캐스트 주소값이다.</strong></p>
+<h3 id="구분-방법"><a href="#구분-방법" class="headerlink" title="구분 방법"></a>구분 방법</h3><hr>
+<p>서브넷 이</p>
+<p>x.x.x.0 이면 0~255까지 모든 IP를 하나로 간주 하겠다.</p>
+<p>x.x.x.128 이면 0<del>127, 127</del>255로 2개로 분리한다</p>
+<p>x.x.x.192 이면 0<del>63, 64</del>127, 128<del>191, 191</del>255로 4개로 분리한다</p>
+<p>x.x.x.224 이면 0<del>31, 32</del>63, 64<del>95, 96</del>127, 128<del>159, 160</del>191, 192<del>223, 224</del>255로 총 8개로 분리한다</p>
+<h3 id="브로드캐스팅을-더쉽게-구하는-방법"><a href="#브로드캐스팅을-더쉽게-구하는-방법" class="headerlink" title="브로드캐스팅을 더쉽게 구하는 방법"></a>브로드캐스팅을 더쉽게 구하는 방법</h3><hr>
+<p>11111111 11111111 11111111 11100000 // <strong>서브넷 마스크: 255.255.255.224</strong></p>
+<p>00000000 00000000 00000000 00011111 // <strong>서브넷 마스크 invert</strong></p>
+<p>11000000 10101000 00010000 00000001 // <strong>IP 주소: 192.168.16.1</strong></p>
+<p>00000000 00000000 00000000 00011111 // <strong>서브넷 마스크 invert</strong></p>
+<p><strong>Logical OR 하기</strong></p>
+<p>11000000 101010000 00010000 00011111 // <strong>브로드캐스팅 주소 192.168.16.31</strong></p>
+<p>위에서 사용한 예제)</p>
+<p>11000000 10101000 10111100 01111000 //<strong>IP주소: 192.168.188.120</strong></p>
+<p>11111111 11111111 11111111 10000000 // <strong>서브넷 마스크: 255.255.255.128</strong></p>
+<p>00000000 00000000 00000000 01111111 // <strong>서브넷 마스크 invert</strong></p>
+<p><strong>IP 주소와 서브넷 invert Logical OR</strong></p>
+<p>11000000 10101000 10111100 01111111 // 브로드캐스팅 주소: 192.168.188.127</p>
+<p>출처: <a href="https://openmicrolab.com/%EB%B8%8C%EB%A1%9C%EB%93%9C%EC%BA%90%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EC%86%8C/" target="_blank" rel="noopener"></a></p>
+
     </div>
 
     
@@ -293,15 +296,6 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Develop/" rel="tag"># Develop</a>
-              <a href="/tags/Server-Deploy/" rel="tag"># Server Deploy</a>
-              <a href="/tags/Js/" rel="tag"># Js</a>
-              <a href="/tags/HTML/" rel="tag"># HTML</a>
-              <a href="/tags/CSS/" rel="tag"># CSS</a>
-              <a href="/tags/Vue/" rel="tag"># Vue</a>
-              <a href="/tags/Django/" rel="tag"># Django</a>
-              <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/Algo/" rel="tag"># Algo</a>
               <a href="/tags/Network/" rel="tag"># Network</a>
           </div>
 
@@ -374,6 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#브로드캐스팅-주소-계산법"><span class="nav-number">1.</span> <span class="nav-text">브로드캐스팅 주소 계산법</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#구분-방법"><span class="nav-number">2.</span> <span class="nav-text">구분 방법</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#브로드캐스팅을-더쉽게-구하는-방법"><span class="nav-number">3.</span> <span class="nav-text">브로드캐스팅을 더쉽게 구하는 방법</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -396,11 +391,11 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
