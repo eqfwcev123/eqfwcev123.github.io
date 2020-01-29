@@ -173,6 +173,117 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/" class="post-title-link" itemprop="url">class/instance methods and variables</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-11 15:22:04 / Modified: 20:13:46" itemprop="dateCreated datePublished" datetime="2020-01-11T15:22:04+09:00">2020-01-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="클래스-메서드-static-메서드-와-인스턴스-메서드"><a href="#클래스-메서드-static-메서드-와-인스턴스-메서드" class="headerlink" title="클래스 메서드(static 메서드) 와 인스턴스 메서드"></a>클래스 메서드(static 메서드) 와 인스턴스 메서드</h3><hr>
+<p>메서드 앞에 static 일 들어가면 해당 메서드는 static 메서드 이고 붙어 있지 않으면 인스턴스 메서드 이다. 클래스 메서드도 클래스변수처럼 객체를 생성하지 않고 ‘클래스이름.클래스메서드( )’ 형식으로 사용한다. 인스턴스 메서드는 인스턴스 변수와 마찬가지로 인스턴스를 생성해야 인스턴스 메서드를 ‘인스턴스.인스턴스메서드( )’ 형식으로 사용할 수 있다.</p>
+<p>인스턴스 메서드는 인스턴스 변수와 관련된 작업을 하는, 즉 메서드의 작업을 수행하는 데 인스턴스를 필요로 하는 메서드 이다. 그런데 인스턴스 변수는 인스턴스를 생성해야하만 만들어 지므로, 인스턴스 메서드 역시 인스턴스를 생성해야만 호출 해야한다.</p>
+<p>반면에 메서드 중에서 인스턴스와 관계없는 메서드를 클래스 메서드(정적 메서드) 로 정의한다.</p>
+<ul>
+<li><p>클래스를 설계할 때, 멤버변수 중 모든 인스턴스에 공통적으로 사용해야하는 것에 <code>static</code>을 붙인다.</p>
+<ul>
+<li><p>생성된 각 인스턴스는 서로 독립적이기 때문에 각 인스턴스의 변수는 서로 다른 값을 유지한다. 그러나 모든 인스턴스에서 같은 값이 유지되어야 하는 변수는 <code>static</code> 으로 선언을 하면 된다.</p>
+</li>
+<li><p>클래스 변수(<code>static</code> 변수) 는 인스턴스를 생성하지 않아도 사용할 수 있다.</p>
+<ul>
+<li>static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동적으로 생성되기 때문이다.</li>
+</ul>
+</li>
+<li><p>클래스 메서드는 인스턴스 변수를 사용할 수 없다.</p>
+<ul>
+<li><p>인스턴스 변수는 인스턴스가 반드시 존재햐아만 사용할 수 있다. <strong>클래스 메서드는 인스턴스 생성 없이 호출 가능하므로 클래스 메서드가 호출되었을 때 인스턴스가 존재하지 않을 수 있다.</strong> 그래서 클래스 메서드에서 인스턴스 변수의 사용을 금지한다. 반면에 인스턴스 변수나 인스턴스 메서드에서는 <code>static</code>이 붙은 멤버들을 사용하는 것이 언제나 가능하다. 인스턴스 변수가 존재한다는 것은 static 변수가 이미 메모리에 존재한다는 것을 의미한다.</p>
+<blockquote>
+<p>​    앞에서 말한것 처럼 클래스 파일이 사용이 되면 JVM 은 해당 <code>.class</code> 파일을 읽어서 분석하여 클래스에 대한 정보를 메소드 영역에 저장을 한다. 이때 클래스의 정적 메소드와 정적 멤버 변수가 최 우선적으로 생성이 된다.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>메서드 내에서 인스턴스 변수를 사용하지 않는다면 static을 붙이는 것을 고려한다.</p>
+<ul>
+<li><p>메서드의 작업내용 중에서 인스턴스 변수를 필요로 한다면, <code>static</code>을 붙일 수 없다. 반대로 인스턴스 변수를 필요로 하지 않는다면 static을 붙이는 것이 좋다. 메서드 호출 시간이 짧아지므로 성능이 향상된다. static을 안붙인 메서드(인스턴스 메서드)는 실행시 호출되어야할 메서드를 찾는 과정이 추가적으로 필요하기 때뭉네 시간이 더 걸린다.</p>
+<blockquote>
+<p>인스턴스 변수 혹은 메서드가 필요하면 <code>static</code>을 안붙이고, 필요로 하면 <code>static</code> 붙이기</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/10/%EC%9E%90%EB%B0%94/java-variable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -674,105 +785,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/" class="post-title-link" itemprop="url">Understanding Process, Thread and Data structures</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-05 23:57:00" itemprop="dateCreated datePublished" datetime="2020-01-05T23:57:00+09:00">2020-01-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-06 01:50:07" itemprop="dateModified" datetime="2020-01-06T01:50:07+09:00">2020-01-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><hr>
-<ul>
-<li><p>A program in execution is often referred as process and a thread is a subset of a process. </p>
-</li>
-<li><p>A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread process).</p>
-</li>
-<li><p>Inside a Process contains 4 different memory area: <strong>Data, Code, Stack, Heap</strong></p>
-</li>
-</ul>
-<h3 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h3><hr>
-<p>A unit of work that runs independently within a process. Specifically, a unit of work or task managed by the operating system. Threads and tasks (or tasks) can be used interchangeably.</p>
-<ol>
-<li>A single process is occured by JVM and statements within <code>main()</code>are a single thread.</li>
-<li>To create another thread other than <code>main ()</code>, either inherit the Thread class or implement the Runnable interface. </li>
-<li>In multi-threaded operation, each thread can send and receive information to reduce errors in processing.</li>
-<li>Processes cannot send or receive information with each other.</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -845,18 +857,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
