@@ -49,18 +49,18 @@
   <meta name="description" content="Amazon Relational Database Service (RDS) RDS를 사용하는 이유: AWS 클라우드 에서 관계형 데이터베이스를 설치, 운영, 확장할 수 있는 웹서비스이다. RDS를 EC2위에 설치하면 RDS는 EC2위에서 동작한다. Virtual Private Cloud(VPC) 는 사용자의 AWS 계정 전용 가상 네트워크이다. VPC는 AW">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AWS S3&#x2F;RDS">
-<meta property="og:url" content="http://yoursite.com/2020/01/28/s3-rds/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/index.html">
 <meta property="og:site_name" content="Dev Blog">
 <meta property="og:description" content="Amazon Relational Database Service (RDS) RDS를 사용하는 이유: AWS 클라우드 에서 관계형 데이터베이스를 설치, 운영, 확장할 수 있는 웹서비스이다. RDS를 EC2위에 설치하면 RDS는 EC2위에서 동작한다. Virtual Private Cloud(VPC) 는 사용자의 AWS 계정 전용 가상 네트워크이다. VPC는 AW">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-28T04:07:12.000Z">
-<meta property="article:modified_time" content="2020-01-28T09:29:15.465Z">
+<meta property="article:modified_time" content="2020-01-29T01:46:29.358Z">
 <meta property="article:author" content="Dohyeon Lee">
 <meta property="article:tag" content="Develop">
 <meta property="article:tag" content="Server Deploy">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/01/28/s3-rds/">
+<link rel="canonical" href="http://yoursite.com/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/">
 
 
 <script id="page-configurations">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/s3-rds/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -201,10 +201,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-28 13:07:12 / Modified: 18:29:15" itemprop="dateCreated datePublished" datetime="2020-01-28T13:07:12+09:00">2020-01-28</time>
+              <time title="Created: 2020-01-28 13:07:12" itemprop="dateCreated datePublished" datetime="2020-01-28T13:07:12+09:00">2020-01-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 10:46:29" itemprop="dateModified" datetime="2020-01-29T10:46:29+09:00">2020-01-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -259,7 +265,7 @@
 <p>PostgreSQL데이터베이스는 여러개의 언어와 호환이 되는데, 그중 가장 자주 사용되는 언어가 파이썬이다. 파이썬을 이용해서 PostgreSQL과 소통을 할때 사용하는것이 <strong>psycopg2</strong>이다. <strong>psycopg2를 이용하면 파이썬의 데이터 타입을 postgresql의 데이터타입에 맞출 수 있다.</strong></p>
 <p>SQLite를 이용할때는 장고에서 알아서 SQLite로 변환을 시켜주지만 PostgreSQL을 사용할 때는 파이썬을 PostgreSQL로 바꿔주는 기능이 필요한데, 이것을 <strong>psycopg2 가 해준다.</strong></p>
 <blockquote>
-<p><code>pip install psycopg2</code>  ==&gt; psycopg2 설치</p>
+<p><code>pip install psycopg2</code> ==&gt; psycopg2 설치</p>
 </blockquote>
 <p>장고에서 ORM을 자동으로 SQL문으로 변환시켜주는 과정:</p>
 <p><strong>(변환 시작) Django ORM ==&gt; SQL ==&gt; Python ==&gt; psycopg2 ==&gt; PostgreSQL (변환 끝)</strong></p>
@@ -288,23 +294,23 @@
 <p><strong>버킷에 들어있는 데이터를 공개할 수 있다. 데이터를 모두한테 공개할 수 있고, 몇몇 한테 접근 권한을 설정하고 데이터를 공개할 수 있다.</strong></p>
 <h3 id="장고에서-S3-사용하기"><a href="#장고에서-S3-사용하기" class="headerlink" title="장고에서 S3 사용하기"></a>장고에서 S3 사용하기</h3><hr>
 <p>Django 에서 S3를 사용 하려면 <strong>boto3</strong> 와 boto3라이브러리 기반인 <strong>S3Boto3Storage</strong> 를 설치 해줘야 한다.</p>
-<p><strong>Boto3</strong>: boto3 는 AWS 의 SDK로 AWS의 다양한 서비스(S3, EC2 등등)를 사용할 수 있게 해준다. </p>
-<p><code>pip install boto3</code> 를 이용해서 boto3 설치 </p>
+<p><strong>Boto3</strong>: boto3 는 AWS 의 SDK로 AWS의 다양한 서비스(S3, EC2 등등)를 사용할 수 있게 해준다.</p>
+<p><code>pip install boto3</code> 를 이용해서 boto3 설치</p>
 <p><em>boto3를 사용하기 이전에 AWS에 대한 사용자 정보 인증을 해줘야 한다. 사용자 인증은 IAM을 생성 하고나서 AWS CLI 를 이용해서 인증을 하거나 직접 인증 을 해줘야 한다.</em></p>
 <p><code>aws_access_key_id</code> : IAM 아이디</p>
 <p><code>aws_secret_access_password</code> : IAM 시크릿 비밀번호</p>
 <p><strong>S3Boto3Storage</strong>: boto3 라이브러리 기반으로 아마존 S3를 사용할때 이용한다.</p>
 <p><code>pip install django-storages</code> 를 이용해서 django-storages(S3Boto3Storage 포함)</p>
-<p><strong>미디어/정적 파일을 S3에 올리기 위해서 다음 명령어를 사용한다</strong> : </p>
+<p><strong>미디어/정적 파일을 S3에 올리기 위해서 다음 명령어를 사용한다</strong> :</p>
 <ul>
 <li><code>DEFAULT_FILE_STORAGE = &#39;storages.backends.s3boto3.S3Boto3Storage&#39;</code></li>
 <li><code>AWS_STORAGE_BUCKET_NAME = AWS Storage 버켓 이름</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SecurityGroup의 Inbound</span><br><span class="line">&gt; 보낸사람의 IP를 기준으로 필터</span><br><span class="line">Client(IP)</span><br><span class="line"> -&gt; SecurityGroup (Client의 IP가 Inbound의 허용범위내에 없으면 거부)Django의 ALLOWED_HOSTS[&#39;lhy.kr&#39;]</span><br><span class="line">&gt; 보낸사람이 &#39;어디에&#39; 보냈느냐를 기준으로 필터 (보낸사람의 IP는 신경쓰지 않음)</span><br><span class="line">Client -&gt; (Request) -&gt; EC2(IP: 142.1.1.1, Domain: lhy.kr, pby.kr)</span><br><span class="line"> -&gt; Request에 HOST라는 값이 전달 됨</span><br><span class="line"> -&gt; EC2에 도달하는 Request를 만들기 위해서는, </span><br><span class="line">		142.1.1.1로 요청</span><br><span class="line">		lhy.kr로 요청 &lt;- 이거만 허용</span><br><span class="line">		pby.kr로 요청</span><br><span class="line">Django가 거부하므로, SecurityGroup의 Inbound는 이미 통과한 상태</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SecurityGroup의 Inbound</span><br><span class="line">&gt; 보낸사람의 IP를 기준으로 필터</span><br><span class="line">Client(IP)</span><br><span class="line"> -&gt; SecurityGroup (Client의 IP가 Inbound의 허용범위내에 없으면 거부)Django의 ALLOWED_HOSTS[&#39;lhy.kr&#39;]</span><br><span class="line">&gt; 보낸사람이 &#39;어디에&#39; 보냈느냐를 기준으로 필터 (보낸사람의 IP는 신경쓰지 않음)</span><br><span class="line">Client -&gt; (Request) -&gt; EC2(IP: 142.1.1.1, Domain: lhy.kr, pby.kr)</span><br><span class="line"> -&gt; Request에 HOST라는 값이 전달 됨</span><br><span class="line"> -&gt; EC2에 도달하는 Request를 만들기 위해서는,</span><br><span class="line">		142.1.1.1로 요청</span><br><span class="line">		lhy.kr로 요청 &lt;- 이거만 허용</span><br><span class="line">		pby.kr로 요청</span><br><span class="line">Django가 거부하므로, SecurityGroup의 Inbound는 이미 통과한 상태</span><br></pre></td></tr></table></figure>
 
 <h3 id="장고에서-json-파일-사용하기"><a href="#장고에서-json-파일-사용하기" class="headerlink" title="장고에서 json 파일 사용하기"></a>장고에서 json 파일 사용하기</h3><hr>
 <p><code>import json</code>을 이용해서 json 파일을 파이썬 딕셔너리 형식으로 가지고 올 수 있다.</p>
-<p> <code>json.load(open(제이슨파일))</code> 을 이용해서 제이슨 데이터를 가지고 와서 딕셔너리 형식으로 변경한다.</p>
+<p><code>json.load(open(제이슨파일))</code> 을 이용해서 제이슨 데이터를 가지고 와서 딕셔너리 형식으로 변경한다.</p>
 <p><code>json.dumps(제이슨파일)</code> 을 사용하면 문자열 형식으로 가지고 온다.</p>
 <p>Secret 값을 저장하는 별도의 파일 저장</p>
 <p>Secret 값을 환경 변수에저장</p>
