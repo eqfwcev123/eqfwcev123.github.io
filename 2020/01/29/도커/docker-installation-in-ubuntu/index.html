@@ -46,15 +46,20 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Dev Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Django/Server-Deploy/Network/index.html">
+  <meta name="description" content="우분투에 Docker 설치하기 sudo apt-get remove docker docker-engine docker.io containerd runc : 이전 Docker 버전 삭제 Docker-CE 를 처음 설치할 경우 Docker repository 를 설정 해줘야 한다. 레포를 설정 한 이후 Docker 를 설치&#x2F;업데이트 할 수 있다.  sudo ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker_installation_in_ubuntu">
+<meta property="og:url" content="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/index.html">
 <meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="우분투에 Docker 설치하기 sudo apt-get remove docker docker-engine docker.io containerd runc : 이전 Docker 버전 삭제 Docker-CE 를 처음 설치할 경우 Docker repository 를 설정 해줘야 한다. 레포를 설정 한 이후 Docker 를 설치&#x2F;업데이트 할 수 있다.  sudo ap">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-29T01:43:58.000Z">
+<meta property="article:modified_time" content="2020-01-29T01:44:57.152Z">
 <meta property="article:author" content="Dohyeon Lee">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/categories/Django/Server-Deploy/Network/">
+<link rel="canonical" href="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/">
 
 
 <script id="page-configurations">
@@ -62,11 +67,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Category: Network | Dev Blog</title>
+  <title>docker_installation_in_ubuntu | Dev Blog</title>
   
 
 
@@ -168,50 +173,118 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Network
-          <small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          docker_installation_in_ubuntu
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-29 10:43:58 / Modified: 10:44:57" itemprop="dateCreated datePublished" datetime="2020-01-29T10:43:58+09:00">2020-01-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <h3 id="우분투에-Docker-설치하기"><a href="#우분투에-Docker-설치하기" class="headerlink" title="우분투에 Docker 설치하기"></a>우분투에 Docker 설치하기</h3><hr>
+<p><code>sudo apt-get remove docker docker-engine docker.io containerd runc</code> : 이전 Docker 버전 삭제</p>
+<p><strong>Docker-CE 를 처음 설치할 경우 Docker repository 를 설정 해줘야 한다. 레포를 설정 한 이후 Docker 를 설치/업데이트 할 수 있다.</strong></p>
+<ol>
+<li><p><code>sudo apt-get update</code> : apt 패키지 업데이트</p>
+</li>
+<li><pre><code class="bash">sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+<span class="comment"># apt가 HTTPS를 통해 저장소를 사용할 수 있도록 패키지를 설치해준다</span>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. &#96;curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu&#x2F;gpg | sudo apt-key add -&#96; : Docker 의 공식 GPG키 추가</span><br><span class="line"></span><br><span class="line">4. &#96;&#96;&#96;bash</span><br><span class="line">   sudo add-apt-repository \</span><br><span class="line">      &quot;deb [arch&#x3D;amd64] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu \</span><br><span class="line">      $(lsb_release -cs) \</span><br><span class="line">      stable&quot;</span><br><span class="line"></span><br><span class="line">   # repository 설정</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+<h3 id="Docker-설치"><a href="#Docker-설치" class="headerlink" title="Docker 설치"></a>Docker 설치</h3><hr>
+<ol>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install docker-ce docker-ce-cli containerd.io</code></li>
+<li><code>sudo docker run hello-world</code> : docker 가 설치 되었는지 확인하기</li>
+</ol>
+<h3 id="Docker-제거"><a href="#Docker-제거" class="headerlink" title="Docker 제거"></a>Docker 제거</h3><hr>
+<p><code>sudo apt-get purge docker-ce</code> : Docker CE 를 삭제한다</p>
+<p><code>sudo rm -rf /var/lib/docker</code>: Docker 의 이미지, 컨테이너 등은 자동으로 삭제가 되지 않기 때문에 직접 삭제를 해줘야 한다.</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-28T13:07:12+09:00"
-              content="2020-01-28">
-          01-28
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/28/s3-rds/" itemprop="url">
-            <span itemprop="name">AWS S3/RDS</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/" rel="prev" title="도커에 대한 간단한 설명">
+      <i class="fa fa-chevron-left"></i> 도커에 대한 간단한 설명
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -262,6 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#우분투에-Docker-설치하기"><span class="nav-number">1.</span> <span class="nav-text">우분투에 Docker 설치하기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-설치"><span class="nav-number">2.</span> <span class="nav-text">Docker 설치</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-제거"><span class="nav-number">3.</span> <span class="nav-text">Docker 제거</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
