@@ -173,6 +173,178 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" class="post-title-link" itemprop="url">projectDeploy</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-21 20:47:58" itemprop="dateCreated datePublished" datetime="2020-01-21T20:47:58+09:00">2020-01-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 10:47:09" itemprop="dateModified" datetime="2020-01-29T10:47:09+09:00">2020-01-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/Django/Server-Deploy/" itemprop="url" rel="index">
+                    <span itemprop="name">Server Deploy</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="서버-배포"><a href="#서버-배포" class="headerlink" title="서버 배포"></a>서버 배포</h3><hr>
+<ol>
+<li><p>보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름/설명/인바운드 입력</p>
+</li>
+<li><p>인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹/새로운 보안 그룹 선택</p>
+</li>
+<li><p>인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 <code>~/.ssh</code> 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠는 우리가 인스턴스를 생성할 때 AWS 에서 자물쇠를 넣어준다.(다시말해 우리는 열쇠만 가지고 있는것이다.)</p>
+</li>
+<li><p>EC2 서버로 접근하기: ssh -i ~/.ssh/[보안키이름].pem [유저]@[서버 주소]. 이렇게 하면 원래는 서버로 접속을 할 수 있지만 처음 설정 할때는 접근할 수 없다. EC2에 인바운드와 아웃바운드 설정을 해줘야 한다. <strong>인바운드 설정에 유형이라는 항목이 있는데, 항목 내부에 다양한 선택지들이 있다. 그중 SSH를 설정해야 하는데, SSH를 설정하는 이유는 사용자가 SSH를 이용해서 인스턴스에 접근을 해야하기 때문이다.</strong></p>
+<ul>
+<li>인바운드 : 외부에서 인스턴스로 들어오는 요청이다</li>
+<li>아웃바운드 : 인스턴스에서 외부로 나가는 트래픽이다. 0.0.0.0 은 어디든 갈 수 있다</li>
+</ul>
+</li>
+<li><p>인바운드를 설정하고 나서 다시 서버에 접근을 할려고하면 <strong>WARNING: UNPROTECTED PRIVATE KEY</strong> 라고 나온다. 그 이유는 우리가 사용하고 하는 secret키에 대한 보안이 너무 취약하기 때문이다. <code>~/.ssh</code> 파일에서 <code>ls-al</code>을 해보면 <code>-rw-|r--|r--@</code> 라고 나온다.</p>
+<ul>
+<li>맨앞 <code>-</code> 에 <code>d</code>가 있으면 디렉토리라는 뜻이다.</li>
+<li><code>r</code> 는 read 를 read를 의미한다</li>
+<li><code>w</code> 는 write 를 의미한다</li>
+<li><code>x</code> 는 executable을 의미한다</li>
+<li><code>u</code> 는 user(사용자)를 의미한다</li>
+<li><code>g</code> 는 그룹을 의미한다</li>
+<li><code>o</code> 는 기타 를 의미한다.</li>
+<li><strong>(파일타입|user|group|other) || 링크수 || 소유자 || 그룹 || 파일크기 || 파일수정시간 || 파일이름</strong></li>
+</ul>
+</li>
+<li><p><code>chmod</code>와 숫자를 이용해서 해당 파일의 권한 변경하기: 숫자를 이용해서 해당파일의 <code>user|group|other</code>의 권한을 한번에 변경할 수 있다.</p>
+<ul>
+<li>rwx 가 있는데 r 은 2^2, w 는 2^1, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 + 2^1 + 2^0 = 7 을 의미한다.</li>
+<li>r-x 가 있는데 r 은 2^2, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 +  2^0 = 5 을 의미한다.</li>
+<li><strong>쉽게 말해 r 는 4, w 는 2, x 는 1을 의미한다.</strong></li>
+<li>권한을 부여할때 다음과 같이 부여한다. <code>chmod 777 a.py</code>. 이는 즉 <code>a.py</code>파일에 rwx|rwx|rwx를 부여한는 것이다.</li>
+<li><code>chmod 124 b.py</code> 는 <code>b.py</code>파일에 –x|-w-|r– 권한을 부여하는것이다</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>경우의 수</th>
+<th>chmod</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rwx</td>
+<td>7</td>
+</tr>
+<tr>
+<td>rw-</td>
+<td>6</td>
+</tr>
+<tr>
+<td>r-x</td>
+<td>5</td>
+</tr>
+<tr>
+<td>-wx</td>
+<td>3</td>
+</tr>
+<tr>
+<td>–x</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-w-</td>
+<td>2</td>
+</tr>
+<tr>
+<td>r–</td>
+<td>4</td>
+</tr>
+<tr>
+<td>—</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -619,88 +791,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/12/%EC%9E%90%EB%B0%94/overriding/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/" class="post-title-link" itemprop="url">overriding</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-12 15:41:50 / Modified: 15:43:05" itemprop="dateCreated datePublished" datetime="2020-01-12T15:41:50+09:00">2020-01-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="오버라이딩"><a href="#오버라이딩" class="headerlink" title="오버라이딩"></a>오버라이딩</h3><hr>
-<p><strong>조상 클래스로부터 상속받은 메서드의 내용을 변경하는 것을 오버라이딩 이라고 한다.</strong></p>
-<p>부모 클래스한테서 상속 받은 메소드를 그대로 사용해도 되지만 자식 클래스 자신한테 맞춰서 메소드를 변경할 수 있다. 메소드를 오버라이딩 한다고 해서 다른 클래스들이 부모 클래스한테서 상속 받는 메소드도 변경 되는 것은 아니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x;</span><br><span class="line">  <span class="keyword">int</span> y;</span><br><span class="line">  </span><br><span class="line">  <span class="function">String <span class="title">getLocation</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"x : "</span>+x+<span class="string">" , y: "</span> +y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point3D</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> z;</span><br><span class="line">  </span><br><span class="line">  <span class="function">String <span class="title">getLocation</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="string">"x : "</span>+x+<span class="string">" , y: "</span> +y+<span class="string">" ,z: "</span>+z;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클래스 3Dimension 좌표를 반환 해야 하기 때문에 부모한테서 상속받은 메소드를 사용하면 안된다. 이때 부모한테서 상속받은 메소드를 오버라이딩 하면 된다. 상속받은 <code>getLocation()</code>메소드를 오버라이딩 해서 자기 자신의 새로운 메소드로 사용을 하면 <code>x,y,z</code> 세개의 좌표를 반환받을 수 있다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -773,7 +863,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

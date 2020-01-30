@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/vm-vs-docker.png">
 <meta property="og:image" content="https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/docker-image.png">
 <meta property="article:published_time" content="2020-01-29T01:24:44.000Z">
-<meta property="article:modified_time" content="2020-01-29T01:29:41.497Z">
+<meta property="article:modified_time" content="2020-01-29T11:48:52.006Z">
 <meta property="article:author" content="Dohyeon Lee">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-29 10:24:44 / Modified: 10:29:41" itemprop="dateCreated datePublished" datetime="2020-01-29T10:24:44+09:00">2020-01-29</time>
+              <time title="Created: 2020-01-29 10:24:44 / Modified: 20:48:52" itemprop="dateCreated datePublished" datetime="2020-01-29T10:24:44+09:00">2020-01-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,7 +242,7 @@
 <p>동적 웹서버는 request에 따라 다른 응답을 돌려준다(WSGI,Gunicorn, uWSGI).</p>
 <p>웹서버의 종류: Apache, IIS, Nginx, LiteSpeed</p>
 <h3 id="WSGI-Gunicorn-uWSGI"><a href="#WSGI-Gunicorn-uWSGI" class="headerlink" title="WSGI, Gunicorn, uWSGI"></a>WSGI, Gunicorn, uWSGI</h3><hr>
-<p>웹서버에서 사용자의 요청을 보내면 정적/동적 응답을 해줘야 하는데, 정적 응답일 경우 FileSystem에서 파일을 찾아서 돌려준다. 동적 응답일 경우 WSGI, Gunicorn, uWSGI 을 이용해서 백앤드 파이썬 웹 어플리케이션으로 forwarding 해준다. 백앤드 에서 요청을 받게되면 그에 맞는 응답을 다시 웹서버에 보내준다.</p>
+<p>웹서버에서 사용자의 요청을 보내면 정적/동적 응답을 해줘야 하는데, 정적 응답일 경우 FileSystem에서 파일을 찾아서 돌려준다. 동적 응답일 경우 WSGI, Gunicorn, uWSGI 을 이용해서 백앤드 파이썬 웹 어플리케이션으로 forwarding 해준다. 구체적으로 설명 하자면 webserver(Apache, Nginx)같은 경우 주로 C 언어로 작성이 되어있다(빨라야 하기 때문에). 사용자가 요청을 보낼경우 웹서버는 요청을 받아서 web application 으로 전달을 해야하는데 웹서버는 요청을 C 언어로 보내게된다. WSGI 나 Gunicorn 이 없을 경우 웹 애플리케이션에서 일일히 이걸 번역을 해야한다. WSGI는 웹 서버 혹은 웹 애플리케이션 에서 보내는 요청/응답을 해당언어(WSGI 같은 경우 파이썬)에 맞게 번역을 해주는것이다. 다시말해 WSGI는 웹서버와 장고 어플리케이션 간의 번역을 해주는 것이다(C에서 파이썬, 파이썬에서C).</p>
 <img src="https://www.liquidweb.com/kb/wp-content/uploads/2019/09/WSGI.png" style="zoom:75%;" />
 
 <p><code>python manage.py runserver</code> 를 할 경우 runserver 는 <strong>웹서버, WSGI 와 디버거의 역할을 다 해주는 것이다.</strong></p>
@@ -329,7 +329,7 @@
 <li>*<em>commit 할때: *</em> <code>docker commit  &lt;existing-container&gt; &lt;hub-user&gt;/&lt;repo-name&gt;[:&lt;tag&gt;]</code> </li>
 </ul>
 <p>이름을 지어주고 나서 docker hub 에 push 를 하는 방법은 다음과 같다.</p>
-<p><code>docker push hub-username&gt;/&lt;repo-name&gt;:&lt;tag&gt;</code></p>
+<p><code>docker push [options] Name[:Tag]</code></p>
 <p>instagram, ubuntu 는 공식 이미지이기 때문에 이름을 붙여줄 필요가 없다. 하지만 instagram은 공식이 아니기 때문에 </p>
 <p><code>docker tag instagram instagram 레포명</code> 을 해줘야 한다</p>
 <p>출처: <a href="https://www.liquidweb.com/kb/what-is-wsgi/" target="_blank" rel="noopener">https://www.liquidweb.com/kb/what-is-wsgi/</a></p>
@@ -434,7 +434,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
