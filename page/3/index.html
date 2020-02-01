@@ -173,6 +173,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/12/%EC%9E%90%EB%B0%94/package-and-import/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/12/%EC%9E%90%EB%B0%94/package-and-import/" class="post-title-link" itemprop="url">package and import</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-12 20:26:48" itemprop="dateCreated datePublished" datetime="2020-01-12T20:26:48+09:00">2020-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-13 09:29:58" itemprop="dateModified" datetime="2020-01-13T09:29:58+09:00">2020-01-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h3><hr>
+<p>패키지는 클래스의 묶음이다. 패키지에는 클래스 또는 인터페이스를 포함시킬 수 있으며, 서로 관련된 클래스들 끼리 그룹 단위로 묶어 놓음으로써 클래스를 효율적으로 관리할 수 있다.  같은 이름의 클래스 일지라도 서로 다른 패키지에 존재하는 것이 간으하므로, 자신만의 패키지 체계를 유지함으로써 다른 개발자가 개발한 클래스 라이브러리의 클래스와 이름이 충돌하는것을 방지할 수 있다.</p>
+<p>클래스의 실제 이름은 클래스의 패키지 이름을 포함한 이름이다.</p>
+<p>클래스가 물리적으로 하나의 .class 파일 인것과 마찬가지로, 패키지는 물리적으로 하나의 디렉토리이다. 그렇기 때문에 특정 패키지에 존재하는 하나의 클래스는 패키지 라는 디렉토리에 존재하는 클래스라고 생각하면 된다.</p>
+<p>java.lang.String이라는 클래스는 java의 sub 디렉토리인 lang에 속하는 String.class 인 것이다. 다시말해 java 라는 패키지 내부에 lang 이라는 패키지가 있고, 그안에 String.class 가 있는 것이다.</p>
+<p><code>package 패키지 이름</code> 을 이용해서 패지를 선언할 수 있다.</p>
+<h3 id="import-문"><a href="#import-문" class="headerlink" title="import 문"></a>import 문</h3><hr>
+<p>모든 소스 파일에서 <code>import</code> 문은 package 다음 문에, 그리고 클래스 선언 문 이전에 위치해야 한다. 그리고 import문은 package 문과 달리 한 소스파일에 여러번 선언할 수 있다.</p>
+<p><code>import 패키지명.클래스명</code> 를 이용해서 import를 할 수 있다.</p>
+<p>각 클래스 마다 static 한 멤버들이 있는데, 이런 정적 멤버들을 import하기 위해선느 <code>import static 패키지.클래스명</code>을 해줘야 한다.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/12/%EC%9E%90%EB%B0%94/overriding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -690,92 +775,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/LinkedList/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/07/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/LinkedList/" class="post-title-link" itemprop="url">LinkedList</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-07 02:52:41 / Modified: 15:46:20" itemprop="dateCreated datePublished" datetime="2020-01-07T02:52:41+09:00">2020-01-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="링크드-리스트"><a href="#링크드-리스트" class="headerlink" title="링크드 리스트"></a>링크드 리스트</h3><h3 id="링크드-리스트-구조"><a href="#링크드-리스트-구조" class="headerlink" title="링크드 리스트 구조"></a>링크드 리스트 구조</h3><hr>
-<ul>
-<li>연결 리스트 라고도 한다</li>
-<li>배열은 순차적으로 연결된 공간에 데이터를 나열 하는 데이터 구조이다</li>
-<li><strong>링크드 리스트는 떨어진 곳에 존재하는 데이터를 화살표로 연결해서 관리하는 구조이다</strong></li>
-<li>본래 C언어에서는 주요한 데이터 구조이지만, 파이썬은 링크드리스트 타입이 링크드리스트의 모든 기능을 지원한다</li>
-<li><strong>배열의 단점: 미리 연결된 공간을 예약(확보 해야한다)해야한다. 연결되지 않을경우 배열로서의 기능을 할 수 없다</strong></li>
-<li><strong>이러한 문제를 해결하기 위해 링크드리스트를 사용한다. 링크드 리스트는 미리 공간을 확보해둘 필요가 없이 필요할때 데이터를 추가해서 사용하면 된다.</strong></li>
-<li>데이터들의 메모리 주소가 순차적으로 나열 되어있을 필요가 없다. 포인터가 다음 데이터의 주소를 가리키기 때문이다.</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/07/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/LinkedList/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -848,7 +847,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
