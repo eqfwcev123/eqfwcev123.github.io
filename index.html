@@ -173,6 +173,265 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/" class="post-title-link" itemprop="url">운영체제</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-09 19:31:31 / Modified: 20:35:43" itemprop="dateCreated datePublished" datetime="2020-02-09T19:31:31+09:00">2020-02-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Science</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="운영체제의-역할-시스템-자원-System-Resource-관리자"><a href="#운영체제의-역할-시스템-자원-System-Resource-관리자" class="headerlink" title="운영체제의 역할: 시스템 자원(System Resource) 관리자"></a>운영체제의 역할: 시스템 자원(System Resource) 관리자</h3><hr>
+<p>Operating System 또는 OS 라고 부른다</p>
+<p>여기서 시스템 자원이란? <strong>컴퓨터 하드웨어</strong></p>
+<p>–&gt; CPU(중앙처리장지), Memory(DRAM, RAM)</p>
+<p>–&gt; I/O Devices(입출력 장치) : Monitor, Mouse, Key Board etc</p>
+<p>–&gt; 저장매체: SSD, HDD(하드디스크)</p>
+<blockquote>
+<p>​    컴퓨터 하드웨어는 스스로 할수 있는 것이 하나도 없다</p>
+</blockquote>
+<p>운영체제가 해주는 역할들:</p>
+<ol>
+<li>CPU:  각 프로그램이 얼마나 CPU를 사용할 지를 결정할 수 없다.</li>
+<li>Memory: 각 프로그램이 어느 주소에 저장되어야 하는지, 어느정도의 메모리 공간을 확보 해줘야 하는지를 결정할 수 없다.</li>
+<li>저장매체(HDD, SSD): 어떻게, 어디에 저장할지는 결정할 수 없다</li>
+<li>I/O (키보드/마우스): 키보드를 입력하면 어떤 단어가 나와야 하고, 마우스를 움직이면 마우스 포인터가 어느정도 움직이는지를 운영체제가 결정 해준다</li>
+</ol>
+<h4 id="대표적은-운영-체제들"><a href="#대표적은-운영-체제들" class="headerlink" title="대표적은 운영 체제들"></a>대표적은 운영 체제들</h4><hr>
+<ul>
+<li>windows OS, Mac OS, Unix 계열 OS(Unix 와 사용법이나 OS 구조가 유사한 OS): 리눅스</li>
+</ul>
+<h3 id="운영체제의-역할2-사용자와-컴퓨터-간의-소통"><a href="#운영체제의-역할2-사용자와-컴퓨터-간의-소통" class="headerlink" title="운영체제의 역할2: 사용자와 컴퓨터 간의 소통"></a>운영체제의 역할2: 사용자와 컴퓨터 간의 소통</h3><hr>
+<ul>
+<li>shell</li>
+</ul>
+<h3 id="운영체제의-역할3-컴퓨터-하드웨어와-응용-프로그램을-제어"><a href="#운영체제의-역할3-컴퓨터-하드웨어와-응용-프로그램을-제어" class="headerlink" title="운영체제의 역할3: 컴퓨터 하드웨어와 응용 프로그램을 제어"></a>운영체제의 역할3: 컴퓨터 하드웨어와 응용 프로그램을 제어</h3><hr>
+<ul>
+<li>Process management</li>
+<li>Main Memory Management</li>
+<li>File Management</li>
+<li>Disk Management</li>
+<li>I/O Management</li>
+<li>Networking, Protection </li>
+</ul>
+<h3 id="응용-프로그램-Application"><a href="#응용-프로그램-Application" class="headerlink" title="응용 프로그램(Application)"></a>응용 프로그램(Application)</h3><hr>
+<ul>
+<li><p>프로그램 = 소프트웨어</p>
+</li>
+<li><p>소프트웨어 = 운영체제, 응용프로그램(엑셀, 파워포인트, 우리가 만드는 프로그램)</p>
+</li>
+<li><p>응용프로그램은 운영체제 위에서 동작을 한다</p>
+</li>
+</ul>
+<h4 id="운영체제와-응용-프로그램-간의-관계"><a href="#운영체제와-응용-프로그램-간의-관계" class="headerlink" title="운영체제와 응용 프로그램 간의 관계"></a>운영체제와 응용 프로그램 간의 관계</h4><hr>
+<ul>
+<li>운영 체제는 <strong>응용 프로그램</strong> 을 관리한다. 여기서 관리의 뜻은:<ul>
+<li>응용 프로그램을 실행시킨다</li>
+<li>응용 프로그램 간의 권한을 관리한다(관리자 권한 실행)</li>
+<li>응용 프로그램ㅁ을 사용하는 사용자도 관리 (ex: 컴퓨터 로그인)</li>
+</ul>
+</li>
+<li>시스템 자원을 관리한다</li>
+<li>사용자와 컴퓨터간의 커뮤니케이션을 지원 </li>
+</ul>
+<p>1960년대 초반</p>
+<p>Batch processing system: 여러 응용 프로그램을 등록 시켜 놓으면, 순차적으로 실행하는 시스템(애플리케이션을 등록 해두면 순차적으로 하나씩 실행). 첫번재 application 이 끝나야 두번째 application을 실행 시킬 수 있다.</p>
+<p>배치 처리 시스템을 기반으로 운영체제가 처음 출현을 하게 된다.           </p>
+<p>1960년대 후반</p>
+<ul>
+<li><p>새로운 개념이 제안됨</p>
+<ul>
+<li><p>시분할 시스템(Time Sharing System)</p>
+</li>
+<li><p>멀티 태스킹</p>
+<blockquote>
+<p>​    운영 체제로 구현되지 는 않았다.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>시분할 시트템과 멀티 태스킹: 응용 프로그램이 CPU를 사용하는 시간을 잘개 쪼개서, 여러 개의 응용 프로그램을 동시에 실행하는 기법</p>
+<ul>
+<li>시분할 시스템과 멀티 태스킹의 공통점과 차이점:<ul>
+<li>공통점: 둘다 시간을 쪼개서 사용</li>
+<li>차이점:<ul>
+<li>시분할 시스템: 다중 사용자를 지원하고, 컴퓨터 응답 시간을 최소화 하는 시스템</li>
+<li>멀티테스킹: 단일 CPU,에서 여러 응용프로그램의 병렬 실행을 가능케 하는 시스템 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>응용 프로그램, 운영 체제, 컴퓨터 하드웨어 관계</p>
+<hr>
+<ul>
+<li>운영 체제는 응용 프로그램이 요청하는 메모리를 허가하고 분배한다</li>
+<li>운영 체제는 응용 프로그램이 요청하는 CPU시간을 제공한다</li>
+<li>운영 체제는 응용 프로그램이 요청하는 IO Devices사용을 허가/제어한다</li>
+</ul>
+<p>운영 체제는 사용자 인터페이스를 제공 한다</p>
+<hr>
+<ul>
+<li>Shell, Zsh 등등 프로그램이 인터페이스를 제공한다<ul>
+<li>사용자가 운영체제 기능과 서비스를 조작할 수 있도록 인터페이스를 제공하는 프로그램</li>
+</ul>
+</li>
+</ul>
+<p>운영 체제는 응용 프로그램을 위해서도 인터페이스를 제공한다</p>
+<hr>
+<ul>
+<li>Application Programming Interface(API): 함수</li>
+<li>함수들의 묶음을 라이브러리라고 부른다</li>
+</ul>
+<p>운영 체제는 응용 프로그램을 위해서도 인터페이스를 제공한다</p>
+<hr>
+<p>시스템콜:</p>
+<ul>
+<li>시스템 콜 또는 시스템 호출 인터페이스 라고 부른다</li>
+<li>운영 체제가 운영 체제 각 기능을 사용할 수 있도록 시스템 콜이라는 명령 또는 함수를 제공</li>
+<li>API 내부에는 시스템콜을 호출하는 형태로 만들어 지는 경우가 대부분이다.</li>
+</ul>
+<p>전체적인 구조</p>
+<hr>
+<img src="https://user-images.githubusercontent.com/26023287/74099207-69ad4f80-4b64-11ea-8973-c08bf4127dd0.png" style="zoom:50%;" />
+
+
+
+<h3 id="운영-체제-구조"><a href="#운영-체제-구조" class="headerlink" title="운영 체제 구조"></a>운영 체제 구조</h3><hr>
+<h4 id="CPU-protection-Rings-권한의-차이"><a href="#CPU-protection-Rings-권한의-차이" class="headerlink" title="CPU protection Rings(권한의 차이)"></a>CPU protection Rings(권한의 차이)</h4><blockquote>
+<p>각 CPU마다 Protection Ring 의 개수가 다를 수 있다.</p>
+</blockquote>
+<p>CPU 도 권한 모드라는 것을 가지고있다. 주로 사용되는 두가지 모드: <strong>사용자 모드 와 커널 모드</strong></p>
+<p>kernel 이란? OS 커널(OS 핵심기능)</p>
+<ul>
+<li>사용자 모드(user mode)/ 애플리케이션이 CPU를 사용하는 모드</li>
+<li>커널 모드(Kernel mode)/OS 가 CPU를 사용하는 모드: 특권 명령어 실행과 원하는 작업 실행을 위한 자원 접근을 가능케 하는 모드. </li>
+</ul>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/1200px-Priv_rings.svg.png" style="zoom:40%;" />
+
+
+
+<p>시스템 콜은 커널 모드로 실행</p>
+<hr>
+<ul>
+<li>커널 모드에서만 실행 가능한 기능들이 있다</li>
+<li>커널 모드로 실행 하려면, 반드시 시스템 콜을 거쳐야 한다(사용해야 한다)</li>
+<li>시스템콜은 운영체제가 제공한다</li>
+</ul>
+<p>사용자 모드와 커널모드</p>
+<hr>
+<ul>
+<li>함부로 응용 프로그램이 전체 컴퓨터 시스템을 헤지지 못하게 한다</li>
+<li>이것은 마치 주민등록본은 꼭 동사무소 또는 민원24시(정부 사이트)에서 특별한 신청서(시스템콜)를 써야만 발급 받을 수 있는것과 같다<ul>
+<li>동사무소 분들은 특별 권한을 가지고, 주민등록본 출력 명령을 실행할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="프로세스-스케쥴링"><a href="#프로세스-스케쥴링" class="headerlink" title="프로세스 스케쥴링"></a>프로세스 스케쥴링</h3><hr>
+<ul>
+<li><p>프로세스를 운영 체제라고 생각하면 된다.</p>
+</li>
+<li><p>스케쥴링 방법: 배치하는 방법(배치 처리 시스템, 시분할 시스템, 멀티프러그래밍 시스템 등등)</p>
+</li>
+</ul>
+<ol>
+<li>배치 처리 시스템: 자료구조의 Queue 와 비슷하다고 생각하면 된다 (First In First Out), 처음 등록되는 Application 이 실행되고, 다 실행되면 다음 Application 이 실행 된다.</li>
+</ol>
+<p>배치 처리 시스템이 사용되지 않는 이유: 여러프로그램을 순차적으로 실행시킬 수 있도록 해주세요! 때문에 나온 시스템이다.</p>
+<ul>
+<li>단점: 어떤 프로그램은 실행 시키는 시간이 너무 오래 걸려서 다음 시스템이 동작하는데 소요되는 시간이 너무 크다!</li>
+<li>배치 처리 시스템에서 두개의 프로그램을 동시에 실행시킬 수 없다( 음악(멜로)을 들으면서 문서(워드)를 작성할 수 없다.)</li>
+<li>여러 사용자가 동시에 하나의 컴퓨터를 사요할 수 없다.</li>
+</ul>
+<h3 id="시분할-시스템"><a href="#시분할-시스템" class="headerlink" title="시분할 시스템"></a>시분할 시스템</h3><hr>
+<p>시분할 시스템:다중 사용자 지원을 위해 컴퓨터 응답 시간을 최소화 하는 시스템</p>
+<h3 id="멀티-태스킹"><a href="#멀티-태스킹" class="headerlink" title="멀티 태스킹"></a>멀티 태스킹</h3><hr>
+<p>멀티 태스킹: 단일 CPU(한개의 코어)에서, 여러 응용 프로그램이 동시에 실행되는 것처럼 보이도록 하는 시스템</p>
+<p>멀티 프로세싱: 여러개의 CPU. 여러 CPU에 하나의 프로그램을 병렬로 실행해서 실행속도를 극대화시키는 시스템</p>
+<h4 id="멀티-프로그래밍"><a href="#멀티-프로그래밍" class="headerlink" title="멀티 프로그래밍"></a>멀티 프로그래밍</h4><hr>
+<p>목적: 최대한 CPU를 많이 활용 하도록 하는 시스템</p>
+<ul>
+<li>시간 대비 CPU활용도를 높이자 </li>
+<li>응용  프로그램을 짧은 시간 안에 실행 완료를 시킬 수 있다. </li>
+</ul>
+<p><strong>응용 프로그램은 온전히 CPU를 쓰기보다, 다른 작업을 중간에 필요로 하는 경우가 많다</strong></p>
+<ul>
+<li>예를들어 응용프로그램이 실행되는 도중에 파일을 읽는다(저장 매체). 저장 매체(SSD 등)는 cpu의 실행 시간으로 봐서는 엄청 느린 장치이다. 저장 매체에서 파일을 읽는 순간, 응용프로그램은 아무 작업도 못하게 되고, 그렇게 되면 cpu에 응용프로그램이 돌아가고 있다고 치더다로 더이상 실행을 할 수 없다(저장매체에서 파일을 읽기 전까지).</li>
+</ul>
+<p>멀티 프로그래밍 사용전</p>
+<p><img src="https://user-images.githubusercontent.com/26023287/74101095-55c01880-4b79-11ea-9b60-e9ea3da6f3f4.png" alt="멀티 프로그래밍 사용전"></p>
+<p>CPU의 활용도는 3/8, 다시 말해 50% 이하이다</p>
+<p>멀티 프로그래밍일 경우</p>
+<p><img src="https://user-images.githubusercontent.com/26023287/74101097-59539f80-4b79-11ea-93ca-9ba7cc457de0.png" alt="멀티 프로그래밍 사용후"></p>
+<p>CPU의 활용도는 8/8, 즉 100%이다.</p>
+<p>메모리 계층</p>
+<hr>
+<img src="https://user-images.githubusercontent.com/26023287/74101188-6cb33a80-4b7a-11ea-8979-40d588e2f0c0.png" style="zoom:50%;" />
+
+<p>CPU에 하나의 명령어를 실행하는 시간 단위를 사이클 이라고 한다. 위 사진은 특정 지역에 있는 메모리에 접근하는 시간을 표시한다. 마지막에 Flash Drive(SSD) 와 Hard Disk(HDD) 같은 저장 매체에 넘어갈 경우 cycle수가 Cpu 보다 훨씬 높아진다(느려진다)</p>
+<p>Register와 Level1, Level2, Level3 Cache는 모두 메모리 안에 존재한다</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -655,130 +914,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/" class="post-title-link" itemprop="url">AWS S3/RDS</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-28 13:07:12" itemprop="dateCreated datePublished" datetime="2020-01-28T13:07:12+09:00">2020-01-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-07 22:24:25" itemprop="dateModified" datetime="2020-02-07T22:24:25+09:00">2020-02-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django/" itemprop="url" rel="index">
-                    <span itemprop="name">Django</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django/Server-Deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">Server Deploy</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django/Server-Deploy/Network/" itemprop="url" rel="index">
-                    <span itemprop="name">Network</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Amazon-Relational-Database-Service-RDS"><a href="#Amazon-Relational-Database-Service-RDS" class="headerlink" title="Amazon Relational Database Service (RDS)"></a>Amazon Relational Database Service (RDS)</h3><hr>
-<p>RDS를 사용하는 이유: AWS 클라우드 에서 관계형 데이터베이스를 설치, 운영, 확장할 수 있는 웹서비스이다. RDS를 EC2위에 설치하면 RDS는 EC2위에서 동작한다.</p>
-<p>Virtual Private Cloud(VPC) 는 <strong>사용자의 AWS 계정 전용 가상 네트워크이다</strong>. VPC는 AWS 클라우드에서 다른 가상 네트워크와 논리적으로 분리되어있다. Amazon EC2인스턴스 같은 AWS 리소스를 VPC에서 실행할 수 있다.</p>
-<p>RDS 데이터베이스를 생성할때 다음 항목들을 작성해줘야 한다.</p>
-<ul>
-<li>DB 인스턴스 식별자 : 데이터베이스 인스턴스 이름</li>
-<li>마스터 사용자 이름 : 데이터베이스 username</li>
-<li>마스터 암호 : 데이터베이스 password</li>
-</ul>
-<p>데이터 베이스 인스턴스를 생성하면 앤드포인트와 포트번호를 알 수 있다.</p>
-<ul>
-<li>Endpoint: 아마존 RDS 데이터베이스 인스턴스와 연결 하기위해 필요한 데이터이다. 쉽게 말해 데이터베이스의 접근 경로이다.</li>
-<li>포트번호: 각 데이터베이스마다 디폴트 포트번호를 가지고 있다. 데이터베이스 가 listen 하고있는 포트 번호를 의미한다.</li>
-</ul>
-<h3 id="장고에서-Postgresql-설정하기"><a href="#장고에서-Postgresql-설정하기" class="headerlink" title="장고에서 Postgresql 설정하기"></a>장고에서 Postgresql 설정하기</h3><hr>
-<p>psycopg2를 사용하는 이유:</p>
-<p>PostgreSQL데이터베이스는 여러개의 언어와 호환이 되는데, 그중 가장 자주 사용되는 언어가 파이썬이다. 파이썬을 이용해서 PostgreSQL과 소통을 할때 사용하는것이 <strong>psycopg2</strong>이다. <strong>psycopg2를 이용하면 파이썬의 데이터 타입을 postgresql의 데이터타입에 맞출 수 있다.</strong></p>
-<p>SQLite를 이용할때는 장고에서 알아서 SQLite로 변환을 시켜주지만 PostgreSQL을 사용할 때는 파이썬을 PostgreSQL로 바꿔주는 기능이 필요한데, 이것을 <strong>psycopg2 가 해준다.</strong></p>
-<blockquote>
-<p><code>pip install psycopg2</code> ==&gt; psycopg2 설치</p>
-</blockquote>
-<p>장고에서 ORM을 자동으로 SQL문으로 변환시켜주는 과정:</p>
-<p><strong>(변환 시작) Django ORM ==&gt; SQL ==&gt; Python ==&gt; psycopg2 ==&gt; PostgreSQL (변환 끝)</strong></p>
-<p>장고에 데이터베이스 설정하기</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.postgresql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'mydatabase'</span>, <span class="comment"># 데이터베이스에서 만든 데이터베이스 이름</span></span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'mydatabaseuser'</span>, <span class="comment"># RDS 데이터베이스 인스턴스 아이디</span></span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'mypassword'</span>, <span class="comment"># RDS 데이터베이스 인스턴스 비번</span></span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">'127.0.0.1'</span>,  <span class="comment">#AWS RDS 데이터베이스 인스턴스 엔드포인트</span></span><br><span class="line">        <span class="string">'PORT'</span>: <span class="string">'5432'</span>, <span class="comment"># AWS RDS 데이터베이스 인스턴스 포트번호</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -846,18 +986,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
