@@ -173,6 +173,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="post-title-link" itemprop="url">bto3로SecretsManager사용하기</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-21 15:09:56 / Modified: 15:11:14" itemprop="dateCreated datePublished" datetime="2020-02-21T15:09:56+09:00">2020-02-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Server-Deploy/" itemprop="url" rel="index">
+                    <span itemprop="name">Server Deploy</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Credentials-파일에-있는-SecretsManager-사용하기"><a href="#Credentials-파일에-있는-SecretsManager-사용하기" class="headerlink" title="Credentials 파일에 있는 SecretsManager 사용하기"></a>Credentials 파일에 있는 SecretsManager 사용하기</h3><hr>
+<ol>
+<li><p>세션으로 불러오기. </p>
+<p><code>boto3</code> 를 이요하게 되면 boto3 가 자동으로 세션 관리를 해주지만, 사용자가 세션을 직접 관리를 할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line">session = boto3.Session(profile_name=[credentials 파일에 있는 profile ㅣ이름])</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>session 으로 aws 서비스 사용하기</p>
+<p>AWS SecretsManager에 사용자의 Secret key를 저장해놓고, 해당 Secret Key를 받아와서 사용하고싶을 경우 SecretsManager서비스를 사용해야한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s3 = session.client(</span><br><span class="line">	service_name=<span class="string">"secretsManager"</span>,</span><br><span class="line">	region_name=<span class="string">"[region 이름]"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SecretsManager 내부에 있는 secret key 받아오기.</p>
+<p>Secret Key를 받아올려면 <code>get_secret_value()</code> 함수를 사용해야한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secret_key = s3.get_secret_value(SecretId=<span class="string">"[SecretsManager에서 생성한 이름]"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>받아온 secret_key 내부의 SecretsString 을 사용하면 된다. 하지만 받아올 경우 Json String 형식으로 받아와 지기 때문에 파이썬 객체로 변환 해줘야 한다. <strong><code>json.loads()</code></strong> 를 이용해서 변환을 시켜주면 된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">SECRET = json.loads(s3.get_secret_value(SecretId=[<span class="string">'SecretsManager에서 생성한 이름'</span>])[<span class="string">'SecretString'</span>])</span><br><span class="line"><span class="comment"># 이렇게 하면 json String 형식의 데이터를 파이썬 객체 타입으로 변환시켜주면 된다.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -646,114 +738,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/" class="post-title-link" itemprop="url">도커에 대한 간단한 설명</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-29 10:24:44 / Modified: 20:48:52" itemprop="dateCreated datePublished" datetime="2020-01-29T10:24:44+09:00">2020-01-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="웹서버"><a href="#웹서버" class="headerlink" title="웹서버"></a>웹서버</h3><hr>
-<p><strong>웹서버의 정의: 웹서버는 HTTP혹은 기타 프로토콜을 이용해 사용자의 응답에 맞춰서 결과를 응답해준다.</strong></p>
-<p>웹서버는 두가지 의미중 하나를 의미한다.</p>
-<ol>
-<li>웹서버(소프트웨어): 웹 사용자가 어떻게 호스트파일들에 접근하는지를 관리한다.</li>
-<li>웹 서버(하드웨어): 정적 파일을 저장하고 사용자의 요청에 맞게 정적파일을 돌려주는 기능을 가지고 있는 컴퓨터이다.</li>
-</ol>
-<p>정적 웹서버는 request 가 들어오면 항상 같은 파일들을 돌려준다(FileSystem 으로 이동).</p>
-<p>동적 웹서버는 request에 따라 다른 응답을 돌려준다(WSGI,Gunicorn, uWSGI).</p>
-<p>웹서버의 종류: Apache, IIS, Nginx, LiteSpeed</p>
-<h3 id="WSGI-Gunicorn-uWSGI"><a href="#WSGI-Gunicorn-uWSGI" class="headerlink" title="WSGI, Gunicorn, uWSGI"></a>WSGI, Gunicorn, uWSGI</h3><hr>
-<p>웹서버에서 사용자의 요청을 보내면 정적/동적 응답을 해줘야 하는데, 정적 응답일 경우 FileSystem에서 파일을 찾아서 돌려준다. 동적 응답일 경우 WSGI, Gunicorn, uWSGI 을 이용해서 백앤드 파이썬 웹 어플리케이션으로 forwarding 해준다. 구체적으로 설명 하자면 webserver(Apache, Nginx)같은 경우 주로 C 언어로 작성이 되어있다(빨라야 하기 때문에). 사용자가 요청을 보낼경우 웹서버는 요청을 받아서 web application 으로 전달을 해야하는데 웹서버는 요청을 C 언어로 보내게된다. WSGI 나 Gunicorn 이 없을 경우 웹 애플리케이션에서 일일히 이걸 번역을 해야한다. WSGI는 웹 서버 혹은 웹 애플리케이션 에서 보내는 요청/응답을 해당언어(WSGI 같은 경우 파이썬)에 맞게 번역을 해주는것이다. 다시말해 WSGI는 웹서버와 장고 어플리케이션 간의 번역을 해주는 것이다(C에서 파이썬, 파이썬에서C).</p>
-<img src="https://www.liquidweb.com/kb/wp-content/uploads/2019/09/WSGI.png" style="zoom:75%;" />
-
-<p><code>python manage.py runserver</code> 를 할 경우 runserver 는 <strong>웹서버, WSGI 와 디버거의 역할을 다 해주는 것이다.</strong></p>
-<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><hr>
-<p><strong>도커는 컨테이너 기반의 오픈소스 가상화 플랫폼이다.</strong></p>
-<p>도커를 사용할때 알아야 할 4개의 키워드:</p>
-<ul>
-<li><strong>컨테이너(Container)</strong>: 컨테이너는 다른 공간에서 프로세스가 동작하는 기술이다. 기존의 가상화 기술과는 다른점을 가지고있다. 이전에 가상화 기술이라고 하면 virutal box 혹은 VMware 등의 가상 머신을 자기자신의 Host 컴퓨터의 OS (Host OS) 에 설치해서 사용하는 방식이였다. 매우 간단한 방법이지만 사용자의 OS 에 새로운 가상의 Guest OS 를 올리는것은 엄청난 overhead 를 발생 시키기 때문에 속도면에서 문제가 많았다. 이것을 해결하기 위해 나온것이 Docker 엔진이다. Docker 엔진 위에다가 virtual box/VMware에서 사용할려고 했던 기능들을 컨테이너에 담아서 올린다고 생각하면 된다.<strong>기존의 방식과 다르게 프로세스를 격리해서 사용하는 방식이다.</strong> <strong>Docker 를 사용하게되면 Host OS 위에다 Guest OS를 더이상 올리지 않아도 되게된다.</strong></li>
-</ul>
-<img src="https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/vm-vs-docker.png" style="zoom:40%;" />
-
-<ul>
-<li><strong>이미지(Image)</strong>: 컨테이너를 생성하기 위해 사용된다. 이미지를 일종의 CD라고 생각하면 된다. 예를들어 스타크래프트 CD를 이용하면 우리는 스타크래프트를 여러번 설치할 수 있다. 하지만 우리가 설치할 수 있는 것은 동일한 버전의 스타크래프트이다(최신 버전을 CD 로 설치할 수 없다). 이것을 <strong>Immtuable</strong> 하다고 한다. 이미지를 이용해서 여러개의 컨테이너를 생성할 수 있다. 이미지를 이용해 생성한 컨테이너에는 이미지에 저장되어 있는 설정만 존재하고, 추가적인 설정들은 컨테이너에서 추가한다. 이미지는 하드디스크에 저장된다.</li>
-</ul>
-<img src="https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/docker-image.png" style="zoom:33%;" />
-
-<ul>
-<li><strong>Host OS</strong> : 내 컴퓨터의 Operating System</li>
-<li><strong>Guest OS</strong> : 가상 컴퓨터의 Operating System.</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -826,7 +810,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
