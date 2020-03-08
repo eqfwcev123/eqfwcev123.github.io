@@ -173,6 +173,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/" class="post-title-link" itemprop="url">MTMFTF</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-21 11:24:45 / Modified: 11:26:53" itemprop="dateCreated datePublished" datetime="2020-01-21T11:24:45+09:00">2020-01-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지"><a href="#Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지" class="headerlink" title="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지"></a>Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지</h3><hr>
+<p>ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨</p>
+<p>class Car(models.Model):</p>
+<p>  manufacturer = models.ForeignKey(</p>
+<p>​    ‘production.Manufacturer’,</p>
+<p>​    on_delete=models.CASCADE,</p>
+<p>  )</p>
+<p>면 Car테이블에 manufacturer_id 컬럼이 생김 : 즉 ForeignKey를 선언하면 해당 컬럼은 다른 테이블의 id를 가리킴</p>
+<p><strong>ForeignKey를 선언한 필드가 Many, 연결한 클래스가 One</strong></p>
+<p>PostLike 에 post = models.ForeignKey(Post, on_delete=models.CASCADE) 이면 </p>
+<p>Many는 PostLike 이고 One 은 Post</p>
+<p>(상식적으로 인스타그램에서 여러사람이 개시물 하나의 Like를 여러개 달 수 있다) PostLike 에 있는 post 필드에 ForeignKey를 선언할 경우 <post_id> 가 디비 테이블에 생성</p>
+<p>FOREIGN KEY 를 언제 사용해야하는지</p>
+<p>Many &lt;클래스명&gt; by/to one &lt;필드명&gt;</p>
+<p>ex:</p>
+<p>Many PostImage by one post</p>
+<p>Many PostLike to one post</p>
+<p>Many Post by one author</p>
+<p>쿼리란? 데이터베이스에 정보를 요청하는것. 쿼리는 웹 서버에 특정한 정보를 보여달라는 웹 클라이언트 요청에 의한 처리이다.</p>
+<hr>
+<p>related_name 과 related_query_name</p>
+<p>related_name혹은 related_query_name 둘다 사용해서 데이터를 찾아올 수 있다.</p>
+<p>related_name의 default ==&gt; &lt;클래스&gt;_set. related_name은 인스턴스에서 접근</p>
+<p>related_query_name의 default ==&gt; &lt;소문자클래스&gt;. related_query_name은 클래스에서 접근</p>
+<hr>
+<p>PostLike(Many) 에서 Post(One)에 접근 하는 방법</p>
+<p>postlike = PostLike.objects.first() #postlike는 <strong>인스턴스</strong></p>
+<p>postlike.posts #해당 인스턴스의 post. 즉 좋아요가 달려있는 post를 의미</p>
+<p><strong>다시말해 ForeignKey를 가지고 있으면 가리키는곳(Many인쪽). ForeignKey로 가리키는곳(One)인쪽에서 돌아올려면 _set사용</strong></p>
+<p>반대로</p>
+<p>Post(One)에서 PostLike(Many)로 접근하는 방법</p>
+<p>related_query_name 혹은 related_name을 이용해서 접근</p>
+<p>post.postlike_set.filter() 혹은</p>
+<p>Post.objects.filter(postlike__contains= )</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -592,111 +701,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/overloading,%20constructors%20and%20variables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/11/%EC%9E%90%EB%B0%94/overloading,%20constructors%20and%20variables/" class="post-title-link" itemprop="url">overloading,constructors and variables</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-11 20:12:26" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-12 15:42:11" itemprop="dateModified" datetime="2020-01-12T15:42:11+09:00">2020-01-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="오버로딩-Overloading"><a href="#오버로딩-Overloading" class="headerlink" title="오버로딩(Overloading)"></a>오버로딩(Overloading)</h3><hr>
-<p>메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다.</p>
-<p>이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른 동작을 하는 메서드를 <strong>메서드 오버로딩, 혹은 오버로딩</strong> 이라고 한다. </p>
-<h3 id="오버로딩을-사용하기-위한-조건"><a href="#오버로딩을-사용하기-위한-조건" class="headerlink" title="오버로딩을 사용하기 위한 조건"></a>오버로딩을 사용하기 위한 조건</h3><hr>
-<p>오버로딩을 하기 위해서는 다음과 같은 조건을 만족 시켜야한다.</p>
-<ol>
-<li>같은 클래스 내부에 동일 한 이름을 갖은 메서드가 존재 해야한다</li>
-<li>매개변수의 개수 또는 타입이 달라야한다</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">18</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>위 예제를 보면 People 이라는 클래스 내부에 두개의 People 디폴트 생성자 함수가 존재한다. 동일한 이름을 갖기 때문에 에러를 발생 시킬것 같지만, 둘은 다른 메서드 이다. 첫번째 생성자 함수는 두개의 매개변수(이름, 나이)를 입력해야 하지만 두번째 생성자 함수는 이름만입력을 하면 된다. </p>
-<p>메소드 오버로딩을 사용하게 되면:</p>
-<ol>
-<li>동일한 기능을 하는 메소드를 다른 이름으로 여러개를 만들 필요가 없다</li>
-<li>메소드의 이름을 절약할 수 있다.</li>
-</ol>
-<h3 id="가변인자-varargs-와-오버로딩"><a href="#가변인자-varargs-와-오버로딩" class="headerlink" title="가변인자(varargs) 와 오버로딩"></a>가변인자(varargs) 와 오버로딩</h3><hr>
-<p>가변인자(variable arguments): 동적으로 매개변수의 개수를 지정.</p>
-<p>가변인자는 <code>타입...변수명</code> 과 같은 형식으로 선언한다.</p>
-<ul>
-<li><code>public printStream printf(String format, Object... args) // 가변인자 사용방법</code></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/11/%EC%9E%90%EB%B0%94/overloading,%20constructors%20and%20variables/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -769,7 +773,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -780,7 +784,7 @@
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

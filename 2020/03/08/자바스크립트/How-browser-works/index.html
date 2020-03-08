@@ -46,24 +46,24 @@
   };
 </script>
 
-  <meta name="description" content="Django Secrets Manager django secrets manager 는 사용자의 secret를 관리해주는 패키지이다. django secrets manager를 사용하기 위해서는 다음 settings를 설정 해줘야 한다  AWS_SECRETS_MANAGER_SECRET_NAME : secret 이름 혹은 SecretsManager  AWS_S">
+  <meta name="description" content="How web brwoser works Most programming languages run on top of an operating system (OS), but JavaScript runs with HTML and CSS in a browser. The core function of the browser is to request the web page">
 <meta property="og:type" content="article">
-<meta property="og:title" content="django-secrets 사용 방법">
-<meta property="og:url" content="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/index.html">
+<meta property="og:title" content="How browser works">
+<meta property="og:url" content="http://yoursite.com/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/index.html">
 <meta property="og:site_name" content="Dev Blog">
-<meta property="og:description" content="Django Secrets Manager django secrets manager 는 사용자의 secret를 관리해주는 패키지이다. django secrets manager를 사용하기 위해서는 다음 settings를 설정 해줘야 한다  AWS_SECRETS_MANAGER_SECRET_NAME : secret 이름 혹은 SecretsManager  AWS_S">
+<meta property="og:description" content="How web brwoser works Most programming languages run on top of an operating system (OS), but JavaScript runs with HTML and CSS in a browser. The core function of the browser is to request the web page">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-01T14:07:14.000Z">
-<meta property="article:modified_time" content="2020-02-01T14:08:25.053Z">
+<meta property="og:image" content="https://poiemaweb.com/img/client-server.png">
+<meta property="og:image" content="https://poiemaweb.com/assets/fs-images/33-10.png">
+<meta property="article:published_time" content="2020-03-08T14:10:20.000Z">
+<meta property="article:modified_time" content="2020-03-08T14:11:26.998Z">
 <meta property="article:author" content="Dohyeon Lee">
 <meta property="article:tag" content="Develop">
-<meta property="article:tag" content="Server Deploy">
-<meta property="article:tag" content="Django">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://poiemaweb.com/img/client-server.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/">
+<link rel="canonical" href="http://yoursite.com/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>django-secrets 사용 방법 | Dev Blog</title>
+  <title>How browser works | Dev Blog</title>
   
 
 
@@ -182,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          django-secrets 사용 방법
+          How browser works
         </h1>
 
         <div class="post-meta">
@@ -206,7 +206,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-01 23:07:14 / Modified: 23:08:25" itemprop="dateCreated datePublished" datetime="2020-02-01T23:07:14+09:00">2020-02-01</time>
+              <time title="Created: 2020-03-08 23:10:20 / Modified: 23:11:26" itemprop="dateCreated datePublished" datetime="2020-03-08T23:10:20+09:00">2020-03-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,8 +214,8 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Server-Deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">Server Deploy</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
             </span>
@@ -231,48 +231,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Django-Secrets-Manager"><a href="#Django-Secrets-Manager" class="headerlink" title="Django Secrets Manager"></a>Django Secrets Manager</h3><hr>
-<p>django secrets manager 는 사용자의 secret를 관리해주는 패키지이다.</p>
-<p><strong><em>django secrets manager를 사용하기 위해서는 다음 settings를 설정 해줘야 한다</em></strong></p>
-<ul>
-<li><p>AWS_SECRETS_MANAGER_SECRET_NAME : secret 이름 혹은 SecretsManager</p>
-</li>
-<li><p>AWS_SECRETS_MANAGER_SECRET_SECTION: Json 파일에서 secret value의 키값. 즉, Json의 키값</p>
-<ul>
-<li><pre><code>instagram:{
-    AWS_ACCESS_KEY_ID: &quot;....&quot;,
-    AWS_SECRET_ACCESS_KEY: &quot;...&quot;
-}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 여기서 AWS_SECRETS_MANAGER_SECRET_JSON 은 instagram이다</span><br><span class="line"></span><br><span class="line">- AWS_SECRETS_MANAGER_REGION_NAME: SecretsManager의 region</span><br><span class="line"></span><br><span class="line">### AWS SecretsManager 형식</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">AWS SecretsManager는 JSON형식을 일반 텍스트로 사용한다.</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;sample-project&quot;: &#123;</span><br><span class="line">    &quot;base&quot;: &#123;</span><br><span class="line">      &quot;SECRET_KEY&quot;: &quot;DjangoSecretKey&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;dev&quot;: &#123;</span><br><span class="line">      &quot;AWS_S3_BUCKET_NAME&quot;: &quot;sample-s3-dev&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;production&quot;: &#123;</span><br><span class="line">      &quot;AWS_S3_BUCKET_NAME&quot;: &quot;sample-s3-production&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
+        <h3 id="How-web-brwoser-works"><a href="#How-web-brwoser-works" class="headerlink" title="How web brwoser works"></a>How web brwoser works</h3><hr>
+<p>Most programming languages run on top of an operating system (OS), but JavaScript runs with HTML and CSS in a browser. The core function of the browser is to request the web page that the user wants to refer to the server, and receive the response from the server and display it on the browser. The browser receives back HTML, CSS, Javascript, image files from the server. HTML and CSS files are parsed by the <strong>rendering engine’s (owned by the browser)</strong> HTML parser and CSS parser, transformed into DOM and CSSOM trees, and combined into a render tree. Based on the render tree created in this way, the browser displays the web page.</p>
+<img src="https://poiemaweb.com/img/client-server.png" style="zoom: 33%;" />
 
-<h3 id="AWS-Credentials-설정"><a href="#AWS-Credentials-설정" class="headerlink" title="AWS Credentials 설정"></a>AWS Credentials 설정</h3><hr>
-<p>Django 는 두가지 방법으로 AWS SecretsManager에 접근할 수 있다.</p>
+<p>While HTML and CSS files are rendered by rendering engine, Javascript is parsed by Javascript engine. Inside a HTML file, when the rendering engine meets the script tag <code>&lt;script&gt;</code>, the rendering engine immediately stops the rendering process and passes the execution to the Javascript engine. Javascript engine will load and parse the script file stated on <code>&lt;script src=&quot;JS FILE&quot;&gt;</code> to create an <strong>Abstract Syntax Tree(AST)</strong> and pass the execution back to the rendering engine when all the script file is parsed. Rendering engine will start to parse starting from where it has stopped rendering.</p>
+<p>The browser handles the HTML, CSS and JavaScript synchronously. This means that <strong>blocking</strong> can occur depending on the location of the script tag, which can delay the creation of the DOM. Therefore, the location of the script tag is important. </p>
+<p>It is a good ideas to place JavaScript <code>&lt;script&gt;</code> tag at the bottom of the HTML file as it can prevent the occurence of blocking during file rendering. By putting the <code>&lt;script&gt;</code> tag at the bottom of the HTML file. it can:</p>
 <ol>
-<li>~/.aws/credentials 파일</li>
-<li>환경 변수</li>
+<li>reduce the loading time as HTML elements will not be interfered with rendering due to script loading delays</li>
+<li>prevent the occurence of errors since an error can occur if Javascript maniuplates the DOM when the DOM is incomplete.</li>
 </ol>
-<p>boto3에서 사용하는 방법과 마찬가지로 credentials 파일에 SecretsManager에 AWS SecretsManager의 id 와 access key를 저장</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[default]</span><br><span class="line">aws_access_key_id &#x3D; ****************</span><br><span class="line">aws_secret_access_key &#x3D; ***********************</span><br></pre></td></tr></table></figure>
+<h3 id="Overview-of-HOW-DOM-CSSOM-and-AST-is-created"><a href="#Overview-of-HOW-DOM-CSSOM-and-AST-is-created" class="headerlink" title="Overview of HOW DOM, CSSOM and AST is created"></a>Overview of HOW <strong>DOM</strong>, <strong>CSSOM</strong> and <strong>AST</strong> is created</h3><hr>
+<p>Sample Code:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"style.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Critical Path<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello <span class="tag">&lt;<span class="name">span</span>&gt;</span>web performance<span class="tag">&lt;/<span class="name">span</span>&gt;</span> students!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"awesome-photo.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>두번째 방법으로 환경변수에 다음 환경 변수들을 작성:</p>
-<p>AWS_SECRETS_MANAGER_ACCESS_KEY_ID</p>
-<p>AWS_SECRETS_MANAGER_SECRET_ACCESS_KEY</p>
-<h3 id="장고의-Settings에서-Secrets-사용하기"><a href="#장고의-Settings에서-Secrets-사용하기" class="headerlink" title="장고의 Settings에서 Secrets 사용하기"></a>장고의 Settings에서 Secrets 사용하기</h3><hr>
 <ol>
-<li><code>from django_secrets import SECRETS</code> : 를 이용해서 django_secrets 불러오기</li>
-<li>SECRETS 의 설정을 해준다</li>
+<li><p>When a client sends a request through browser to a website, the website will return a response to the client.</p>
+</li>
+<li><p>Browser will receive HTML file in bytes form(since all datas are exchanged in byte format). Browser will <strong>first start to parse the HTML file.</strong> </p>
+<ol>
+<li><strong>Conversion</strong>:Brower will read teh raw bytes of HTML off the network and transalte to individual characters(Human readable) based on specified encoding of the file.</li>
+<li><strong>Tokenizing</strong>: The browser converts strings of characters into distinct tokens. ex)<code>&lt;html&gt;,&lt;head&gt;,&lt;body&gt;</code></li>
+<li><strong>Lexing</strong>: The emitted tokens are converted into objects which define the properties and rules. At this point, DOM Nodes are created</li>
+<li><strong>DOM Construction</strong>: Finally, the created objects are linked in a tree data structure that also captures teh parent-child relationships defined in the original markup. The final output of the entire process is teh DOM of the simple page, which browser uses fo all further processing of the page.</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AWS_SECRETS_MANAGER_SECRET_NAME = <span class="string">'AWS 에 있는 SecretsManager 이름'</span></span><br><span class="line">AWS_SECRETS_MANAGER_PROFILE = <span class="string">'credentials 파일에 지정한 이름'</span></span><br><span class="line">AWS_SECRETS_MANAGER_SECRET_SECTION = <span class="string">'json 파일에 지정한 key 값'</span></span><br><span class="line">AWS_SECRETS_MANAGER_REGION_NAME = <span class="string">'ap-northeast-2'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>During the creation of DOM tree, when the browser meets a <code>&lt;link&gt;</code> tag, it will stop the rendering process and starts to render CSS file stated on <code>&lt;link&gt;</code> tag to create CSSOM tree. the process of creating a CSSOM tree is similar to creating a DOM Tree. <strong>Conversion - Tokenizing - Lexing - CSSOM Construction</strong>.</p>
+</li>
+<li><p>When rendering engine meets the <code>&lt;script&gt;</code> tag, it will stop the rendering process and sends a request to the server to get the corresponding script file.(For the above case, it is app.js)</p>
+</li>
+<li><p>The Browser rendering engine is unable to parse the app.js file so it will pass the execution to JavaScript engine.</p>
+<pre><code>1.  **Tokenization**:JavaScript engine Tokenzies the source code into small pieces of tokens. This process is also called Lexical Analysis
+2.  **Parsing**: executes Syntatic analysis to create an AST(Abstract Syntax Tree). AST is a tress structured data structure that reflects the grammatical meaning and structure of a token.
+3.  **Byte Code creation and execution** : The AST generated as a result of parsing is converted into bytecode, which is an intermediate code that the interpreter can execute.</code></pre></li>
+</ol>
+<img src="https://poiemaweb.com/assets/fs-images/33-10.png" style="zoom:33%;" />
 
-<ol start="3">
-<li>SECRETS 사용</li>
+<ol start="6">
+<li>If DOM API is used in javascript to change the DOM and CSSOM Tree, both DOM and CSSOM Tree will be rerendered. Finally both DOM and CSSOM Tree will be combined to a single <strong>Render tree</strong>.</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SECRET_KEY = SECRETS[<span class="string">'SECRET_KEY'</span>]</span><br><span class="line">SECRET_KEY = SECRETS.get(<span class="string">'SECRET_KEY'</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -283,10 +281,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Develop/" rel="tag"># Develop</a>
-              <a href="/tags/Server-Deploy/" rel="tag"># Server Deploy</a>
-              <a href="/tags/Django/" rel="tag"># Django</a>
-              <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/Js/" rel="tag"># Js</a>
           </div>
 
         
@@ -295,13 +290,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/" rel="prev" title="boto3 요약">
-      <i class="fa fa-chevron-left"></i> boto3 요약
+    <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="prev" title="bto3로SecretsManager사용하기">
+      <i class="fa fa-chevron-left"></i> bto3로SecretsManager사용하기
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/" rel="next" title="운영체제">
-      운영체제 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -361,7 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django-Secrets-Manager"><span class="nav-number">1.</span> <span class="nav-text">Django Secrets Manager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Credentials-설정"><span class="nav-number">2.</span> <span class="nav-text">AWS Credentials 설정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#장고의-Settings에서-Secrets-사용하기"><span class="nav-number">3.</span> <span class="nav-text">장고의 Settings에서 Secrets 사용하기</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-web-brwoser-works"><span class="nav-number">1.</span> <span class="nav-text">How web brwoser works</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview-of-HOW-DOM-CSSOM-and-AST-is-created"><span class="nav-number">2.</span> <span class="nav-text">Overview of HOW DOM, CSSOM and AST is created</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
