@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Database DB: 데이터를 통합하여 관리하는 데이터의 집합 DBMS(Database Management System): 데이터 베이스를 관리하는 미들웨어 시스템, 데이터베이스 관리 시스템 RDBMS(Relational Database Management System): 데이터의 테이블 사이에 키값으로 관계를 가지고 있는 데이터베이스 NoSQL:데이터">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 기본 문법">
+<meta property="og:url" content="http://yoursite.com/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/index.html">
+<meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="Database DB: 데이터를 통합하여 관리하는 데이터의 집합 DBMS(Database Management System): 데이터 베이스를 관리하는 미들웨어 시스템, 데이터베이스 관리 시스템 RDBMS(Relational Database Management System): 데이터의 테이블 사이에 키값으로 관계를 가지고 있는 데이터베이스 NoSQL:데이터">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png">
+<meta property="article:published_time" content="2020-03-15T08:04:55.000Z">
+<meta property="article:modified_time" content="2020-03-15T08:06:01.143Z">
+<meta property="article:author" content="Dohyeon Lee">
+<meta property="article:tag" content="Develop">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>mysql 기본 문법 | Dev Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dev Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Web Development blog</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mysql 기본 문법
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-15 17:04:55 / Modified: 17:06:01" itemprop="dateCreated datePublished" datetime="2020-03-15T17:04:55+09:00">2020-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><hr>
+<p>DB: 데이터를 통합하여 관리하는 데이터의 집합</p>
+<p>DBMS(Database Management System): 데이터 베이스를 관리하는 미들웨어 시스템, 데이터베이스 관리 시스템</p>
+<p>RDBMS(Relational Database Management System): 데이터의 테이블 사이에 키값으로 관계를 가지고 있는 데이터베이스</p>
+<p>NoSQL:데이터 테이블 사이의 관계가 없이 ㄷㅔ이터를저장하는 데이터베이스. 데이터 사이의 관계가 없으므로 복잡성이 자곡 많은 데이터의 저장이 가능</p>
+<p>MySQL의 특징:</p>
+<p>MySQL은 오픈소스이며 <strong>다중 사용자와 다중 스레드를 지원한다.</strong></p>
+<h3 id="데이터베이스-형식"><a href="#데이터베이스-형식" class="headerlink" title="데이터베이스 형식"></a>데이터베이스 형식</h3><hr>
+<p><img src="https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png" alt=""></p>
+<h3 id="EC2-에-mysql설치하기"><a href="#EC2-에-mysql설치하기" class="headerlink" title="EC2 에 mysql설치하기"></a>EC2 에 mysql설치하기</h3><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update -y</span><br><span class="line">sudo apt-get upgrade -y</span><br><span class="line"></span><br><span class="line"># MySQL 서버 설치</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line"></span><br><span class="line"># MySQK secure 설정</span><br><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="데이터베이스-모델링"><a href="#데이터베이스-모델링" class="headerlink" title="데이터베이스 모델링"></a>데이터베이스 모델링</h3><hr>
+<p>데이터베이스 모델링은 데이터베이스 에서의 테이블 구조를 미리 계획해서 작성하는 작업이다. RDBMS는 테이블간에 유기적으로 연결되어 있기 때문에 모델링을 잘하는 것이 중요하다. 기본적으로 <strong>개념적 모델링, 논리적 모델링, 물리적 모델링 절차로 설계된다.</strong></p>
+<p><strong>개념적 모델링(Conceptual Database Design): 업무분석해서 핵심 데이터의 집합을 정의하는 과정(어떠한 데이터들이 필요하는지)</strong></p>
+<p><strong>논리적 모델링(Logical Database design):개념적 모델링을 상세화 하는 과정(각 모델들을 연결시켜주는 과정이라고 생각하면된다)</strong></p>
+<p><strong>물리적 모델링(Physical Database Design): 논리적 모델링을 DBMS에 추가하기 위해 구체화 되는 과정(각 모델에 어떠한 필드들이 존재하는지 등등)</strong></p>
+<blockquote>
+<p>결론: Conceptual - Logical - Physical Database Desgin 3가지 과정이 존재한다</p>
+</blockquote>
+<h3 id="DML-DDL"><a href="#DML-DDL" class="headerlink" title="DML DDL"></a>DML DDL</h3><hr>
+<p><strong>Data Manipulation Language(DML)</strong>: </p>
+<ul>
+<li>데이터 조작어 </li>
+<li>SELECT, INSERT, UPDATE, DELETE</li>
+<li>트랜잭션이 발생하는 SQL문</li>
+</ul>
+<p><strong>Data Definition Language(DDL)</strong>: </p>
+<ul>
+<li>데이터 정의어</li>
+<li>데이터베이스, 테이블, 뷰, 인덱스등의 데이터베이스 개체를 생성, 삭제, 변경에 사용</li>
+<li>CREATE, DROP, ALTER, TRUNCATE</li>
+</ul>
+<h3 id="SELECT-컬럼-선택"><a href="#SELECT-컬럼-선택" class="headerlink" title="SELECT : 컬럼 선택"></a>SELECT : 컬럼 선택</h3><p>SELECT <column_name_1>, <column_name_2>, …<br>FROM <table_name>500</p>
+<h3 id="USE"><a href="#USE" class="headerlink" title="USE"></a>USE</h3><p>데이터베이스 선택</p>
+<p>USE <Database_name>;</p>
+<p>#alias: 컬럼의 이름을 변경할 수 있다.</p>
+<p>SELECT code as country_code, name as country_name</p>
+<p>FROM country</p>
+<h3 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h3><p>특정 조건을 주어 데이터를 검색하는데 사용되는 문법</p>
+<p>비교연산(&gt;,&lt;.&gt;=.&lt;=), 논리연산(AND, OR), 범위연산(BETWEEN),특정 조건을 포함(IN, NOT IN), 특정 문자열이 포함된 데이터(LIKE) 사용 가능</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># LIKE</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE GovernmentForm LIKE &quot;%Republic%&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># IN, NOT IN</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent !&#x3D; &quot;Asia&quot; AND Continent !&#x3D; &quot;Africa&quot;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent NOT IN(&quot;Asia&quot;,&quot;Africa&quot;)</span><br><span class="line"></span><br><span class="line"># BETWEEN</span><br><span class="line">SELECT * </span><br><span class="line">FROM country</span><br><span class="line">WHERE Population BETWEEN 7000000 AND 10000000</span><br><span class="line"></span><br><span class="line"># AND, OR</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Population &gt;&#x3D; 7000000 AND Population &lt;&#x3D; 10000000</span><br></pre></td></tr></table></figure>
+
+<h3 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h3><p>특정 컬럼의 값으로 데이터 정렬에 사용되는 문법</p>
+<p>ASC :arrow_right: 오름차순 (default 로 오름차순이기 때문에 생략 가능)</p>
+<p>DESC :arrow_right: 내림차순</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population ASC</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br><span class="line"></span><br><span class="line"># 국가 코드를 알파벳 순으로 정렬하고 같은 코드를 가지면 인구순으로 내림차순 정렬</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDERBY code ASC, population DESC</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h3><p>LIMIT는 조회하는 데이터의 수를 제한할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br><span class="line">LIMIT 5</span><br><span class="line"></span><br><span class="line"># 인구가 많은 상위 6위~8위의 3개 국가 데이터 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br><span class="line">LIMIT 5,3</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Develop/" rel="tag"># Develop</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" rel="prev" title="2.variables">
+      <i class="fa fa-chevron-left"></i> 2.variables
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-number">1.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터베이스-형식"><span class="nav-number">2.</span> <span class="nav-text">데이터베이스 형식</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EC2-에-mysql설치하기"><span class="nav-number">3.</span> <span class="nav-text">EC2 에 mysql설치하기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터베이스-모델링"><span class="nav-number">4.</span> <span class="nav-text">데이터베이스 모델링</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-DDL"><span class="nav-number">5.</span> <span class="nav-text">DML DDL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SELECT-컬럼-선택"><span class="nav-number">6.</span> <span class="nav-text">SELECT : 컬럼 선택</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#USE"><span class="nav-number">7.</span> <span class="nav-text">USE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WHERE"><span class="nav-number">8.</span> <span class="nav-text">WHERE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ORDER-BY"><span class="nav-number">9.</span> <span class="nav-text">ORDER BY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LIMIT"><span class="nav-number">10.</span> <span class="nav-text">LIMIT</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

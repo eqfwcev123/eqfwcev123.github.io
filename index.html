@@ -173,6 +173,130 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="post-title-link" itemprop="url">mysql 기본 문법</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-15 17:04:55 / Modified: 17:06:01" itemprop="dateCreated datePublished" datetime="2020-03-15T17:04:55+09:00">2020-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><hr>
+<p>DB: 데이터를 통합하여 관리하는 데이터의 집합</p>
+<p>DBMS(Database Management System): 데이터 베이스를 관리하는 미들웨어 시스템, 데이터베이스 관리 시스템</p>
+<p>RDBMS(Relational Database Management System): 데이터의 테이블 사이에 키값으로 관계를 가지고 있는 데이터베이스</p>
+<p>NoSQL:데이터 테이블 사이의 관계가 없이 ㄷㅔ이터를저장하는 데이터베이스. 데이터 사이의 관계가 없으므로 복잡성이 자곡 많은 데이터의 저장이 가능</p>
+<p>MySQL의 특징:</p>
+<p>MySQL은 오픈소스이며 <strong>다중 사용자와 다중 스레드를 지원한다.</strong></p>
+<h3 id="데이터베이스-형식"><a href="#데이터베이스-형식" class="headerlink" title="데이터베이스 형식"></a>데이터베이스 형식</h3><hr>
+<p><img src="https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png" alt=""></p>
+<h3 id="EC2-에-mysql설치하기"><a href="#EC2-에-mysql설치하기" class="headerlink" title="EC2 에 mysql설치하기"></a>EC2 에 mysql설치하기</h3><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update -y</span><br><span class="line">sudo apt-get upgrade -y</span><br><span class="line"></span><br><span class="line"># MySQL 서버 설치</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line"></span><br><span class="line"># MySQK secure 설정</span><br><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="데이터베이스-모델링"><a href="#데이터베이스-모델링" class="headerlink" title="데이터베이스 모델링"></a>데이터베이스 모델링</h3><hr>
+<p>데이터베이스 모델링은 데이터베이스 에서의 테이블 구조를 미리 계획해서 작성하는 작업이다. RDBMS는 테이블간에 유기적으로 연결되어 있기 때문에 모델링을 잘하는 것이 중요하다. 기본적으로 <strong>개념적 모델링, 논리적 모델링, 물리적 모델링 절차로 설계된다.</strong></p>
+<p><strong>개념적 모델링(Conceptual Database Design): 업무분석해서 핵심 데이터의 집합을 정의하는 과정(어떠한 데이터들이 필요하는지)</strong></p>
+<p><strong>논리적 모델링(Logical Database design):개념적 모델링을 상세화 하는 과정(각 모델들을 연결시켜주는 과정이라고 생각하면된다)</strong></p>
+<p><strong>물리적 모델링(Physical Database Design): 논리적 모델링을 DBMS에 추가하기 위해 구체화 되는 과정(각 모델에 어떠한 필드들이 존재하는지 등등)</strong></p>
+<blockquote>
+<p>결론: Conceptual - Logical - Physical Database Desgin 3가지 과정이 존재한다</p>
+</blockquote>
+<h3 id="DML-DDL"><a href="#DML-DDL" class="headerlink" title="DML DDL"></a>DML DDL</h3><hr>
+<p><strong>Data Manipulation Language(DML)</strong>: </p>
+<ul>
+<li>데이터 조작어 </li>
+<li>SELECT, INSERT, UPDATE, DELETE</li>
+<li>트랜잭션이 발생하는 SQL문</li>
+</ul>
+<p><strong>Data Definition Language(DDL)</strong>: </p>
+<ul>
+<li>데이터 정의어</li>
+<li>데이터베이스, 테이블, 뷰, 인덱스등의 데이터베이스 개체를 생성, 삭제, 변경에 사용</li>
+<li>CREATE, DROP, ALTER, TRUNCATE</li>
+</ul>
+<h3 id="SELECT-컬럼-선택"><a href="#SELECT-컬럼-선택" class="headerlink" title="SELECT : 컬럼 선택"></a>SELECT : 컬럼 선택</h3><p>SELECT <column_name_1>, <column_name_2>, …<br>FROM <table_name>500</p>
+<h3 id="USE"><a href="#USE" class="headerlink" title="USE"></a>USE</h3><p>데이터베이스 선택</p>
+<p>USE <Database_name>;</p>
+<p>#alias: 컬럼의 이름을 변경할 수 있다.</p>
+<p>SELECT code as country_code, name as country_name</p>
+<p>FROM country</p>
+<h3 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h3><p>특정 조건을 주어 데이터를 검색하는데 사용되는 문법</p>
+<p>비교연산(&gt;,&lt;.&gt;=.&lt;=), 논리연산(AND, OR), 범위연산(BETWEEN),특정 조건을 포함(IN, NOT IN), 특정 문자열이 포함된 데이터(LIKE) 사용 가능</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># LIKE</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE GovernmentForm LIKE &quot;%Republic%&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># IN, NOT IN</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent !&#x3D; &quot;Asia&quot; AND Continent !&#x3D; &quot;Africa&quot;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent NOT IN(&quot;Asia&quot;,&quot;Africa&quot;)</span><br><span class="line"></span><br><span class="line"># BETWEEN</span><br><span class="line">SELECT * </span><br><span class="line">FROM country</span><br><span class="line">WHERE Population BETWEEN 7000000 AND 10000000</span><br><span class="line"></span><br><span class="line"># AND, OR</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Population &gt;&#x3D; 7000000 AND Population &lt;&#x3D; 10000000</span><br></pre></td></tr></table></figure>
+
+<h3 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h3><p>특정 컬럼의 값으로 데이터 정렬에 사용되는 문법</p>
+<p>ASC :arrow_right: 오름차순 (default 로 오름차순이기 때문에 생략 가능)</p>
+<p>DESC :arrow_right: 내림차순</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population ASC</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br><span class="line"></span><br><span class="line"># 국가 코드를 알파벳 순으로 정렬하고 같은 코드를 가지면 인구순으로 내림차순 정렬</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDERBY code ASC, population DESC</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h3><p>LIMIT는 조회하는 데이터의 수를 제한할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br><span class="line">LIMIT 5</span><br><span class="line"></span><br><span class="line"># 인구가 많은 상위 6위~8위의 3개 국가 데이터 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br><span class="line">LIMIT 5,3</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -664,103 +788,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/" class="post-title-link" itemprop="url">boto3 요약</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-01 13:13:03 / Modified: 23:07:23" itemprop="dateCreated datePublished" datetime="2020-02-01T13:13:03+09:00">2020-02-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Server-Deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">Server Deploy</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Boto3-Credentials"><a href="#Boto3-Credentials" class="headerlink" title="Boto3 Credentials"></a>Boto3 Credentials</h3><hr>
-<p><strong><em>Boto 는 다양한 방법으로 환경설정을 할 수있다. 그중 AWS Credentials 와 region은 꼭 가지고 있어야 한다.</em></strong></p>
-<p>Boto3설정을 할때 두가지 데이터가 존재한다: <strong>credential data 와 non-credential data</strong> 두가지이다.</p>
-<p>Credential data는 <strong><em>aws_access_key_id, aws_secret_access_key, aws_session_token</em></strong> 와 같은 데이터가 있고, non-credential data 에는 <strong>region</strong> 정보가 있다.</p>
-<p>Credential data 와 non Credential데이터에 의해 검색 과정이 달라질 수 있기 때문에 두가지 데이터를 잘 구분할 줄 알아야 한다. Boto3는 non-credenital data를 찾을때와는 다르게 credential data를 찾을때는 다양한 위치에서 credential data를 찾는다.</p>
-<p>boto3가 credential 데이터를 찾을때 credential data가 있을만한곳을 모두 검색을 하는데, 검색을 하는 순서는 다음과 같다:</p>
-<ol>
-<li><code>boto.client()</code> 메서드로 전달된 매개변수에 있는 credential 데이터</li>
-<li>Session 객체를 생성할 때 credential을 매개변수로 전달</li>
-<li>환경 변수</li>
-<li>공유되는 credential 파일 (<code>~/.aws/credentials</code>)</li>
-<li>AWS config파일(<code>~/.aws/config</code>)</li>
-<li>Assume Role Provider</li>
-<li>Boto2 config file(<code>/etc/boto.cfg and ~/.boto</code>)</li>
-<li>Amazon EC2(IAM role 보유)에 있는 인스턴스 Metadata 서비스</li>
-</ol>
-<h4 id="1-Client-Session-메소드의-파라미터로-credential-data-전달"><a href="#1-Client-Session-메소드의-파라미터로-credential-data-전달" class="headerlink" title="1. Client(), Session()메소드의 파라미터로 credential data 전달"></a>1. Client(), Session()메소드의 파라미터로 credential data 전달</h4><hr>
-<p>client 혹은 session을 생성할 때 매개변수로 credential data를 전달하는 방법이다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"></span><br><span class="line"><span class="comment"># client 를 즉시 생성</span></span><br><span class="line">client = boto3.client(</span><br><span class="line">	<span class="string">'s3'</span>,</span><br><span class="line">	<span class="string">'aws_access_key_id'</span>=ACCESS_KEY,</span><br><span class="line">	<span class="string">'aws_secret_access_key'</span>=SECRET_KEY,</span><br><span class="line">	<span class="string">'aws_session_token'</span>=SESSION_TOKEN</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 세션 생성후 세션으로 클라이언트 생성</span></span><br><span class="line">session = boto3.session(</span><br><span class="line">	<span class="string">'aws_access_key_id'</span>=ACCESS_KEY,</span><br><span class="line">	<span class="string">'aws_secret_access_key'</span>=SECRET_KEY,</span><br><span class="line">	<span class="string">'aws_session_token'</span>=SESSION_TOKEN</span><br><span class="line">)</span><br><span class="line">s3 = session.client(<span class="string">'s3'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>ACCESS_KEY, SECRET_KEY_SESSION_TOKEN 에 사용자의 접근키를 그대로 입력하는 방법을 추천하지 않는다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -833,18 +860,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
