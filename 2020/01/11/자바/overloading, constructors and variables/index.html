@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="오버로딩(Overloading) 메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다. 이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른">
+<meta property="og:type" content="article">
+<meta property="og:title" content="overloading,constructors and variables">
+<meta property="og:url" content="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/overloading,%20constructors%20and%20variables/index.html">
+<meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="오버로딩(Overloading) 메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다. 이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-11T11:12:26.000Z">
+<meta property="article:modified_time" content="2020-01-12T06:42:11.367Z">
+<meta property="article:author" content="Dohyeon Lee">
+<meta property="article:tag" content="Develop">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/overloading,%20constructors%20and%20variables/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>overloading,constructors and variables | Dev Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dev Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Web Development blog</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/%EC%9E%90%EB%B0%94/overloading,%20constructors%20and%20variables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          overloading,constructors and variables
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-11 20:12:26" itemprop="dateCreated datePublished" datetime="2020-01-11T20:12:26+09:00">2020-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-12 15:42:11" itemprop="dateModified" datetime="2020-01-12T15:42:11+09:00">2020-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="오버로딩-Overloading"><a href="#오버로딩-Overloading" class="headerlink" title="오버로딩(Overloading)"></a>오버로딩(Overloading)</h3><hr>
+<p>메서드도 변수와 마찬가지로 같은 클래스 내부에서 구별될 수 있어야 하기 때문에 각기 다른이름을 가져야한다. 그러나 자바에서는 한 클래스 내에 이미 사용하려는 이름과 동일한 이름을 가진 메서드가 있더라도 매개변수의 개수, 매개변수 타입이 다르면 다른 메서드로 간주한다.</p>
+<p>이처럼, 한 클래스 내부에 같은 메서드 이름을 갖지만 다른 동작을 하는 메서드를 <strong>메서드 오버로딩, 혹은 오버로딩</strong> 이라고 한다. </p>
+<h3 id="오버로딩을-사용하기-위한-조건"><a href="#오버로딩을-사용하기-위한-조건" class="headerlink" title="오버로딩을 사용하기 위한 조건"></a>오버로딩을 사용하기 위한 조건</h3><hr>
+<p>오버로딩을 하기 위해서는 다음과 같은 조건을 만족 시켜야한다.</p>
+<ol>
+<li>같은 클래스 내부에 동일 한 이름을 갖은 메서드가 존재 해야한다</li>
+<li>매개변수의 개수 또는 타입이 달라야한다</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">18</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제를 보면 People 이라는 클래스 내부에 두개의 People 디폴트 생성자 함수가 존재한다. 동일한 이름을 갖기 때문에 에러를 발생 시킬것 같지만, 둘은 다른 메서드 이다. 첫번째 생성자 함수는 두개의 매개변수(이름, 나이)를 입력해야 하지만 두번째 생성자 함수는 이름만입력을 하면 된다. </p>
+<p>메소드 오버로딩을 사용하게 되면:</p>
+<ol>
+<li>동일한 기능을 하는 메소드를 다른 이름으로 여러개를 만들 필요가 없다</li>
+<li>메소드의 이름을 절약할 수 있다.</li>
+</ol>
+<h3 id="가변인자-varargs-와-오버로딩"><a href="#가변인자-varargs-와-오버로딩" class="headerlink" title="가변인자(varargs) 와 오버로딩"></a>가변인자(varargs) 와 오버로딩</h3><hr>
+<p>가변인자(variable arguments): 동적으로 매개변수의 개수를 지정.</p>
+<p>가변인자는 <code>타입...변수명</code> 과 같은 형식으로 선언한다.</p>
+<ul>
+<li><code>public printStream printf(String format, Object... args) // 가변인자 사용방법</code></li>
+</ul>
+<a id="more"></a>
+
+<p><strong>가변인자는 매개변수의 맨 마지막에 선언해야 한다. 그렇지 않으면 컴파일 에러가 발생한다</strong></p>
+<ul>
+<li><code>public printStream printf(Object... args, String format) // 컴파일 에러</code></li>
+</ul>
+<p>가변 인자를 사용 예시</p>
+<p><code>String concatentate(String s1, String s2, String s3, String s4) { ... }</code> 을</p>
+<p><code>String concatenate(String...str){...}</code> 형식으로 바꿔주면 된다. 호출을 할때는 <code>String...str</code> 에 전달하고 싶은 인자를 다 넣어주면 된다.</p>
+<p><strong>가변인자는 내부적으로 배열을 사용하는 것이다. 그래서 가변 인자가 선언된 메서드를 호출할 때마다 배열이 새로 생성된다. 가변인자와 매개변수의 타입을 배열로 하는것에는 차이가 있다. 매개변수의 타입을 배열로 하면 반드시 인자를 지정해 줘야하기 때문이다. 하지만 가변인자를 사용하게 되면 배열의 크기와 인자를 지정해 줄 필요가 없이 동적으로 인자를 지정할 수 있다.</strong></p>
+<h4 id="생성자-Constructor"><a href="#생성자-Constructor" class="headerlink" title="생성자(Constructor)"></a>생성자(Constructor)</h4><hr>
+<p>생성자는 인스턴스가 생성될 때 호출되는 ‘인스턴스 초기화 메서드 이다’. 따라서 인스턴스 변호의 초기화 작어베 주로 사용되며, 인스턴스 생성 시에 실행되어야 할 작업을 위해서 도 사용한다.</p>
+<p>생성자의 특징:</p>
+<ul>
+<li>클래스 이름과 동일하다</li>
+<li>생성자는 리턴값이 없다. 즉 리턴 타입도 적어줄 필요가 없다.</li>
+</ul>
+<p><code>People james = new People()</code> </p>
+<p><strong>이 있을때 다음과 같은 과정을 통해서 인스턴스가 생성이 된다.</strong></p>
+<ol>
+<li>연선자 new에 의해서 힙 메모리 영역에 People클래스의 인스턴스가 생성이 된다.</li>
+<li>생성자 <code>People()</code>이 호출 되어 실행된다.</li>
+<li>연산자 new 의 결과로, 생성된 People 인스턴스의 주소가 반환이 되어 참조변수 james에 저장이 된다.(즉 클래스는 인스턴스의 주소를 반환하는것과 동일하다)</li>
+</ol>
+<h3 id="디폴트-생성자"><a href="#디폴트-생성자" class="headerlink" title="디폴트 생성자"></a>디폴트 생성자</h3><hr>
+<p>모든 클래스에는 <strong>디폴트 생성자 라는 것이 존재한다.</strong> 사용자가 직접 생성자를 적어주지 않더라도 <code>new 클래스명()</code>이 호출되면 디폴트 생성자가 자동으로 호출이 된다. 디폴트 생성자는 <code>클래스명(){}</code> 이다. </p>
+<p>만약에 생성자를 설정할 경우 인스턴스를 만들때 꼭 생성자의 형식에 맞게 적어서 인스턴스를 생성해야 한다.예를들어</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> value;</span><br><span class="line">  </span><br><span class="line">  Data(<span class="keyword">int</span> x)&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConstructorTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Data d1 = <span class="keyword">new</span> Data(<span class="number">10</span>); <span class="comment">// d1에 인스턴스의 메모리 주소 저장</span></span><br><span class="line">    Data d2 = <span class="keyword">new</span> Data(); <span class="comment">// 컴파일 에러.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제처럼 디폴트 생성자가 아닌 사용자 지정 생성자를 사용할 경우 꼭 지정한 생성자에 맞춰서 인스턴스를 생성해줘야 한다. 그렇지 않을 경우 에러가 발생한다.</p>
+<h3 id="생성자에서-다른-생성자-호출하기-–-this"><a href="#생성자에서-다른-생성자-호출하기-–-this" class="headerlink" title="생성자에서 다른 생성자 호출하기 – this()"></a>생성자에서 다른 생성자 호출하기 – <code>this()</code></h3><hr>
+<p>같은 클래스의 멤버들 간에 서로 호출할 수 있는것 처럼 생성자 간에도 서로 호출이 가능하다. 단 다음 두가지 조건을 맞춰야 한다.</p>
+<ol>
+<li>생성자의 이름으로 클래스이름 대신 this를 사용한다.</li>
+<li>한 생성자에서 다른 생성자를 호출할 때는 반드시 첫 줄어서만 호출이 가능하다.(생성자 내에서 초기화 작업 도중 다른 생성자를 호출하게 되면, 호출된 다른 생성자 내에서도 멤버변숴들의 값을 초기화 할 것이므로 다른 생성자를 호출하기 이전의 초기화 작업이 무의미 해질 수 있기 때문에 첫줄에서만 호출이 가능한 것이다.)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">  String color;</span><br><span class="line">  String gearType;</span><br><span class="line">  <span class="keyword">int</span> door;</span><br><span class="line">  </span><br><span class="line">	Car()&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="string">"white"</span>,<span class="string">"auto"</span>,<span class="number">4</span>); <span class="comment">// Car(String color, String gearType, int door) 을 호출한 것</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  Car(String color)&#123;</span><br><span class="line">    <span class="keyword">this</span>(color, <span class="string">"auto"</span>,<span class="number">4</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  Car(String color, String gearType, <span class="keyword">int</span> door)&#123;</span><br><span class="line">		<span class="keyword">this</span>.color = color;</span><br><span class="line">    <span class="keyword">this</span>.gearType = gearType;</span><br><span class="line">    <span class="keyword">this</span>.door = door;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>this</code>는 참조변수로 인스턴스 자신을 가리킨다. 참조변수를 통해 인스턴스의 멤버에 접근할 수 있는 것처럼 <code>this</code>로 인스턴스 변수에 접근할 수 있다. <strong><code>this</code> 를 사용할 수 있는 것은 인스턴스 멤버뿐이다. 왜냐하면 정적 메서드는 인스턴스를 생성하지 않고도 호출 될 수 있으므로 static 메서드가 호출된 시점에 인스턴스가 존재하지 않을 수도 있기 때문이다.</strong></p>
+<h3 id="생성자를-이용한-인스턴스-복사"><a href="#생성자를-이용한-인스턴스-복사" class="headerlink" title="생성자를 이용한 인스턴스 복사"></a>생성자를 이용한 인스턴스 복사</h3><hr>
+<p>현재 사용하고 있는 인스턴스와 같은 상태의 인스턴스를 하나 더 만들고 싶을때 생성자를 이용해서 할 수 있다. 두 인스턴스가 같은 상태를 갖는다는 것은 두 인스턴스의 모든 인스턴스 변수가 동일한 값을 갖고 있다는 것을 뜻한다.</p>
+<p>하나의 클래스로 부터 생성된 모든 인스턴스의 메서드와 클래스변수는 서로 동일하기 때문에 인스턴스 간의 차이는, 인스턴스마다 각기 다른 값을 가질 수 있는 인스턴스변수 뿐이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">  String color;</span><br><span class="line">  String gearType;</span><br><span class="line">  <span class="keyword">int</span> door;</span><br><span class="line">  </span><br><span class="line">  Car()&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="string">"white"</span>,<span class="string">"auto"</span>,<span class="number">4</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  Car(Car c)&#123;</span><br><span class="line">    color = c.color;</span><br><span class="line">    gearType = c.gearType;</span><br><span class="line">    door = c.door;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  Car(String color, String gearType, <span class="keyword">int</span> door)&#123;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">    <span class="keyword">this</span>.gearType = gearType;</span><br><span class="line">    <span class="keyword">this</span>.door = door;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CarTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Car c1 = <span class="keyword">new</span> Car();</span><br><span class="line">    Car c2 = <span class="keyword">new</span> Car(c1) <span class="comment">// c1의 복사본을 생성</span></span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>c2의 색, 기어타입, 문의 개수 는 생성자로 전달된 c1인스턴스의 색, 기어타입, 문의 개수와 동일해진다. 이렇게 생성자를 이용해서 두 인스턴스의 멤버 변수를 동일하게 할 수 있다.</p>
+<h3 id="변수의-초기화"><a href="#변수의-초기화" class="headerlink" title="변수의 초기화"></a>변수의 초기화</h3><hr>
+<p>변수를 선언하고 처음으로 값을 저장하는 것을 변수의 초기화 라고 한다. 멤버 변수는 선언과 동시에 초기화를 안해도 자료형에 맞는 기본값으로 초기화가 이루어지므로 초기화하지 않고 사용해도 되지만, <strong>지역변수는 사용하기 전에 반드시 초기화 해야 한다.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InitTest</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x;</span><br><span class="line">  <span class="keyword">int</span> y = x;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  	<span class="keyword">int</span> i;</span><br><span class="line">  	<span class="keyword">int</span> j = i; <span class="comment">//에러. 지역변수를 초기화 하지 않고 사용</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 인스턴스 변수 x는 초기화를 해주지 않아도 자동적으로 Int형의 기본값인 0으로 초기화 되므로, int y = x 를 할 수 있다. x의 값이 0 이므로 y의 값도 0이된다.</span></span><br><span class="line"><span class="comment">// 지역변수 i 와 j는 자동으로 초기화 되지 않는다.</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>멤버변수(클래스 변수와 인스턴스 변수)와 배열의 초기화는 선택적이지만, 지역변수의 초기화는 필수적이다.</strong></p>
+<p>멤버변수의 초기화 방법은 다음과 같다</p>
+<ol>
+<li>명시적 초기화(explicit initialization)</li>
+<li>생성자</li>
+<li>초기화 블럭(Initialization block)<ul>
+<li>인스턴스 초기화 블럭</li>
+<li>클래스 초기화 블럭</li>
+</ul>
+</li>
+</ol>
+<h3 id="명시적-초기화-블럭"><a href="#명시적-초기화-블럭" class="headerlink" title="명시적 초기화 블럭"></a>명시적 초기화 블럭</h3><hr>
+<p>변수를 선언하고 초기화하는 것을 명시적 초기화 라고 한다. 가장 기본적이면서도 간단한 초기화 방법이므로 여러 초기화 방법중에서 가장 우선적으로 고려되어야 한다</p>
+<p><code>int x = 10;</code></p>
+<p><code>Engine e = new Engine()</code></p>
+<h3 id="초기화-블럭"><a href="#초기화-블럭" class="headerlink" title="초기화 블럭"></a>초기화 블럭</h3><hr>
+<p>초기화 블럭에는 클래스 초기화 블럭과 인스턴스 초기화 블럭 두가지 종류가 있다. <strong>클래스 초기화 블럭은 클래스변수의 초기화에 사용되고, 인스턴스 초기화 블럭은 인스턴스 변수의 초기화에 사용이 된다</strong></p>
+<blockquote>
+<p>클래스 초기화 블럭 - 클래스변수의 복잡한 초기화에 사용된다</p>
+<p>인스턴스 초기화 블럭 - 인스턴스 변수의 복잡한 초기화에 사용된다</p>
+</blockquote>
+<p>인스턴스 초기화 블럭은 클래스 내부에 <code>{}</code>를 선언하고 그 내부에 작성하는 코드들을 의미한다.</p>
+<p>클래스 초기화 블럭은 클래스 내부에 <code>static{}</code>를 선언하고 내부에 선언하는 변수/메서드.</p>
+<p>클래스 초기화 블럭은 클래스가 메모리에  처음로딩될 때 한번만 수행되면, 인스턴스 초기화 블럭은 생성자와 같이 인스턴스를 생성할 때마다 수행된다.</p>
+<p><strong>클래스가 메모리에 로딩 -&gt; 클래스 초기화 블럭 수행(내부에는 static 클래스 변수와 static 클래스 메서드) -&gt; new 를 이용해서 인스턴스를 생성 -&gt; 인스턴스 초기화 블럭 실행 -&gt; 생성자 함수 실행</strong></p>
+<p><strong>생성자보다 인스턴스 초기화 블럭이 먼저 수행된다</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Car()&#123;</span><br><span class="line">  count++;</span><br><span class="line">  serailNo = count;</span><br><span class="line">  color = <span class="string">"white"</span>;</span><br><span class="line">  gearType = <span class="string">"Auto"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car(String color, String gearType, <span class="keyword">int</span> door)&#123;</span><br><span class="line">  count++;</span><br><span class="line">  serailNo = count;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">  <span class="keyword">this</span>.door = door;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 위에서 보면 두 생성자의 첫 두 문장이 중복된다. 첫두문장을 빼서 인스턴스 최기화 블럭에 넣어주면 더 간단하다</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인스턴스 초기화 블럭</span></span><br><span class="line">&#123;</span><br><span class="line">  count++;</span><br><span class="line">  serailNo = count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 클래스 초기화 블럭</span></span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">  Boolean isCar = True;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 두 생성자 함수의 첫 두 문장을 삭제한다. 인스턴스 초기화 블럭이 먼저 호출이된다.</span></span><br><span class="line">Car()&#123;</span><br><span class="line">  color = <span class="string">"white"</span>;</span><br><span class="line">  gearType = <span class="string">"Auto"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car(String color, String gearType, <span class="keyword">int</span> door)&#123;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">  <span class="keyword">this</span>.door = door;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="멤버변수의-초기화-시기와-순서-IMPORTANT"><a href="#멤버변수의-초기화-시기와-순서-IMPORTANT" class="headerlink" title="멤버변수의 초기화 시기와 순서(IMPORTANT!!)"></a>멤버변수의 초기화 시기와 순서(IMPORTANT!!)</h3><hr>
+<p><strong>클래스 변수의 초기화 시점: 클래스가 처음 로딩될 때 단 한번 초기화된다.</strong></p>
+<p><strong>인스턴스 변수의 초기화 시점: 인스턴스가 생성될 때마다 각 인스턴스 별로 초기화가 이루어진다.</strong></p>
+<p><strong>클래스 변수의 초기화 순서: 기본값 -&gt; 명시적 초기화 -&gt; 클래스 초기화 블럭</strong></p>
+<p><strong>인스턴스 변수의 초기화 순서: 기본값 -&gt; 명시적 초기화 -&gt; 인스턴스 초기화 블럭 -&gt; 생성자</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InitTest</span></span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> cv = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> iv = <span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//클래스 초기화 블럭</span></span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    cv = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//인스턴스 초기화 블럭</span></span><br><span class="line">  &#123;</span><br><span class="line">    iv = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Develop/" rel="tag"># Develop</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/" rel="prev" title="class/instance methods and variables">
+      <i class="fa fa-chevron-left"></i> class/instance methods and variables
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/" rel="next" title="overriding">
+      overriding <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#오버로딩-Overloading"><span class="nav-number">1.</span> <span class="nav-text">오버로딩(Overloading)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#오버로딩을-사용하기-위한-조건"><span class="nav-number">2.</span> <span class="nav-text">오버로딩을 사용하기 위한 조건</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#가변인자-varargs-와-오버로딩"><span class="nav-number">3.</span> <span class="nav-text">가변인자(varargs) 와 오버로딩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#생성자-Constructor"><span class="nav-number">3.1.</span> <span class="nav-text">생성자(Constructor)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#디폴트-생성자"><span class="nav-number">4.</span> <span class="nav-text">디폴트 생성자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#생성자에서-다른-생성자-호출하기-–-this"><span class="nav-number">5.</span> <span class="nav-text">생성자에서 다른 생성자 호출하기 – this()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#생성자를-이용한-인스턴스-복사"><span class="nav-number">6.</span> <span class="nav-text">생성자를 이용한 인스턴스 복사</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#변수의-초기화"><span class="nav-number">7.</span> <span class="nav-text">변수의 초기화</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#명시적-초기화-블럭"><span class="nav-number">8.</span> <span class="nav-text">명시적 초기화 블럭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#초기화-블럭"><span class="nav-number">9.</span> <span class="nav-text">초기화 블럭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#멤버변수의-초기화-시기와-순서-IMPORTANT"><span class="nav-number">10.</span> <span class="nav-text">멤버변수의 초기화 시기와 순서(IMPORTANT!!)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

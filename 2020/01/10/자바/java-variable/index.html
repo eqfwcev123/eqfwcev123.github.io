@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="자바의 변수와 메서드    변수의 종류 선언위치 생성 시기    클래스 변수 클래스 영역 클래스가 메모리에 올라갈 때   인스턴스 변수 클래스 영역 인스턴스가 생성될 때   지역 변수 클래스 영역 이외의 영역(메서드, 생성자, 초기화 블럭 내부) 변수 선언문이 수행될 때   인스턴스 변수 클래스의 영역에 선언되며, 클래스의 인스턴스를 생성할 때 만들어진다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java variable">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/%EC%9E%90%EB%B0%94/java-variable/index.html">
+<meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="자바의 변수와 메서드    변수의 종류 선언위치 생성 시기    클래스 변수 클래스 영역 클래스가 메모리에 올라갈 때   인스턴스 변수 클래스 영역 인스턴스가 생성될 때   지역 변수 클래스 영역 이외의 영역(메서드, 생성자, 초기화 블럭 내부) 변수 선언문이 수행될 때   인스턴스 변수 클래스의 영역에 선언되며, 클래스의 인스턴스를 생성할 때 만들어진다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/26023287/72150182-4453e700-33e8-11ea-8ab7-731fd6c110d4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/26023287/72199095-6ac26280-347a-11ea-814c-87cee7d26b75.png">
+<meta property="article:published_time" content="2020-01-10T12:21:44.000Z">
+<meta property="article:modified_time" content="2020-01-13T00:49:41.767Z">
+<meta property="article:author" content="Dohyeon Lee">
+<meta property="article:tag" content="Develop">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/26023287/72150182-4453e700-33e8-11ea-8ab7-731fd6c110d4.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/10/%EC%9E%90%EB%B0%94/java-variable/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>java variable | Dev Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dev Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Web Development blog</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/10/%EC%9E%90%EB%B0%94/java-variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java variable
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-10 21:21:44" itemprop="dateCreated datePublished" datetime="2020-01-10T21:21:44+09:00">2020-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-13 09:49:41" itemprop="dateModified" datetime="2020-01-13T09:49:41+09:00">2020-01-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="자바의-변수와-메서드"><a href="#자바의-변수와-메서드" class="headerlink" title="자바의 변수와 메서드"></a>자바의 변수와 메서드</h3><hr>
+<table>
+<thead>
+<tr>
+<th>변수의 종류</th>
+<th>선언위치</th>
+<th>생성 시기</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>클래스 변수</td>
+<td>클래스 영역</td>
+<td>클래스가 메모리에 올라갈 때</td>
+</tr>
+<tr>
+<td>인스턴스 변수</td>
+<td>클래스 영역</td>
+<td>인스턴스가 생성될 때</td>
+</tr>
+<tr>
+<td>지역 변수</td>
+<td>클래스 영역 이외의 영역(메서드, 생성자, 초기화 블럭 내부)</td>
+<td>변수 선언문이 수행될 때</td>
+</tr>
+</tbody></table>
+<h3 id="인스턴스-변수"><a href="#인스턴스-변수" class="headerlink" title="인스턴스 변수"></a>인스턴스 변수</h3><hr>
+<p>클래스의 영역에 선언되며, 클래스의 인스턴스를 생성할 때 만들어진다. 그렇기 때문에 인스턴스 변수의 값을 읽어 오거나 저장하기 위해서는 먼저 인스턴스를 생성해야한다. 인스턴스는 <strong>독립적인 저장 공간</strong> 을 가지므로 <strong>서로 다른 값을 가질 수 있다</strong>. 인스턴스마다 고유한 상태를 유지해야하는 속성의 경우 인스턴스 변수를 선언 한다</p>
+<h3 id="클래스-변수-static"><a href="#클래스-변수-static" class="headerlink" title="클래스 변수(static)"></a>클래스 변수(static)</h3><hr>
+<p>클래스 변수를 선언하는 방법은 인스턴스 변수 앞에 <code>static</code>을 붙이기만 하면 된다. 인스턴스마다 독립적인 저장공간을 갖는 인스턴스 변수와는 달리, 클래스 변수는 모든 인스턴스가 공통된 저장공간을 공유하게 된다. 한 클래스의 모든 인스턴스들이 공통적인 값을 유지해야 하는 속성의 경우, 클래스 변수를 선언해야한다.</p>
+<p>클래스 변수는 인스턴스변수와 달리 인스턴스를 생성하지 않고도 사용할 수 있다. 하지만 인스턴스를 생성하지 않고 사용을 하기 때문에 <code>클래스명.클래스변수</code> 형식으로 사용한다. <code>People</code> 이라는 클래스가 있고,  <code>isHuman</code> 이라는 클래스 변수가 있을 경우 <code>People.isHuman</code> 을 해서 클래스 변수를 호출 한다.</p>
+<p>클래스가 메모리에 로딩될 때 생성되어 프로그램이 종료될 때 가지 유지되며, public 을 앞에 붙이면 같은 프로그램 내에서 어디서나 접근할 수 있는 전역 변수의 성격을 갖게된다.</p>
+<h3 id="지역-변수"><a href="#지역-변수" class="headerlink" title="지역 변수"></a>지역 변수</h3><hr>
+<p>메서드 내에 선언되어 메서드 내에서만 사용할 수 있는 변수이다. 메서드가 종료되면 소멸되어 사용할 수 없게 된다. for문 이나 if 문, 또는 while 문의 블록 내에 선언된 (<code>{}</code>로 감싸져 있는 함수혹은 문)변수들은 지역변수이며 해당 문이 종료될 때 내부에서 선언된 인스턴스 변수도 소멸한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예제(포커카드)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Card</span></span>&#123;</span><br><span class="line">  String kind; <span class="comment">// 스페이드, 하트, 클로버, 다이아몬드</span></span><br><span class="line">  <span class="keyword">int</span> number; <span class="comment">// 1~10, J, Q, K</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 카드의 가로,세로 길이</span></span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> width = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> height= <span class="number">250</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Card c1 = <span class="keyword">new</span> Card();</span><br><span class="line">    c1.kind = <span class="string">'스페이드'</span>;</span><br><span class="line">    c1.number = <span class="number">3</span></span><br><span class="line">      </span><br><span class="line">    Card c2 = <span class="keyword">new</span> Card();</span><br><span class="line">    c2.kind = <span class="string">'클로버'</span>;</span><br><span class="line">    c2.number = <span class="number">5</span></span><br><span class="line">      </span><br><span class="line">   	System.out.println(<span class="string">"c1은 "</span>+c1.kind+<span class="string">" 모양을 가지고 있고 "</span>+ c1.number+<span class="string">" 숫자를 가지고 있습니다. 크기는 "</span> +Card.width +<span class="string">" 와 "</span>+Card.height+<span class="string">" 입니다"</span>)</span><br><span class="line">    System.out.println(<span class="string">"c2은 "</span>+c2.kind+<span class="string">" 모양을 가지고 있고 "</span>+ c2.number+<span class="string">" 숫자를 가지고 있습니다. 크기는 "</span> +Card.width +<span class="string">" 와 "</span>+Card.height+<span class="string">" 입니다"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>인스턴스 변수는 인스턴스가 생성될 때 마다 생성되므로 인스턴스마다 각기 다른 값을 유지할 수 있지만, 클래스 변수는 모든 인스턴스가 하나의 저장 공간을 공유하므로 항상 공통된 값을 갖는다.</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="멤버변수와-지역-변수의-메모리-구조"><a href="#멤버변수와-지역-변수의-메모리-구조" class="headerlink" title="멤버변수와 지역 변수의 메모리 구조"></a>멤버변수와 지역 변수의 메모리 구조</h3><hr>
+<img src="https://user-images.githubusercontent.com/26023287/72150182-4453e700-33e8-11ea-8ab7-731fd6c110d4.png" style="zoom:50%;" />
+
+<p>자바에서 메모리를 3등분을 시키는데 만약 우리가 프로그램을 컴파일 시키면 먼저 모든 클래스 파일을 메모리의 최상단 부분에 로딩 시킨다. 이때 컴파일된 클래스 파일이 로드될 때 클래스 변수들도 모두 할당이 된다. 즉 인스턴스 생성 없이 바로 클래스 변수(<code>static 변수</code>)가 생성이된다. 클래스 파일의 정적 메소드와 정적 변수를 저장하는 공간을 <strong>메소드 공간(Method Area)라고 부른다</strong></p>
+<p>Call stack 영역에는 메인 메소드와 지역 변수, 그리고 메소드의 매개변수가 저장이된다. Call Stack 에 들어가는 데이터는 동적 데이터로서 프로그램 실행도중 함수가 호출이되면 해당 함수가 콜스텍에 쌓이게 된다. 함수가 호출되면 해당 함수가 갖고있는 모든 지역 변수들이 콜스텍에 생성이 되고, 함수가 종료될때 내부의 지역변수들도 삭제된다.  <strong>스택 영역에는 임시로 생성되는 데이터들이 저장이 된다. 함수처럼 함수호출이 실행되면 콜스텍에 생성이 되고, 함수호출이 종료되면 사라지는 형식이다.</strong></p>
+<p>인스턴스를 생성하게 되면 참조변수가 힙영역 안에있는 해당 객체(인스턴스)를 가리킨다. 메모리상 최 하단의 마지막에 Heap 인스턴스 객체가 생성이 된다. 다시말해 인스턴스 변수도 힙 영역에 들어가게 된다. 인스턴스 변수는 콜스텍에 있는 지역 변수와 다르게 <strong>함수호출이 끝나도 사라지지 않는다. 인스턴스 변수가 사라지는 시점은 인스턴스변수를 아무도 참조를 하지 않아서 가비지 컬렉터(Garbage collector)가 가져갈때이다(혹은 JVM이 종료될때).</strong></p>
+<blockquote>
+<p>자바의 8가지 원시타입(Primitive type)을 제외한 다른 타입들은 레퍼런스 변수(참조 변수)이다.</p>
+<p><strong>참조변수</strong> 들은 실행될 때마다 많은 데이터들을 스택 메모리 영역에 뒀다 뺐다 하는게 비효율 적이므로, 힙 영역에 그 내용이 저장되고, 스택 메모리에는 주소만 저장을 한다.</p>
+</blockquote>
+<h3 id="기본형-매개변수와-참조형-매개변수"><a href="#기본형-매개변수와-참조형-매개변수" class="headerlink" title="기본형 매개변수와 참조형 매개변수"></a>기본형 매개변수와 참조형 매개변수</h3><hr>
+<p>자바에서는 메서드를 호출할 때 매개변수로 지정한 값을 메서드의 매개변수에 복사해서 넘겨준다. 매개변수의 타입이 기본형일 때는 기본형 값이 복사되지만, 참조형이면 인스턴스의 <strong>주소가 복사된다.</strong></p>
+<p>메서드의 매개변수를 기본형으로 선언하면 단순히 지정된 값만 얻어오지만, 참조형으로 선언하면 값이 저장된 곳의 주소를 알 수 있기 때문에 값을 읽어 오는 것은 물론 값을 변경하는것도 가능하다.</p>
+<p><strong>기본형은 값을 복사, 참조형은 값의 주소값을 복사</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123; <span class="keyword">int</span> x; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimitiveExample</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Data d = <span class="keyword">new</span> Data();</span><br><span class="line">    d.x = <span class="number">10</span>;</span><br><span class="line">    System.out.println(d.x) <span class="comment">// 10</span></span><br><span class="line">    change(d.x);</span><br><span class="line">    System.out.println(d.x) <span class="comment">// 10</span></span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    x = <span class="number">1000</span>;</span><br><span class="line">    System.out.println(x) <span class="comment">// 1000</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제에서는 <code>change()에 원시타입인 d.x=10 이 전달되었기 매개변수로 전달되었기 때문에 10이라는 값이 change에 복사되어서 전달된 것이다.</code></p>
+<p>다음 예제는 다르게 동작한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123; <span class="keyword">int</span> x; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimitiveExample</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Data d = <span class="keyword">new</span> Data();</span><br><span class="line">    d.x = <span class="number">10</span>;</span><br><span class="line">    System.out.println(d.x) <span class="comment">// 10</span></span><br><span class="line">    change(d);</span><br><span class="line">    System.out.println(d.x) <span class="comment">// 1000</span></span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(Data d)</span></span>&#123; <span class="comment">// d의 값이 0x100이라고 하면 Change에 0x100이 전달되는 것이다.</span></span><br><span class="line">    d.x = <span class="number">1000</span>;</span><br><span class="line">    System.out.println(x) <span class="comment">// 1000</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>전 예제와 다르게 <code>change() 함수에 d Data타입 인스턴스가 전달이 되었다.</code> 객체타입이 매개변수로 전달이 되었기 때문에 힙에있는 d인스턴스 객체를 가리키고있는 main 의 d참조변수의 참조값이 <code>change()</code>에 전달이 된다.</p>
+<p><strong>다시 말해 매개변수에 원시타입 데이터가 전달이 될지, 참조타입 데이터가 전달될지에 따라 데이터가 변경될 수 있거는 변경이 안될수 도 있다.</strong></p>
+<h3 id="참조형-반환타입"><a href="#참조형-반환타입" class="headerlink" title="참조형 반환타입"></a>참조형 반환타입</h3><hr>
+<p>매개변수 뿐만 아니라 반환타입도 참조형이 될 수 있다. 반환 타입이 참조형이라는 것은 반환하는 값의 타입이 참조형이라는 건데, 모든 참조형 타입의 값은 객체의 주소값 이므로 그저 정수값이 반환되는 것일 뿐 특별한 것은 없다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123; <span class="keyword">int</span> x; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReferenceReturnExample</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Data d = <span class="keyword">new</span> Data();</span><br><span class="line">    d.x = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    Data d2 = copy(d) <span class="comment">// tmp 의 주소값이 반환된다.</span></span><br><span class="line">    System.out.println(d.x) <span class="comment">// 10</span></span><br><span class="line">    System.out.println(d2.x) <span class="comment">// 10</span></span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Data <span class="title">copy</span><span class="params">(Data d)</span></span>&#123; <span class="comment">// 반환값이 tmp, 즉 참조 객체이기 때문에 Data 이다.</span></span><br><span class="line">    Data tmp =  <span class="keyword">new</span> Data();</span><br><span class="line">    tmp.x = d.x;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>d 라는 인스턴스를 생성하고 인스턴변수 x 에 10을 할당했다. 새로운 Data타입 참조변수 d2를 생성하고 copy(d)의 반환값을 할당하는데, copy 함수에 d인스턴스를 인자로 넣어주었다. copy 함수는 d 인스턴스를 받고, 내부에 새로운 참조변수인 tmp를 생성하고 tmp인스턴스를 가리키게 만든다. tmp.x = d.x 를 하면서 tmp참조변수가 가리키는 인스턴스 객체의 x 인스턴스 변수는 d 참조변수가 가리키는 인스턴스 객체의 x 인스턴스 변수와 동일하게 만든다. 아래 그림을 보면 </p>
+<img src="https://user-images.githubusercontent.com/26023287/72199095-6ac26280-347a-11ea-814c-87cee7d26b75.png" style="zoom:40%;" />
+
+<p>d 는 0x100이라는 주소값을 갖고 tmp는 0x101이라는 주소값을 갖는다. tmp.x = d.x를 하면 <code>0x101.x = 0x100.x</code> 를 하는것과 동일하며 tmp.x 는 d.x와 동일하게된다. copy함수가 종료되며 tmp의 주소값인 0x101이 main함수에 반환되고 d2변수는 tmp의 주소값인 0x101을 갖는다. 마지막에 <code>println()</code>을 해보면 d1.x 와 d2.x의 값이 동일하다는걸 알 수 있다.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Develop/" rel="tag"># Develop</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/" rel="prev" title="inheritance">
+      <i class="fa fa-chevron-left"></i> inheritance
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/11/%EC%9E%90%EB%B0%94/class-instance-method-variable/" rel="next" title="class/instance methods and variables">
+      class/instance methods and variables <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#자바의-변수와-메서드"><span class="nav-number">1.</span> <span class="nav-text">자바의 변수와 메서드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#인스턴스-변수"><span class="nav-number">2.</span> <span class="nav-text">인스턴스 변수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#클래스-변수-static"><span class="nav-number">3.</span> <span class="nav-text">클래스 변수(static)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#지역-변수"><span class="nav-number">4.</span> <span class="nav-text">지역 변수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#멤버변수와-지역-변수의-메모리-구조"><span class="nav-number">5.</span> <span class="nav-text">멤버변수와 지역 변수의 메모리 구조</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#기본형-매개변수와-참조형-매개변수"><span class="nav-number">6.</span> <span class="nav-text">기본형 매개변수와 참조형 매개변수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#참조형-반환타입"><span class="nav-number">7.</span> <span class="nav-text">참조형 반환타입</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

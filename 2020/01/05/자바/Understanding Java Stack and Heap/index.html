@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Process  A program in execution is often referred as process and a thread is a subset of a process.   A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Understanding Process, Thread and Data structures">
+<meta property="og:url" content="http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/index.html">
+<meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="Process  A program in execution is often referred as process and a thread is a subset of a process.   A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread pr">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-05T14:57:00.000Z">
+<meta property="article:modified_time" content="2020-01-05T16:50:07.794Z">
+<meta property="article:author" content="Dohyeon Lee">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="develop">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Understanding Process, Thread and Data structures | Dev Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dev Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Web Development blog</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dohyeon Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Understanding Process, Thread and Data structures
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-05 23:57:00" itemprop="dateCreated datePublished" datetime="2020-01-05T23:57:00+09:00">2020-01-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-06 01:50:07" itemprop="dateModified" datetime="2020-01-06T01:50:07+09:00">2020-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><hr>
+<ul>
+<li><p>A program in execution is often referred as process and a thread is a subset of a process. </p>
+</li>
+<li><p>A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread process).</p>
+</li>
+<li><p>Inside a Process contains 4 different memory area: <strong>Data, Code, Stack, Heap</strong></p>
+</li>
+</ul>
+<h3 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h3><hr>
+<p>A unit of work that runs independently within a process. Specifically, a unit of work or task managed by the operating system. Threads and tasks (or tasks) can be used interchangeably.</p>
+<ol>
+<li>A single process is occured by JVM and statements within <code>main()</code>are a single thread.</li>
+<li>To create another thread other than <code>main ()</code>, either inherit the Thread class or implement the Runnable interface. </li>
+<li>In multi-threaded operation, each thread can send and receive information to reduce errors in processing.</li>
+<li>Processes cannot send or receive information with each other.</li>
+</ol>
+<a id="more"></a>
+
+<p>![스크린샷 2020-01-05 오후 7.27.54](/Users/idohyeon/Library/Application Support/typora-user-images/스크린샷 2020-01-05 오후 7.27.54.png)</p>
+<p>Whenever a process is executed, it is allocated with 4 different memory area: Code, Data, Stack and Heap. Bascially, a thread is simulataneously created when a process is created. This thread is called the <strong>main thread</strong> and unless a new thread is created, every program codes will be executed on the main thread. Every process  posses its own memory address and will be executed on its own memory address. In order for a thread to access another thread’s resources(variables or methods), a inter-process communication (IPC) is required between each threads.</p>
+<h3 id="Code-Area"><a href="#Code-Area" class="headerlink" title="Code Area"></a>Code Area</h3><hr>
+<p>The Code Area, also called the Text area, is an area where codes that will be executed by the program are stored. codes inside the Code Area are accessed by CPU and will be compiled one at at time.</p>
+<h3 id="Data-Area"><a href="#Data-Area" class="headerlink" title="Data Area"></a>Data Area</h3><hr>
+<p>An area where Static Methods and Static variables are stored. Static variables/methods will be allocated at the beginning of the program and will be destroyed when the program ends.</p>
+<h3 id="Stack-Area"><a href="#Stack-Area" class="headerlink" title="Stack Area"></a>Stack Area</h3><hr>
+<p>The stack area of memory is the area where local variables and parameters related to function calls are stored. The stack area is allocated with the call to the function and is destroyed when the function call completes. The stack area stores data in push operations and fetches data in pop operations. This stack operates according to Last-In First-Out (LIFO), thus the latest stored data is fetched first. </p>
+<h3 id="Heap-Area"><a href="#Heap-Area" class="headerlink" title="Heap Area"></a>Heap Area</h3><hr>
+<p>The Heap area is an area which can be managed by the user. The heap area is dynamically allocated and freed by the user.</p>
+<h3 id="Stack-static-memory-allocation"><a href="#Stack-static-memory-allocation" class="headerlink" title="Stack(static memory allocation)"></a>Stack(static memory allocation)</h3><hr>
+<ul>
+<li>A stack is a type of data structure that stores data of the same type in a sequential one to one order. When we extract and insert data from the stack, we can only access the end of the sequence which is the data that is pushed most recently. The new data is placed on top of the stack, and when extracting data, we only have access to the most recently inserted data (top level).<br>For this reason, the stack is often referred to as “LIFO data structure (Last In First Out)”, which means that the most recent entry comes first.</li>
+<li>The stack is also used by the JVM to run Java programs. Each thread has one stack and tracks all the methods. Every time when new methods are called, a new frame is inserted on the stack, and each time the method ends, it is removed from the stack.</li>
+<li>Data Types that are stored in stack area:<ul>
+<li>Integer type: byte/char/short/int</li>
+<li>Real Integer type: float/double</li>
+<li>boolean type: boolean</li>
+</ul>
+</li>
+<li>all the types state above are primititive types and have a fixed data size.</li>
+</ul>
+<h3 id="Heap-Heap-memory-allocation"><a href="#Heap-Heap-memory-allocation" class="headerlink" title="Heap(Heap memory allocation)"></a>Heap(Heap memory allocation)</h3><hr>
+<ul>
+<li><p>Dynamic memory allocation refers to the allocation of memory space for use during runtime in computer programming. When you’re done, you can return it for use by the operating system and reassign it the next time it’s requested. In contrary to static memory allocation, where the allocation of memory is made taking into account the amount of memory the program will use at the moment it runs.</p>
+</li>
+<li><p>Dynamically allocated memory space remains until the programmer explicitly releases it or the garbage collector(GC) releases the data. Dynamic allocation is allocated to the heap of the process. When the process terminates, the memory resources are returned to the operating system and is automatically freed. However, if the process continues to run, dynamically allocated space is retained, so if a program requests memory allocation beyond the size of a given heap, the memory cannot be allocated due to the lack of memory space. Therefore, it is more efficient for a programmer to use functions(methods) to return used heap area and free up heap area spaces. In Java, the Garbage collector automatically collects unused memory and free up the space.</p>
+</li>
+<li><p>Data Types that are stored in Heap area:</p>
+<ul>
+<li>Array</li>
+<li>Enum</li>
+<li>Class</li>
+<li>Interface</li>
+</ul>
+</li>
+<li><p>The heap area is a space where objects and arrays are created and stores reference types (arrays, enumerations, classes, interfaces) in the form of memory addresses.</p>
+</li>
+<li><p>The size of each data structures are flexible(size of the data are not fixed).</p>
+</li>
+<li><p>If the memory address is not referenced, the memory will be automatically freed by Garbage collector</p>
+</li>
+</ul>
+<h3 id="Relationship-between-Stack-and-Heap"><a href="#Relationship-between-Stack-and-Heap" class="headerlink" title="Relationship between Stack and Heap"></a>Relationship between Stack and Heap</h3><hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+              <a href="/tags/develop/" rel="tag"># develop</a>
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/03/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/Prototype/" rel="prev" title="JavaScript Prototype">
+      <i class="fa fa-chevron-left"></i> JavaScript Prototype
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/06/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/Queue/" rel="next" title="Queue 자료구조">
+      Queue 자료구조 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Process"><span class="nav-number">1.</span> <span class="nav-text">Process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread"><span class="nav-number">2.</span> <span class="nav-text">Thread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Area"><span class="nav-number">3.</span> <span class="nav-text">Code Area</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Area"><span class="nav-number">4.</span> <span class="nav-text">Data Area</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-Area"><span class="nav-number">5.</span> <span class="nav-text">Stack Area</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap-Area"><span class="nav-number">6.</span> <span class="nav-text">Heap Area</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-static-memory-allocation"><span class="nav-number">7.</span> <span class="nav-text">Stack(static memory allocation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap-Heap-memory-allocation"><span class="nav-number">8.</span> <span class="nav-text">Heap(Heap memory allocation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relationship-between-Stack-and-Heap"><span class="nav-number">9.</span> <span class="nav-text">Relationship between Stack and Heap</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
