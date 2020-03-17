@@ -1,432 +1,693 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <meta charset="utf-8" />
 
-<link rel="stylesheet" href="/css/main.css">
+    
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":"flat"},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta property="og:type" content="website">
+    
+    <title>Category: Docker | Dev Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Dev Blog">
 <meta property="og:url" content="http://yoursite.com/categories/Docker/index.html">
 <meta property="og:site_name" content="Dev Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Dohyeon Lee">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://yoursite.com/categories/Docker/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: false
-  };
-</script>
-
-  <title>Category: Docker | Dev Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Dev Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Web Development blog</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
+    
 
     
-  <div class="reading-progress-bar"></div>
+        <link rel="alternate" href="/" title="Dev Blog" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+<link rel="stylesheet" href="/css/style.css">
 
-          <div class="content">
-            
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Docker
-          <small>Category</small>
-        </h1>
-      </div>
+    
+<script src="/libs/jquery/3.4.1/jquery.min.js"></script>
 
-      
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Web Development blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Computer-Science/">Computer Science</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Django/">Django</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Docker/">Docker</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Network/">Network</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/Django/">Django</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/SQL/">SQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server-Deploy/">Server Deploy</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server-Deploy/Network/">Network</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-30T20:20:56+09:00"
-              content="2020-01-30">
-          01-30
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" itemprop="url">
-            <span itemprop="name">docker 이미지 레이어(Docker Image Layer)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-29T10:43:58+09:00"
-              content="2020-01-29">
-          01-29
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/" itemprop="url">
-            <span itemprop="name">우분투에서 도커 설치/삭제</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-29T10:24:44+09:00"
-              content="2020-01-29">
-          01-29
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/" itemprop="url">
-            <span itemprop="name">도커에 대한 간단한 설명</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
-
-  
-
-
-
-          </div>
-          
-
+</div>
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+<script src="/js/insight.js"></script>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <i class="icon fa fa-folder-open"></i>Category: <em class="page-title-link">Docker</em>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            
+
+    
+    
         
-          <span class="site-state-item-count">30</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">15</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-  </div>
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://t1.daumcdn.net/cfile/tistory/993B3E385B254FC40C)" alt="docker 이미지 레이어(Docker Image Layer)" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">0</span>
+    
+</span>
 
 
+    
+</a>
 
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-30T11:20:56.000Z" itemprop="datePublished">2020-01-30</time></div>
         </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">docker 이미지 레이어(Docker Image Layer)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Docker Image Layer의 구조
+Docker 의 이미지를 이용해서 docker run 을 하면 Docker 는 도커가 관리하는 파일 시스템 영역에 이미지를 복사한다. 복사후 docker는 이미지의 최상단에 컨테이너 레이어 라고 불리는 하나의 얇은 레이어를 추가하여 컨테이너를 생성한다. 그리고 사용자에게 유니온 파일 시스템을 이용하여 마치 이러한 여러개의 파일 시스템(Image layer)으로 구성되어 있는 이미지 스택 구조가 하나의 파일 시스템 처럼 보이도록 하게 한다.
+
+
+설명: Docker 이미지가 기본적으로 가지고 있는 이미지 레이어들
+
+
+설명: Docker run [이미지] 를 통해 이미지로 컨테이너를 생성할 경우 기존의 이미지 레이어들 위에 conatiner layer 가 생성된다.
+사용자가 컨테이너 안에서 읽고 쓰는 모든 작업 들은 이 컨테이너 레이어에 기록되고 이미지 레이어에는 적용되지 않는다. 쉽게 말해 Image layer는 변경 불가하고(read only layer), Container layer는 변경 가능하다(Readable/Writable layer).
+다른 사용자가 같은 이미지를 이용해서 container 를 실행할 경우 다른 Image layer만 생성이 되지, 다른 사용자들이 생성한 Container layer는 복사되지 않는다.
+이미지 레이어는 삭제 되지 않지만 컨테이너 레이어는 해당 컨테이너가 종료될경우 같이 소멸된다. 만약에 사용자가 Container Layer에서 작업하던 내용을 Image layer로 적용 하고 싶을 경우 docker commit 을 사용하면 된다. docker commit 을 사용하게 되면 기존의 Image layer 들과 직접 작성한 Container Layer를 이용해 새로운 이미지를 생성할 수 있다.
+Docker image를 생성할 수 있는 두가지 방법:
+
+docker build 를 이용해서 설정한 Dockerfile 에 맞는 이미지 생성
+컨테이너에서 작성한 container layer 와 image layer를 합해서 새로운 image 생성
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-29T01:43:58.000Z" itemprop="datePublished">2020-01-29</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/">우분투에서 도커 설치/삭제</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            우분투에 Docker 설치하기
+sudo apt-get remove docker docker-engine docker.io containerd runc : 이전 Docker 버전 삭제
+Docker-CE 를 처음 설치할 경우 Docker repository 를 설정 해줘야 한다. 레포를 설정 한 이후 Docker 를 설치/업데이트 할 수 있다.
+
+sudo ap
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.liquidweb.com/kb/wp-content/uploads/2019/09/WSGI.png)" alt="도커에 대한 간단한 설명" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-29T01:24:44.000Z" itemprop="datePublished">2020-01-29</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-intro/">도커에 대한 간단한 설명</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            웹서버
+웹서버의 정의: 웹서버는 HTTP혹은 기타 프로토콜을 이용해 사용자의 응답에 맞춰서 결과를 응답해준다.
+웹서버는 두가지 의미중 하나를 의미한다.
+
+웹서버(소프트웨어): 웹 사용자가 어떻게 호스트파일들에 접근하는지를 관리한다.
+웹 서버(하드웨어): 정적 파일을 저장하고 사용자의 요청에 맞게 정적파일을 돌려주는 기능을 가지고 있는 컴퓨터이다.
+
+정적 웹서버는 request 가 들어오면 항상 같은 파일들을 돌려준다(FileSystem 으로 이동).
+동적 웹서버는 request에 따라 다른 응답을 돌려준다(WSGI,Gunicorn, uWSGI).
+웹서버의 종류: Apache, IIS, Nginx, LiteSpeed
+WSGI, Gunicorn, uWSGI
+웹서버에서 사용자의 요청을 보내면 정적/동적 응답을 해줘야 하는데, 정적 응답일 경우 FileSystem에서 파일을 찾아서 돌려준다. 동적 응답일 경우 WSGI, Gunicorn, uWSGI 을 이용해서 백앤드 파이썬 웹 어플리케이션으로 forwarding 해준다. 구체적으로 설명 하자면 webserver(Apache, Nginx)같은 경우 주로 C 언어로 작성이 되어있다(빨라야 하기 때문에). 사용자가 요청을 보낼경우 웹서버는 요청을 받아서 web application 으로 전달을 해야하는데 웹서버는 요청을 C 언어로 보내게된다. WSGI 나 Gunicorn 이 없을 경우 웹 애플리케이션에서 일일히 이걸 번역을 해야한다. WSGI는 웹 서버 혹은 웹 애플리케이션 에서 보내는 요청/응답을 해당언어(WSGI 같은 경우 파이썬)에 맞게 번역을 해주는것이다. 다시말해 WSGI는 웹서버와 장고 어플리케이션 간의 번역을 해주는 것이다(C에서 파이썬, 파이썬에서C).
+
+
+python manage.py runserver 를 할 경우 runserver 는 웹서버, WSGI 와 디버거의 역할을 다 해주는 것이다.
+Docker
+도커는 컨테이너 기반의 오픈소스 가상화 플랫폼이다.
+도커를 사용할때 알아야 할 4개의 키워드:
+
+컨테이너(Container): 컨테이너는 다른 공간에서 프로세스가 동작하는 기술이다. 기존의 가상화 기술과는 다른점을 가지고있다. 이전에 가상화 기술이라고 하면 virutal box 혹은 VMware 등의 가상 머신을 자기자신의 Host 컴퓨터의 OS (Host OS) 에 설치해서 사용하는 방식이였다. 매우 간단한 방법이지만 사용자의 OS 에 새로운 가상의 Guest OS 를 올리는것은 엄청난 overhead 를 발생 시키기 때문에 속도면에서 문제가 많았다. 이것을 해결하기 위해 나온것이 Docker 엔진이다. Docker 엔진 위에다가 virtual box/VMware에서 사용할려고 했던 기능들을 컨테이너에 담아서 올린다고 생각하면 된다.기존의 방식과 다르게 프로세스를 격리해서 사용하는 방식이다. Docker 를 사용하게되면 Host OS 위에다 Guest OS를 더이상 올리지 않아도 되게된다.
+
+
+
+
+이미지(Image): 컨테이너를 생성하기 위해 사용된다. 이미지를 일종의 CD라고 생각하면 된다. 예를들어 스타크래프트 CD를 이용하면 우리는 스타크래프트를 여러번 설치할 수 있다. 하지만 우리가 설치할 수 있는 것은 동일한 버전의 스타크래프트이다(최신 버전을 CD 로 설치할 수 없다). 이것을 Immtuable 하다고 한다. 이미지를 이용해서 여러개의 컨테이너를 생성할 수 있다. 이미지를 이용해 생성한 컨테이너에는 이미지에 저장되어 있는 설정만 존재하고, 추가적인 설정들은 컨테이너에서 추가한다. 이미지는 하드디스크에 저장된다.
+
+
+
+
+Host OS : 내 컴퓨터의 Operating System
+Guest OS : 가상 컴퓨터의 Operating System.
+
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
+                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="title">mysql 기본 문법2</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T14:58:37.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png)" alt="mysql 기본 문법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
+                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="title">mysql 기본 문법</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T08:04:55.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76346598-a24d6e00-6348-11ea-80ee-43bf4e6f9634.png)" alt="2.variables" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="title">2.variables</a></p>
+                            <p class="item-date"><time datetime="2020-03-10T18:34:26.000Z" itemprop="datePublished">2020-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://poiemaweb.com/img/client-server.png)" alt="1.How browser works" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="title">1.How browser works</a></p>
+                            <p class="item-date"><time datetime="2020-03-08T14:10:20.000Z" itemprop="datePublished">2020-03-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a></p>
+                            <p class="item-title"><a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="title">bto3로SecretsManager사용하기</a></p>
+                            <p class="item-date"><time datetime="2020-02-21T06:09:56.000Z" itemprop="datePublished">2020-02-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 11.43px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Dohyeon Lee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-bug"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
 </body>
 </html>

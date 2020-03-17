@@ -1,574 +1,1088 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <meta charset="utf-8" />
 
-<link rel="stylesheet" href="/css/main.css">
+    
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":"flat"},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta property="og:type" content="website">
+    
+    <title>Archive | Dev Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Dev Blog">
 <meta property="og:url" content="http://yoursite.com/archives/index.html">
 <meta property="og:site_name" content="Dev Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Dohyeon Lee">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://yoursite.com/archives/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: false
-  };
-</script>
-
-  <title>Archive | Dev Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Dev Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Web Development blog</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
+    
 
     
-  <div class="reading-progress-bar"></div>
+        <link rel="alternate" href="/" title="Dev Blog" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+<link rel="stylesheet" href="/css/style.css">
 
-          <div class="content">
-            
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 30 posts in total. Keep on posting.</span>
-      </div>
+    
+<script src="/libs/jquery/3.4.1/jquery.min.js"></script>
 
-      
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Web Development blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Computer-Science/">Computer Science</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Django/">Django</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Docker/">Docker</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Network/">Network</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/Django/">Django</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/SQL/">SQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server-Deploy/">Server Deploy</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server-Deploy/Network/">Network</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-15T23:58:37+09:00"
-              content="2020-03-15">
-          03-15
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" itemprop="url">
-            <span itemprop="name">mysql 기본 문법2</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-15T17:04:55+09:00"
-              content="2020-03-15">
-          03-15
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" itemprop="url">
-            <span itemprop="name">mysql 기본 문법</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-11T03:34:26+09:00"
-              content="2020-03-11">
-          03-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" itemprop="url">
-            <span itemprop="name">2.variables</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-08T23:10:20+09:00"
-              content="2020-03-08">
-          03-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" itemprop="url">
-            <span itemprop="name">1.How browser works</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-21T15:09:56+09:00"
-              content="2020-02-21">
-          02-21
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" itemprop="url">
-            <span itemprop="name">bto3로SecretsManager사용하기</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-09T19:31:31+09:00"
-              content="2020-02-09">
-          02-09
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/" itemprop="url">
-            <span itemprop="name">운영체제</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-01T23:07:14+09:00"
-              content="2020-02-01">
-          02-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/" itemprop="url">
-            <span itemprop="name">django-secrets 사용 방법</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-01T13:13:03+09:00"
-              content="2020-02-01">
-          02-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/" itemprop="url">
-            <span itemprop="name">boto3 요약</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-30T20:20:56+09:00"
-              content="2020-01-30">
-          01-30
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" itemprop="url">
-            <span itemprop="name">docker 이미지 레이어(Docker Image Layer)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-29T10:43:58+09:00"
-              content="2020-01-29">
-          01-29
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/" itemprop="url">
-            <span itemprop="name">우분투에서 도커 설치/삭제</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
+</div>
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+<script src="/js/insight.js"></script>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <i class="icon fa fa-archive"></i>Archive
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            
+
+    
+    
         
-          <span class="site-state-item-count">30</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">15</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-  </div>
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/">0</span>
+    
+</span>
 
 
+    
+</a>
 
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/SQL/">SQL</a>
+            </div>
+            <div class="date"><time datetime="2020-03-15T14:58:37.000Z" itemprop="datePublished">2020-03-15</time></div>
         </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/">mysql 기본 문법2</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            GROUP BY, HAVING
+GROUP BY 는 여러개의 동일 한 데이터를 가지는 특정 컬럼을합쳐주는 역할을 하는 명령어이다.
+
+SQL 그룹 함수들: COUNT, MAX, MIN, SUM, AVG, VAR_SAMP, STDDEV
+
+
+COUNT: 데이터를 그룹으로 묶고, 각 그룹마다 데이터를 몇개 가지고 있는지 확인
+
+1234# city 테이블의 code를
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png)" alt="mysql 기본 문법" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/SQL/">SQL</a>
+            </div>
+            <div class="date"><time datetime="2020-03-15T08:04:55.000Z" itemprop="datePublished">2020-03-15</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/">mysql 기본 문법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Database
+DB: 데이터를 통합하여 관리하는 데이터의 집합
+DBMS(Database Management System): 데이터 베이스를 관리하는 미들웨어 시스템, 데이터베이스 관리 시스템
+RDBMS(Relational Database Management System): 데이터의 테이블 사이에 키값으로 관계를 가지고 있는 데이터베이스
+NoSQL:데이터 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76346598-a24d6e00-6348-11ea-80ee-43bf4e6f9634.png)" alt="2.variables" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+            </div>
+            <div class="date"><time datetime="2020-03-10T18:34:26.000Z" itemprop="datePublished">2020-03-11</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/">2.variables</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Javascript Variables
+during the variable declaration stage, a variable is created. More specifically, a variable allocates a memory space where it can store a value and connects the variable name with the address of the memory space. The memory space reserved during variable declaration is protected so that no one can use the space until it is released.
+In order to use a variable, a variable must be first declared. To declare a variable, var, let, const can be used.
+The Javascript engine performs variable declaration in two steps:
+
+Declaration phase: Registers a variable name to tell the Javascript engine that a variable is created
+Initialization phase: Free up memory space to store values and implicitly assign undefined
+
+
+Where are variable names stored?
+Variable names are stored in an areas called execution context. Execution context is an area where the Javascript engine provides necessary environment for evaluating and executing source code and actually manages the execution result of the code. Variable names and variable values are registered and managed as objects in the execution context.
+
+There are few differences when we use var, let, const
+When a variable is created using the var keyword, Javascript engine executes declaration phase and initialization phase simultaneously.
+For instance, if we declare a variable as var name;, a variable is first declared and it is initialized with a value undefined. 
+Variable Hoisting
+123console.log(score);var score;
+
+The code that references the variable precedes the variable declaratoin. Javascript code is executed sequentially, so console.log(name) is first implemented, followed by the code in the next line. Therefore, at the time when console.log(name) is executed, the declaration of a vriable score has not been executed so it can be expected that a Reference error could occur. However, rather than a reference error, undefined will be returned.
+The reason why undefined is returned is variable declarations are executed before console.log(name). To be more specific the variables declared using var keyword are declared and initialized before run-time when the source code is executed line by line.
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://poiemaweb.com/img/client-server.png)" alt="1.How browser works" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+            </div>
+            <div class="date"><time datetime="2020-03-08T14:10:20.000Z" itemprop="datePublished">2020-03-08</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/">1.How browser works</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            How web brwoser works
+Most programming languages run on top of an operating system (OS), but JavaScript runs with HTML and CSS in a browser. The core function of the browser is to request the web page
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a>
+            </div>
+            <div class="date"><time datetime="2020-02-21T06:09:56.000Z" itemprop="datePublished">2020-02-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">bto3로SecretsManager사용하기</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Credentials 파일에 있는 SecretsManager 사용하기
+
+세션으로 불러오기. 
+boto3 를 이요하게 되면 boto3 가 자동으로 세션 관리를 해주지만, 사용자가 세션을 직접 관리를 할 수 있다.
+12import boto3session = boto3.Session(profile_name=[credentials 파일에 있는 profile ㅣ이름
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/74099207-69ad4f80-4b64-11ea-8973-c08bf4127dd0.png)" alt="운영체제" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Computer-Science/">Computer Science</a>
+            </div>
+            <div class="date"><time datetime="2020-02-09T10:31:31.000Z" itemprop="datePublished">2020-02-09</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/02/09/%EC%BB%B4%EA%B3%B5/cps1/">운영체제</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            운영체제의 역할: 시스템 자원(System Resource) 관리자
+운영체제의 역할: 시스템 자원(System Resource) 관리자
+Operating System 또는 OS 라고 부른다
+여기서 시스템 자원이란? 컴퓨터 하드웨어
+–&gt; CPU(중앙처리장지), Memory(DRAM, RAM)
+–&gt; I/O Devices(입출력 장치) : Monitor, Mouse, Key Board etc
+–&gt; 저장매체: SSD, HDD(하드디스크)
+
+​    컴퓨터 하드웨어는 스스로 할수 있는 것이 하나도 없다
+
+운영체제가 해주는 역할들:
+
+CPU:  각 프로그램이 얼마나 CPU를 사용할 지를 결정할 수 없다.
+Memory: 각 프로그램이 어느 주소에 저장되어야 하는지, 어느정도의 메모리 공간을 확보 해줘야 하는지를 결정할 수 없다.
+저장매체(HDD, SSD): 어떻게, 어디에 저장할지는 결정할 수 없다
+I/O (키보드/마우스): 키보드를 입력하면 어떤 단어가 나와야 하고, 마우스를 움직이면 마우스 포인터가 어느정도 움직이는지를 운영체제가 결정 해준다
+
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a>
+            </div>
+            <div class="date"><time datetime="2020-02-01T14:07:14.000Z" itemprop="datePublished">2020-02-01</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/django-secrets/">django-secrets 사용 방법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Django Secrets Manager
+django secrets manager 는 사용자의 secret를 관리해주는 패키지이다.
+django secrets manager를 사용하기 위해서는 다음 settings를 설정 해줘야 한다
+
+AWS_SECRETS_MANAGER_SECRET_NAME : secret 이름 혹은 SecretsManager
+
+AWS_SECRETS_MANAGER_SECRET_SECTION: Json 파일에서 secret value의 키값. 즉, Json의 키값
+
+instagram:{
+    AWS_ACCESS_KEY_ID: &quot;....&quot;,
+    AWS_SECRET_ACCESS_KEY: &quot;...&quot;
+}
+12345678910111213141516171819202122232425  - 여기서 AWS_SECRETS_MANAGER_SECRET_JSON 은 instagram이다- AWS_SECRETS_MANAGER_REGION_NAME: SecretsManager의 region### AWS SecretsManager 형식---AWS SecretsManager는 JSON형식을 일반 텍스트로 사용한다.&#96;&#96;&#96;json&#123;  &quot;sample-project&quot;: &#123;    &quot;base&quot;: &#123;      &quot;SECRET_KEY&quot;: &quot;DjangoSecretKey&quot;    &#125;,    &quot;dev&quot;: &#123;      &quot;AWS_S3_BUCKET_NAME&quot;: &quot;sample-s3-dev&quot;    &#125;,    &quot;production&quot;: &#123;      &quot;AWS_S3_BUCKET_NAME&quot;: &quot;sample-s3-production&quot;    &#125;  &#125;&#125;
+
+
+
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a>
+            </div>
+            <div class="date"><time datetime="2020-02-01T04:13:03.000Z" itemprop="datePublished">2020-02-01</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/">boto3 요약</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Boto3 Credentials
+Boto 는 다양한 방법으로 환경설정을 할 수있다. 그중 AWS Credentials 와 region은 꼭 가지고 있어야 한다.
+Boto3설정을 할때 두가지 데이터가 존재한다: credential data 와 non-credential data 두가지이다.
+Credential data는 aws_access_key_id, aws_secret_access_key, aws_session_token 와 같은 데이터가 있고, non-credential data 에는 region 정보가 있다.
+Credential data 와 non Credential데이터에 의해 검색 과정이 달라질 수 있기 때문에 두가지 데이터를 잘 구분할 줄 알아야 한다. Boto3는 non-credenital data를 찾을때와는 다르게 credential data를 찾을때는 다양한 위치에서 credential data를 찾는다.
+boto3가 credential 데이터를 찾을때 credential data가 있을만한곳을 모두 검색을 하는데, 검색을 하는 순서는 다음과 같다:
+
+boto.client() 메서드로 전달된 매개변수에 있는 credential 데이터
+Session 객체를 생성할 때 credential을 매개변수로 전달
+환경 변수
+공유되는 credential 파일 (~/.aws/credentials)
+AWS config파일(~/.aws/config)
+Assume Role Provider
+Boto2 config file(/etc/boto.cfg and ~/.boto)
+Amazon EC2(IAM role 보유)에 있는 인스턴스 Metadata 서비스
+
+1. Client(), Session()메소드의 파라미터로 credential data 전달
+client 혹은 session을 생성할 때 매개변수로 credential data를 전달하는 방법이다.
+1234567891011121314151617import boto3# client 를 즉시 생성client = boto3.client(	's3',	'aws_access_key_id'=ACCESS_KEY,	'aws_secret_access_key'=SECRET_KEY,	'aws_session_token'=SESSION_TOKEN)# 세션 생성후 세션으로 클라이언트 생성session = boto3.session(	'aws_access_key_id'=ACCESS_KEY,	'aws_secret_access_key'=SECRET_KEY,	'aws_session_token'=SESSION_TOKEN)s3 = session.client('s3')
+
+ACCESS_KEY, SECRET_KEY_SESSION_TOKEN 에 사용자의 접근키를 그대로 입력하는 방법을 추천하지 않는다.
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://t1.daumcdn.net/cfile/tistory/993B3E385B254FC40C)" alt="docker 이미지 레이어(Docker Image Layer)" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-30T11:20:56.000Z" itemprop="datePublished">2020-01-30</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">docker 이미지 레이어(Docker Image Layer)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Docker Image Layer의 구조
+Docker 의 이미지를 이용해서 docker run 을 하면 Docker 는 도커가 관리하는 파일 시스템 영역에 이미지를 복사한다. 복사후 docker는 이미지의 최상단에 컨테이너 레이어 라고 불리는 하나의 얇은 레이어를 추가하여 컨테이너를 생성한다. 그리고 사용자에게 유니온 파일 시스템을 이용하여 마치 이러한 여러개의 파일 시스템(Image layer)으로 구성되어 있는 이미지 스택 구조가 하나의 파일 시스템 처럼 보이도록 하게 한다.
+
+
+설명: Docker 이미지가 기본적으로 가지고 있는 이미지 레이어들
+
+
+설명: Docker run [이미지] 를 통해 이미지로 컨테이너를 생성할 경우 기존의 이미지 레이어들 위에 conatiner layer 가 생성된다.
+사용자가 컨테이너 안에서 읽고 쓰는 모든 작업 들은 이 컨테이너 레이어에 기록되고 이미지 레이어에는 적용되지 않는다. 쉽게 말해 Image layer는 변경 불가하고(read only layer), Container layer는 변경 가능하다(Readable/Writable layer).
+다른 사용자가 같은 이미지를 이용해서 container 를 실행할 경우 다른 Image layer만 생성이 되지, 다른 사용자들이 생성한 Container layer는 복사되지 않는다.
+이미지 레이어는 삭제 되지 않지만 컨테이너 레이어는 해당 컨테이너가 종료될경우 같이 소멸된다. 만약에 사용자가 Container Layer에서 작업하던 내용을 Image layer로 적용 하고 싶을 경우 docker commit 을 사용하면 된다. docker commit 을 사용하게 되면 기존의 Image layer 들과 직접 작성한 Container Layer를 이용해 새로운 이미지를 생성할 수 있다.
+Docker image를 생성할 수 있는 두가지 방법:
+
+docker build 를 이용해서 설정한 Dockerfile 에 맞는 이미지 생성
+컨테이너에서 작성한 container layer 와 image layer를 합해서 새로운 image 생성
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-29T01:43:58.000Z" itemprop="datePublished">2020-01-29</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/">우분투에서 도커 설치/삭제</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            우분투에 Docker 설치하기
+sudo apt-get remove docker docker-engine docker.io containerd runc : 이전 Docker 버전 삭제
+Docker-CE 를 처음 설치할 경우 Docker repository 를 설정 해줘야 한다. 레포를 설정 한 이후 Docker 를 설치/업데이트 할 수 있다.
+
+sudo ap
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
+    <nav id="page-nav">
+        <span class="pages">Page 1 of 3</span>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">&raquo;</a>
+    </nav>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
+                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="title">mysql 기본 문법2</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T14:58:37.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png)" alt="mysql 기본 문법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
+                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="title">mysql 기본 문법</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T08:04:55.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76346598-a24d6e00-6348-11ea-80ee-43bf4e6f9634.png)" alt="2.variables" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="title">2.variables</a></p>
+                            <p class="item-date"><time datetime="2020-03-10T18:34:26.000Z" itemprop="datePublished">2020-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://poiemaweb.com/img/client-server.png)" alt="1.How browser works" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="title">1.How browser works</a></p>
+                            <p class="item-date"><time datetime="2020-03-08T14:10:20.000Z" itemprop="datePublished">2020-03-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a></p>
+                            <p class="item-title"><a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="title">bto3로SecretsManager사용하기</a></p>
+                            <p class="item-date"><time datetime="2020-02-21T06:09:56.000Z" itemprop="datePublished">2020-02-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 11.43px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Dohyeon Lee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-bug"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
 </body>
 </html>

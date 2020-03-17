@@ -1,1003 +1,912 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <meta charset="utf-8" />
 
-<link rel="stylesheet" href="/css/main.css">
+    
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"always","padding":24,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":"flat"},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta property="og:type" content="website">
+    
+    <title>Dev Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Dev Blog">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Dev Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Dohyeon Lee">
 <meta name="twitter:card" content="summary">
+    
 
-<link rel="canonical" href="http://yoursite.com/page/3/">
+    
+        <link rel="alternate" href="/" title="Dev Blog" type="application/atom+xml" />
+    
 
+    
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false
-  };
-</script>
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
 
-  <title>Dev Blog</title>
-  
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
 
-
-
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
 
+    
+<link rel="stylesheet" href="/css/style.css">
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+    
+<script src="/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
 
-</head>
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+    
+    
+    
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
 
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Dev Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Web Development blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Computer-Science/">Computer Science</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Django/">Django</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Docker/">Docker</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Network/">Network</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/Django/">Django</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/SQL/">SQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server-Deploy/">Server Deploy</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server-Deploy/Network/">Network</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-        <p class="site-subtitle">Web Development blog</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
 </div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/" class="post-title-link" itemprop="url">브로드캐스트 주소 계산법</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-26 22:27:23" itemprop="dateCreated datePublished" datetime="2020-01-26T22:27:23+09:00">2020-01-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-27 23:37:45" itemprop="dateModified" datetime="2020-01-27T23:37:45+09:00">2020-01-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Network/" itemprop="url" rel="index">
-                    <span itemprop="name">Network</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="브로드캐스팅-주소-계산법"><a href="#브로드캐스팅-주소-계산법" class="headerlink" title="브로드캐스팅 주소 계산법"></a>브로드캐스팅 주소 계산법</h3><hr>
-<p>알아야할 용어들:</p>
-<ul>
-<li>네트워크 주소: 하나의 네트워크를 통칭하기 위해 사용하는 주소.</li>
-<li>브로드캐스 주소: 특정 네트워크에 속하는 모든 호스트/클라이언트 들이 듣게되는 주소를 의미한다. 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스르 주소로 사용한다.</li>
-</ul>
-<p>IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소를 네트워크 주소와 호스트 주소로 구분해 주는것이 서브넷 마스크(Subnet mask)이다. 추가적으로 서브넷은 추가적인 서브넷 서브 네트워크가 필요할 경우 IP주소 중 호스트 주소를 <strong>서브넷과 호스트주소(&lt;네트워크주소&gt;&lt;서브넷&gt;&lt;호스트주소&gt;)</strong> 로 나누어준다. </p>
-<p>서브넷 마스크라고 불리는 이유는 서브넷 마스크를 이용해서 IP주소의 네트워크 주소를 구분하기 위해서 이다.</p>
-<p>서브넷 마스크는 32비트 숫자로 구성된 IP주소이며, IP주소를 네트워크 주소와 호스트 주소로 나눈다. 서브넷 마스크는 32비트 숫자들 중 네트워크 주소를 모두 1로 표현하고 호스트 주소를 0으로 표기한다. 주어진 네트워크에서 두개의 호스느 주소는 특정 목적을 위해 예약되어있어서 호스트한테 할당될 수 없다. 0 인 주소는 네트워크 주소에 할당되어 있고, 255는 broadcast address이기 때문에 호스트에게 할당될 수 없다.</p>
-<blockquote>
-<p> – AND 연산 – </p>
-<p>1 AND 1 = 1</p>
-<p>1 AND 0 = 0</p>
-<p>0 AND 1 = 0</p>
-<p>0 AND 0 = 0    </p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/" class="post-title-link" itemprop="url">IP</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-25 01:26:01" itemprop="dateCreated datePublished" datetime="2020-01-25T01:26:01+09:00">2020-01-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-27 23:37:57" itemprop="dateModified" datetime="2020-01-27T23:37:57+09:00">2020-01-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Server-Deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">Server Deploy</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Server-Deploy/Network/" itemprop="url" rel="index">
-                    <span itemprop="name">Network</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="IP주소란"><a href="#IP주소란" class="headerlink" title="IP주소란?"></a>IP주소란?</h3><hr>
-<p><strong>네트워크 환경에서 컴퓨터간 통시하기 위해 각 컴퓨터에 부여되는 네트워크 상의 주소이다.</strong></p>
-<p>맥 <code>zsh</code>에 <code>ifconifg</code> 라고 입력 하면 내 컴퓨터에 부여된 네트워크상의 주소가 나온다.</p>
-<ul>
-<li>IPv4주소는 내 컴퓨터의 주소이다.</li>
-<li>192.168.219.144 가 있으면 192.168.219 는 네트워크 주소이고 144는 호스트 주소이다(내 컴퓨터에 부여된 호스트 IP 이다. 내가 서울특별시 강남구 논현동 134-3 201호에 살면 서울특별시 강남구 논현동 134-3이 네트워크 주소이고, 201호가 호스트IP가 된다.)</li>
-<li>IPv4의 마지막 자리가 무조건 호스트 주소는 아니다. IP주소의 클래스에 따라 달라진다.</li>
-<li><strong>공통적인 공유되는 주소가 네트워크 주소, 내 자신을 식별해주는 마지막 자리가 호스트주소 이다.</strong></li>
-</ul>
-<h3 id="IPv4-는-IP주소를-32자리로-표현한-것이다"><a href="#IPv4-는-IP주소를-32자리로-표현한-것이다" class="headerlink" title="IPv4 는 IP주소를 32자리로 표현한 것이다"></a>IPv4 는 IP주소를 32자리로 표현한 것이다</h3><hr>
-<p>192.168.24.133 이라는 주소가 있을때, 이 주소는 2진수 를 10진수로 표기한 것이다.</p>
-<p>10진수를 2진수로 표기하게 되면 0~2^32, 약 43억개의 IP 주소를 사용할 수 있는것이다. 이전에는 충분할거라고 생각했지만 요즘은 휴대용기기를 포함해 여러개의 기기를 가질수 있기 때문에 IP주소가 부족해졌다. 따라서 현재는 IPv4에서 IPv6표현식으로 대체하는 중이다</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" class="post-title-link" itemprop="url">projectDeploy</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-21 20:47:58" itemprop="dateCreated datePublished" datetime="2020-01-21T20:47:58+09:00">2020-01-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-29 10:47:09" itemprop="dateModified" datetime="2020-01-29T10:47:09+09:00">2020-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/Django/" itemprop="url" rel="index">
-                    <span itemprop="name">Django</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/Django/Server-Deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">Server Deploy</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="서버-배포"><a href="#서버-배포" class="headerlink" title="서버 배포"></a>서버 배포</h3><hr>
-<ol>
-<li><p>보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름/설명/인바운드 입력</p>
-</li>
-<li><p>인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹/새로운 보안 그룹 선택</p>
-</li>
-<li><p>인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 <code>~/.ssh</code> 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠는 우리가 인스턴스를 생성할 때 AWS 에서 자물쇠를 넣어준다.(다시말해 우리는 열쇠만 가지고 있는것이다.)</p>
-</li>
-<li><p>EC2 서버로 접근하기: ssh -i ~/.ssh/[보안키이름].pem [유저]@[서버 주소]. 이렇게 하면 원래는 서버로 접속을 할 수 있지만 처음 설정 할때는 접근할 수 없다. EC2에 인바운드와 아웃바운드 설정을 해줘야 한다. <strong>인바운드 설정에 유형이라는 항목이 있는데, 항목 내부에 다양한 선택지들이 있다. 그중 SSH를 설정해야 하는데, SSH를 설정하는 이유는 사용자가 SSH를 이용해서 인스턴스에 접근을 해야하기 때문이다.</strong></p>
-<ul>
-<li>인바운드 : 외부에서 인스턴스로 들어오는 요청이다</li>
-<li>아웃바운드 : 인스턴스에서 외부로 나가는 트래픽이다. 0.0.0.0 은 어디든 갈 수 있다</li>
-</ul>
-</li>
-<li><p>인바운드를 설정하고 나서 다시 서버에 접근을 할려고하면 <strong>WARNING: UNPROTECTED PRIVATE KEY</strong> 라고 나온다. 그 이유는 우리가 사용하고 하는 secret키에 대한 보안이 너무 취약하기 때문이다. <code>~/.ssh</code> 파일에서 <code>ls-al</code>을 해보면 <code>-rw-|r--|r--@</code> 라고 나온다.</p>
-<ul>
-<li>맨앞 <code>-</code> 에 <code>d</code>가 있으면 디렉토리라는 뜻이다.</li>
-<li><code>r</code> 는 read 를 read를 의미한다</li>
-<li><code>w</code> 는 write 를 의미한다</li>
-<li><code>x</code> 는 executable을 의미한다</li>
-<li><code>u</code> 는 user(사용자)를 의미한다</li>
-<li><code>g</code> 는 그룹을 의미한다</li>
-<li><code>o</code> 는 기타 를 의미한다.</li>
-<li><strong>(파일타입|user|group|other) || 링크수 || 소유자 || 그룹 || 파일크기 || 파일수정시간 || 파일이름</strong></li>
-</ul>
-</li>
-<li><p><code>chmod</code>와 숫자를 이용해서 해당 파일의 권한 변경하기: 숫자를 이용해서 해당파일의 <code>user|group|other</code>의 권한을 한번에 변경할 수 있다.</p>
-<ul>
-<li>rwx 가 있는데 r 은 2^2, w 는 2^1, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 + 2^1 + 2^0 = 7 을 의미한다.</li>
-<li>r-x 가 있는데 r 은 2^2, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 +  2^0 = 5 을 의미한다.</li>
-<li><strong>쉽게 말해 r 는 4, w 는 2, x 는 1을 의미한다.</strong></li>
-<li>권한을 부여할때 다음과 같이 부여한다. <code>chmod 777 a.py</code>. 이는 즉 <code>a.py</code>파일에 rwx|rwx|rwx를 부여한는 것이다.</li>
-<li><code>chmod 124 b.py</code> 는 <code>b.py</code>파일에 –x|-w-|r– 권한을 부여하는것이다</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>경우의 수</th>
-<th>chmod</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>rwx</td>
-<td>7</td>
-</tr>
-<tr>
-<td>rw-</td>
-<td>6</td>
-</tr>
-<tr>
-<td>r-x</td>
-<td>5</td>
-</tr>
-<tr>
-<td>-wx</td>
-<td>3</td>
-</tr>
-<tr>
-<td>–x</td>
-<td>1</td>
-</tr>
-<tr>
-<td>-w-</td>
-<td>2</td>
-</tr>
-<tr>
-<td>r–</td>
-<td>4</td>
-</tr>
-<tr>
-<td>—</td>
-<td>0</td>
-</tr>
-</tbody></table>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/" class="post-title-link" itemprop="url">MTMFTF</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-21 11:24:45 / Modified: 11:26:53" itemprop="dateCreated datePublished" datetime="2020-01-21T11:24:45+09:00">2020-01-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/Django/" itemprop="url" rel="index">
-                    <span itemprop="name">Django</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지"><a href="#Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지" class="headerlink" title="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지"></a>Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지</h3><hr>
-<p>ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨</p>
-<p>class Car(models.Model):</p>
-<p>  manufacturer = models.ForeignKey(</p>
-<p>​    ‘production.Manufacturer’,</p>
-<p>​    on_delete=models.CASCADE,</p>
-<p>  )</p>
-<p>면 Car테이블에 manufacturer_id 컬럼이 생김 : 즉 ForeignKey를 선언하면 해당 컬럼은 다른 테이블의 id를 가리킴</p>
-<p><strong>ForeignKey를 선언한 필드가 Many, 연결한 클래스가 One</strong></p>
-<p>PostLike 에 post = models.ForeignKey(Post, on_delete=models.CASCADE) 이면 </p>
-<p>Many는 PostLike 이고 One 은 Post</p>
-<p>(상식적으로 인스타그램에서 여러사람이 개시물 하나의 Like를 여러개 달 수 있다) PostLike 에 있는 post 필드에 ForeignKey를 선언할 경우 <post_id> 가 디비 테이블에 생성</p>
-<p>FOREIGN KEY 를 언제 사용해야하는지</p>
-<p>Many &lt;클래스명&gt; by/to one &lt;필드명&gt;</p>
-<p>ex:</p>
-<p>Many PostImage by one post</p>
-<p>Many PostLike to one post</p>
-<p>Many Post by one author</p>
-<p>쿼리란? 데이터베이스에 정보를 요청하는것. 쿼리는 웹 서버에 특정한 정보를 보여달라는 웹 클라이언트 요청에 의한 처리이다.</p>
-<hr>
-<p>related_name 과 related_query_name</p>
-<p>related_name혹은 related_query_name 둘다 사용해서 데이터를 찾아올 수 있다.</p>
-<p>related_name의 default ==&gt; &lt;클래스&gt;_set. related_name은 인스턴스에서 접근</p>
-<p>related_query_name의 default ==&gt; &lt;소문자클래스&gt;. related_query_name은 클래스에서 접근</p>
-<hr>
-<p>PostLike(Many) 에서 Post(One)에 접근 하는 방법</p>
-<p>postlike = PostLike.objects.first() #postlike는 <strong>인스턴스</strong></p>
-<p>postlike.posts #해당 인스턴스의 post. 즉 좋아요가 달려있는 post를 의미</p>
-<p><strong>다시말해 ForeignKey를 가지고 있으면 가리키는곳(Many인쪽). ForeignKey로 가리키는곳(One)인쪽에서 돌아올려면 _set사용</strong></p>
-<p>반대로</p>
-<p>Post(One)에서 PostLike(Many)로 접근하는 방법</p>
-<p>related_query_name 혹은 related_name을 이용해서 접근</p>
-<p>post.postlike_set.filter() 혹은</p>
-<p>Post.objects.filter(postlike__contains= )</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/" class="post-title-link" itemprop="url">abstract</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-13 20:31:54 / Modified: 20:32:19" itemprop="dateCreated datePublished" datetime="2020-01-13T20:31:54+09:00">2020-01-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h3><hr>
-<p>추상 클래스는 미완성 클래스라고 생각하면 된다. 클래스가 미완성 이라는 것은 멤버의 개수에 관계된 것이 아니라, 단지 <strong>미완성 메서드를</strong> 포함하고 있는 클래스 인것이다.</p>
-<p>미완성 클래스로 완성된 제품을 만들 수 없이 추상클래스로 인스턴스를 생성할 수 없다. 추상클래슨은 상속을 통해서 <strong>자손클래스에 의해서만 완성될 수 있다.</strong>( 장고에서 class Meta: abstract = True 를 생각하면 된다. )</p>
-<p>추상 클래스 자체로는 클래스로서의 역할을 다 못하지만, 새로운 클래스르 작성하는데 있어서 바탕이 되는 부모클래스 이다. 자식 클래스들이 부모클래스 한테서 상속을 받는 이유는 부모의 기능을 그대로 사용하기 위해서이다. 하지만 만약에 부모 클래스로 인스턴스를 생성할 필요가 없다고 치면 그때 추상 클래스를 사용하면 된다. </p>
-<p>추상 클래스는 <code>abstract</code>를 클래스 앞에 붙여서 사용한다. 추상 클래스는 <strong>추상 메서드를 포함 하고 있다는것을 제외하고는 일반클래스와 다른점이 없다. 추상 클래스 에도 생성자가 있으며, 멤버변수와 메서드를 모두 사용할 수 있다.</strong></p>
-<h3 id="추상-메서드"><a href="#추상-메서드" class="headerlink" title="추상 메서드"></a>추상 메서드</h3><hr>
-<p>메서드의 구현부가 비어있을 경우 추상 메서드 라고 한다. 메서드를 미완성으로 보류하는 이유는 <strong>메서드의 내용이 상속받는 클래스에 따라 달라질 수 있기 때문에 조상 클래스에 메소드의 구현부를 비워두고, 나중에 자식 클래스가 추상 메서드를 상속 받아서 채워가는 형식이다.(모든 인스턴스들이 동일한 메서드를 가져야 하는데 부모 클래스 입장에서 당장 메서드를 사용할 수 없을 경우 비워두는 것이다.)</strong></p>
-<p>추상 클래스로 부터 상속받는 자손 클래스는 오버라이딩을 통해 조상인 추상클래스의 추상메서드를 모두 구현해주어야 한다. 만일 조상으로부터 추상 메서드 중 하나라도 구현하지 않는다면, <strong>자손 클래스 역시 추상 메서드로 지정해줘야한다(다음 자식 이 상속 받아서 지정하고 사용)</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dohyeon Lee">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/" class="post-title-link" itemprop="url">polymorphism</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-13 11:37:21 / Modified: 20:09:16" itemprop="dateCreated datePublished" datetime="2020-01-13T11:37:21+09:00">2020-01-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성 Polymorphism"></a>다형성 Polymorphism</h3><hr>
-<p>개체지향 개념에서 다형성이란 <strong>여러가지 형태를 가질 수 있는 능력을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 다형성을 프로그램적으로 구현한다</strong></p>
-<p><strong>조상 클래스 타입의 참조 변수로 자식 클래스의 인스턴스를 참조할 수 있다.</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">walk</span><span class="params">( System.out.println(<span class="string">"걷기"</span>)</span>)</span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Sing</span><span class="params">( System.out.println(<span class="string">"노래부르기 "</span>)</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Male</span> <span class="keyword">extends</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">  Boolean isMale;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">isMale</span><span class="params">()</span></span>&#123; System.out.println(<span class="string">"남자아이가!"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HumanTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 참조변수의 타입이 인스턴스의 타입과 동일</span></span><br><span class="line">    Human h = <span class="keyword">new</span> Human();</span><br><span class="line">    Male m = <span class="keyword">new</span> Male();</span><br><span class="line">    Human h = <span class="keyword">new</span> Male(); <span class="comment">// 다형성</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>조상 클래스 타입의 참조변수로 자손 클래스의 인스턴스를 참조할 수 있다.</p>
-<h3 id="인스턴스를-다른-타입의-참조-변수로-참조"><a href="#인스턴스를-다른-타입의-참조-변수로-참조" class="headerlink" title="인스턴스를 다른 타입의 참조 변수로 참조"></a>인스턴스를 다른 타입의 참조 변수로 참조</h3><hr>
-<p><code>Human h = new Male()</code></p>
-<p>Human 이라는 부모 클래스 타입의 참조변수는 자식 클래스인 Male 클래스의 인스턴스를 가리킨다. <strong>이경우 실제 인스턴스가 Male 일 지더라도 h참조변수는 Human 클래스의 멤버만 사용할 수 있다.</strong> 이는 어떻게 보면 당연한 것이다.</p>
-<p>h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의 멤버들(isMale 자식 클래스한테 상속 한 멤버들)만 사용할 수 있다. 즉, <code>h.isMale</code> 와 <code>h.isMale()</code>을 할 수 없는 것이다. </p>
-<img src="https://user-images.githubusercontent.com/26023287/72230208-4b047900-35f7-11ea-8c2a-5cd94adf39a4.png" style="zoom:70%;" />
-
-<p>자식 클래스가 부모 클래스 한테서 상속을 받게 되면 자식 클래스의 인스턴스는 부모 클래스의 모든 멤버(메소드 와 멤버 변수) 와 자기자신이 가지고있는 모든 멤버들을 갖게된다. 다시말해 자식 클래스의 인스턴스는 부모 클래스의 인스턴스보다 <strong>더많은 멤버 변수와 메소드를 갖고 있다는 것이다.</strong></p>
-<p>이제 <code>Human h = new Male()</code> 를 다시 보면 자식 클래스의 인스턴스를 생성 했는데, 참조변수의 타입은 부모 클래스인 것은 10리터의 물을 500ml 패트병으로 담으려고 하는 것이다. 500ml의 패트병으로는 500ml 치 의 물만 담을 수 있다. 마찬가지로 <code>h</code> 참조 변수로는 부모클래스타입이 저장할 수 있는 멤버변수/메소드만 저장할 수 있다.</p>
-<p><strong>다시 말해 인스턴스의 타입과 상관 없이 참조변수의 타입에 따라 해당 인스턴스가 가질수 있는 메버변수와 메소드의 개수가 달라진다.</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
+<script src="/js/insight.js"></script>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dohyeon Lee"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Dohyeon Lee</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <em class="page-title-link" data-url="home">Home</em>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            
+
+    
+    
         
-          <span class="site-state-item-count">30</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">15</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/eqfwcev123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;eqfwcev123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:dohyeonee95@hotmail.com" title="E-Mail → mailto:dohyeonee95@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-  </div>
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/">0</span>
+    
+</span>
 
 
+    
+</a>
 
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Network/">Network</a>
+            </div>
+            <div class="date"><time datetime="2020-01-26T13:27:23.000Z" itemprop="datePublished">2020-01-26</time></div>
         </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/">브로드캐스트 주소 계산법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            브로드캐스팅 주소 계산법
+알아야할 용어들:
+
+네트워크 주소: 하나의 네트워크를 통칭하기 위해 사용하는 주소.
+브로드캐스 주소: 특정 네트워크에 속하는 모든 호스트/클라이언트 들이 듣게되는 주소를 의미한다. 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스르 주소로 사용한다.
+
+IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소를 네트워크 주소와 호스트 주소로 구분해 주는것이 서브넷 마스크(Subnet mask)이다. 추가적으로 서브넷은 추가적인 서브넷 서브 네트워크가 필요할 경우 IP주소 중 호스트 주소를 서브넷과 호스트주소(&lt;네트워크주소&gt;&lt;서브넷&gt;&lt;호스트주소&gt;) 로 나누어준다. 
+서브넷 마스크라고 불리는 이유는 서브넷 마스크를 이용해서 IP주소의 네트워크 주소를 구분하기 위해서 이다.
+서브넷 마스크는 32비트 숫자로 구성된 IP주소이며, IP주소를 네트워크 주소와 호스트 주소로 나눈다. 서브넷 마스크는 32비트 숫자들 중 네트워크 주소를 모두 1로 표현하고 호스트 주소를 0으로 표기한다. 주어진 네트워크에서 두개의 호스느 주소는 특정 목적을 위해 예약되어있어서 호스트한테 할당될 수 없다. 0 인 주소는 네트워크 주소에 할당되어 있고, 255는 broadcast address이기 때문에 호스트에게 할당될 수 없다.
+
+ – AND 연산 – 
+1 AND 1 = 1
+1 AND 0 = 0
+0 AND 1 = 0
+0 AND 0 = 0    
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://computing.dcu.ie/~humphrys/Notes/Networks/tanenbaum/5-55.jpg)" alt="IP" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Server-Deploy/Network/">Network</a>
+            </div>
+            <div class="date"><time datetime="2020-01-24T16:26:01.000Z" itemprop="datePublished">2020-01-25</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/">IP</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            IP주소란?
+네트워크 환경에서 컴퓨터간 통시하기 위해 각 컴퓨터에 부여되는 네트워크 상의 주소이다.
+맥 zsh에 ifconifg 라고 입력 하면 내 컴퓨터에 부여된 네트워크상의 주소가 나온다.
+
+IPv4주소는 내 컴퓨터의 주소이다.
+192.168.219.144 가 있으면 192.168.219 는 네트워크 주소이고 144는 호스트 주소이다(내 컴퓨터에 부여된 호스트 IP 이다. 내가 서울특별시 강남구 논현동 134-3 201호에 살면 서울특별시 강남구 논현동 134-3이 네트워크 주소이고, 201호가 호스트IP가 된다.)
+IPv4의 마지막 자리가 무조건 호스트 주소는 아니다. IP주소의 클래스에 따라 달라진다.
+공통적인 공유되는 주소가 네트워크 주소, 내 자신을 식별해주는 마지막 자리가 호스트주소 이다.
+
+IPv4 는 IP주소를 32자리로 표현한 것이다
+192.168.24.133 이라는 주소가 있을때, 이 주소는 2진수 를 10진수로 표기한 것이다.
+10진수를 2진수로 표기하게 되면 0~2^32, 약 43억개의 IP 주소를 사용할 수 있는것이다. 이전에는 충분할거라고 생각했지만 요즘은 휴대용기기를 포함해 여러개의 기기를 가질수 있기 때문에 IP주소가 부족해졌다. 따라서 현재는 IPv4에서 IPv6표현식으로 대체하는 중이다
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Python/Django/">Django</a>
+            </div>
+            <div class="date"><time datetime="2020-01-21T11:47:58.000Z" itemprop="datePublished">2020-01-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">projectDeploy</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            서버 배포
+
+보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름/설명/인바운드 입력
+
+인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹/새로운 보안 그룹 선택
+
+인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 ~/.ssh 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠는 우리가 인스턴스를 생성할 때 AWS 에서 자물쇠를 넣어준다.(다시말해 우리는 열쇠만 가지고 있는것이다.)
+
+EC2 서버로 접근하기: ssh -i ~/.ssh/[보안키이름].pem [유저]@[서버 주소]. 이렇게 하면 원래는 서버로 접속을 할 수 있지만 처음 설정 할때는 접근할 수 없다. EC2에 인바운드와 아웃바운드 설정을 해줘야 한다. 인바운드 설정에 유형이라는 항목이 있는데, 항목 내부에 다양한 선택지들이 있다. 그중 SSH를 설정해야 하는데, SSH를 설정하는 이유는 사용자가 SSH를 이용해서 인스턴스에 접근을 해야하기 때문이다.
+
+인바운드 : 외부에서 인스턴스로 들어오는 요청이다
+아웃바운드 : 인스턴스에서 외부로 나가는 트래픽이다. 0.0.0.0 은 어디든 갈 수 있다
+
+
+인바운드를 설정하고 나서 다시 서버에 접근을 할려고하면 WARNING: UNPROTECTED PRIVATE KEY 라고 나온다. 그 이유는 우리가 사용하고 하는 secret키에 대한 보안이 너무 취약하기 때문이다. ~/.ssh 파일에서 ls-al을 해보면 -rw-|r--|r--@ 라고 나온다.
+
+맨앞 - 에 d가 있으면 디렉토리라는 뜻이다.
+r 는 read 를 read를 의미한다
+w 는 write 를 의미한다
+x 는 executable을 의미한다
+u 는 user(사용자)를 의미한다
+g 는 그룹을 의미한다
+o 는 기타 를 의미한다.
+(파일타입|user|group|other) || 링크수 || 소유자 || 그룹 || 파일크기 || 파일수정시간 || 파일이름
+
+
+chmod와 숫자를 이용해서 해당 파일의 권한 변경하기: 숫자를 이용해서 해당파일의 user|group|other의 권한을 한번에 변경할 수 있다.
+
+rwx 가 있는데 r 은 2^2, w 는 2^1, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 + 2^1 + 2^0 = 7 을 의미한다.
+r-x 가 있는데 r 은 2^2, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 +  2^0 = 5 을 의미한다.
+쉽게 말해 r 는 4, w 는 2, x 는 1을 의미한다.
+권한을 부여할때 다음과 같이 부여한다. chmod 777 a.py. 이는 즉 a.py파일에 rwx|rwx|rwx를 부여한는 것이다.
+chmod 124 b.py 는 b.py파일에 –x|-w-|r– 권한을 부여하는것이다
+
+
+
+
+
+
+
+경우의 수
+chmod
+
+
+
+rwx
+7
+
+
+rw-
+6
+
+
+r-x
+5
+
+
+-wx
+3
+
+
+–x
+1
+
+
+-w-
+2
+
+
+r–
+4
+
+
+—
+0
+
+
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Python/Django/">Django</a>
+            </div>
+            <div class="date"><time datetime="2020-01-21T02:24:45.000Z" itemprop="datePublished">2020-01-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/">MTMFTF</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지
+ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨
+class Car(models.Model):
+  manufacturer = models.ForeignKey(
+​    ‘production.Manuf
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-01-13T11:31:54.000Z" itemprop="datePublished">2020-01-13</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">abstract</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            추상 클래스
+추상 클래스는 미완성 클래스라고 생각하면 된다. 클래스가 미완성 이라는 것은 멤버의 개수에 관계된 것이 아니라, 단지 미완성 메서드를 포함하고 있는 클래스 인것이다.
+미완성 클래스로 완성된 제품을 만들 수 없이 추상클래스로 인스턴스를 생성할 수 없다. 추상클래슨은 상속을 통해서 자손클래스에 의해서만 완성될 수 있다.( 장고에서 class Met
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/72230208-4b047900-35f7-11ea-8c2a-5cd94adf39a4.png)" alt="polymorphism" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-01-13T02:37:21.000Z" itemprop="datePublished">2020-01-13</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">polymorphism</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            다형성 Polymorphism
+개체지향 개념에서 다형성이란 여러가지 형태를 가질 수 있는 능력을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 다형성을 프로그램적으로 구현한다
+조상 클래스 타입의 참조 변수로 자식 클래스의 인스턴스를 참조할 수 있다.
+12345678910111213141516171819202122class Human&#123;  String name;  int age;    void walk( System.out.println("걷기"));  void Sing( System.out.println("노래부르기 "));&#125;class Male extends Human&#123;  Boolean isMale;    void isMale()&#123; System.out.println("남자아이가!") &#125;&#125;class HumanTest&#123;  public static void main(String[] args)&#123;    // 참조변수의 타입이 인스턴스의 타입과 동일    Human h = new Human();    Male m = new Male();    Human h = new Male(); // 다형성  &#125;&#125;
+
+조상 클래스 타입의 참조변수로 자손 클래스의 인스턴스를 참조할 수 있다.
+인스턴스를 다른 타입의 참조 변수로 참조
+Human h = new Male()
+Human 이라는 부모 클래스 타입의 참조변수는 자식 클래스인 Male 클래스의 인스턴스를 가리킨다. 이경우 실제 인스턴스가 Male 일 지더라도 h참조변수는 Human 클래스의 멤버만 사용할 수 있다. 이는 어떻게 보면 당연한 것이다.
+h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의 멤버들(isMale 자식 클래스한테 상속 한 멤버들)만 사용할 수 있다. 즉, h.isMale 와 h.isMale()을 할 수 없는 것이다. 
+
+
+자식 클래스가 부모 클래스 한테서 상속을 받게 되면 자식 클래스의 인스턴스는 부모 클래스의 모든 멤버(메소드 와 멤버 변수) 와 자기자신이 가지고있는 모든 멤버들을 갖게된다. 다시말해 자식 클래스의 인스턴스는 부모 클래스의 인스턴스보다 더많은 멤버 변수와 메소드를 갖고 있다는 것이다.
+이제 Human h = new Male() 를 다시 보면 자식 클래스의 인스턴스를 생성 했는데, 참조변수의 타입은 부모 클래스인 것은 10리터의 물을 500ml 패트병으로 담으려고 하는 것이다. 500ml의 패트병으로는 500ml 치 의 물만 담을 수 있다. 마찬가지로 h 참조 변수로는 부모클래스타입이 저장할 수 있는 멤버변수/메소드만 저장할 수 있다.
+다시 말해 인스턴스의 타입과 상관 없이 참조변수의 타입에 따라 해당 인스턴스가 가질수 있는 메버변수와 메소드의 개수가 달라진다.
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
+    <nav id="page-nav">
+        <span class="pages">Page 3 of 5</span>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
+    </nav>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
+                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%882/" class="title">mysql 기본 문법2</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T14:58:37.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png)" alt="mysql 기본 문법" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
+                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="title">mysql 기본 문법</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T08:04:55.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76346598-a24d6e00-6348-11ea-80ee-43bf4e6f9634.png)" alt="2.variables" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="title">2.variables</a></p>
+                            <p class="item-date"><time datetime="2020-03-10T18:34:26.000Z" itemprop="datePublished">2020-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://poiemaweb.com/img/client-server.png)" alt="1.How browser works" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="title">1.How browser works</a></p>
+                            <p class="item-date"><time datetime="2020-03-08T14:10:20.000Z" itemprop="datePublished">2020-03-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a></p>
+                            <p class="item-title"><a href="/2020/02/21/aws%EC%84%A4%EC%A0%95/bto3%EB%A1%9CSecretsManager%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="title">bto3로SecretsManager사용하기</a></p>
+                            <p class="item-date"><time datetime="2020-02-21T06:09:56.000Z" itemprop="datePublished">2020-02-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 11.43px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Dohyeon Lee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-bug"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Dohyeon Lee</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
 </body>
 </html>
