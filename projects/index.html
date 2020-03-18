@@ -6,25 +6,18 @@
     
 
     
-    <title>Understanding Process, Thread and Data structures | Dev Blog</title>
+    <title>프로젝트(projects) | Dev Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Web,develop,java" />
-    
-    <meta name="description" content="Process  A program in execution is often referred as process and a thread is a subset of a process.   A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread pr">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Understanding Process, Thread and Data structures">
-<meta property="og:url" content="http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="프로젝트(projects)">
+<meta property="og:url" content="http://yoursite.com/projects/index.html">
 <meta property="og:site_name" content="Dev Blog">
-<meta property="og:description" content="Process  A program in execution is often referred as process and a thread is a subset of a process.   A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread pr">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-05T14:57:00.000Z">
-<meta property="article:modified_time" content="2020-01-05T16:50:07.794Z">
+<meta property="article:published_time" content="2020-01-02T06:09:27.000Z">
+<meta property="article:modified_time" content="2020-03-17T19:33:50.896Z">
 <meta property="article:author" content="Dohyeon Lee">
-<meta property="article:tag" content="Web">
-<meta property="article:tag" content="develop">
-<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
     
 
@@ -156,115 +149,28 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Java/">Java</a>
+    <em class="page-title-link" data-url="/projects/index.html">프로젝트(projects)</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-자바/Understanding Java Stack and Heap" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="page-" class="article article-single article-type-page" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Understanding Process, Thread and Data structures
+        프로젝트(projects)
         </h1>
     
 
             </header>
         
         
-            <div class="article-meta">
-                
-    <div class="article-date">
-      <i class="fa fa-calendar"></i>
-      <a href="/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/" class="article-date">
-         <time datetime="2020-01-05T14:57:00.000Z" itemprop="datePublished">2020-01-05</time>
-      </a>
-    </div>
-
-
-                
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web/" rel="tag">Web</a>, <a class="tag-link" href="/tags/develop/" rel="tag">develop</a>, <a class="tag-link" href="/tags/java/" rel="tag">java</a>
-    </div>
-
-                
-
-                
-
-            </div>
-        
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><hr>
-<ul>
-<li><p>A program in execution is often referred as process and a thread is a subset of a process. </p>
-</li>
-<li><p>A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread process).</p>
-</li>
-<li><p>Inside a Process contains 4 different memory area: <strong>Data, Code, Stack, Heap</strong></p>
-</li>
-</ul>
-<h3 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h3><hr>
-<p>A unit of work that runs independently within a process. Specifically, a unit of work or task managed by the operating system. Threads and tasks (or tasks) can be used interchangeably.</p>
-<ol>
-<li>A single process is occured by JVM and statements within <code>main()</code>are a single thread.</li>
-<li>To create another thread other than <code>main ()</code>, either inherit the Thread class or implement the Runnable interface. </li>
-<li>In multi-threaded operation, each thread can send and receive information to reduce errors in processing.</li>
-<li>Processes cannot send or receive information with each other.</li>
-</ol>
-<a id="more"></a>
-
-<p>![스크린샷 2020-01-05 오후 7.27.54](/Users/idohyeon/Library/Application Support/typora-user-images/스크린샷 2020-01-05 오후 7.27.54.png)</p>
-<p>Whenever a process is executed, it is allocated with 4 different memory area: Code, Data, Stack and Heap. Bascially, a thread is simulataneously created when a process is created. This thread is called the <strong>main thread</strong> and unless a new thread is created, every program codes will be executed on the main thread. Every process  posses its own memory address and will be executed on its own memory address. In order for a thread to access another thread’s resources(variables or methods), a inter-process communication (IPC) is required between each threads.</p>
-<h3 id="Code-Area"><a href="#Code-Area" class="headerlink" title="Code Area"></a>Code Area</h3><hr>
-<p>The Code Area, also called the Text area, is an area where codes that will be executed by the program are stored. codes inside the Code Area are accessed by CPU and will be compiled one at at time.</p>
-<h3 id="Data-Area"><a href="#Data-Area" class="headerlink" title="Data Area"></a>Data Area</h3><hr>
-<p>An area where Static Methods and Static variables are stored. Static variables/methods will be allocated at the beginning of the program and will be destroyed when the program ends.</p>
-<h3 id="Stack-Area"><a href="#Stack-Area" class="headerlink" title="Stack Area"></a>Stack Area</h3><hr>
-<p>The stack area of memory is the area where local variables and parameters related to function calls are stored. The stack area is allocated with the call to the function and is destroyed when the function call completes. The stack area stores data in push operations and fetches data in pop operations. This stack operates according to Last-In First-Out (LIFO), thus the latest stored data is fetched first. </p>
-<h3 id="Heap-Area"><a href="#Heap-Area" class="headerlink" title="Heap Area"></a>Heap Area</h3><hr>
-<p>The Heap area is an area which can be managed by the user. The heap area is dynamically allocated and freed by the user.</p>
-<h3 id="Stack-static-memory-allocation"><a href="#Stack-static-memory-allocation" class="headerlink" title="Stack(static memory allocation)"></a>Stack(static memory allocation)</h3><hr>
-<ul>
-<li>A stack is a type of data structure that stores data of the same type in a sequential one to one order. When we extract and insert data from the stack, we can only access the end of the sequence which is the data that is pushed most recently. The new data is placed on top of the stack, and when extracting data, we only have access to the most recently inserted data (top level).<br>For this reason, the stack is often referred to as “LIFO data structure (Last In First Out)”, which means that the most recent entry comes first.</li>
-<li>The stack is also used by the JVM to run Java programs. Each thread has one stack and tracks all the methods. Every time when new methods are called, a new frame is inserted on the stack, and each time the method ends, it is removed from the stack.</li>
-<li>Data Types that are stored in stack area:<ul>
-<li>Integer type: byte/char/short/int</li>
-<li>Real Integer type: float/double</li>
-<li>boolean type: boolean</li>
-</ul>
-</li>
-<li>all the types state above are primititive types and have a fixed data size.</li>
-</ul>
-<h3 id="Heap-Heap-memory-allocation"><a href="#Heap-Heap-memory-allocation" class="headerlink" title="Heap(Heap memory allocation)"></a>Heap(Heap memory allocation)</h3><hr>
-<ul>
-<li><p>Dynamic memory allocation refers to the allocation of memory space for use during runtime in computer programming. When you’re done, you can return it for use by the operating system and reassign it the next time it’s requested. In contrary to static memory allocation, where the allocation of memory is made taking into account the amount of memory the program will use at the moment it runs.</p>
-</li>
-<li><p>Dynamically allocated memory space remains until the programmer explicitly releases it or the garbage collector(GC) releases the data. Dynamic allocation is allocated to the heap of the process. When the process terminates, the memory resources are returned to the operating system and is automatically freed. However, if the process continues to run, dynamically allocated space is retained, so if a program requests memory allocation beyond the size of a given heap, the memory cannot be allocated due to the lack of memory space. Therefore, it is more efficient for a programmer to use functions(methods) to return used heap area and free up heap area spaces. In Java, the Garbage collector automatically collects unused memory and free up the space.</p>
-</li>
-<li><p>Data Types that are stored in Heap area:</p>
-<ul>
-<li>Array</li>
-<li>Enum</li>
-<li>Class</li>
-<li>Interface</li>
-</ul>
-</li>
-<li><p>The heap area is a space where objects and arrays are created and stores reference types (arrays, enumerations, classes, interfaces) in the form of memory addresses.</p>
-</li>
-<li><p>The size of each data structures are flexible(size of the data are not fixed).</p>
-</li>
-<li><p>If the memory address is not referenced, the memory will be automatically freed by Garbage collector</p>
-</li>
-</ul>
-<h3 id="Relationship-between-Stack-and-Heap"><a href="#Relationship-between-Stack-and-Heap" class="headerlink" title="Relationship between Stack and Heap"></a>Relationship between Stack and Heap</h3><hr>
-
+            
         </div>
         <footer class="article-footer">
             
@@ -334,47 +240,20 @@
             "@type": "Person",
             "name": "Dohyeon Lee"
         },
-        "headline": "Understanding Process, Thread and Data structures",
+        "headline": "프로젝트(projects)",
         "image": "http://yoursite.com",
-        "keywords": "Web develop java",
-        "genre": "Java",
-        "datePublished": "2020-01-05",
-        "dateCreated": "2020-01-05",
-        "dateModified": "2020-01-06",
-        "url": "http://yoursite.com/2020/01/05/자바/Understanding Java Stack and Heap/",
-        "description": "Process
-
-A program in execution is often referred as process and a thread is a subset of a process. 
-
-A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread process).
-
-Inside a Process contains 4 different memory area: Data, Code, Stack, Heap
-
-
-Thread
-A unit of work that runs independently within a process. Specifically, a unit of work or task managed by the operating system. Threads and tasks (or tasks) can be used interchangeably.
-
-A single process is occured by JVM and statements within main()are a single thread.
-To create another thread other than main (), either inherit the Thread class or implement the Runnable interface. 
-In multi-threaded operation, each thread can send and receive information to reduce errors in processing.
-Processes cannot send or receive information with each other.
-",
-        "wordCount": 859
+        
+        
+        "datePublished": "2020-01-02",
+        "dateCreated": "2020-01-02",
+        "dateModified": "2020-03-18",
+        "url": "http://yoursite.com/projects/index.html",
+        "description": "",
+        "wordCount": 1
     }
 </script>
 
 </article>
-
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
-    </div>
-
-
-    
-    </section>
 
 
 
@@ -412,29 +291,6 @@ Processes cannot send or receive information with each other.
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2020/01/06/%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7/Queue/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Queue 자료구조
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2020/01/03/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/Prototype/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">JavaScript Prototype</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -626,13 +482,13 @@ Processes cannot send or receive information with each other.
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/';
+    var disqus_url = 'http://yoursite.com/projects/index.html';
     
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
