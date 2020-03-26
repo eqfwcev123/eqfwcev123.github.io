@@ -171,6 +171,72 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Server-Deploy/">Server Deploy</a>
+            </div>
+            <div class="date"><time datetime="2020-02-01T04:13:03.000Z" itemprop="datePublished">2020-02-01</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/02/01/aws%EC%84%A4%EC%A0%95/boto3/">boto3 요약</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Boto3 Credentials
+Boto 는 다양한 방법으로 환경설정을 할 수있다. 그중 AWS Credentials 와 region은 꼭 가지고 있어야 한다.
+Boto3설정을 할때 두가지 데이터가 존재한다: credential data 와 non-credential data 두가지이다.
+Credential data는 aws_access_key_id, aws_secret_access_key, aws_session_token 와 같은 데이터가 있고, non-credential data 에는 region 정보가 있다.
+Credential data 와 non Credential데이터에 의해 검색 과정이 달라질 수 있기 때문에 두가지 데이터를 잘 구분할 줄 알아야 한다. Boto3는 non-credenital data를 찾을때와는 다르게 credential data를 찾을때는 다양한 위치에서 credential data를 찾는다.
+boto3가 credential 데이터를 찾을때 credential data가 있을만한곳을 모두 검색을 하는데, 검색을 하는 순서는 다음과 같다:
+
+boto.client() 메서드로 전달된 매개변수에 있는 credential 데이터
+Session 객체를 생성할 때 credential을 매개변수로 전달
+환경 변수
+공유되는 credential 파일 (~/.aws/credentials)
+AWS config파일(~/.aws/config)
+Assume Role Provider
+Boto2 config file(/etc/boto.cfg and ~/.boto)
+Amazon EC2(IAM role 보유)에 있는 인스턴스 Metadata 서비스
+
+1. Client(), Session()메소드의 파라미터로 credential data 전달
+client 혹은 session을 생성할 때 매개변수로 credential data를 전달하는 방법이다.
+1234567891011121314151617import boto3# client 를 즉시 생성client = boto3.client(	's3',	'aws_access_key_id'=ACCESS_KEY,	'aws_secret_access_key'=SECRET_KEY,	'aws_session_token'=SESSION_TOKEN)# 세션 생성후 세션으로 클라이언트 생성session = boto3.session(	'aws_access_key_id'=ACCESS_KEY,	'aws_secret_access_key'=SECRET_KEY,	'aws_session_token'=SESSION_TOKEN)s3 = session.client('s3')
+
+ACCESS_KEY, SECRET_KEY_SESSION_TOKEN 에 사용자의 접근키를 그대로 입력하는 방법을 추천하지 않는다.
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" class="thumbnail">
     
     
@@ -224,10 +290,14 @@ docker build 를 이용해서 설정한 Dockerfile 에 맞는 이미지 생성
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -274,14 +344,10 @@ sudo ap
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -355,10 +421,14 @@ Guest OS : 가상 컴퓨터의 Operating System.
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -425,14 +495,10 @@ pip install psycopg2 ==&gt; psycopg2 설치
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -490,10 +556,14 @@ IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소�
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -547,14 +617,10 @@ IPv4 는 IP주소를 32자리로 표현한 것이다
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -674,10 +740,14 @@ r–
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -724,14 +794,10 @@ class Car(models.Model):
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -772,66 +838,6 @@ class Car(models.Model):
             추상 클래스
 추상 클래스는 미완성 클래스라고 생각하면 된다. 클래스가 미완성 이라는 것은 멤버의 개수에 관계된 것이 아니라, 단지 미완성 메서드를 포함하고 있는 클래스 인것이다.
 미완성 클래스로 완성된 제품을 만들 수 없이 추상클래스로 인스턴스를 생성할 수 없다. 추상클래슨은 상속을 통해서 자손클래스에 의해서만 완성될 수 있다.( 장고에서 class Met
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/72230208-4b047900-35f7-11ea-8c2a-5cd94adf39a4.png)" alt="polymorphism" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Java/">Java</a>
-            </div>
-            <div class="date"><time datetime="2020-01-13T02:37:21.000Z" itemprop="datePublished">2020-01-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">polymorphism</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            다형성 Polymorphism
-개체지향 개념에서 다형성이란 여러가지 형태를 가질 수 있는 능력을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 다형성을 프로그램적으로 구현한다
-조상 클래스 타입의 참조 변수로 자식 클래스의 인스턴스를 참조할 수 있다.
-12345678910111213141516171819202122class Human&#123;  String name;  int age;    void walk( System.out.println("걷기"));  void Sing( System.out.println("노래부르기 "));&#125;class Male extends Human&#123;  Boolean isMale;    void isMale()&#123; System.out.println("남자아이가!") &#125;&#125;class HumanTest&#123;  public static void main(String[] args)&#123;    // 참조변수의 타입이 인스턴스의 타입과 동일    Human h = new Human();    Male m = new Male();    Human h = new Male(); // 다형성  &#125;&#125;
-
-조상 클래스 타입의 참조변수로 자손 클래스의 인스턴스를 참조할 수 있다.
-인스턴스를 다른 타입의 참조 변수로 참조
-Human h = new Male()
-Human 이라는 부모 클래스 타입의 참조변수는 자식 클래스인 Male 클래스의 인스턴스를 가리킨다. 이경우 실제 인스턴스가 Male 일 지더라도 h참조변수는 Human 클래스의 멤버만 사용할 수 있다. 이는 어떻게 보면 당연한 것이다.
-h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의 멤버들(isMale 자식 클래스한테 상속 한 멤버들)만 사용할 수 있다. 즉, h.isMale 와 h.isMale()을 할 수 없는 것이다. 
-
-
-자식 클래스가 부모 클래스 한테서 상속을 받게 되면 자식 클래스의 인스턴스는 부모 클래스의 모든 멤버(메소드 와 멤버 변수) 와 자기자신이 가지고있는 모든 멤버들을 갖게된다. 다시말해 자식 클래스의 인스턴스는 부모 클래스의 인스턴스보다 더많은 멤버 변수와 메소드를 갖고 있다는 것이다.
-이제 Human h = new Male() 를 다시 보면 자식 클래스의 인스턴스를 생성 했는데, 참조변수의 타입은 부모 클래스인 것은 10리터의 물을 500ml 패트병으로 담으려고 하는 것이다. 500ml의 패트병으로는 500ml 치 의 물만 담을 수 있다. 마찬가지로 h 참조 변수로는 부모클래스타입이 저장할 수 있는 멤버변수/메소드만 저장할 수 있다.
-다시 말해 인스턴스의 타입과 상관 없이 참조변수의 타입에 따라 해당 인스턴스가 가질수 있는 메버변수와 메소드의 개수가 달라진다.
         </p>
     </div>
 </article>
@@ -892,6 +898,26 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="title">encryption_decryption</a></p>
+                            <p class="item-date"><time datetime="2020-03-26T22:11:18.000Z" itemprop="datePublished">2020-03-27</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -973,26 +999,6 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76346598-a24d6e00-6348-11ea-80ee-43bf4e6f9634.png)" alt="2.variables" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2020/03/11/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/variables/" class="title">2.variables</a></p>
-                            <p class="item-date"><time datetime="2020-03-10T18:34:26.000Z" itemprop="datePublished">2020-03-11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1002,7 +1008,7 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -1012,7 +1018,7 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
@@ -1022,7 +1028,7 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
