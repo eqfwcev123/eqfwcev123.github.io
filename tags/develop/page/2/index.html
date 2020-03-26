@@ -171,6 +171,67 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://t1.daumcdn.net/cfile/tistory/993B3E385B254FC40C)" alt="docker 이미지 레이어(Docker Image Layer)" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-30T11:20:56.000Z" itemprop="datePublished">2020-01-30</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">docker 이미지 레이어(Docker Image Layer)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Docker Image Layer의 구조
+Docker 의 이미지를 이용해서 docker run 을 하면 Docker 는 도커가 관리하는 파일 시스템 영역에 이미지를 복사한다. 복사후 docker는 이미지의 최상단에 컨테이너 레이어 라고 불리는 하나의 얇은 레이어를 추가하여 컨테이너를 생성한다. 그리고 사용자에게 유니온 파일 시스템을 이용하여 마치 이러한 여러개의 파일 시스템(Image layer)으로 구성되어 있는 이미지 스택 구조가 하나의 파일 시스템 처럼 보이도록 하게 한다.
+
+
+설명: Docker 이미지가 기본적으로 가지고 있는 이미지 레이어들
+
+
+설명: Docker run [이미지] 를 통해 이미지로 컨테이너를 생성할 경우 기존의 이미지 레이어들 위에 conatiner layer 가 생성된다.
+사용자가 컨테이너 안에서 읽고 쓰는 모든 작업 들은 이 컨테이너 레이어에 기록되고 이미지 레이어에는 적용되지 않는다. 쉽게 말해 Image layer는 변경 불가하고(read only layer), Container layer는 변경 가능하다(Readable/Writable layer).
+다른 사용자가 같은 이미지를 이용해서 container 를 실행할 경우 다른 Image layer만 생성이 되지, 다른 사용자들이 생성한 Container layer는 복사되지 않는다.
+이미지 레이어는 삭제 되지 않지만 컨테이너 레이어는 해당 컨테이너가 종료될경우 같이 소멸된다. 만약에 사용자가 Container Layer에서 작업하던 내용을 Image layer로 적용 하고 싶을 경우 docker commit 을 사용하면 된다. docker commit 을 사용하게 되면 기존의 Image layer 들과 직접 작성한 Container Layer를 이용해 새로운 이미지를 생성할 수 있다.
+Docker image를 생성할 수 있는 두가지 방법:
+
+docker build 를 이용해서 설정한 Dockerfile 에 맞는 이미지 생성
+컨테이너에서 작성한 container layer 와 image layer를 합해서 새로운 image 생성
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2020/01/28/aws%EC%84%A4%EC%A0%95/s3-rds/" class="thumbnail">
     
     
@@ -233,10 +294,14 @@ pip install psycopg2 ==&gt; psycopg2 설치
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -294,14 +359,10 @@ IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소�
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -355,10 +416,14 @@ IPv4 는 IP주소를 32자리로 표현한 것이다
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -478,14 +543,10 @@ r–
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -532,10 +593,14 @@ class Car(models.Model):
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -580,14 +645,10 @@ class Car(models.Model):
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -644,10 +705,14 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -701,14 +766,10 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -748,57 +809,6 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
         <p class="article-excerpt">
             Package
 패키지는 클래스의 묶음이다. 패키지에는 클래스 또는 인터페이스를 포함시킬 수 있으며, 서로 관련된 클래스들 끼리 그룹 단위로 묶어 놓음으로써 클래스를 효율적으로 관리할 수 있다.  같은 이름의 클래스 일지라도 서로 다른 패키지에 존재하는 것이 간으하므로, 자신만의 패키지 체계를 유지함으로써 다른 개발자가 개발한 클래스 라이브러리의 클래스와 
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/12/%EC%9E%90%EB%B0%94/overriding/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Java/">Java</a>
-            </div>
-            <div class="date"><time datetime="2020-01-12T06:41:50.000Z" itemprop="datePublished">2020-01-12</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/">overriding</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            오버라이딩
-조상 클래스로부터 상속받은 메서드의 내용을 변경하는 것을 오버라이딩 이라고 한다.
-부모 클래스한테서 상속 받은 메소드를 그대로 사용해도 되지만 자식 클래스 자신한테 맞춰서 메소드를 변경할 수 있다. 메소드를 오버라이딩 한다고 해서 다른 클래스들이 부모 클래스한테서 상속 받는 메소드도 변경 되는 것은 아니다.
-12345678910111213141516class Point&#123;  int x;  int y;    String getLocation()&#123;    return "x : "+x+" , y: " +y;  &#125;&#125;class Point3D extends Point&#123;  int z;    String getLocation()&#123;     return "x : "+x+" , y: " +y+" ,z: "+z;  &#125;&#125;
-
-Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클래스 3Dimension 좌표를 반환 해야 하기 때문에 부모한테서 상속받은 메소드를 사용하면 안된다. 이때 부모한테서 상속받은 메소드를 오버라이딩 하면 된다. 상속받은 getLocation()메소드를 오버라이딩 해서 자기 자신의 새로운 메소드로 사용을 하면 x,y,z 세개의 좌표를 반환받을 수 있다.
         </p>
     </div>
 </article>
@@ -859,6 +869,26 @@ Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클�
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/26/%EB%85%B8%EB%93%9C/nodejsmodules/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/26/%EB%85%B8%EB%93%9C/nodejsmodules/" class="title">nodejsmodules</a></p>
+                            <p class="item-date"><time datetime="2020-03-26T07:10:14.000Z" itemprop="datePublished">2020-03-26</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -940,26 +970,6 @@ Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://poiemaweb.com/img/client-server.png)" alt="1.How browser works" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2020/03/08/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/How-browser-works/" class="title">1.How browser works</a></p>
-                            <p class="item-date"><time datetime="2020-03-08T14:10:20.000Z" itemprop="datePublished">2020-03-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -969,7 +979,7 @@ Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -979,7 +989,7 @@ Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
@@ -989,7 +999,7 @@ Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
