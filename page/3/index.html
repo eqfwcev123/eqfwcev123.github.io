@@ -171,6 +171,67 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://t1.daumcdn.net/cfile/tistory/993B3E385B254FC40C)" alt="docker 이미지 레이어(Docker Image Layer)" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Docker/">Docker</a>
+            </div>
+            <div class="date"><time datetime="2020-01-30T11:20:56.000Z" itemprop="datePublished">2020-01-30</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/30/%EB%8F%84%EC%BB%A4/docker-image-layer/">docker 이미지 레이어(Docker Image Layer)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Docker Image Layer의 구조
+Docker 의 이미지를 이용해서 docker run 을 하면 Docker 는 도커가 관리하는 파일 시스템 영역에 이미지를 복사한다. 복사후 docker는 이미지의 최상단에 컨테이너 레이어 라고 불리는 하나의 얇은 레이어를 추가하여 컨테이너를 생성한다. 그리고 사용자에게 유니온 파일 시스템을 이용하여 마치 이러한 여러개의 파일 시스템(Image layer)으로 구성되어 있는 이미지 스택 구조가 하나의 파일 시스템 처럼 보이도록 하게 한다.
+
+
+설명: Docker 이미지가 기본적으로 가지고 있는 이미지 레이어들
+
+
+설명: Docker run [이미지] 를 통해 이미지로 컨테이너를 생성할 경우 기존의 이미지 레이어들 위에 conatiner layer 가 생성된다.
+사용자가 컨테이너 안에서 읽고 쓰는 모든 작업 들은 이 컨테이너 레이어에 기록되고 이미지 레이어에는 적용되지 않는다. 쉽게 말해 Image layer는 변경 불가하고(read only layer), Container layer는 변경 가능하다(Readable/Writable layer).
+다른 사용자가 같은 이미지를 이용해서 container 를 실행할 경우 다른 Image layer만 생성이 되지, 다른 사용자들이 생성한 Container layer는 복사되지 않는다.
+이미지 레이어는 삭제 되지 않지만 컨테이너 레이어는 해당 컨테이너가 종료될경우 같이 소멸된다. 만약에 사용자가 Container Layer에서 작업하던 내용을 Image layer로 적용 하고 싶을 경우 docker commit 을 사용하면 된다. docker commit 을 사용하게 되면 기존의 Image layer 들과 직접 작성한 Container Layer를 이용해 새로운 이미지를 생성할 수 있다.
+Docker image를 생성할 수 있는 두가지 방법:
+
+docker build 를 이용해서 설정한 Dockerfile 에 맞는 이미지 생성
+컨테이너에서 작성한 container layer 와 image layer를 합해서 새로운 image 생성
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2020/01/29/%EB%8F%84%EC%BB%A4/docker-installation-in-ubuntu/" class="thumbnail">
     
     
@@ -213,10 +274,14 @@ sudo ap
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -290,14 +355,10 @@ Guest OS : 가상 컴퓨터의 Operating System.
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -364,10 +425,14 @@ pip install psycopg2 ==&gt; psycopg2 설치
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -425,14 +490,10 @@ IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소�
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -482,129 +543,6 @@ IPv4의 마지막 자리가 무조건 호스트 주소는 아니다. IP주소의
 IPv4 는 IP주소를 32자리로 표현한 것이다
 192.168.24.133 이라는 주소가 있을때, 이 주소는 2진수 를 10진수로 표기한 것이다.
 10진수를 2진수로 표기하게 되면 0~2^32, 약 43억개의 IP 주소를 사용할 수 있는것이다. 이전에는 충분할거라고 생각했지만 요즘은 휴대용기기를 포함해 여러개의 기기를 가질수 있기 때문에 IP주소가 부족해졌다. 따라서 현재는 IPv4에서 IPv6표현식으로 대체하는 중이다
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Python/Django/">Django</a>
-            </div>
-            <div class="date"><time datetime="2020-01-21T11:47:58.000Z" itemprop="datePublished">2020-01-21</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">projectDeploy</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            서버 배포
-
-보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름/설명/인바운드 입력
-
-인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹/새로운 보안 그룹 선택
-
-인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 ~/.ssh 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠는 우리가 인스턴스를 생성할 때 AWS 에서 자물쇠를 넣어준다.(다시말해 우리는 열쇠만 가지고 있는것이다.)
-
-EC2 서버로 접근하기: ssh -i ~/.ssh/[보안키이름].pem [유저]@[서버 주소]. 이렇게 하면 원래는 서버로 접속을 할 수 있지만 처음 설정 할때는 접근할 수 없다. EC2에 인바운드와 아웃바운드 설정을 해줘야 한다. 인바운드 설정에 유형이라는 항목이 있는데, 항목 내부에 다양한 선택지들이 있다. 그중 SSH를 설정해야 하는데, SSH를 설정하는 이유는 사용자가 SSH를 이용해서 인스턴스에 접근을 해야하기 때문이다.
-
-인바운드 : 외부에서 인스턴스로 들어오는 요청이다
-아웃바운드 : 인스턴스에서 외부로 나가는 트래픽이다. 0.0.0.0 은 어디든 갈 수 있다
-
-
-인바운드를 설정하고 나서 다시 서버에 접근을 할려고하면 WARNING: UNPROTECTED PRIVATE KEY 라고 나온다. 그 이유는 우리가 사용하고 하는 secret키에 대한 보안이 너무 취약하기 때문이다. ~/.ssh 파일에서 ls-al을 해보면 -rw-|r--|r--@ 라고 나온다.
-
-맨앞 - 에 d가 있으면 디렉토리라는 뜻이다.
-r 는 read 를 read를 의미한다
-w 는 write 를 의미한다
-x 는 executable을 의미한다
-u 는 user(사용자)를 의미한다
-g 는 그룹을 의미한다
-o 는 기타 를 의미한다.
-(파일타입|user|group|other) || 링크수 || 소유자 || 그룹 || 파일크기 || 파일수정시간 || 파일이름
-
-
-chmod와 숫자를 이용해서 해당 파일의 권한 변경하기: 숫자를 이용해서 해당파일의 user|group|other의 권한을 한번에 변경할 수 있다.
-
-rwx 가 있는데 r 은 2^2, w 는 2^1, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 + 2^1 + 2^0 = 7 을 의미한다.
-r-x 가 있는데 r 은 2^2, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 +  2^0 = 5 을 의미한다.
-쉽게 말해 r 는 4, w 는 2, x 는 1을 의미한다.
-권한을 부여할때 다음과 같이 부여한다. chmod 777 a.py. 이는 즉 a.py파일에 rwx|rwx|rwx를 부여한는 것이다.
-chmod 124 b.py 는 b.py파일에 –x|-w-|r– 권한을 부여하는것이다
-
-
-
-
-
-
-
-경우의 수
-chmod
-
-
-
-rwx
-7
-
-
-rw-
-6
-
-
-r-x
-5
-
-
--wx
-3
-
-
-–x
-1
-
-
--w-
-2
-
-
-r–
-4
-
-
-—
-0
-
-
-
         </p>
     </div>
 </article>
@@ -665,6 +603,26 @@ r–
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="title">자바 &#34;클래스&#34; 란?</a></p>
+                            <p class="item-date"><time datetime="2020-03-29T13:25:38.000Z" itemprop="datePublished">2020-03-29</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -746,26 +704,6 @@ r–
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/76693050-698ffa80-66a2-11ea-918a-97e6e1cb587b.png)" alt="mysql 기본 문법" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SQL/">SQL</a></p>
-                            <p class="item-title"><a href="/2020/03/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/db%EA%B8%B0%EC%B4%881/" class="title">mysql 기본 문법</a></p>
-                            <p class="item-date"><time datetime="2020-03-15T08:04:55.000Z" itemprop="datePublished">2020-03-15</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -775,7 +713,7 @@ r–
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -785,7 +723,7 @@ r–
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
@@ -795,7 +733,7 @@ r–
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
