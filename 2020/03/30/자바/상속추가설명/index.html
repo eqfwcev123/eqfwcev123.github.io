@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>상속추가설명 | Dev Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Develop,Java" />
+    
+    <meta name="description" content="상속 추가 설명 상속을 해도 부모 클래스의 모든 필드와 메소드를 물려받는 것은 아니다. 부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속 대상에서 제외된다 (private 을 선언한 클래스 필드&#x2F;메소드 는 클래스 밖에서는 사용할 수 없다). 부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소">
+<meta property="og:type" content="article">
+<meta property="og:title" content="상속추가설명">
+<meta property="og:url" content="http://yoursite.com/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/index.html">
+<meta property="og:site_name" content="Dev Blog">
+<meta property="og:description" content="상속 추가 설명 상속을 해도 부모 클래스의 모든 필드와 메소드를 물려받는 것은 아니다. 부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속 대상에서 제외된다 (private 을 선언한 클래스 필드&#x2F;메소드 는 클래스 밖에서는 사용할 수 없다). 부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png">
+<meta property="article:published_time" content="2020-03-30T14:46:07.000Z">
+<meta property="article:modified_time" content="2020-03-30T15:46:28.575Z">
+<meta property="article:author" content="Dohyeon Lee">
+<meta property="article:tag" content="Develop">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Web Development blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Projects</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-자바/상속추가설명" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        상속추가설명
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/" class="article-date">
+         <time datetime="2020-03-30T14:46:07.000Z" itemprop="datePublished">2020-03-30</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Develop/" rel="tag">Develop</a>, <a class="tag-link" href="/tags/Java/" rel="tag">Java</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="상속-추가-설명"><a href="#상속-추가-설명" class="headerlink" title="상속 추가 설명"></a>상속 추가 설명</h3><hr>
+<p>상속을 해도 부모 클래스의 모든 필드와 메소드를 물려받는 것은 아니다. <strong>부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속 대상에서 제외된다 (<code>private</code> 을 선언한 클래스 필드/메소드 는 클래스 밖에서는 사용할 수 없다)</strong>.</p>
+<p>부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소드도 상속 대상에서 제외된다.</p>
+<p>상속할때의 접근제한자:</p>
+<p><img src="https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png" alt=""></p>
+<p>서로 다른 패키지 내부에서 자식 클래스가 다른 패키지에 존재하는 부모클래스를 상속 받을 경우, 부모 클래스의 필드/메소드가 protected, public일 때만 상속 받을 수 있다. private, default이면 상속 받을 수 없다.</p>
+<p><img src="https://user-images.githubusercontent.com/26023287/77852504-99e2a780-7211-11ea-9d63-29c940c7971f.png" alt=""></p>
+<p>같은 패키지 내부에서 부모 클래스의 필드와 메소드가 default, protected, public일경우 자식 클래스는 모두 상속을 받을 수 있다. 단 접근제한자가 private일 경우 상속을 받을 수 없다.</p>
+<h3 id="super"><a href="#super" class="headerlink" title="super()"></a><code>super()</code></h3><hr>
+<p>자식 클래스가 생성되면서 부모 클래스를 상속 받을때, 부모클래스는 존재 해야한다. 쉽게 생각하면, 부모가 있어야 자식이 존재한다.</p>
+<p>부모클래스는 자식 클래스가 생성될때 생성된다. <strong>자식 객체가 생성될때 생성자를 호출 하는데, 자시클래스의 생성자에서 부모클래스의 생성자를 호출한다.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Child</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">super</span>(); <span class="comment">// 이런식으로 부모의 생성자를 호출한다 </span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>super()</code>를 명시해주지 않으면 자바 컴파일러는 자동으로 부모의 생성자를 호출한다.</p>
+<p><strong>만약에 부모 클래스에 생성자를 지정해주지 않았으면 <code>super()</code> 는 디폴트 생성자를 호출하지만, 만약에 생성자 함수가 존재할 경우 해당 생성자함수의 매개변수및 매개변수타입에 맞체 <code>super()</code> 를 호출해야한다</strong></p>
+<p>super는 매가값의 타입과 일치하는 부모 생성자를 호출한다. 만약 매개값의 타입과 일치하는 부모 생성자가 없을 경우 <strong>컴파일 오류가 발생한다.</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Parent Class</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">public</span> String ssn;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name, String ssn)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.ssn = ssn;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Child Class</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">People</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> studentId;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, String ssn, <span class="keyword">int</span> studentId)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(name, ssn);</span><br><span class="line">    <span class="keyword">this</span>.studentId = studentId;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main() 함수</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Student student = <span class="keyword">new</span> Student(<span class="string">"홍길동"</span>,<span class="string">"1234"</span>);</span><br><span class="line">    System.out.println(student.name);</span><br><span class="line">    System.out.println(student.ssn);</span><br><span class="line">    System.out.println(student.studentId);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="메소드-재정의"><a href="#메소드-재정의" class="headerlink" title="메소드 재정의"></a>메소드 재정의</h3><hr>
+<p>상속된 부모 클래스의 메소드를 재정의해서 자식 클래스에서 사용. <strong>메소드 오버라이딩 이라고 부른다</strong></p>
+<p>메소드 재정의(@Override): 메소드 오버라이딩은 상속된 메소드의 내용이 자식 클래스에 맞지 않을 경우. 자식 클래스에서 동일 한 메소드를 재정의하는 것을 의미한다. 메소드가 오버라이딩되었다면 부모 객체의 메소드는 숨겨지기 때문에, 자식 객체에서 메소드를 호출하면 오버라이딩된 자식 메소드가 호출된다.</p>
+<p>메소드 오버라이딩을 할때는 몇가지 규칙이 있다.</p>
+<ul>
+<li>부모의 메소드와 동일한 리턴타입, 메소드 이름, 매개변수 리스트 를 가져야 한다</li>
+<li>접근 제한을 더 강하게 오버라이딩 할 수 없다(public에서 private혹은 default 로 변경 불가)</li>
+<li>새로운 예외를 throws할수 없다</li>
+</ul>
+<p>접근 제한을 더 강하게 할 수 없다는 것은 부모 메소드가 public 접근 제한을 가졌을때 오버라이딩 하는 자식 메소드는 default 나 private 접근 제한으로 수정할 수 없다는 뜻이다. 하지만 그 반대는 가능하다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">double</span> <span class="title">areaCircle</span><span class="params">(<span class="keyword">double</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.1415926</span> * r * r;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> <span class="keyword">extends</span> <span class="title">calculator</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">double</span> <span class="title">areaCircle</span><span class="params">(<span class="keyword">double</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Math.PI * r * r;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="부모-메소드-호출-super"><a href="#부모-메소드-호출-super" class="headerlink" title="부모 메소드 호출(super)"></a>부모 메소드 호출(super)</h3><hr>
+<p>자식 클래스에서 부모 클래스의 메소드를 오버라이딩 하게되면, 부모 클래스의 메소드는 숨겨지고 오버라이딩 된 자식 메소드만 사용하게 되는것이다. 그러나 자식 클래스 내부에서 오버라이딩된 부모 클래스의 메소드를 호출해야 하는 상황이 발생하면 <code>super.부모메소드</code>를 호출하면 된다.</p>
+<blockquote>
+<p><code>super()</code> 는 부모의 생성자 호출</p>
+<p><code>super.부모메소드()</code> 는 부모의 메소드를 호출 </p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Airplane</span></span>&#123;</span><br><span class="line">  <span class="function">pulic <span class="keyword">void</span> <span class="title">land</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"착륙합니다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function">pulic <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"일반 비행입니다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function">pulic <span class="keyword">void</span> <span class="title">takeOff</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"이륙합니다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JetAirplane</span> <span class="keyword">extends</span> <span class="title">Airplane</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NORMAL = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SUPERSONIC = <span class="number">2</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> flyMode = NORMAL;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(flyMode == SUPERSONIC)&#123;</span><br><span class="line">      System.out.println(<span class="string">"초음속 비행입니다"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">super</span>.fly();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="상속할-수-없는-final-클래스"><a href="#상속할-수-없는-final-클래스" class="headerlink" title="상속할 수 없는 final 클래스"></a>상속할 수 없는 <code>final</code> 클래스</h3><hr>
+<p><code>final</code> 키워드를 사용하게 될경우 더이상 값을 새로 할당할 수 없다고 했는데 메소드와 클래스에 <code>final</code> 을 지정할 경우 상속과 관련이 있다.</p>
+<p><strong>클래스를 서언할 때 final 키워드를 class앞에 붙이게 되면 이 클래스는 최종적인 클래스이므로 상속할 수 없는 클래스가 된다.</strong> 즉 <code>final</code>클래스는 부모 클래스가 될 수 없고 자식 클래스를 갖을 수 없다</p>
+<blockquote>
+<p><code>public final class 클래스명{...}</code></p>
+</blockquote>
+<p>자바의 String 클래스도  final 클래스 이기 때문에 자식 클래스를 갖을 수 없다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewString</span> <span class="keyword">extends</span> <span class="title">String</span></span>&#123;...&#125; --&gt; 이렇게 할 수 없다.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="오버라이딩-할수-없는-final-메소드"><a href="#오버라이딩-할수-없는-final-메소드" class="headerlink" title="오버라이딩 할수 없는 final 메소드"></a>오버라이딩 할수 없는 final 메소드</h3><hr>
+<p>메소드를 선언할 때 final 키워드를 붙이게 되면 이 메소드는 최종적인 메소드이므로 오버라이딩 할 수 없는 메소드가 된다.</p>
+<blockquote>
+<p>메소드에 final이 붙을 경우 오버라이딩 할 수 없다.</p>
+</blockquote>
+<p>즉 부모 클래스를 상속해서 자식 클래스를 선언할 때 <strong>부모클래스에 선언된 final 메소드는 오버라이딩 할 수 없다.</strong></p>
+<blockquote>
+<p><code>public final 리턴타입 메소드명(){}</code></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> speed;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speedUP</span><span class="params">()</span></span>&#123;</span><br><span class="line">    speed += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    speed = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SportsCar</span> <span class="keyword">extends</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> speedUp&#123;</span><br><span class="line">    speed += <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 오버라이딩 불가</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    speed = -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="상속에서의-protected-접근-제한"><a href="#상속에서의-protected-접근-제한" class="headerlink" title="상속에서의 protected 접근 제한"></a>상속에서의 protected 접근 제한</h3><hr>
+<p>protected 는 public 와 default 접근 제한자의 중간이라고 생각하면 된다. 같은 패키지에서는 default 와 같이 접근 제한이 없지만, 다른 패키지에서는 자식 클래스만 접근을 허용한다.</p>
+<p>protected는 필드와 생성자, 메소드 선언에 사용될 수 있다.</p>
+<h3 id="타입-변환과-다형성"><a href="#타입-변환과-다형성" class="headerlink" title="타입 변환과 다형성"></a>타입 변환과 다형성</h3><hr>
+<p>다형성은 같은 타입이지만 실행 결과가 다양한 객체를 이용할 수 있는 성질을 말한다. 코드의 측면에서 보면 다형성은 하나의 타입에 여러 객체를 대입합으로써 다양한 기능을 이용하 수 있도록 해준다. <strong>다형성을 위해 자바는 부모 클래스로 타입 변환을 허용한다.</strong> 즉 븀ㅎ 타입에 모든 자식 객체가 대입될 수 잇다. 이것을 이용하면 객체는 부품화가 가능해진다.</p>
+<p>예를들어 자동차 타이어에 금호 타이어와 현대 타이어가 있고, 둘다 타이어라는 클래스로부터 상속을 받을경우 다음같이 다형성을 구현할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">  Tire kumhoTire = <span class="keyword">new</span> KumhoTire();</span><br><span class="line">  Tire hyundaiTire = <span class="keyword">new</span> HyundaiTire();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>타입 변환이란 데이터 타입을 다른 데이터 타입으로 변환하는 행위를 말한다. 클래스 타입의 변환은 <strong>상속관계에 있는 클래스에서 발생한다</strong>. 자식 타입은 부모 타입으로 자동 타입 변환이 가능하다. </p>
+<p>자동 타입 변환(Promotion): 자동 타입 변환의 개념은 <strong>자식은 부모의 특징과 기능을 상속받기 때문에 부모와 동일하게 취급될 수 있다.</strong></p>
+<blockquote>
+<p>부모클래스 변수 = 자식클래스타입; (자동 타입 변환)</p>
+</blockquote>
+<p>예를들어 고양이는 동물의 특징과 기능을 상속받는다. 그렇기 때문에 고양이는 동물이다 라는 말이 설립된다. 이것을 코드로 해석하면 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">    Animal anmial = cat;</span><br><span class="line">    <span class="comment">// 위 코드는 Animal animal = new Cat(); 와 동일하다</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>자동 타입 변환은 부모가 아니더라도 상속 계층에서 상위 타입이면 자동 타입 변환이 일어날 수 있다.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D --&gt; B </span><br><span class="line"><span class="code">        \</span></span><br><span class="line"><span class="code">          A</span></span><br><span class="line"><span class="code">        /</span></span><br><span class="line">E --&gt; C</span><br></pre></td></tr></table></figure>
+
+<p>이런식으로 계층 구조가 있을때 자동 타입 변환은 다음같이 동작한다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">A a1 = b;</span><br><span class="line">A a2 = c;</span><br><span class="line">A a3 = d;</span><br><span class="line">A a4 = e;</span><br><span class="line"></span><br><span class="line">B b1 = d;</span><br><span class="line">C c1 = e;</span><br><span class="line"></span><br><span class="line">B b2 = e; <span class="comment">// (불가능)</span></span><br><span class="line">C C2 = d; <span class="comment">// (불가능)</span></span><br></pre></td></tr></table></figure>
+
+<p>B 타입의 참조변수에 e 인스턴스 객체를 못넣는 이유는 <strong>상속 관계가 아니기 때문이다.</strong></p>
+<p>부모 타입으로 자동 타입 변환된 이후에는 부모 클래스에 선언된 <strong>필드와 메소드만 접근 할 수 있다.</strong> 비록 변수는 자식 객체를 참조하지만 변로 접근 가능한 멤버는 부모 클래스 멤버로만 한정된다. 그러나 예외가 있는데, 메소드가 자식 클래스에서 오버라이딩 되었다면 자식 클래스의 메소드가 대신 호출된다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;...&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>&#123;...&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>&#123;...&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span></span>&#123;...&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Parent parent = <span class="keyword">new</span> Child();</span><br><span class="line">    </span><br><span class="line">    parent.method1(); <span class="comment">// O</span></span><br><span class="line">    parent.method2(); <span class="comment">// O(자식의 오버라이딩한 method2 호출)</span></span><br><span class="line">    parent.method3(); <span class="comment">// X</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>다형성 예제:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 참조변수의 타입이 인스턴스의 타입과 동일</span></span><br><span class="line">    Human h = <span class="keyword">new</span> Human(<span class="string">"도현"</span>,<span class="number">26</span>);</span><br><span class="line">    Male m = <span class="keyword">new</span> Male(<span class="string">"로버트"</span>,<span class="number">27</span>);</span><br><span class="line">    Human pol = <span class="keyword">new</span> Male(<span class="string">"로다주"</span>,<span class="number">32</span>); <span class="comment">// 다형성</span></span><br><span class="line">    </span><br><span class="line">    System.out.println(<span class="string">"===== Human 객체 ====="</span>);</span><br><span class="line">    System.out.println(h.name);</span><br><span class="line">    System.out.println(h.age);</span><br><span class="line">    </span><br><span class="line">    System.out.println(<span class="string">"===== Male 객체 ====="</span>);</span><br><span class="line">    System.out.println(m.name);</span><br><span class="line">    System.out.println(m.age);</span><br><span class="line">    System.out.println(m.isMale);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    System.out.println(<span class="string">"===== 다형성 객체 ====="</span>);</span><br><span class="line">    System.out.println(pol.name);</span><br><span class="line">    System.out.println(pol.age);</span><br><span class="line">    <span class="comment">// System.out.println(pol.isMale); //Male객체를 생성했어도 Male클래스의 isMale 필드 사용불가</span></span><br><span class="line">    <span class="comment">// pol.isMale(); isMale() 메소드도 사용 불가</span></span><br><span class="line">    pol.walk();</span><br><span class="line">    pol.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Human</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.name=name;</span><br><span class="line">      <span class="keyword">this</span>.age =age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">walk</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"걷기"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"노래부르기 "</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Male</span> <span class="keyword">extends</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">  Boolean isMale;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Male</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">      <span class="keyword">super</span>(name, age);</span><br><span class="line">      <span class="keyword">this</span>.isMale=<span class="keyword">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">isMale</span><span class="params">()</span></span>&#123; </span><br><span class="line">      System.out.println(<span class="string">"남자아이가!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="필드의-다형성"><a href="#필드의-다형성" class="headerlink" title="필드의 다형성"></a>필드의 다형성</h3><hr>
+<p>다향성이란 동일한 타입을 사용하지만 다양한 결과가 나오는 성질을 말한다. 주로 필드의 값을 다양화함으로서 실행 결과가 다른게 나오도록 구현하는데, 필드의 타입은 변함이 없지만, 실행 도중에 어떤 객체를 필드로 저장하느냐에 따라 실행 결과가 달라질 수 있다.</p>
+<h3 id="타입-캐스팅"><a href="#타입-캐스팅" class="headerlink" title="타입 캐스팅"></a>타입 캐스팅</h3><hr>
+<p>다형성에서 자식 타입이 부모타입으로 자동 변환 한다고 했다. 반대로 부모타입이 자식 타입으로 다운 캐스팅 될 수 있다. 다운 캐스팅은 항상 되는것이 아니라, 자식타입이 부모타입으로 형변환 후, 다시 자식 타입으로 변환을 할려고 할때 사용할 수 있다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Dohyeon Lee"
+        },
+        "headline": "상속추가설명",
+        "image": "http://yoursite.comhttps://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png",
+        "keywords": "Develop Java",
+        "genre": "Java",
+        "datePublished": "2020-03-30",
+        "dateCreated": "2020-03-30",
+        "dateModified": "2020-03-31",
+        "url": "http://yoursite.com/2020/03/30/자바/상속추가설명/",
+        "description": "상속 추가 설명
+상속을 해도 부모 클래스의 모든 필드와 메소드를 물려받는 것은 아니다. 부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속 대상에서 제외된다 (private 을 선언한 클래스 필드/메소드 는 클래스 밖에서는 사용할 수 없다).
+부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소",
+        "wordCount": 2381
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/dohyeon.lee.7982" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/eqfwcev123" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UCXnKj59UCqlcu02lFNT30Pg" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바 &#34;클래스&#34; 란?</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png)" alt="상속추가설명" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/" class="title">상속추가설명</a></p>
+                            <p class="item-date"><time datetime="2020-03-30T14:46:07.000Z" itemprop="datePublished">2020-03-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="title">자바 &#34;클래스&#34; 란?</a></p>
+                            <p class="item-date"><time datetime="2020-03-29T13:25:38.000Z" itemprop="datePublished">2020-03-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
+                            <p class="item-title"><a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="title">encryption_decryption</a></p>
+                            <p class="item-date"><time datetime="2020-03-26T22:11:18.000Z" itemprop="datePublished">2020-03-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/26/%EB%85%B8%EB%93%9C/nodejsmodules/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/03/26/%EB%85%B8%EB%93%9C/nodejsmodules/" class="title">nodejsmodules</a></p>
+                            <p class="item-date"><time datetime="2020-03-26T07:10:14.000Z" itemprop="datePublished">2020-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="title">servletMappin</a></p>
+                            <p class="item-date"><time datetime="2020-03-19T07:18:47.000Z" itemprop="datePublished">2020-03-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 11.43px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Dohyeon Lee</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
