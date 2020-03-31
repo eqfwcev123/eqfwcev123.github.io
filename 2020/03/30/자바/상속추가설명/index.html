@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png">
 <meta property="article:published_time" content="2020-03-30T14:46:07.000Z">
-<meta property="article:modified_time" content="2020-03-30T15:46:28.575Z">
+<meta property="article:modified_time" content="2020-03-31T06:41:30.308Z">
 <meta property="article:author" content="Dohyeon Lee">
 <meta property="article:tag" content="Develop">
 <meta property="article:tag" content="Java">
@@ -210,6 +210,8 @@
 <p>서로 다른 패키지 내부에서 자식 클래스가 다른 패키지에 존재하는 부모클래스를 상속 받을 경우, 부모 클래스의 필드/메소드가 protected, public일 때만 상속 받을 수 있다. private, default이면 상속 받을 수 없다.</p>
 <p><img src="https://user-images.githubusercontent.com/26023287/77852504-99e2a780-7211-11ea-9d63-29c940c7971f.png" alt=""></p>
 <p>같은 패키지 내부에서 부모 클래스의 필드와 메소드가 default, protected, public일경우 자식 클래스는 모두 상속을 받을 수 있다. 단 접근제한자가 private일 경우 상속을 받을 수 없다.</p>
+<a id="more"></a>
+
 <h3 id="super"><a href="#super" class="headerlink" title="super()"></a><code>super()</code></h3><hr>
 <p>자식 클래스가 생성되면서 부모 클래스를 상속 받을때, 부모클래스는 존재 해야한다. 쉽게 생각하면, 부모가 있어야 자식이 존재한다.</p>
 <p>부모클래스는 자식 클래스가 생성될때 생성된다. <strong>자식 객체가 생성될때 생성자를 호출 하는데, 자시클래스의 생성자에서 부모클래스의 생성자를 호출한다.</strong></p>
@@ -307,6 +309,75 @@
 <p>다향성이란 동일한 타입을 사용하지만 다양한 결과가 나오는 성질을 말한다. 주로 필드의 값을 다양화함으로서 실행 결과가 다른게 나오도록 구현하는데, 필드의 타입은 변함이 없지만, 실행 도중에 어떤 객체를 필드로 저장하느냐에 따라 실행 결과가 달라질 수 있다.</p>
 <h3 id="타입-캐스팅"><a href="#타입-캐스팅" class="headerlink" title="타입 캐스팅"></a>타입 캐스팅</h3><hr>
 <p>다형성에서 자식 타입이 부모타입으로 자동 변환 한다고 했다. 반대로 부모타입이 자식 타입으로 다운 캐스팅 될 수 있다. 다운 캐스팅은 항상 되는것이 아니라, 자식타입이 부모타입으로 형변환 후, 다시 자식 타입으로 변환을 할려고 할때 사용할 수 있다.</p>
+<blockquote>
+<p>자식클래스 변수 = (자식 클래스) 부모클래스타입;</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      Parent parent = <span class="keyword">new</span> Child();</span><br><span class="line">      parent.field1 = <span class="string">"xxx"</span>;</span><br><span class="line">      parent.method1();</span><br><span class="line">      parent.method2();</span><br><span class="line">      </span><br><span class="line">      Child child = (Child)parent; <span class="comment">// parent 인스턴스극 Child 객체타입으로 형변환</span></span><br><span class="line">      child.field2 = <span class="string">"yyy"</span>; <span class="comment">//(가능)</span></span><br><span class="line">      System.out.println(child.field2);</span><br><span class="line">      child.method3(); <span class="comment">//(가능)</span></span><br><span class="line">      System.out.println(child.field1);</span><br><span class="line">      child.method1(); <span class="comment">// 강제 형변환을 실행한 후 부모 클래스와 자식 클래스의 필드와 메소드 모두 접근 가능</span></span><br><span class="line">      child.method2(); <span class="comment">// 강제 형변환을 실행한 후 부모 클래스와 자식 클래스의 필드와 메소드 모두 접근 가능</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  String field1;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"first method"</span>);&#125;;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"second method"</span>);&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">  String field2;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"Third method"</span>);&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="객체-타입-확인하기-instnace-of"><a href="#객체-타입-확인하기-instnace-of" class="headerlink" title="객체 타입 확인하기 (instnace of)"></a>객체 타입 확인하기 <code>(instnace of)</code></h3><hr>
+<p>한 객체가 다른 객체의 자식인지 알기위해 사용</p>
+<blockquote>
+<p><code>좌항(객체) instanceof 우항(타입)</code></p>
+</blockquote>
+<p>위의 예제를 그대로 사용할 경우 다음과 같이 사용할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    Child child2 = <span class="keyword">new</span> Child();</span><br><span class="line">    System.out.println(child2 <span class="keyword">instanceof</span> Parent);<span class="comment">// child2 객체가 Parent 클래스의 인스턴스인지 확인</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h3><hr>
+<p>추상의 사전적 의미는 실체 간에 공통되는 특성을 추출하는 것이다. 예를들어 새, 곤충, 물고기등의 실체에서 공통되는 특성을 추출해보면 동물이라는 공통점이 나온다. 또다른 예시로 삼성, 현대, LG 라는 실체에서 공통되는 특성을 추출하면 회사라는 공통점이 나온다.</p>
+<p>클래스에서도 추상 클래스가 존재한다. 객체를 직접 생성할 수 있는 클래스를 실체 클래스라고 하면(우리가 평소에 사용하는 클래스) <strong>이 클래스들의 공통적인 특성을 추출해서 선언한 클래스를 추상 클래스라고 부른다.</strong></p>
+<p><strong>추상 클래스와 실체 클래스는 서로 상속을 관계를 갖는다. 추상 클래스가 부모이고, 실체 클래스가 자식으로 구현되어 실체 클래스는 추상 클래스의 모든 특성을(메소드, 필드) 물려받고, 추가적인 특성을 가질 수 있다.</strong></p>
+<p>예를들어 Bird.class, Insect.class, Fish.class 등의 실체 클래스에서 공통되는 필드와 메소드를 따로 선언한 Animal.class 클래스를 만들 수 있다.</p>
+<img src="https://user-images.githubusercontent.com/26023287/77941502-d8996000-72ec-11ea-8d1b-4a915dcfd497.png" style="zoom:85%;" />
+
+<p><strong>추상 클래스는 실체 클래스의 공통되는 필드와 메소드를 추출해서 만들었기 때문에 객체를 직접 생성해서 사용할 수 없다.</strong> 다시 말해서 추상 클래스는 <code>new</code>를 이용해서 객체를 생성할 수 없다(장고모델에서 사용한것 처럼 필드만 공유하는 형식)</p>
+<blockquote>
+<p><code>Animal animal = new Animal();</code> // X</p>
+<p><code>class Ant extends Animal{ ... }</code> // O</p>
+</blockquote>
+<h3 id="추상클래스를-사용하는-이유"><a href="#추상클래스를-사용하는-이유" class="headerlink" title="추상클래스를 사용하는 이유"></a>추상클래스를 사용하는 이유</h3><hr>
+<p>실체 클래스의 공통적인 특성(필드와 메소드)를 뽑아내어 추상 클래스로 만드는 두가지 이유:</p>
+<ol>
+<li><p>실체 클래스들의 공통된 필드와 메소드의 이름을 통일할 목적</p>
+<p>실체 클래스를 작성하는 사람이 여러사람일 경우, 실체클래스 마다 필드와 메소드 이름을 제각각 작성할 수 있다. 이를 방지하기 위해서 추상 클래스에 모든 실체 클래스들이 사용할 공통된 필드와 메소드의 이름을 작성 해놓고, 실체 클래스에서 추상 클래스를 상속해서 네이밍을 그대로 사용하면 된다.</p>
+</li>
+<li><p>실체 클래스를 작성할 때 시간 절약</p>
+</li>
+</ol>
+<h3 id="추상-클래스-사용-방법"><a href="#추상-클래스-사용-방법" class="headerlink" title="추상 클래스 사용 방법"></a>추상 클래스 사용 방법</h3><hr>
+<p>추상 클래스를 선언할 때에는 선언에 abstract 키워드를 붙이면 된다. <code>abstract</code> 키워드를 붙이게 되면 new 연산자를 이요해서 객체를 생성하지 못하게 되고, 오로지 상속에 의해서 필드와 메소드를 상속받아서 사용할 수 있게 된다.</p>
+<blockquote>
+<p><code>public abstract class 클래스이름{ 필드, 생성자, 메소드 }</code></p>
+<p>자식 클래스에서 <code>super()</code>를 이용해서 생성자 호출.  new를 사용하지 않는다.</p>
+</blockquote>
+<p>추상 클래스도 일반 클래스와 마찬가지로 필드, 생성자, 메소드 선언을 할 수 있다. <strong>new 연산자로 생성자를 집접 호출할 수 없지만 자식 객체가 <code>super()</code> 를 호출해서 추상 클래스의 생성자 함수를 호출할 수 있다.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String owner;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Phone</span><span class="params">(String owner)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.owner = owner;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnOn</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"폰을 킵니다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnOff</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"폰을 끕니다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmartPhone</span> <span class="keyword">extends</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">SmartPhone</span><span class="params">(String owner)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.owner = owner;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">internetSearch</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"인터넷을 검색합니다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhoneExample</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">   	SmartPhone smartphone = <span class="keyword">new</span> SmartPhone(<span class="string">"홍길동"</span>);</span><br><span class="line">    </span><br><span class="line">    smartphone.turnOn();</span><br><span class="line">    smartphone.internetSearch();</span><br><span class="line">    smartphone.turnOff();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="추상-메서드와-오버라이딩"><a href="#추상-메서드와-오버라이딩" class="headerlink" title="추상 메서드와 오버라이딩"></a>추상 메서드와 오버라이딩</h3><hr>
+<p>추상 클래스는 실체 클래스가 공통적으로 가져야 할 필드와 메소드들을 정의해 놓은 추상적인 클래스이므로 실제 클래스의 멤버(필드, 메소드)를 통일화 하는데 목적이 있다.  모든 실체들이 가지고 있는 메소드의 실행 내용이 동일하다면 추상 클래스에 메소드를 작성하는것이 좋다. 하지만 메소드의 선언만 통일화하고, 실행 내용은 실체 클래스마다 달다랴 하는 경우가 있다. 예를들어 모든 동물들의 울음소리를 <code>sound()</code>라는 함수로 지정을 한다고 한다고 할때, 이런 함수는 개발자 직접 일일히 입력 해줘야 하는 메소드 이기 때문에 선언부만 추상 클래스에서 하고 실체 클래스에서 오버라이딩을 해줘야 한다.</p>
+<p>이런 경우를 위해서 추상 클래스 내부에서 <strong>추상 메서드</strong> 를 선언할 수 있다. 추상 메서드는 추상 클래스에서 만 선언할 수 있는데, <strong>메소드는 선언부만 있고 실행 내용인 중괄호<code>{}</code> 는 존재하지 않는다.</strong></p>
+<blockquote>
+<p><code>[public|protected] abstract 리턴타입 메소드명()</code></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String kind;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">breadthe</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"숨을 쉰다"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 추상 메소드</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">sound</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  <span class="comment">// 생성자</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.kind = <span class="string">"포유류"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 추상 클래스에 있는 추상 메서드 오버라이딩</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sound</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"멍멍"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.kind=<span class="string">"포유류"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sound</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"야옹"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractClassExample</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">    Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">    </span><br><span class="line">    dog.sound();</span><br><span class="line">    cat.sound();</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//변수의 자동 타입 변환</span></span><br><span class="line">    Animal animal = <span class="keyword">null</span>;</span><br><span class="line">    animal = <span class="keyword">new</span> Dog(); <span class="comment">// 상속을 받는 다는 것은 부모 클래스의 객체가 생성이 되야하는 것이다. 그렇기 때문에 Animal 객체 내부에 dog 객체를 넣을 수 있다. dog의 sound 메소드를 갖는다.</span></span><br><span class="line">    animal.sound(); <span class="comment">// 재정의된 메소드 호출</span></span><br><span class="line">    animal = <span class="keyword">new</span> Cat();</span><br><span class="line">    animal.sound();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
         </div>
         <footer class="article-footer">
@@ -387,8 +458,13 @@
         "url": "http://yoursite.com/2020/03/30/자바/상속추가설명/",
         "description": "상속 추가 설명
 상속을 해도 부모 클래스의 모든 필드와 메소드를 물려받는 것은 아니다. 부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속 대상에서 제외된다 (private 을 선언한 클래스 필드/메소드 는 클래스 밖에서는 사용할 수 없다).
-부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소",
-        "wordCount": 2381
+부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소드도 상속 대상에서 제외된다.
+상속할때의 접근제한자:
+
+서로 다른 패키지 내부에서 자식 클래스가 다른 패키지에 존재하는 부모클래스를 상속 받을 경우, 부모 클래스의 필드/메소드가 protected, public일 때만 상속 받을 수 있다. private, default이면 상속 받을 수 없다.
+
+같은 패키지 내부에서 부모 클래스의 필드와 메소드가 default, protected, public일경우 자식 클래스는 모두 상속을 받을 수 있다. 단 접근제한자가 private일 경우 상속을 받을 수 없다.",
+        "wordCount": 3792
     }
 </script>
 
