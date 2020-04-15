@@ -171,6 +171,129 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Python/Django/">Django</a>
+            </div>
+            <div class="date"><time datetime="2020-01-21T11:47:58.000Z" itemprop="datePublished">2020-01-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/">projectDeploy</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            서버 배포
+
+보안그룹 생성 : 보안그룹 생성 &gt; 보안그룹 이름/설명/인바운드 입력
+
+인스턴스 생성 : Ubuntu 18.04 생성 &gt; 보안 그룹 구성에서 기존의 보안그룹/새로운 보안 그룹 선택
+
+인스턴스를 생성하면서 Secret 키를 생성할 수 있는데, 생성을 하면 ~/.ssh 디렉토리에 저장. AWS에서 인스터스를 생성 하면 키만 받고, 자물쇠는 우리가 인스턴스를 생성할 때 AWS 에서 자물쇠를 넣어준다.(다시말해 우리는 열쇠만 가지고 있는것이다.)
+
+EC2 서버로 접근하기: ssh -i ~/.ssh/[보안키이름].pem [유저]@[서버 주소]. 이렇게 하면 원래는 서버로 접속을 할 수 있지만 처음 설정 할때는 접근할 수 없다. EC2에 인바운드와 아웃바운드 설정을 해줘야 한다. 인바운드 설정에 유형이라는 항목이 있는데, 항목 내부에 다양한 선택지들이 있다. 그중 SSH를 설정해야 하는데, SSH를 설정하는 이유는 사용자가 SSH를 이용해서 인스턴스에 접근을 해야하기 때문이다.
+
+인바운드 : 외부에서 인스턴스로 들어오는 요청이다
+아웃바운드 : 인스턴스에서 외부로 나가는 트래픽이다. 0.0.0.0 은 어디든 갈 수 있다
+
+
+인바운드를 설정하고 나서 다시 서버에 접근을 할려고하면 WARNING: UNPROTECTED PRIVATE KEY 라고 나온다. 그 이유는 우리가 사용하고 하는 secret키에 대한 보안이 너무 취약하기 때문이다. ~/.ssh 파일에서 ls-al을 해보면 -rw-|r--|r--@ 라고 나온다.
+
+맨앞 - 에 d가 있으면 디렉토리라는 뜻이다.
+r 는 read 를 read를 의미한다
+w 는 write 를 의미한다
+x 는 executable을 의미한다
+u 는 user(사용자)를 의미한다
+g 는 그룹을 의미한다
+o 는 기타 를 의미한다.
+(파일타입|user|group|other) || 링크수 || 소유자 || 그룹 || 파일크기 || 파일수정시간 || 파일이름
+
+
+chmod와 숫자를 이용해서 해당 파일의 권한 변경하기: 숫자를 이용해서 해당파일의 user|group|other의 권한을 한번에 변경할 수 있다.
+
+rwx 가 있는데 r 은 2^2, w 는 2^1, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 + 2^1 + 2^0 = 7 을 의미한다.
+r-x 가 있는데 r 은 2^2, x 는 2^0을 의미한다. 다시말해 rwx  = 2^2 +  2^0 = 5 을 의미한다.
+쉽게 말해 r 는 4, w 는 2, x 는 1을 의미한다.
+권한을 부여할때 다음과 같이 부여한다. chmod 777 a.py. 이는 즉 a.py파일에 rwx|rwx|rwx를 부여한는 것이다.
+chmod 124 b.py 는 b.py파일에 –x|-w-|r– 권한을 부여하는것이다
+
+
+
+
+
+
+
+경우의 수
+chmod
+
+
+
+rwx
+7
+
+
+rw-
+6
+
+
+r-x
+5
+
+
+-wx
+3
+
+
+–x
+1
+
+
+-w-
+2
+
+
+r–
+4
+
+
+—
+0
+
+
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/" class="thumbnail">
     
     
@@ -213,10 +336,14 @@ class Car(models.Model):
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -261,14 +388,10 @@ class Car(models.Model):
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -325,10 +448,14 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -382,14 +509,10 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -433,10 +556,14 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -484,14 +611,10 @@ Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클�
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -556,10 +679,14 @@ public printStream printf(String format, Object... args) // 가변인자 사용�
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -636,14 +763,10 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -723,72 +846,6 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
     </div>
 </article>
     
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Java/">Java</a>
-            </div>
-            <div class="date"><time datetime="2020-01-07T17:00:34.000Z" itemprop="datePublished">2020-01-08</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/">inheritance</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            자바 상속(extends)
-객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다.
-상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다
-사용방법:
-자식 클래스 extends 부모클래스`:  자식 클래스가 부모클래스한테서 상속을 받는다는 뜻이다.
-
-다중 상속을 할 수 없다: 클래스C 가 클래스A, 클래스B한테서 상속을 받을 수 없다.(부모 클래스는 무조건 한명). 자바는 single inheritance 만 허용한다
-
-상위 클래스는 하위 클래스보다 일반적인 개념과 기능을 갖는다
-하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 갖는다
-생성자함수와 초기화 블럭(클래스 초기화 블럭/인스턴스 초기화 블럭)은 상속되지 않는다
-자식 클래스의 멤버 개수는 조상 클래스보다 항상 같거나 많다
-접근제어자가 Private 이거나 default일 멤버들은 상속되지 않는다기 보다는 상속은 받지만 자식 클래스가 접근을 할 수없는것이다.
-두개의 클래스(자식 클래스 A 와 자식 클래스 B)가 한개의 부모 클래스 한테서 상속을 받더라도 자식 클래스 A 와 B는 아무런 관계가 없다. 상속 관계에서 형제 관계는 없다.
-하위 클래스는 상위 클래스의 기능을 마음대로 사용할 수 있지만, private 한 변수와 메소드는 사용할 수 없다. 만약에 외부 클래스는 내 private 변수/메소드를 사용할 수 없지만 내 자식 클래스는 사용할 수 있게 하고 싶을 경우 private 이 아닌 protected 를 사용하면 된다.
-
-private 는 선언한 클래스 내부에서만 사용할 수 있다. 상속을 한다고 해도 사용할 수 없다.
-protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클래스들만 쓸수 있게 만들 수 있다.
-
-예를들어 포유류 라는 부모클래스를 인간이 상속받는다: class Human extends Mammal{}
-1// 고객관리 프로그램: 고객이라는 부모클래스 밑에 VIP고객 클래스와 다이아회원 클래스가 있다
-        </p>
-    </div>
-</article>
-    
         </div>
     
 
@@ -845,6 +902,26 @@ protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/15/%EB%85%B8%EB%93%9C/express-passport/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2020/04/15/%EB%85%B8%EB%93%9C/express-passport/" class="title">express-passport</a></p>
+                            <p class="item-date"><time datetime="2020-04-15T04:28:17.000Z" itemprop="datePublished">2020-04-15</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -926,26 +1003,6 @@ protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="title">servletMappin</a></p>
-                            <p class="item-date"><time datetime="2020-03-19T07:18:47.000Z" itemprop="datePublished">2020-03-19</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -955,7 +1012,7 @@ protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/">Node.js</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/Express-js/">Express.js</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -965,7 +1022,7 @@ protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
@@ -975,7 +1032,7 @@ protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -985,7 +1042,7 @@ protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 11.43px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 12.86px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
         </div>
     </div>
 

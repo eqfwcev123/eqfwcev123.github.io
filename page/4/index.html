@@ -171,6 +171,67 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
+        <a href="/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Network/">Network</a>
+            </div>
+            <div class="date"><time datetime="2020-01-26T13:27:23.000Z" itemprop="datePublished">2020-01-26</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/26/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/broadcastAddress/">브로드캐스트 주소 계산법</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            브로드캐스팅 주소 계산법
+알아야할 용어들:
+
+네트워크 주소: 하나의 네트워크를 통칭하기 위해 사용하는 주소.
+브로드캐스 주소: 특정 네트워크에 속하는 모든 호스트/클라이언트 들이 듣게되는 주소를 의미한다. 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스르 주소로 사용한다.
+
+IP주소는 네트워크 주소와 호스트주소로 나누어진다. IP주소를 네트워크 주소와 호스트 주소로 구분해 주는것이 서브넷 마스크(Subnet mask)이다. 추가적으로 서브넷은 추가적인 서브넷 서브 네트워크가 필요할 경우 IP주소 중 호스트 주소를 서브넷과 호스트주소(&lt;네트워크주소&gt;&lt;서브넷&gt;&lt;호스트주소&gt;) 로 나누어준다. 
+서브넷 마스크라고 불리는 이유는 서브넷 마스크를 이용해서 IP주소의 네트워크 주소를 구분하기 위해서 이다.
+서브넷 마스크는 32비트 숫자로 구성된 IP주소이며, IP주소를 네트워크 주소와 호스트 주소로 나눈다. 서브넷 마스크는 32비트 숫자들 중 네트워크 주소를 모두 1로 표현하고 호스트 주소를 0으로 표기한다. 주어진 네트워크에서 두개의 호스느 주소는 특정 목적을 위해 예약되어있어서 호스트한테 할당될 수 없다. 0 인 주소는 네트워크 주소에 할당되어 있고, 255는 broadcast address이기 때문에 호스트에게 할당될 수 없다.
+
+ – AND 연산 – 
+1 AND 1 = 1
+1 AND 0 = 0
+0 AND 1 = 0
+0 AND 0 = 0    
+
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
         <a href="/2020/01/25/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/" class="thumbnail">
     
     
@@ -220,10 +281,14 @@ IPv4 는 IP주소를 32자리로 표현한 것이다
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -343,14 +408,10 @@ r–
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -397,10 +458,14 @@ class Car(models.Model):
     </div>
 </article>
     
+        </div>
+    
 
     
     
     
+    
+        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -445,14 +510,10 @@ class Car(models.Model):
     </div>
 </article>
     
-        </div>
-    
 
     
     
     
-    
-        <div class="article-row">
     
         <article class="article article-summary">
     <div class="article-summary-inner">
@@ -505,63 +566,6 @@ h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의
 자식 클래스가 부모 클래스 한테서 상속을 받게 되면 자식 클래스의 인스턴스는 부모 클래스의 모든 멤버(메소드 와 멤버 변수) 와 자기자신이 가지고있는 모든 멤버들을 갖게된다. 다시말해 자식 클래스의 인스턴스는 부모 클래스의 인스턴스보다 더많은 멤버 변수와 메소드를 갖고 있다는 것이다.
 이제 Human h = new Male() 를 다시 보면 자식 클래스의 인스턴스를 생성 했는데, 참조변수의 타입은 부모 클래스인 것은 10리터의 물을 500ml 패트병으로 담으려고 하는 것이다. 500ml의 패트병으로는 500ml 치 의 물만 담을 수 있다. 마찬가지로 h 참조 변수로는 부모클래스타입이 저장할 수 있는 멤버변수/메소드만 저장할 수 있다.
 다시 말해 인스턴스의 타입과 상관 없이 참조변수의 타입에 따라 해당 인스턴스가 가질수 있는 메버변수와 메소드의 개수가 달라진다.
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/accessModifier/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/accessModifier/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Java/">Java</a>
-            </div>
-            <div class="date"><time datetime="2020-01-13T01:46:10.000Z" itemprop="datePublished">2020-01-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/accessModifier/">accessModifier</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            제어자 (Modifier)
-제어자(Modifier)는 클래스, 변수 또는 메서드의 선언부에 함께 사용되어 부가적인 의미를 부여한다. 제어자의 종류는 크게 접근 제어자와 그 외의 제어자로 나눌 수 있다.
-접근 제어자 - public, protected, default, private
-그외 - static, final, abstract, native, transient, synchronized, volatile, strictfp
-제어자는 클래스나 멤버 변수와 메서드에 주로 사용되며, 하나의 대상에 대해서 여러 제어자를 조합하여 사용하는 것이 가능하다. 단, 접근 제어자는 한 번에 네 가지 중 하나만 선택해서 사용할 수 있다. 즉, 하나의 대상에 대해서 public, private 을 함께 사용할 수 없다.
-static
-인스턴스 변수는 하나의 클래스로부터 생성되었더라도 각기 다른 값을 유지하지만, 클래스 변수(static 변수)는 인스턴스에 관계 없이 같은 값을 갖는다. 그 이유는 하나의 변수를 모든 인스턴스가 공유하기 때문이다.
-static이 붙은 멤버 변수와 메서드, 그리고 초기화 블럭은 인스턴스가 아닌 클래스에 관계된 것이기 때문에 인스턴스를 생성하지 않고도 사용할 수 있다.
-인스턴스 메서드와 정적 메서드의 근본적인 차이는 메서드 내에서 인스턴스 멤버를 사용하는 가의 여부에 있다.
-
-staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
-
         </p>
     </div>
 </article>
@@ -622,6 +626,26 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/15/%EB%85%B8%EB%93%9C/express-passport/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2020/04/15/%EB%85%B8%EB%93%9C/express-passport/" class="title">express-passport</a></p>
+                            <p class="item-date"><time datetime="2020-04-15T04:28:17.000Z" itemprop="datePublished">2020-04-15</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -703,26 +727,6 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="title">servletMappin</a></p>
-                            <p class="item-date"><time datetime="2020-03-19T07:18:47.000Z" itemprop="datePublished">2020-03-19</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -732,7 +736,7 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/">Node.js</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/Express-js/">Express.js</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -742,7 +746,7 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
@@ -752,7 +756,7 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -762,7 +766,7 @@ staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 11.43px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 12.86px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
         </div>
     </div>
 
