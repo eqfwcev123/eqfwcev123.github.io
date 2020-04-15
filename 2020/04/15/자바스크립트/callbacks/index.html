@@ -6,26 +6,27 @@
     
 
     
-    <title>MTMFTF | Dev Blog</title>
+    <title>Asynchronous/Synchronous Javascript | Dev Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Develop,Django,Python" />
+    <meta name="keywords" content="Develop,Js" />
     
-    <meta name="description" content="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지 ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨 class Car(models.Model):   manufacturer &#x3D; models.ForeignKey( ​    ‘production.Manuf">
+    <meta name="description" content="Synchronous and Asynchronous processing Javascript engine uses single execution context, meaning a task can be processed one at a time. While a task is being processed, other tasks has to wait until t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MTMFTF">
-<meta property="og:url" content="http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/index.html">
+<meta property="og:title" content="Asynchronous&#x2F;Synchronous Javascript">
+<meta property="og:url" content="http://yoursite.com/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/callbacks/index.html">
 <meta property="og:site_name" content="Dev Blog">
-<meta property="og:description" content="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지 ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨 class Car(models.Model):   manufacturer &#x3D; models.ForeignKey( ​    ‘production.Manuf">
+<meta property="og:description" content="Synchronous and Asynchronous processing Javascript engine uses single execution context, meaning a task can be processed one at a time. While a task is being processed, other tasks has to wait until t">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-21T02:24:45.000Z">
-<meta property="article:modified_time" content="2020-01-21T02:26:53.924Z">
+<meta property="og:image" content="https://poiemaweb.com/assets/fs-images/42-4.png">
+<meta property="article:published_time" content="2020-04-15T13:14:05.000Z">
+<meta property="article:modified_time" content="2020-04-15T14:14:55.517Z">
 <meta property="article:author" content="Dohyeon Lee">
 <meta property="article:tag" content="Develop">
-<meta property="article:tag" content="Django">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://poiemaweb.com/assets/fs-images/42-4.png">
     
 
     
@@ -156,19 +157,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Python/Django/">Django</a>
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-장고/MTMFTF" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-자바스크립트/callbacks" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        MTMFTF
+        Asynchronous/Synchronous Javascript
         </h1>
     
 
@@ -179,8 +180,8 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/" class="article-date">
-         <time datetime="2020-01-21T02:24:45.000Z" itemprop="datePublished">2020-01-21</time>
+      <a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/callbacks/" class="article-date">
+         <time datetime="2020-04-15T13:14:05.000Z" itemprop="datePublished">2020-04-15</time>
       </a>
     </div>
 
@@ -190,7 +191,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Develop/" rel="tag">Develop</a>, <a class="tag-link" href="/tags/Django/" rel="tag">Django</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>
+        <a class="tag-link" href="/tags/Develop/" rel="tag">Develop</a>, <a class="tag-link" href="/tags/Js/" rel="tag">Js</a>
     </div>
 
                 
@@ -201,40 +202,35 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지"><a href="#Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지" class="headerlink" title="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지"></a>Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지</h3><hr>
-<p>ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨</p>
-<p>class Car(models.Model):</p>
-<p>  manufacturer = models.ForeignKey(</p>
-<p>​    ‘production.Manufacturer’,</p>
-<p>​    on_delete=models.CASCADE,</p>
-<p>  )</p>
-<p>면 Car테이블에 manufacturer_id 컬럼이 생김 : 즉 ForeignKey를 선언하면 해당 컬럼은 다른 테이블의 id를 가리킴</p>
-<p><strong>ForeignKey를 선언한 필드가 Many, 연결한 클래스가 One</strong></p>
-<p>PostLike 에 post = models.ForeignKey(Post, on_delete=models.CASCADE) 이면 </p>
-<p>Many는 PostLike 이고 One 은 Post</p>
-<p>(상식적으로 인스타그램에서 여러사람이 개시물 하나의 Like를 여러개 달 수 있다) PostLike 에 있는 post 필드에 ForeignKey를 선언할 경우 <post_id> 가 디비 테이블에 생성</p>
-<p>FOREIGN KEY 를 언제 사용해야하는지</p>
-<p>Many &lt;클래스명&gt; by/to one &lt;필드명&gt;</p>
-<p>ex:</p>
-<p>Many PostImage by one post</p>
-<p>Many PostLike to one post</p>
-<p>Many Post by one author</p>
-<p>쿼리란? 데이터베이스에 정보를 요청하는것. 쿼리는 웹 서버에 특정한 정보를 보여달라는 웹 클라이언트 요청에 의한 처리이다.</p>
-<hr>
-<p>related_name 과 related_query_name</p>
-<p>related_name혹은 related_query_name 둘다 사용해서 데이터를 찾아올 수 있다.</p>
-<p>related_name의 default ==&gt; &lt;클래스&gt;_set. related_name은 인스턴스에서 접근</p>
-<p>related_query_name의 default ==&gt; &lt;소문자클래스&gt;. related_query_name은 클래스에서 접근</p>
-<hr>
-<p>PostLike(Many) 에서 Post(One)에 접근 하는 방법</p>
-<p>postlike = PostLike.objects.first() #postlike는 <strong>인스턴스</strong></p>
-<p>postlike.posts #해당 인스턴스의 post. 즉 좋아요가 달려있는 post를 의미</p>
-<p><strong>다시말해 ForeignKey를 가지고 있으면 가리키는곳(Many인쪽). ForeignKey로 가리키는곳(One)인쪽에서 돌아올려면 _set사용</strong></p>
-<p>반대로</p>
-<p>Post(One)에서 PostLike(Many)로 접근하는 방법</p>
-<p>related_query_name 혹은 related_name을 이용해서 접근</p>
-<p>post.postlike_set.filter() 혹은</p>
-<p>Post.objects.filter(postlike__contains= )</p>
+            <h3 id="Synchronous-and-Asynchronous-processing"><a href="#Synchronous-and-Asynchronous-processing" class="headerlink" title="Synchronous and Asynchronous processing"></a>Synchronous and Asynchronous processing</h3><hr>
+<p>Javascript engine uses single execution context, meaning a task can be processed one at a time. While a task is being processed, other tasks has to wait until the previous task has finished its processing. The order of process is based on the execution context which follows a call stack(FIFO) structure.</p>
+<p>Since Javascript executes tasks in <strong>Single thread</strong>, a <strong>blocking</strong> can occur when a task  that takes time to process is executed. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">func, delay</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> delayUntil = <span class="built_in">Date</span>.now() + delay;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">Date</span>.now()&lt;delayUntil);</span><br><span class="line">  func();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'bar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sleep(foo, <span class="number">3</span>*<span class="number">1000</span>);</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+
+<p>For the above example, function <code>foo</code> will be executed after few seconds and after the <code>foo</code> is executed, function <code>bar</code> will be executed. This is an example of <strong>Synchronous processing model</strong> which all tasks are executed one by one based on the order. </p>
+<p>One major problem of synchronous processing model is, <strong>while one task is being executed, other tasks has to wait.</strong> If task A requires 10seconds to be executed, all other tasks after task A has to wait for 10seconds.</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'bar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setTimeout(foo, <span class="number">3</span>*<span class="number">1000</span>)</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+
+<p>The above code is an example of <strong>Asynchronous processing model</strong> in which tasks   are not blocked by previous tasks and are executed directly. </p>
+<p>JavaScript’s timer functions (setTimeout, setInterval) and HTTP requests work in an asynchronous processing model. The asynchronous processing model complements the shortcomings of single threads by concurrency in JavaScript.</p>
+<h3 id="Event-loops-and-concurrency"><a href="#Event-loops-and-concurrency" class="headerlink" title="Event loops and concurrency"></a>Event loops and concurrency</h3><hr>
+<p>One of the features of JavaScript is that it runs on a single thread. As mentioned above, the single thread method means that only one task can be processed at a time. However, when we look at a browser, it feels like many tasks are being processed at the same time. Event loop is what supports JavaScript’s concurrency. </p>
+<img src="https://poiemaweb.com/assets/fs-images/42-4.png" style="zoom: 25%;" />
+
+
+
+<p>Javascript engine is mainly separated into two parts: <strong>The call stack and Heap area</strong></p>
+<ul>
+<li><strong>Call stack</strong>: When a function is called, the function execution context is sequentially stacked on the call stack and executed sequentially. Because the JavaScript engine uses only one call stack, no other tasks are performed until the execution context is terminated and removed from the call stack.</li>
+<li><strong>Heap area</strong>: A large unstructured memory area where objects are allocated</li>
+</ul>
+<p>The JavaScript engine simply executes the requested operation sequentially through the call stack when the operation is requested. The asynchronous request processing necessary to support the aforementioned concurrency is handled by an environment running a JavaScript engine, such as a browser or Node.js. To handle asynchronous process, browser environment provides <strong>task queues and event loops.</strong></p>
+<ul>
+<li><strong>Task queues</strong>: This is an area where callback functions or event handlers of asynchronous processing functions such as timer functions (setTimeout, setInterval) are temporarily stored. Functions that are waiting in the task queue are moved to the call stack in sequence (FIFO, First In First Out) by the event loop when the call stack is empty and executed. That is, functions temporarily stored in the task queue operate as an asynchronous processing model.</li>
+<li><strong>Event loop</strong>: Iteratively checks whether there is an execution context currently running on the call stack and whether there are any functions (callback functions, event handlers, etc.) waiting in the task queue. If the call stack is empty, the function waiting in the task queue is moved sequentially (FIFO) to the call stack.</li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -305,20 +301,22 @@
             "@type": "Person",
             "name": "Dohyeon Lee"
         },
-        "headline": "MTMFTF",
-        "image": "http://yoursite.com",
-        "keywords": "Develop Django Python",
-        "genre": "Python Django",
-        "datePublished": "2020-01-21",
-        "dateCreated": "2020-01-21",
-        "dateModified": "2020-01-21",
-        "url": "http://yoursite.com/2020/01/21/장고/MTMFTF/",
-        "description": "Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지
-ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨
-class Car(models.Model):
-  manufacturer = models.ForeignKey(
-​    ‘production.Manuf",
-        "wordCount": 184
+        "headline": "Asynchronous/Synchronous Javascript",
+        "image": "http://yoursite.comhttps://poiemaweb.com/assets/fs-images/42-4.png",
+        "keywords": "Develop Js",
+        "genre": "JavaScript",
+        "datePublished": "2020-04-15",
+        "dateCreated": "2020-04-15",
+        "dateModified": "2020-04-15",
+        "url": "http://yoursite.com/2020/04/15/자바스크립트/callbacks/",
+        "description": "Synchronous and Asynchronous processing
+Javascript engine uses single execution context, meaning a task can be processed one at a time. While a task is being processed, other tasks has to wait until the previous task has finished its processing. The order of process is based on the execution context which follows a call stack(FIFO) structure.
+Since Javascript executes tasks in Single thread, a blocking can occur when a task  that takes time to process is executed. 
+12345678910111213141516function sleep(func, delay)&#123;  const delayUntil = Date.now() + delay;  while(Date.now()&lt;delayUntil);  func();&#125;function foo()&#123;  console.log('foo');&#125;function bar()&#123;  console.log('bar')&#125;sleep(foo, 3*1000);bar();
+
+For the above example, function foo will be executed after few seconds and after the foo is executed, function bar will be executed. This is an example of Synchronous processing model which all tasks are executed one by one based on the order. 
+One major problem of synchronous processing model is, while one task is being executed, other tasks has to wait. If task A requires 10seconds to be executed, all other tasks after task A has to wait for 10seconds.",
+        "wordCount": 658
     }
 </script>
 
@@ -375,20 +373,10 @@ class Car(models.Model):
         
 <nav id="article-nav">
     
-        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            projectDeploy
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/destructuring/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">abstract</p>
+        <p class="article-nav-title">디스트럭쳐링</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -585,7 +573,7 @@ class Car(models.Model):
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/';
+    var disqus_url = 'http://yoursite.com/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/callbacks/';
     
     (function() {
     var dsq = document.createElement('script');

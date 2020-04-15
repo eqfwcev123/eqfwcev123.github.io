@@ -6,25 +6,16 @@
     
 
     
-    <title>MTMFTF | Dev Blog</title>
+    <title>Tag: Develop | Dev Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Develop,Django,Python" />
-    
-    <meta name="description" content="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지 ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨 class Car(models.Model):   manufacturer &#x3D; models.ForeignKey( ​    ‘production.Manuf">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MTMFTF">
-<meta property="og:url" content="http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Dev Blog">
+<meta property="og:url" content="http://yoursite.com/tags/Develop/page/4/index.html">
 <meta property="og:site_name" content="Dev Blog">
-<meta property="og:description" content="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지 ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨 class Car(models.Model):   manufacturer &#x3D; models.ForeignKey( ​    ‘production.Manuf">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-21T02:24:45.000Z">
-<meta property="article:modified_time" content="2020-01-21T02:26:53.924Z">
 <meta property="article:author" content="Dohyeon Lee">
-<meta property="article:tag" content="Develop">
-<meta property="article:tag" content="Django">
-<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
     
 
@@ -156,185 +147,99 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Python/Django/">Django</a>
+    <i class="icon fa fa-tag"></i>Tag: <em>Develop</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-장고/MTMFTF" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-01-07T17:00:34.000Z" itemprop="datePublished">2020-01-08</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        MTMFTF
+        <a href="/2020/01/08/%EC%9E%90%EB%B0%94/inheritance/">inheritance</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-      <i class="fa fa-calendar"></i>
-      <a href="/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/" class="article-date">
-         <time datetime="2020-01-21T02:24:45.000Z" itemprop="datePublished">2020-01-21</time>
-      </a>
+        <p class="article-excerpt">
+            자바 상속(extends)
+객체지향은 특징으로서 새로운 클래스를 정의 할 때 이미 구현된 클래스를 상속(inheritance) 받아서 속성이나 기능이 확장되는 클래스를 구현할 수 있다.
+상속은 기존에 존재하는 클래스의 기능을 좀더 확장해서 사용하고 싶을때 사용한다
+사용방법:
+자식 클래스 extends 부모클래스`:  자식 클래스가 부모클래스한테서 상속을 받는다는 뜻이다.
+
+다중 상속을 할 수 없다: 클래스C 가 클래스A, 클래스B한테서 상속을 받을 수 없다.(부모 클래스는 무조건 한명). 자바는 single inheritance 만 허용한다
+
+상위 클래스는 하위 클래스보다 일반적인 개념과 기능을 갖는다
+하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 갖는다
+생성자함수와 초기화 블럭(클래스 초기화 블럭/인스턴스 초기화 블럭)은 상속되지 않는다
+자식 클래스의 멤버 개수는 조상 클래스보다 항상 같거나 많다
+접근제어자가 Private 이거나 default일 멤버들은 상속되지 않는다기 보다는 상속은 받지만 자식 클래스가 접근을 할 수없는것이다.
+두개의 클래스(자식 클래스 A 와 자식 클래스 B)가 한개의 부모 클래스 한테서 상속을 받더라도 자식 클래스 A 와 B는 아무런 관계가 없다. 상속 관계에서 형제 관계는 없다.
+하위 클래스는 상위 클래스의 기능을 마음대로 사용할 수 있지만, private 한 변수와 메소드는 사용할 수 없다. 만약에 외부 클래스는 내 private 변수/메소드를 사용할 수 없지만 내 자식 클래스는 사용할 수 있게 하고 싶을 경우 private 이 아닌 protected 를 사용하면 된다.
+
+private 는 선언한 클래스 내부에서만 사용할 수 있다. 상속을 한다고 해도 사용할 수 없다.
+protected 를 사용해서 내 private 변수/메소드를 오직 내 자식 클래스들만 쓸수 있게 만들 수 있다.
+
+예를들어 포유류 라는 부모클래스를 인간이 상속받는다: class Human extends Mammal{}
+1// 고객관리 프로그램: 고객이라는 부모클래스 밑에 VIP고객 클래스와 다이아회원 클래스가 있다
+        </p>
     </div>
-
-
-                
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Develop/" rel="tag">Develop</a>, <a class="tag-link" href="/tags/Django/" rel="tag">Django</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>
-    </div>
-
-                
-
-                
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h3 id="Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지"><a href="#Many-To-Many-와-Many-To-One-을-언제-사용해야-하는지" class="headerlink" title="Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지"></a>Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지</h3><hr>
-<p>ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨</p>
-<p>class Car(models.Model):</p>
-<p>  manufacturer = models.ForeignKey(</p>
-<p>​    ‘production.Manufacturer’,</p>
-<p>​    on_delete=models.CASCADE,</p>
-<p>  )</p>
-<p>면 Car테이블에 manufacturer_id 컬럼이 생김 : 즉 ForeignKey를 선언하면 해당 컬럼은 다른 테이블의 id를 가리킴</p>
-<p><strong>ForeignKey를 선언한 필드가 Many, 연결한 클래스가 One</strong></p>
-<p>PostLike 에 post = models.ForeignKey(Post, on_delete=models.CASCADE) 이면 </p>
-<p>Many는 PostLike 이고 One 은 Post</p>
-<p>(상식적으로 인스타그램에서 여러사람이 개시물 하나의 Like를 여러개 달 수 있다) PostLike 에 있는 post 필드에 ForeignKey를 선언할 경우 <post_id> 가 디비 테이블에 생성</p>
-<p>FOREIGN KEY 를 언제 사용해야하는지</p>
-<p>Many &lt;클래스명&gt; by/to one &lt;필드명&gt;</p>
-<p>ex:</p>
-<p>Many PostImage by one post</p>
-<p>Many PostLike to one post</p>
-<p>Many Post by one author</p>
-<p>쿼리란? 데이터베이스에 정보를 요청하는것. 쿼리는 웹 서버에 특정한 정보를 보여달라는 웹 클라이언트 요청에 의한 처리이다.</p>
-<hr>
-<p>related_name 과 related_query_name</p>
-<p>related_name혹은 related_query_name 둘다 사용해서 데이터를 찾아올 수 있다.</p>
-<p>related_name의 default ==&gt; &lt;클래스&gt;_set. related_name은 인스턴스에서 접근</p>
-<p>related_query_name의 default ==&gt; &lt;소문자클래스&gt;. related_query_name은 클래스에서 접근</p>
-<hr>
-<p>PostLike(Many) 에서 Post(One)에 접근 하는 방법</p>
-<p>postlike = PostLike.objects.first() #postlike는 <strong>인스턴스</strong></p>
-<p>postlike.posts #해당 인스턴스의 post. 즉 좋아요가 달려있는 post를 의미</p>
-<p><strong>다시말해 ForeignKey를 가지고 있으면 가리키는곳(Many인쪽). ForeignKey로 가리키는곳(One)인쪽에서 돌아올려면 _set사용</strong></p>
-<p>반대로</p>
-<p>Post(One)에서 PostLike(Many)로 접근하는 방법</p>
-<p>related_query_name 혹은 related_name을 이용해서 접근</p>
-<p>post.postlike_set.filter() 혹은</p>
-<p>Post.objects.filter(postlike__contains= )</p>
-
-        </div>
-        <footer class="article-footer">
-            
-
-
-    <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener">Share</a>
-    <span class="a2a_divider"></span>
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_twitter"></a>
-    <a class="a2a_button_google_plus"></a>
-    <a class="a2a_button_pinterest"></a>
-    <a class="a2a_button_tumblr"></a>
-</div>
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-<style>
-    .a2a_menu {
-        border-radius: 4px;
-    }
-    .a2a_menu a {
-        margin: 2px 0;
-        font-size: 14px;
-        line-height: 16px;
-        border-radius: 4px;
-        color: inherit !important;
-        font-family: 'Microsoft Yahei';
-    }
-    #a2apage_dropdown {
-        margin: 10px 0;
-    }
-    .a2a_mini_services {
-        padding: 10px;
-    }
-    a.a2a_i,
-    i.a2a_i {
-        width: 122px;
-        line-height: 16px;
-    }
-    a.a2a_i .a2a_svg,
-    a.a2a_more .a2a_svg {
-        width: 16px;
-        height: 16px;
-        line-height: 16px;
-        vertical-align: top;
-        background-size: 16px;
-    }
-    a.a2a_i {
-        border: none !important;
-    }
-    a.a2a_menu_show_more_less {
-        margin: 0;
-        padding: 10px 0;
-        line-height: 16px;
-    }
-    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-    .a2a_mini_services{*+height:1%;}
-</style>
-
-
-        </footer>
-    </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Dohyeon Lee"
-        },
-        "headline": "MTMFTF",
-        "image": "http://yoursite.com",
-        "keywords": "Develop Django Python",
-        "genre": "Python Django",
-        "datePublished": "2020-01-21",
-        "dateCreated": "2020-01-21",
-        "dateModified": "2020-01-21",
-        "url": "http://yoursite.com/2020/01/21/장고/MTMFTF/",
-        "description": "Many-To-Many 와 Many-To-One 을 언제 사용해야 하는지
-ForeignKey를 사용하면 ForeignKey를 선언한 테이블에 &lt;ForeignKey로 가리키는 클래스&gt;_id 가 생성됨
-class Car(models.Model):
-  manufacturer = models.ForeignKey(
-​    ‘production.Manuf",
-        "wordCount": 184
-    }
-</script>
-
 </article>
-
-    <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
-    </div>
-
-
+        </div>
     
-    </section>
 
+
+    </div></section>
+
+
+    <nav id="page-nav">
+        <span class="pages">Page 4 of 4</span>
+        <a class="extend prev" rel="prev" href="/tags/Develop/page/3/">&laquo;</a><a class="page-number" href="/tags/Develop/">1</a><a class="page-number" href="/tags/Develop/page/2/">2</a><a class="page-number" href="/tags/Develop/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
 
 
                         </div>
@@ -371,29 +276,6 @@ class Car(models.Model):
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2020/01/21/aws%EC%84%A4%EC%A0%95/projectDeploy/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            projectDeploy
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">abstract</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -585,13 +467,11 @@ class Car(models.Model):
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2020/01/21/%EC%9E%A5%EA%B3%A0/MTMFTF/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

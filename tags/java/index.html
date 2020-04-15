@@ -6,13 +6,13 @@
     
 
     
-    <title>Tag: java | Dev Blog</title>
+    <title>Tag: Java | Dev Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta property="og:type" content="website">
 <meta property="og:title" content="Dev Blog">
-<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Java/index.html">
 <meta property="og:site_name" content="Dev Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Dohyeon Lee">
@@ -147,7 +147,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>java</em>
+    <i class="icon fa fa-tag"></i>Tag: <em>Java</em>
     </h1>
 </div>
 
@@ -171,17 +171,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/" class="thumbnail">
+        <a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png)" alt="상속추가설명" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/">0</span>
     
 </span>
 
@@ -194,32 +194,302 @@
             <div class="category">
             <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
-            <div class="date"><time datetime="2020-01-05T14:57:00.000Z" itemprop="datePublished">2020-01-05</time></div>
+            <div class="date"><time datetime="2020-03-30T14:46:07.000Z" itemprop="datePublished">2020-03-30</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/01/05/%EC%9E%90%EB%B0%94/Understanding%20Java%20Stack%20and%20Heap/">Understanding Process, Thread and Data structures</a>
+        <a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/">상속추가설명</a>
         </h1>
     
 
         <p class="article-excerpt">
-            Process
+            상속 추가 설명
+상속을 해도 부모 클래스의 모든 필드와 메소드를 물려받는 것은 아니다. 부모 클래스에서 private 접근 제한을 갖는 필드와 메소드는 상속 대상에서 제외된다 (private 을 선언한 클래스 필드/메소드 는 클래스 밖에서는 사용할 수 없다).
+부모 클래스와 자식 클래스가 다른 패키지에 존재한다면 default 접근 제한을 갖는 필드와 메소드도 상속 대상에서 제외된다.
+상속할때의 접근제한자:
 
-A program in execution is often referred as process and a thread is a subset of a process. 
+서로 다른 패키지 내부에서 자식 클래스가 다른 패키지에 존재하는 부모클래스를 상속 받을 경우, 부모 클래스의 필드/메소드가 protected, public일 때만 상속 받을 수 있다. private, default이면 상속 받을 수 없다.
 
-A process can either contain one thread (Single thread process) or mutiple threads(Multi-thread process).
+같은 패키지 내부에서 부모 클래스의 필드와 메소드가 default, protected, public일경우 자식 클래스는 모두 상속을 받을 수 있다. 단 접근제한자가 private일 경우 상속을 받을 수 없다.
+        </p>
+    </div>
+</article>
+    
 
-Inside a Process contains 4 different memory area: Data, Code, Stack, Heap
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/29/%EC%9E%90%EB%B0%94/java-class/">0</span>
+    
+</span>
 
 
-Thread
-A unit of work that runs independently within a process. Specifically, a unit of work or task managed by the operating system. Threads and tasks (or tasks) can be used interchangeably.
+    
+</a>
 
-A single process is occured by JVM and statements within main()are a single thread.
-To create another thread other than main (), either inherit the Thread class or implement the Runnable interface. 
-In multi-threaded operation, each thread can send and receive information to reduce errors in processing.
-Processes cannot send or receive information with each other.
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-03-29T13:25:38.000Z" itemprop="datePublished">2020-03-29</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/">자바 &#34;클래스&#34; 란?</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            자바 클래스
+생성자 오버로딩: 생성자는 클래스에 하나만 만들 수 있는게 아니라 여러개 만들수 있다. 단 모든 생성자들이 설도 다른 매개변수 개수 혹은 매개변수 데이터 타입을 가지고 있어야 한다
+1234567891011121314151617public class Test&#123;  public String name;  public int age;    Test(String name)&#123;    this.name = name;  &#125;    Test(int age)&#123;    this.age = age;  &#125;    Test(int age, String name)&#123;    this.name = name;    this.age = age;  &#125;&#125;
+
+위와 같이 같은 생성자 이름을 갖지만 매개변수의 데이터 타입이 다른거나 매개변수의 개수가 다를경우 이를 생성자 오버로딩 이라고 부른다
+생성자 오버로딩의 한가지 문제점은 생성자마다 필드를 초기화 하는 내용을 써주는것이 엄청 번거로운 것이다. 이를 해결하기 위해 생성자 하나만 필드를 초기화 하는 내용을 가지고있고 다른 생성자에서 필드 초기화 정보를 가지고있는 생성자를 호출 하면된다. 이때 this() 함수를 호출한다 
+this() 를 사용하면 필드초기화를 가지고 있는 생성자 함수를 호출할 수 있다. 
+1234567891011121314151617181920public class Car&#123;  String company;  String model;  String color;  int maxSpeed;    Car(String model)&#123; // this()로 마지막에 있는 생성자 호출    this(model,"은색", 250)  &#125;    Car(String, model, String color)&#123; // this()로 마지막에 있는 생성자 호출    this(model, color, 330);  &#125;    Car(String model, String color, int maxSpeed)&#123; //공통 실행 코드 영역    this.model = model;    this.color = color;    this.maxSpeed = maxspeed;  &#125;&#125;
+
+
+
+클래스내에 같은 이름의 메소드를 여러개 선언하는 것을 메소드 오버로딩 이라고 한다.  생성자 오버로딩과 동일하게 매개변수의 개수와 매개변수의 타입이 다르면 오버라이딩이다.
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-03-19T07:18:47.000Z" itemprop="datePublished">2020-03-19</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/03/19/%EC%9E%90%EB%B0%94/servletMapping/">servletMappin</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Servlet 매핑
+Servlet을 외부에서 요청하기 쉽도록 특정 문자를 이용해서 맵핑하는 방법
+Servlet 을 Web Container 내부에 넣어놓고(tomcat), 사용자의 요청이 들어오면 web container 내부에있는 servlet이 응답을 해준다.
+만약에 servlet이 엄청 많을경우, 브라우저가 정확히 어떤 servlet에 요청을 보내는지
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-01-13T11:31:54.000Z" itemprop="datePublished">2020-01-13</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/abstract/">abstract</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            추상 클래스
+추상 클래스는 미완성 클래스라고 생각하면 된다. 클래스가 미완성 이라는 것은 멤버의 개수에 관계된 것이 아니라, 단지 미완성 메서드를 포함하고 있는 클래스 인것이다.
+미완성 클래스로 완성된 제품을 만들 수 없이 추상클래스로 인스턴스를 생성할 수 없다. 추상클래슨은 상속을 통해서 자손클래스에 의해서만 완성될 수 있다.( 장고에서 class Met
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/72230208-4b047900-35f7-11ea-8c2a-5cd94adf39a4.png)" alt="polymorphism" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-01-13T02:37:21.000Z" itemprop="datePublished">2020-01-13</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/polymorphism/">polymorphism</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            다형성 Polymorphism
+개체지향 개념에서 다형성이란 여러가지 형태를 가질 수 있는 능력을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 다형성을 프로그램적으로 구현한다
+조상 클래스 타입의 참조 변수로 자식 클래스의 인스턴스를 참조할 수 있다.
+12345678910111213141516171819202122class Human&#123;  String name;  int age;    void walk( System.out.println("걷기"));  void Sing( System.out.println("노래부르기 "));&#125;class Male extends Human&#123;  Boolean isMale;    void isMale()&#123; System.out.println("남자아이가!") &#125;&#125;class HumanTest&#123;  public static void main(String[] args)&#123;    // 참조변수의 타입이 인스턴스의 타입과 동일    Human h = new Human();    Male m = new Male();    Human h = new Male(); // 다형성  &#125;&#125;
+
+조상 클래스 타입의 참조변수로 자손 클래스의 인스턴스를 참조할 수 있다.
+인스턴스를 다른 타입의 참조 변수로 참조
+Human h = new Male()
+Human 이라는 부모 클래스 타입의 참조변수는 자식 클래스인 Male 클래스의 인스턴스를 가리킨다. 이경우 실제 인스턴스가 Male 일 지더라도 h참조변수는 Human 클래스의 멤버만 사용할 수 있다. 이는 어떻게 보면 당연한 것이다.
+h 타입의 참조 변수로는 자식 인스턴스 중에서 Human 클래스의 멤버들(isMale 자식 클래스한테 상속 한 멤버들)만 사용할 수 있다. 즉, h.isMale 와 h.isMale()을 할 수 없는 것이다. 
+
+
+자식 클래스가 부모 클래스 한테서 상속을 받게 되면 자식 클래스의 인스턴스는 부모 클래스의 모든 멤버(메소드 와 멤버 변수) 와 자기자신이 가지고있는 모든 멤버들을 갖게된다. 다시말해 자식 클래스의 인스턴스는 부모 클래스의 인스턴스보다 더많은 멤버 변수와 메소드를 갖고 있다는 것이다.
+이제 Human h = new Male() 를 다시 보면 자식 클래스의 인스턴스를 생성 했는데, 참조변수의 타입은 부모 클래스인 것은 10리터의 물을 500ml 패트병으로 담으려고 하는 것이다. 500ml의 패트병으로는 500ml 치 의 물만 담을 수 있다. 마찬가지로 h 참조 변수로는 부모클래스타입이 저장할 수 있는 멤버변수/메소드만 저장할 수 있다.
+다시 말해 인스턴스의 타입과 상관 없이 참조변수의 타입에 따라 해당 인스턴스가 가질수 있는 메버변수와 메소드의 개수가 달라진다.
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/accessModifier/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/13/%EC%9E%90%EB%B0%94/accessModifier/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
+            </div>
+            <div class="date"><time datetime="2020-01-13T01:46:10.000Z" itemprop="datePublished">2020-01-13</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/13/%EC%9E%90%EB%B0%94/accessModifier/">accessModifier</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            제어자 (Modifier)
+제어자(Modifier)는 클래스, 변수 또는 메서드의 선언부에 함께 사용되어 부가적인 의미를 부여한다. 제어자의 종류는 크게 접근 제어자와 그 외의 제어자로 나눌 수 있다.
+접근 제어자 - public, protected, default, private
+그외 - static, final, abstract, native, transient, synchronized, volatile, strictfp
+제어자는 클래스나 멤버 변수와 메서드에 주로 사용되며, 하나의 대상에 대해서 여러 제어자를 조합하여 사용하는 것이 가능하다. 단, 접근 제어자는 한 번에 네 가지 중 하나만 선택해서 사용할 수 있다. 즉, 하나의 대상에 대해서 public, private 을 함께 사용할 수 없다.
+static
+인스턴스 변수는 하나의 클래스로부터 생성되었더라도 각기 다른 값을 유지하지만, 클래스 변수(static 변수)는 인스턴스에 관계 없이 같은 값을 갖는다. 그 이유는 하나의 변수를 모든 인스턴스가 공유하기 때문이다.
+static이 붙은 멤버 변수와 메서드, 그리고 초기화 블럭은 인스턴스가 아닌 클래스에 관계된 것이기 때문에 인스턴스를 생성하지 않고도 사용할 수 있다.
+인스턴스 메서드와 정적 메서드의 근본적인 차이는 메서드 내에서 인스턴스 멤버를 사용하는 가의 여부에 있다.
+
+staic이 사용될 수 있는곳 - 멤버변수, 메스드, 초기화 블럭
 
         </p>
     </div>
@@ -228,298 +498,101 @@ Processes cannot send or receive information with each other.
         </div>
     
 
-
-    </div></section>
-
-
-
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>follow:</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/dohyeon.lee.7982" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/eqfwcev123" target="_blank" rel="noopener">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UCXnKj59UCqlcu02lFNT30Pg" target="_blank" rel="noopener">
-                        <i class="icon fa fa-youtube"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
     
-    <div class="widgets-container">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
         
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/destructuring/" class="thumbnail">
+        <a href="/2020/01/12/%EC%9E%90%EB%B0%94/package-and-import/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
     
     
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/destructuring/" class="title">디스트럭쳐링</a></p>
-                            <p class="item-date"><time datetime="2020-04-15T04:34:18.000Z" itemprop="datePublished">2020-04-15</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/04/15/%EB%85%B8%EB%93%9C/express-passport/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/Node-js/">Node.js</a></p>
-                            <p class="item-title"><a href="/2020/04/15/%EB%85%B8%EB%93%9C/express-passport/" class="title">express-passport</a></p>
-                            <p class="item-date"><time datetime="2020-04-15T04:28:17.000Z" itemprop="datePublished">2020-04-15</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/26023287/77852500-964f2080-7211-11ea-8723-2d9efb74555a.png)" alt="상속추가설명" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2020/03/30/%EC%9E%90%EB%B0%94/%EC%83%81%EC%86%8D%EC%B6%94%EA%B0%80%EC%84%A4%EB%AA%85/" class="title">상속추가설명</a></p>
-                            <p class="item-date"><time datetime="2020-03-30T14:46:07.000Z" itemprop="datePublished">2020-03-30</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2020/03/29/%EC%9E%90%EB%B0%94/java-class/" class="title">자바 &#34;클래스&#34; 란?</a></p>
-                            <p class="item-date"><time datetime="2020-03-29T13:25:38.000Z" itemprop="datePublished">2020-03-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
-                            <p class="item-title"><a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="title">encryption_decryption</a></p>
-                            <p class="item-date"><time datetime="2020-03-26T22:11:18.000Z" itemprop="datePublished">2020-03-27</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/">Node.js</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/Express-js/">Express.js</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">tags</h3>
-        <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-float">
-        <h3 class="widget-title">tag cloud</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 14.29px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
-        </div>
-    </div>
-
-
-            
         
-    </div>
-</aside>
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/12/%EC%9E%90%EB%B0%94/package-and-import/">0</span>
+    
+</span>
 
-                </div>
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
+            <div class="date"><time datetime="2020-01-12T11:26:48.000Z" itemprop="datePublished">2020-01-12</time></div>
         </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <h1 class="logo-wrap">
-                    <a href="/" class="logo"></a>
-                </h1>
-                <p>&copy; 2020 Dohyeon Lee</p>
-                
-                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
-                
-            </div>
-            <div class="footer-plugins">
-              
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/12/%EC%9E%90%EB%B0%94/package-and-import/">package and import</a>
+        </h1>
     
 
+        <p class="article-excerpt">
+            Package
+패키지는 클래스의 묶음이다. 패키지에는 클래스 또는 인터페이스를 포함시킬 수 있으며, 서로 관련된 클래스들 끼리 그룹 단위로 묶어 놓음으로써 클래스를 효율적으로 관리할 수 있다.  같은 이름의 클래스 일지라도 서로 다른 패키지에 존재하는 것이 간으하므로, 자신만의 패키지 체계를 유지함으로써 다른 개발자가 개발한 클래스 라이브러리의 클래스와 
+        </p>
+    </div>
+</article>
+    
 
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2020/01/12/%EC%9E%90%EB%B0%94/overriding/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Java/">Java</a>
             </div>
+            <div class="date"><time datetime="2020-01-12T06:41:50.000Z" itemprop="datePublished">2020-01-12</time></div>
         </div>
-    </div>
-</footer>
-
         
     
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-
-
-
-
-
-    
-        
-<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-share.min.js"></script>
-
-        
-<script src="/libs/lightgallery/js/lg-video.min.js"></script>
-
-    
-    
-        
-<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-
-    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/01/12/%EC%9E%90%EB%B0%94/overriding/">overriding</a>
+        </h1>
     
 
-    
+        <p class="article-excerpt">
+            오버라이딩
+조상 클래스로부터 상속받은 메서드의 내용을 변경하는 것을 오버라이딩 이라고 한다.
+부모 클래스한테서 상속 받은 메소드를 그대로 사용해도 되지만 자식 클래스 자신한테 맞춰서 메소드를 변경할 수 있다. 메소드를 오버라이딩 한다고 해서 다른 클래스들이 부모 클래스한테서 상속 받는 메소드도 변경 되는 것은 아니다.
+12345678910111213141516class Point&#123;  int x;  int y;    String getLocation()&#123;    return "x : "+x+" , y: " +y;  &#125;&#125;class Point3D extends Point&#123;  int z;    String getLocation()&#123;     return "x : "+x+" , y: " +y+" ,z: "+z;  &#125;&#125;
 
-
-
-<!-- Custom Scripts -->
-
-<script src="/js/main.js"></script>
-
-
-    </div>
-</body>
-</html>
-��스를 상속 받는다. 하지만 Point3D 클래스 3Dimension 좌표를 반환 해야 하기 때문에 부모한테서 상속받은 메소드를 사용하면 안된다. 이때 부모한테서 상속받은 메소드를 오버라이딩 하면 된다. 상속받은 getLocation()메소드를 오버라이딩 해서 자기 자신의 새로운 메소드로 사용을 하면 x,y,z 세개의 좌표를 반환받을 수 있다.
+Point3D 클래스는 Point 클래스를 상속 받는다. 하지만 Point3D 클래스 3Dimension 좌표를 반환 해야 하기 때문에 부모한테서 상속받은 메소드를 사용하면 안된다. 이때 부모한테서 상속받은 메소드를 오버라이딩 하면 된다. 상속받은 getLocation()메소드를 오버라이딩 해서 자기 자신의 새로운 메소드로 사용을 하면 x,y,z 세개의 좌표를 반환받을 수 있다.
         </p>
     </div>
 </article>
@@ -736,6 +809,26 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/callbacks/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://poiemaweb.com/assets/fs-images/42-4.png)" alt="Asynchronous/Synchronous Javascript" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/callbacks/" class="title">Asynchronous/Synchronous Javascript</a></p>
+                            <p class="item-date"><time datetime="2020-04-15T13:14:05.000Z" itemprop="datePublished">2020-04-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2020/04/15/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/destructuring/" class="thumbnail">
     
     
@@ -813,26 +906,6 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Other/">Other</a></p>
-                            <p class="item-title"><a href="/2020/03/27/%EA%B8%B0%ED%83%80/encryption-decryption/" class="title">encryption_decryption</a></p>
-                            <p class="item-date"><time datetime="2020-03-26T22:11:18.000Z" itemprop="datePublished">2020-03-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -842,7 +915,7 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/">Node.js</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/Express-js/">Express.js</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/">Node.js</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Node-js/Express-js/">Express.js</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/">Django</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Django/Server-Deploy/">Server Deploy</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/">Server Deploy</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server-Deploy/Network/">Network</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -852,7 +925,7 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
@@ -862,7 +935,7 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/" rel="tag">Algo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Science/" rel="tag">Computer Science</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Develop/" rel="tag">Develop</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/" rel="tag">Network</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Deploy/" rel="tag">Server Deploy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/develop/" rel="tag">develop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -872,7 +945,7 @@ static이 붙은 변수는 클래스가 메모리에 올라갈 때 이미 자동
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Algo/" style="font-size: 11.43px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/Docker/" style="font-size: 14.29px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.57px;">Java</a> <a href="/tags/Js/" style="font-size: 14.29px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.43px;">Network</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Python/" style="font-size: 15.71px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.14px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.43px;">Web</a> <a href="/tags/develop/" style="font-size: 11.43px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+            <a href="/tags/Algo/" style="font-size: 11.25px;">Algo</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Computer-Science/" style="font-size: 10px;">Computer Science</a> <a href="/tags/Develop/" style="font-size: 20px;">Develop</a> <a href="/tags/Django/" style="font-size: 12.5px;">Django</a> <a href="/tags/Docker/" style="font-size: 13.75px;">Docker</a> <a href="/tags/Java/" style="font-size: 18.75px;">Java</a> <a href="/tags/Js/" style="font-size: 15px;">Js</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Network/" style="font-size: 11.25px;">Network</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Server-Deploy/" style="font-size: 17.5px;">Server Deploy</a> <a href="/tags/Web/" style="font-size: 11.25px;">Web</a> <a href="/tags/develop/" style="font-size: 11.25px;">develop</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
         </div>
     </div>
 
