@@ -18,6 +18,83 @@ interface ProjectPageProps {
     searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
+const OutcomeSection = ({ outcome }: {
+    outcome: string | {
+        status: string;
+        currentMilestones: Array<{ title: string; status: string; details: string }>;
+        upcomingMilestones: Array<{ title: string; description: string }>;
+        targetCompletion: string;
+    }
+}) => {
+    if (!outcome) return null;
+
+    // For string outcomes with multiple paragraphs
+    if (typeof outcome === 'string') {
+        return (
+            <div className="space-y-8">
+                <div className="grid gap-4">
+                    {outcome.split('\n\n').map((paragraph, index) => (
+                        <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <p className="text-gray-700 leading-relaxed">{paragraph}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
+    // For structured outcomes (like Enus.ai)
+    return (
+        <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-gray-900">Project Status</h3>
+
+            {/* Status Badge */}
+            <div className="flex items-center gap-3 mb-6">
+                <span className="px-4 py-1.5 bg-blue-100 text-blue-800 rounded-full font-semibold">
+                    {outcome.status}
+                </span>
+                {outcome.targetCompletion && (
+                    <span className="text-gray-600">
+                        Target Completion: {outcome.targetCompletion}
+                    </span>
+                )}
+            </div>
+
+            {/* Current Milestones */}
+            <div className="space-y-4">
+                {outcome.currentMilestones.map((milestone, index) => (
+                    <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div className="flex items-center justify-between">
+                            <h4 className="text-lg font-semibold text-gray-900">{milestone.title}</h4>
+                            <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                                milestone.status === 'Completed' 
+                                    ? 'bg-green-100 text-green-800' 
+                                    : 'bg-yellow-100 text-yellow-800'
+                            }`}>
+                                {milestone.status}
+                            </span>
+                        </div>
+                        <p className="mt-2 text-gray-600">{milestone.details}</p>
+                    </div>
+                ))}
+            </div>
+
+            {/* Upcoming Milestones */}
+            {outcome.upcomingMilestones && outcome.upcomingMilestones.length > 0 && (
+                <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-gray-800">Upcoming Milestones</h4>
+                    {outcome.upcomingMilestones.map((milestone, index) => (
+                        <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                            <h5 className="text-lg font-semibold text-gray-900 mb-2">{milestone.title}</h5>
+                            <p className="text-gray-600">{milestone.description}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ProjectPage = ({ params, searchParams }: ProjectPageProps) => {
     // Use React.use to unwrap the Promise
@@ -151,57 +228,7 @@ const ProjectPage = ({ params, searchParams }: ProjectPageProps) => {
                     {project.details.outcome && (
                         <section>
                             <h2 className="text-2xl font-bold mb-4">Outcome</h2>
-                            {typeof project.details.outcome === 'string' ? (
-                                <p className="text-gray-700 leading-relaxed">{project.details.outcome}</p>
-                            ) : (
-                                <div className="space-y-8">
-                                    {/* Status Badge */}
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <span className="px-4 py-1.5 bg-blue-100 text-blue-800 rounded-full font-semibold">
-                                            {project.details.outcome.status}
-                                        </span>
-                                        {project.details.outcome.targetCompletion && (
-                                            <span className="text-gray-600">
-                                                Target Completion: {project.details.outcome.targetCompletion}
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    {/* Current Milestones */}
-                                    <div className="space-y-6">
-                                        <h4 className="text-xl font-semibold text-gray-800">Current Milestones</h4>
-                                        <div className="grid gap-4">
-                                            {project.details.outcome.currentMilestones.map((milestone, index) => (
-                                                <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                                                    <div className="flex items-center justify-between mb-2">
-                                                        <h5 className="font-semibold text-gray-900">{milestone.title}</h5>
-                                                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${milestone.status === 'Completed'
-                                                                ? 'bg-green-100 text-green-800'
-                                                                : 'bg-yellow-100 text-yellow-800'
-                                                            }`}>
-                                                            {milestone.status}
-                                                        </span>
-                                                    </div>
-                                                    <p className="text-gray-600">{milestone.details}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Upcoming Milestones */}
-                                    <div className="space-y-6">
-                                        <h4 className="text-xl font-semibold text-gray-800">Upcoming Milestones</h4>
-                                        <div className="grid gap-4">
-                                            {project.details.outcome.upcomingMilestones.map((milestone, index) => (
-                                                <div key={index} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                                                    <h5 className="font-semibold text-gray-900 mb-2">{milestone.title}</h5>
-                                                    <p className="text-gray-600">{milestone.description}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
+                            <OutcomeSection outcome={project.details.outcome} />
                         </section>
                     )}
                 </div>
