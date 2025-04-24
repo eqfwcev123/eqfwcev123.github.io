@@ -82,7 +82,7 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="py-20 px-4 w-full bg-blue-50/50">
+    <section id="projects" className="py-20 px-4 w-full bg-blue-100/50">
       <div className="container mx-auto">
         {/* Enhanced section header */}
         <div className="text-center mb-16">
