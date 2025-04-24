@@ -4,14 +4,18 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 interface ImageModalProps {
-    isOpen: boolean;
-    imgSrc: string;
-    alt: string;
-    caption?: string;
+    images: {
+        src: string;
+        caption: string;
+        alt?: string;
+    }[];
+    currentIndex: number;
     onClose: () => void;
 }
 
-const ImageModal = ({ isOpen, imgSrc, alt, caption, onClose }: ImageModalProps) => {
+const ImageModal = ({ images, currentIndex, onClose }: ImageModalProps) => {
+    const currentImage = images[currentIndex];
+
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
@@ -19,16 +23,14 @@ const ImageModal = ({ isOpen, imgSrc, alt, caption, onClose }: ImageModalProps) 
             }
         };
         
-        if (isOpen) {
-            document.addEventListener('keydown', handleEscape);
-        }
+        document.addEventListener('keydown', handleEscape);
         
         return () => {
             document.removeEventListener('keydown', handleEscape);
         };
-    }, [isOpen, onClose]);
+    }, [onClose]);
 
-    if (!isOpen) return null;
+    if (!currentImage) return null;
 
     return (
         <div
@@ -59,17 +61,17 @@ const ImageModal = ({ isOpen, imgSrc, alt, caption, onClose }: ImageModalProps) 
                 {/* Image container */}
                 <div className="relative w-full h-full">
                     <Image
-                        src={imgSrc}
-                        alt={alt}
+                        src={currentImage.src}
+                        alt={currentImage.alt || currentImage.caption}
                         fill
                         className="object-contain"
                         sizes="90vw"
                         priority
                         onClick={(e) => e.stopPropagation()}
                     />
-                    {caption && (
+                    {currentImage.caption && (
                         <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
-                            {caption}
+                            {currentImage.caption}
                         </div>
                     )}
                 </div>

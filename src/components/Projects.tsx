@@ -1,16 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
-import ImageModal from './ImageModal';
 
 const Projects = () => {
   // Separate projects into work and personal
-  const workProjects = projects.slice(0, 3); // First three projects
-  const personalProjects = projects.slice(3); // Remaining projects
-  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+  const workProjects = projects.slice(0, 3);
+  const personalProjects = projects.slice(3);
 
   const ProjectGrid = ({ projects }: { projects: typeof workProjects }) => (
     <div className="mb-16">
@@ -110,14 +108,6 @@ const Projects = () => {
           <ProjectGrid projects={personalProjects} />
         </div>
       </div>
-
-      {/* Image Modal */}
-      <ImageModal
-        isOpen={!!selectedImage}
-        imgSrc={selectedImage?.src || ''}
-        alt={selectedImage?.alt || ''}
-        onClose={() => setSelectedImage(null)}
-      />
     </section>
   );
 };

@@ -1,19 +1,26 @@
 // src/app/projects/[slug]/page.tsx
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
-import ImageModal from '@/components/ImageModal';
+import ProjectGallery from '@/components/ProjectGallery';
 
-// Define the Page component
-interface ProjectPageProps {
-    params: Promise<{ slug: string }>;
+// Add generateStaticParams
+export async function generateStaticParams() {
+    return projects.map((project) => ({
+        slug: project.slug,
+    }));
 }
 
-const ProjectPage = ({ params }: ProjectPageProps) => {
-    // Properly unwrap the params using React.use()
+// Update the props interface to match Next.js 13+ page props
+interface ProjectPageProps {
+    params: Promise<{ slug: string }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ProjectPage = ({ params, searchParams }: ProjectPageProps) => {
+    // Use React.use to unwrap the Promise
     const resolvedParams = React.use(params);
     const project = projects.find(p => p.slug === resolvedParams.slug);
 
@@ -136,14 +143,65 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                     {project.details.gallery && project.details.gallery.length > 0 && (
                         <section>
                             <h2 className="text-2xl font-bold mb-6">Project Gallery</h2>
-                            <GallerySection gallery={project.details.gallery} />
+                            <ProjectGallery gallery={project.details.gallery} />
                         </section>
                     )}
 
                     {/* Outcome */}
                     {project.details.outcome && (
                         <section>
-                            <OutcomeSection outcome={project.details.outcome} />
+                            <h2 className="text-2xl font-bold mb-4">Outcome</h2>
+                            {typeof project.details.outcome === 'string' ? (
+                                <p className="text-gray-700 leading-relaxed">{project.details.outcome}</p>
+                            ) : (
+                                <div className="space-y-8">
+                                    {/* Status Badge */}
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <span className="px-4 py-1.5 bg-blue-100 text-blue-800 rounded-full font-semibold">
+                                            {project.details.outcome.status}
+                                        </span>
+                                        {project.details.outcome.targetCompletion && (
+                                            <span className="text-gray-600">
+                                                Target Completion: {project.details.outcome.targetCompletion}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    {/* Current Milestones */}
+                                    <div className="space-y-6">
+                                        <h4 className="text-xl font-semibold text-gray-800">Current Milestones</h4>
+                                        <div className="grid gap-4">
+                                            {project.details.outcome.currentMilestones.map((milestone, index) => (
+                                                <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <h5 className="font-semibold text-gray-900">{milestone.title}</h5>
+                                                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${milestone.status === 'Completed'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-yellow-100 text-yellow-800'
+                                                            }`}>
+                                                            {milestone.status}
+                                                        </span>
+                                                    </div>
+                                                    <p className="text-gray-600">{milestone.details}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Upcoming Milestones */}
+                                    <div className="space-y-6">
+                                        <h4 className="text-xl font-semibold text-gray-800">Upcoming Milestones</h4>
+                                        <div className="grid gap-4">
+                                            {project.details.outcome.upcomingMilestones.map((milestone, index) => (
+                                                <div key={index} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                                                    <h5 className="font-semibold text-gray-900 mb-2">{milestone.title}</h5>
+                                                    <p className="text-gray-600">{milestone.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     )}
                 </div>
@@ -160,182 +218,6 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                 </Link>
             </div>
         </main>
-    );
-};
-
-const OutcomeSection = ({ outcome }: {
-    outcome: string | {
-        status: string;
-        currentMilestones: Array<{ title: string; status: string; details: string }>;
-        upcomingMilestones: Array<{ title: string; description: string }>;
-        targetCompletion: string;
-    }
-}) => {
-    if (!outcome) return null;
-
-    // For Enus.ai project with structured outcome (preserve existing structure)
-    if (typeof outcome !== 'string') {
-        return (
-            <div className="space-y-8">
-                <h3 className="text-2xl font-bold text-gray-900">Project Status</h3>
-
-                {/* Status Badge */}
-                <div className="flex items-center gap-3 mb-6">
-                    <span className="px-4 py-1.5 bg-blue-100 text-blue-800 rounded-full font-semibold">
-                        {outcome.status}
-                    </span>
-                    {outcome.targetCompletion && (
-                        <span className="text-gray-600">
-                            Target Completion: {outcome.targetCompletion}
-                        </span>
-                    )}
-                </div>
-
-                {/* Current Milestones */}
-                <div className="space-y-6">
-                    <h4 className="text-xl font-semibold text-gray-800">Current Milestones</h4>
-                    <div className="grid gap-4">
-                        {outcome.currentMilestones.map((milestone, index) => (
-                            <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                                <div className="flex items-center justify-between mb-2">
-                                    <h5 className="font-semibold text-gray-900">{milestone.title}</h5>
-                                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${milestone.status === 'Completed'
-                                            ? 'bg-green-100 text-green-800'
-                                            : 'bg-yellow-100 text-yellow-800'
-                                        }`}>
-                                        {milestone.status}
-                                    </span>
-                                </div>
-                                <p className="text-gray-600">{milestone.details}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Upcoming Milestones */}
-                <div className="space-y-6">
-                    <h4 className="text-xl font-semibold text-gray-800">Upcoming Milestones</h4>
-                    <div className="grid gap-4">
-                        {outcome.upcomingMilestones.map((milestone, index) => (
-                            <div key={index} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                                <h5 className="font-semibold text-gray-900 mb-2">{milestone.title}</h5>
-                                <p className="text-gray-600">{milestone.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    // Special handling for Crypto Backtesting Platform
-    if (outcome.includes("democratizes algorithmic trading")) {
-        return (
-            <div className="space-y-8">
-                <h3 className="text-2xl font-bold text-gray-900">Outcome</h3>
-
-                {/* Main Achievement */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-blue-600 mb-4">Platform Achievement</h4>
-                    <p className="text-gray-700">
-                        Successfully created an accessible backtesting platform that democratizes algorithmic trading for non-programmers.
-                    </p>
-                </div>
-
-                {/* Strategic Pivot */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-blue-600 mb-4">Strategic Development</h4>
-                    <p className="text-gray-700">
-                        While we initially planned to include real-time trading capabilities, we strategically pivoted to focus on backtesting due to various challenges. This pivot allowed us to create a more focused and user-friendly platform that better served our target audience of beginning traders.
-                    </p>
-                </div>
-
-                {/* Core Features */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-blue-600 mb-4">Core Achievements</h4>
-                    <ul className="space-y-3">
-                        <li className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            <span className="text-gray-700">Intuitive strategy creation and combination</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            <span className="text-gray-700">Comprehensive performance analysis</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            <span className="text-gray-700">User-friendly parameter optimization</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            <span className="text-gray-700">Clear visualization of results</span>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Final Note */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-blue-600 mb-4">Current Status</h4>
-                    <p className="text-gray-700">
-                        While we didn&apos;t proceed with real-time trading implementation due to technical hurdles, regulatory complexity, and capital requirements, the platform serves as a valuable educational and strategy development tool for cryptocurrency traders.
-                    </p>
-                </div>
-            </div>
-        );
-    }
-
-    // Default outcome display for other projects
-    return (
-        <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900">Outcome</h3>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <p className="text-gray-700">{outcome}</p>
-            </div>
-        </div>
-    );
-};
-
-const GallerySection = ({ gallery }: { gallery?: { src: string; caption: string; alt?: string; }[] }) => {
-    const [selectedImage, setSelectedImage] = useState<{ src: string; alt?: string | undefined; caption: string } | null>(null);
-
-    if (!gallery || gallery.length === 0) return null;
-
-    return (
-        <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900">Gallery</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {gallery.map((image, index) => (
-                    <div
-                        key={index}
-                        className="relative h-64 cursor-pointer group overflow-hidden rounded-lg shadow-md"
-                        onClick={() => setSelectedImage(image)}
-                    >
-                        <Image
-                            src={image.src}
-                            alt={image.alt || image.caption}
-                            fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        {/* Simple hover overlay */}
-                        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        {/* Caption overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 text-sm">
-                            {image.caption}
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Image Modal */}
-            <ImageModal
-                isOpen={!!selectedImage}
-                imgSrc={selectedImage?.src || ''}
-                alt={selectedImage?.alt || selectedImage?.caption || ''}
-                caption={selectedImage?.caption}
-                onClose={() => setSelectedImage(null)}
-            />
-        </div>
     );
 };
 
