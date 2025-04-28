@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -17,21 +18,36 @@ const Hero = () => {
   return (
     <section
       id="about"
-      className="relative flex flex-col items-center text-center h-full w-full py-32 px-4 text-white bg-cover bg-center"
-      style={{ backgroundImage: "url('/hk.jpg')" }}
+      className="relative flex flex-col items-center text-center h-full w-full py-32 px-4 text-white"
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      {/* Background image with proper optimization */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src="/hk.webp"
+          alt="Hong Kong skyline"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          style={{
+            objectPosition: 'center',
+          }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       <div className="relative z-10 flex flex-col items-center">
-        <div
-          className="w-32 h-32 rounded-full mb-4 border-2 border-white shadow-lg"
-          style={{
-            backgroundImage: "url('/self.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 35%',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
+        <div className="relative w-32 h-32 rounded-full mb-4 border-2 border-white shadow-lg overflow-hidden">
+          <Image
+            src="/self.webp"
+            alt="Profile photo"
+            fill
+            className="object-cover"
+            style={{
+              objectPosition: 'center 35%',
+            }}
+          />
+        </div>
         <p className="text-sm mb-1">HI! I&apos;m Robert 👋</p>
         <h1 className="text-4xl font-bold mb-2">Software Engineer <br /> in Hong Kong</h1>
         <p className="max-w-md text-gray-200 mb-6">
