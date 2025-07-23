@@ -176,6 +176,160 @@ export const projects: Project[] = [
         }
     },
     {
+        title: 'Solva',
+        description: 'A reward-based Q&A platform where users post questions with monetary incentives and verified experts compete to provide the best answers, featuring time-limited responses and delayed comment visibility.',
+        technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Socket.io'],
+        imgSrc: '/solva-home.png',
+        slug: 'solva',
+        details: {
+            overview: 'Solva is a unique Q&A platform that introduces a competitive reward system to incentivize high-quality expert responses. Users post questions with monetary rewards and set time limits for responses. Only verified experts can answer questions, and all comments remain hidden until the question expires, ensuring unbiased expert responses. The questioner selects the best answer to award the prize, creating a merit-based knowledge marketplace.',
+            challenges: [
+                'Implementing a secure reward system with monetary transactions and escrow functionality',
+                'Creating a robust expert verification process to ensure credibility and expertise',
+                'Managing time-sensitive question lifecycles with automated expiration and comment reveal',
+                'Developing a fair and transparent best answer selection mechanism',
+                'Building real-time communication features while maintaining question confidentiality',
+                'Designing an intuitive tagging and categorization system for diverse topics',
+                'Implementing secure payment processing and reward distribution'
+            ],
+            solutions: [
+                'Developed a comprehensive reward system with escrow functionality to hold payments until completion',
+                'Created a multi-step expert verification process requiring document submission and domain expertise proof',
+                'Implemented time-based question management with automated expiration and scheduled comment visibility',
+                'Built a dual-account system allowing users to switch between normal user and expert modes',
+                'Designed a secure chat system for direct communication between users and experts',
+                'Created an advanced tagging system allowing multiple categories per question for better discoverability',
+                'Integrated clipping and bookmarking features for users to save valuable content'
+            ],
+            outcome: {
+                status: 'Completed',
+                currentMilestones: [
+                    {
+                        title: 'Core Platform Features',
+                        status: 'Completed',
+                        details: 'Implemented the complete Q&A platform with reward system, expert verification, and time-limited question functionality'
+                    },
+                    {
+                        title: 'User Interface & Experience',
+                        status: 'Completed',
+                        details: 'Developed comprehensive UI including home page, question creation, clipping system, chat functionality, and profile management'
+                    },
+                    {
+                        title: 'Expert Verification System',
+                        status: 'Completed',
+                        details: 'Built robust verification process for experts with document submission and approval workflow'
+                    },
+                    {
+                        title: 'Payment Integration',
+                        status: 'Completed',
+                        details: 'Integrated secure payment processing for question rewards and expert compensation'
+                    }
+                ],
+                upcomingMilestones: [
+                    {
+                        title: 'Mobile Application',
+                        description: 'Develop native mobile apps for iOS and Android to expand platform accessibility'
+                    },
+                    {
+                        title: 'Advanced Analytics',
+                        description: 'Add comprehensive analytics dashboard for users to track their question performance and expert statistics'
+                    },
+                    {
+                        title: 'AI-Powered Recommendations',
+                        description: 'Implement machine learning algorithms to recommend relevant questions and experts'
+                    }
+                ],
+                targetCompletion: 'Initial Version Completed'
+            },
+            technicalDetails: [
+                {
+                    title: 'Core Features',
+                    points: [
+                        'Reward-based question posting with customizable monetary incentives',
+                        'Time-limited expert response periods with automatic expiration',
+                        'Verified expert system with document-based authentication',
+                        'Dual account mode switching between user and expert roles',
+                        'Real-time chat system for direct user-to-expert communication',
+                        'Content clipping and bookmarking for saving valuable posts',
+                        'Multi-tag categorization system for improved content discovery'
+                    ]
+                },
+                {
+                    title: 'System Architecture',
+                    points: [
+                        'Secure payment processing with escrow functionality',
+                        'Time-based content visibility management',
+                        'Real-time messaging infrastructure using Socket.io',
+                        'Document verification and approval workflow system',
+                        'Advanced search and filtering capabilities',
+                        'User engagement tracking and analytics',
+                        'Responsive design optimized for all device types'
+                    ]
+                }
+            ],
+            gallery: [
+                {
+                    src: '/solva-home.png',
+                    caption: 'Home page displaying categorized questions and articles with tag-based filtering',
+                    alt: 'Solva home page showing question categories and tags'
+                },
+                {
+                    src: '/solva-create_post.png',
+                    caption: 'Question creation interface with reward setting, duration selection, and multi-tag categorization',
+                    alt: 'Create question form with reward and timing options'
+                },
+                {
+                    src: '/solva-post.png',
+                    caption: 'Question detail page showing expert responses, engagement options, and reward information',
+                    alt: 'Question detail view with expert answers and interaction features'
+                },
+                {
+                    src: '/solva-comment.png',
+                    caption: 'Comment system displaying expert responses and user interactions after question expiration',
+                    alt: 'Comment section with expert responses and user engagement'
+                },
+                {
+                    src: '/solva-clip.png',
+                    caption: 'Personal clipping page where users can view and manage their saved questions and articles',
+                    alt: 'User clip collection showing bookmarked content'
+                },
+                {
+                    src: '/solva-chat.png',
+                    caption: 'Real-time chat interface enabling direct communication between users and experts',
+                    alt: 'Chat system for user-expert communication'
+                },
+                {
+                    src: '/solva-profile.png',
+                    caption: 'User profile page with account switching functionality between normal user and verified expert modes',
+                    alt: 'Profile management with user/expert mode switching'
+                }
+            ],
+            implementation: [
+                {
+                    component: 'Question Management System',
+                    details: 'Comprehensive system for creating, posting, and managing time-limited questions with reward allocation and multi-tag categorization'
+                },
+                {
+                    component: 'Expert Verification Platform',
+                    details: 'Robust verification process requiring document submission and expertise validation for expert account approval'
+                },
+                {
+                    component: 'Reward & Payment System',
+                    details: 'Secure escrow-based payment processing for question rewards with automatic distribution to selected best answers'
+                },
+                {
+                    component: 'Real-time Communication',
+                    details: 'Socket.io-powered chat system enabling direct messaging between users and experts while maintaining question confidentiality'
+                },
+                {
+                    component: 'Content Engagement Features',
+                    details: 'Clipping, liking, and commenting system with time-based visibility controls and user interaction tracking'
+                }
+            ],
+            links: []
+        }
+    },
+    {
         title: 'Enus.ai',
         description: 'An AI-powered news summarization platform that delivers personalized news briefings and enables interactive discussions through an intelligent chatbot.',
         technologies: ['Java', 'Spring Boot', 'Python', 'WebSocket', 'TypeScript', 'React', 'Next.js', 'PostgreSQL', 'MongoDB', 'Redis', 'Message Queue'],
