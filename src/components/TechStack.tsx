@@ -60,9 +60,9 @@ const TechStack = () => {
                 {
                     name: 'Dart',
                     iconSrc: '/dart.svg',
-                    level: 1,
+                    level: 3,
                     frameworks: [
-                        { name: 'Flutter', iconSrc: '/flutter.svg', level: 1 }
+                        { name: 'Flutter', iconSrc: '/flutter.svg', level: 3 }
                     ],
                 },
             ]

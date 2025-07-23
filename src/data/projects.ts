@@ -178,7 +178,7 @@ export const projects: Project[] = [
     {
         title: 'Solva',
         description: 'A reward-based Q&A platform where users post questions with monetary incentives and verified experts compete to provide the best answers, featuring time-limited responses and delayed comment visibility.',
-        technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Socket.io'],
+        technologies: ['Flutter'],
         imgSrc: '/solva-home.png',
         slug: 'solva',
         details: {
