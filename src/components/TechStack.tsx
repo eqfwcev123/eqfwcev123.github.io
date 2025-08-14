@@ -137,111 +137,118 @@ const TechStack = () => {
 
     const SkillLevelIndicator = ({ level, delay }: { level: 1 | 2 | 3, delay: number }) => (
         <div 
-            className={`mt-2 flex h-2 rounded-full overflow-hidden transition-all duration-500 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`mt-3 flex h-2 rounded-full overflow-hidden transition-all duration-500 ease-out shadow-sm ${isVisible ? 'opacity-100' : 'opacity-0'}`}
             style={{ transitionDelay: `${delay}ms` }}
         >
             {/* First segment */}
-            <div className={`flex-1 ${level >= 1 ? 'bg-blue-500' : 'bg-gray-200'}`} />
+            <div className={`flex-1 transition-colors duration-700 ${level >= 1 ? 'bg-gradient-to-r from-blue-500 to-blue-600' : 'bg-gray-200'}`} />
             {/* Divider */}
-            <div className="w-[2px] bg-white" />
+            <div className="w-[1px] bg-white/50" />
             {/* Second segment */}
-            <div className={`flex-1 ${level >= 2 ? 'bg-blue-500' : 'bg-gray-200'}`} />
+            <div className={`flex-1 transition-colors duration-700 ${level >= 2 ? 'bg-gradient-to-r from-blue-500 to-blue-600' : 'bg-gray-200'}`} />
             {/* Divider */}
-            <div className="w-[2px] bg-white" />
+            <div className="w-[1px] bg-white/50" />
             {/* Third segment */}
-            <div className={`flex-1 ${level >= 3 ? 'bg-blue-500' : 'bg-gray-200'}`} />
+            <div className={`flex-1 transition-colors duration-700 ${level >= 3 ? 'bg-gradient-to-r from-blue-500 to-blue-600' : 'bg-gray-200'}`} />
         </div>
     );
 
     return (
-        <section id="tech-stack" className="py-16 px-4 w-full bg-white overflow-hidden" ref={sectionRef}>
-            <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-4">My Tech Stack</h2>
-                <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-16"></div>
+        <section id="tech-stack" className="py-16 md:py-24 px-4 w-full bg-gradient-to-b from-white via-blue-50/30 to-white overflow-hidden" ref={sectionRef}>
+            <div className="container mx-auto max-w-7xl">
+                {/* Material Design header */}
+                <div className="text-center mb-16 md:mb-20">
+                    <div className="space-y-4">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+                            My Tech Stack
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                            Technologies and frameworks I work with to build modern applications
+                        </p>
+                    </div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mt-6"></div>
+                </div>
                 
-                {/* Legend */}
-                <div className="mb-12 flex justify-center items-center gap-8 text-sm text-gray-600">
-                    <div className="flex items-center gap-2">
-                        <div className="w-16 h-2 rounded-full overflow-hidden flex">
-                            <div className="flex-1 bg-blue-500" />
-                            <div className="w-[2px] bg-white" />
-                            <div className="flex-1 bg-gray-200" />
-                            <div className="w-[2px] bg-white" />
-                            <div className="flex-1 bg-gray-200" />
+                {/* Material Design legend */}
+                <div className="mb-16 flex flex-wrap justify-center items-center gap-6 md:gap-8">
+                    {[
+                        { level: 1, label: 'Entry', segments: [1, 0, 0] },
+                        { level: 2, label: 'Intermediate', segments: [1, 1, 0] },
+                        { level: 3, label: 'Advanced', segments: [1, 1, 1] }
+                    ].map(({ level, label, segments }) => (
+                        <div key={level} className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 shadow-sm border border-gray-100">
+                            <div className="w-16 h-2 rounded-full overflow-hidden flex shadow-sm">
+                                {segments.map((filled, index) => (
+                                    <React.Fragment key={index}>
+                                        <div className={`flex-1 ${filled ? 'bg-gradient-to-r from-blue-500 to-blue-600' : 'bg-gray-200'}`} />
+                                        {index < 2 && <div className="w-[1px] bg-white/50" />}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                            <span className="text-sm font-medium text-gray-700">{label}</span>
                         </div>
-                        <span>Entry</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-16 h-2 rounded-full overflow-hidden flex">
-                            <div className="flex-1 bg-blue-500" />
-                            <div className="w-[2px] bg-white" />
-                            <div className="flex-1 bg-blue-500" />
-                            <div className="w-[2px] bg-white" />
-                            <div className="flex-1 bg-gray-200" />
-                        </div>
-                        <span>Intermediate</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-16 h-2 rounded-full overflow-hidden flex">
-                            <div className="flex-1 bg-blue-500" />
-                            <div className="w-[2px] bg-white" />
-                            <div className="flex-1 bg-blue-500" />
-                            <div className="w-[2px] bg-white" />
-                            <div className="flex-1 bg-blue-500" />
-                        </div>
-                        <span>Advanced</span>
-                    </div>
+                    ))}
                 </div>
 
-                {/* Categories */}
-                <div className="space-y-16">
+                {/* Categories with Material Design cards */}
+                <div className="space-y-16 md:space-y-20">
                     {techCategories.map((category, categoryIndex) => (
-                        <div key={category.title} className="space-y-8">
-                            <h3 className="text-xl font-semibold text-center text-gray-800">{category.title}</h3>
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-16 justify-items-center">
+                        <div key={category.title} className="space-y-8 md:space-y-12">
+                            <div className="flex items-center justify-center">
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                    <h3 className="text-xl md:text-2xl font-bold text-gray-800">{category.title}</h3>
+                                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 justify-items-center">
                                 {category.items.map((tech, langIndex) => (
-                                    <div key={tech.name} className="flex flex-col items-center text-center w-full max-w-[200px]">
-                                        {/* Language/Tool Icon - Conditional sizing based on category */}
-                                        <div className={`relative mb-3 transition-all duration-500 ease-out 
-                                            ${category.title === "Programming Languages" ? "w-20 h-20 md:w-24 md:h-24" : "w-[60px] h-[60px]"}
-                                            ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-                                             style={{ transitionDelay: `${(categoryIndex * 4 + langIndex) * 150}ms` }}>
-                                            <Image
-                                                src={tech.iconSrc}
-                                                alt={tech.name}
-                                                layout="fill"
-                                                objectFit="contain"
-                                            />
-                                        </div>
-                                        <div className="w-full">
-                                            <p className={`text-sm font-medium text-gray-700 mb-1 transition-opacity duration-500 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-                                               style={{ transitionDelay: `${(categoryIndex * 4 + langIndex) * 150 + 50}ms` }}>
-                                                {tech.name}
-                                            </p>
-                                            <SkillLevelIndicator level={tech.level} delay={(categoryIndex * 4 + langIndex) * 150 + 100} />
+                                    <div key={tech.name} className="group w-full max-w-[200px]">
+                                        {/* Main technology card */}
+                                        <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition-all duration-300 ease-out transform hover:-translate-y-1">
+                                            {/* Technology icon */}
+                                            <div className={`relative mx-auto mb-4 transition-all duration-500 ease-out 
+                                                ${category.title === "Programming Languages" ? "w-16 h-16 md:w-20 md:h-20" : "w-12 h-12 md:w-16 md:h-16"}
+                                                ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                                                 style={{ transitionDelay: `${(categoryIndex * 4 + langIndex) * 150}ms` }}>
+                                                <Image
+                                                    src={tech.iconSrc}
+                                                    alt={tech.name}
+                                                    fill
+                                                    className="object-contain group-hover:scale-110 transition-transform duration-300"
+                                                />
+                                            </div>
+                                            
+                                            <div className="text-center space-y-3">
+                                                <p className={`text-sm md:text-base font-semibold text-gray-800 transition-opacity duration-500 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                                                   style={{ transitionDelay: `${(categoryIndex * 4 + langIndex) * 150 + 50}ms` }}>
+                                                    {tech.name}
+                                                </p>
+                                                <SkillLevelIndicator level={tech.level} delay={(categoryIndex * 4 + langIndex) * 150 + 100} />
+                                            </div>
                                         </div>
 
-                                        {/* Framework Icons & Names - only show if there are frameworks */}
+                                        {/* Framework/Libraries showcase */}
                                         {tech.frameworks.length > 0 && (
-                                            <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
-                                                <p className="text-xs text-gray-500 mb-4 text-center">Related Libraries & Frameworks</p>
-                                                <div className="flex flex-wrap justify-center gap-x-8 gap-y-8">
+                                            <div className="mt-6 bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-2xl p-4 border border-gray-100/50">
+                                                <p className="text-xs text-gray-500 mb-4 text-center font-medium">Related Technologies</p>
+                                                <div className="grid grid-cols-2 gap-4">
                                                     {tech.frameworks.map((fw, fwIndex) => (
                                                         <div
                                                             key={fw.name}
-                                                            className={`flex flex-col items-center transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                                                            className={`group/fw bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 ease-out transform hover:-translate-y-0.5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                                                             style={{ transitionDelay: `${(categoryIndex * 4 + langIndex) * 150 + 200 + fwIndex * 80}ms` }}
                                                         >
-                                                            <div title={fw.name} className="relative w-10 h-10 md:w-12 md:h-12">
-                                                                <Image
-                                                                    src={fw.iconSrc}
-                                                                    alt={fw.name}
-                                                                    layout="fill"
-                                                                    objectFit="contain"
-                                                                />
-                                                            </div>
-                                                            <div className="w-full">
-                                                                <p className="mt-1.5 text-xs text-gray-600">{fw.name}</p>
+                                                            <div className="flex flex-col items-center space-y-2">
+                                                                <div className="relative w-8 h-8 md:w-10 md:h-10">
+                                                                    <Image
+                                                                        src={fw.iconSrc}
+                                                                        alt={fw.name}
+                                                                        fill
+                                                                        className="object-contain group-hover/fw:scale-110 transition-transform duration-200"
+                                                                    />
+                                                                </div>
+                                                                <p className="text-xs font-medium text-gray-700 text-center leading-tight">{fw.name}</p>
                                                                 {fw.level && (
                                                                     <SkillLevelIndicator 
                                                                         level={fw.level} 
