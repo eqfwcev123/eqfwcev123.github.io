@@ -3,12 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { projects } from '@/data/projects';
+import { workProjects, sideProjects } from '@/data/projects';
 
 const Projects = () => {
-  // Separate projects into work and personal
-  const workProjects = projects.slice(0, 3);
-  const personalProjects = projects.slice(3);
 
   const ProjectGrid = ({ projects }: { projects: typeof workProjects }) => (
     <div className="mb-20">
@@ -20,8 +17,8 @@ const Projects = () => {
           >
             <Link href={`/projects/${project.slug}`} className="flex flex-col flex-grow">
               {/* Image Area with Material Design treatment */}
-              {project.imgSrc && (
-                <div className="relative w-full h-56 bg-gray-50 overflow-hidden">
+              <div className="relative w-full h-56 bg-gray-50 overflow-hidden">
+                {project.imgSrc ? (
                   <Image
                     src={project.imgSrc}
                     alt={project.title}
@@ -30,15 +27,33 @@ const Projects = () => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority={index < 3}
                   />
-                  {/* Material Design overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  
-                  {/* Floating status indicator */}
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-medium rounded-full shadow-lg">
-                    Project
+                ) : (
+                  // Icon for projects without images (like accessibility/assistive tech projects)
+                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                    <div className="text-center space-y-3">
+                      {/* Accessibility icon for assistive technology projects */}
+                      <svg 
+                        className="w-16 h-16 mx-auto text-blue-600" 
+                        fill="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 5.5V6.5L16.5 7V8.5L15.5 7.5C15.09 7.15 14.5 7 14 7H10C9.5 7 8.91 7.15 8.5 7.5L7.5 8.5V7L9 6.5V5.5L3 7V9L5 8V19H7V14H8V19H10V17L11 15.5V19H13V15.5L14 17V19H16V14H17V19H19V8L21 9ZM12 13.5C11.2 13.5 10.5 14.2 10.5 15S11.2 16.5 12 16.5 13.5 15.8 13.5 15 12.8 13.5 12 13.5Z"/>
+                      </svg>
+                      <div className="text-sm font-medium text-blue-700">
+                        Assistive Technology
+                      </div>
+                    </div>
                   </div>
+                )}
+                
+                {/* Material Design overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                
+                {/* Floating status indicator */}
+                <div className="absolute top-4 right-4 px-3 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-medium rounded-full shadow-lg">
+                  Project
                 </div>
-              )}
+              </div>
               
               {/* Content Area with Material spacing */}
               <div className="p-6 md:p-8 flex flex-col flex-grow space-y-4">
@@ -140,7 +155,7 @@ const Projects = () => {
               </h3>
             </div>
           </div>
-          <ProjectGrid projects={personalProjects} />
+          <ProjectGrid projects={sideProjects} />
         </div>
       </div>
     </section>

@@ -39,7 +39,115 @@ export interface Project {
     };
 }
 
-export const projects: Project[] = [
+// Work Projects (First 4 projects)
+export const workProjects: Project[] = [
+    {
+        title: 'SSDMS - Smart Sensor Data Management System',
+        description: 'A comprehensive dashboard platform for visualizing real-time sensor data from multiple outdoor sensors, providing location mapping, data analytics, and alert management for environmental monitoring.',
+        technologies: ['Flutter', 'Dart', 'Firebase'],
+        imgSrc: '/ssdms-position.png',
+        slug: 'ssdms',
+        details: {
+            overview: 'SSDMS (Smart Sensor Data Management System) is a sophisticated dashboard platform designed to monitor and visualize data from multiple sensors deployed in outdoor environments. The system provides real-time data visualization, precise location mapping, and intelligent alert management to help organizations monitor environmental conditions and respond to anomalies effectively.',
+            challenges: [
+                'Creating a scalable architecture to handle data from multiple sensors simultaneously',
+                'Designing an intuitive interface for visualizing complex sensor data and location mapping',
+                'Implementing real-time alert system for abnormal sensor readings',
+                'Building responsive cross-platform interface for various devices and screen sizes',
+                'Ensuring reliable data synchronization between sensors and dashboard',
+                'Managing state efficiently across multiple data streams and user interactions',
+                'Supporting multiple languages for international deployment'
+            ],
+            solutions: [
+                'Implemented Provider Pattern for scalable state management and dependency injection across the application',
+                'Designed component-based architecture with modular, reusable UI components for consistent user experience',
+                'Applied Clean Architecture principles with clear separation of models, views, and services',
+                'Built adaptive UI design with custom builders optimized for mobile and web experiences',
+                'Created comprehensive internationalization system supporting multiple languages with runtime switching',
+                'Developed real-time alert management system with customizable thresholds and notification preferences',
+                'Integrated interactive mapping functionality for precise sensor location visualization'
+            ],
+            outcome: 'Successfully delivered a comprehensive sensor monitoring platform that enables real-time visualization of sensor data across multiple locations. The system provides operators with immediate alerts for abnormal readings, intuitive location mapping, and responsive cross-platform access, significantly improving environmental monitoring capabilities and response times.',
+            technicalDetails: [
+                {
+                    title: 'Architecture & State Management',
+                    points: [
+                        'Provider Pattern Implementation: Built scalable state management system with dependency injection for handling multiple data streams efficiently',
+                        'Component-Based Architecture: Designed modular, reusable UI components that can be easily maintained and extended',
+                        'Clean Architecture Principles: Applied clear separation of models, views, and services for better code organization and testability',
+                        'Type-Safe Development: Used enums and structured data models to ensure code reliability and prevent runtime errors'
+                    ]
+                },
+                {
+                    title: 'Cross-Platform & Responsive Development',
+                    points: [
+                        'Adaptive UI Design: Built custom builders that provide optimal user experience across mobile and web platforms',
+                        'Custom Build System: Developed automated development workflows for efficient deployment and testing',
+                        'Responsive Layouts: Created layouts that adapt seamlessly to multiple screen sizes and device orientations',
+                        'Multi-Platform Support: Ensured consistent functionality across different operating systems and devices'
+                    ]
+                },
+                {
+                    title: 'Internationalization & User Experience',
+                    points: [
+                        'Complete i18n/l10n Solution: Implemented localization using ARB files and generated localization classes for easy maintenance',
+                        'Dynamic Language Switching: Built runtime locale changes allowing users to switch languages without app restart',
+                        'Multi-Language Support: Supported English and Chinese languages with custom language selection widgets',
+                        'Interactive Image Mapping: Created functionality for precise sensor location visualization on maps'
+                    ]
+                },
+                {
+                    title: 'Advanced Features & Integration',
+                    points: [
+                        'Custom Component Library: Developed reusable buttons, cards, and interactive elements following design system principles',
+                        'Dynamic Theme System: Implemented runtime theme switching capabilities for better user customization',
+                        'File Download Management: Built system for exporting sensor data and reports in various formats',
+                        'Firebase Integration: Properly configured Firebase services for real-time data synchronization and user authentication',
+                        'Alert Management System: Created intelligent notification system for abnormal sensor readings with customizable thresholds'
+                    ]
+                }
+            ],
+            gallery: [
+                {
+                    src: '/ssdms-position.png',
+                    caption: 'Interactive sensor position mapping showing real-time sensor locations and status indicators',
+                    alt: 'SSDMS sensor position dashboard with location mapping'
+                },
+                {
+                    src: '/ssdms-sensor.png',
+                    caption: 'Real-time sensor data visualization dashboard displaying environmental readings and trends',
+                    alt: 'SSDMS sensor data dashboard with charts and metrics'
+                },
+                {
+                    src: '/ssdms-alert.png',
+                    caption: 'Alert management system showing abnormal sensor readings and notification settings',
+                    alt: 'SSDMS alert dashboard with notification management'
+                }
+            ],
+            implementation: [
+                {
+                    component: 'Real-Time Data Visualization',
+                    details: 'Interactive dashboard displaying live sensor readings with charts, graphs, and real-time updates from multiple sensor sources'
+                },
+                {
+                    component: 'Location Mapping System',
+                    details: 'Interactive map interface showing precise sensor positions with status indicators and detailed location information'
+                },
+                {
+                    component: 'Alert Management Platform',
+                    details: 'Intelligent notification system that monitors sensor data for anomalies and sends customizable alerts to operators'
+                },
+                {
+                    component: 'Cross-Platform Interface',
+                    details: 'Responsive Flutter application optimized for both mobile and web platforms with adaptive UI components'
+                },
+                {
+                    component: 'Data Export & Reporting',
+                    details: 'Comprehensive reporting system allowing users to export sensor data and generate custom reports for analysis'
+                }
+            ]
+        }
+    },
     {
         title: 'Autonomous Defect Inspection System',
         description: 'AI-powered quality assurance system for construction materials using Mask-RCNN and computer vision techniques to automate concrete cube inspection.',
@@ -176,9 +284,104 @@ export const projects: Project[] = [
         }
     },
     {
+        title: 'IBB Beacon Scanning - Smart Crossing Assistant',
+        description: 'An innovative mobile application that alerts visually impaired users about approaching vehicles at zebra crossings using Bluetooth beacon technology and AI-powered vehicle detection.',
+        technologies: ['Flutter', 'Dart'],
+        imgSrc: undefined, // Will use accessibility icon in component
+        slug: 'ibb-beacon-scanning',
+        details: {
+            overview: 'IBB Beacon Scanning is a groundbreaking assistive technology application designed to enhance pedestrian safety for visually impaired users at zebra crossings. The system combines Bluetooth beacon technology installed on lamp poles with AI-powered cameras to detect approaching vehicles and provide real-time audio alerts to users through a mobile application.',
+            challenges: [
+                'Managing signal congestion from multiple beacons in close proximity',
+                'Ensuring reliable beacon detection and connection in outdoor environments',
+                'Implementing real-time vehicle detection integration with mobile notifications',
+                'Creating intuitive user experience for visually impaired users',
+                'Balancing battery efficiency with continuous beacon scanning',
+                'Handling cross-platform native iOS integration for beacon functionality',
+                'Managing location permissions and background processing for safety-critical applications'
+            ],
+            solutions: [
+                'Resolved signal congestion by carefully adjusting beacon signal strength and optimizing signal direction',
+                'Implemented GetX state management pattern for reactive and efficient app state handling',
+                'Created custom native iOS integration using Swift for precise iBeacon functionality',
+                'Developed comprehensive permission management system for location and notification access',
+                'Built secure local data storage with AES encryption for sensitive beacon information',
+                'Designed adaptive audio feedback system with multiple sound types for different scenarios',
+                'Implemented background processing with cron job scheduling for continuous monitoring'
+            ],
+            outcome: 'Successfully developed and deployed a safety-critical mobile application that significantly enhances pedestrian safety for visually impaired users. The system effectively detects approaching vehicles and provides timely audio alerts, with optimized beacon signal management eliminating initial congestion issues. The application demonstrates reliable cross-platform performance and robust native iOS integration.',
+            technicalDetails: [
+                {
+                    title: 'Architecture & Design Patterns',
+                    points: [
+                        'GetX State Management: Implemented GetX Controller pattern for reactive state management with efficient dependency injection',
+                        'Observer Pattern: Applied GetX reactive programming for real-time beacon status updates and vehicle detection alerts',
+                        'Singleton Pattern: Implemented Singleton design pattern in SharedPreferenceService for global configuration management',
+                        'MVC Architecture: Applied Model-View-Controller pattern with clear separation of BeaconStatus models, UI components, and state controllers'
+                    ]
+                },
+                {
+                    title: 'Mobile Development & Cross-Platform Integration',
+                    points: [
+                        'Flutter/Dart Development: Built cross-platform application supporting both iOS and Android with consistent functionality',
+                        'Native iOS Integration: Developed Swift code for platform-specific beacon features including BeaconStreamHandler.swift and BluetoothStreamHandler.swift',
+                        'Method Channel Implementation: Created seamless Flutter-iOS communication bridge for beacon data streaming',
+                        'Custom Component Library: Developed reusable UI components including input counters, list tiles, and text forms optimized for accessibility'
+                    ]
+                },
+                {
+                    title: 'Bluetooth & IoT Technology',
+                    points: [
+                        'iBeacon Technology: Implemented comprehensive iBeacon protocol with UUID/Major/Minor identifier management for precise beacon tracking',
+                        'Real-time Proximity Detection: Built advanced region monitoring system for accurate distance-based notifications',
+                        'Signal Optimization: Resolved beacon congestion issues through careful signal strength adjustment and directional optimization',
+                        'Location Services: Integrated location-based services with region detection for enhanced positioning accuracy'
+                    ]
+                },
+                {
+                    title: 'Data Security & Advanced Features',
+                    points: [
+                        'AES Encryption: Implemented secure data storage using AES encryption with custom keys and initialization vectors',
+                        'Permission Management: Built comprehensive runtime permission handling for location access and notifications with optimized user experience',
+                        'Audio Integration: Developed sophisticated sound management using Soundpool for efficient audio playback with multiple alert types (car.m4a, ped.m4a, crossing.m4a)',
+                        'Background Processing: Created cron job scheduling for periodic beacon scanning and local notification management with timezone support',
+                        'Haptic Feedback: Integrated tactile feedback system using native iOS Haptic and Vibration capabilities for enhanced user experience'
+                    ]
+                }
+            ],
+            gallery: [], // No images provided as mentioned
+            implementation: [
+                {
+                    component: 'Beacon Detection System',
+                    details: 'Advanced Bluetooth beacon scanning and management system with signal strength optimization and congestion resolution'
+                },
+                {
+                    component: 'Native iOS Integration',
+                    details: 'Swift-based native implementation including BeaconStreamHandler, BluetoothStreamHandler, and iBeacon protocol management'
+                },
+                {
+                    component: 'Alert Management System',
+                    details: 'Multi-modal notification system providing audio alerts, haptic feedback, and visual indicators for approaching vehicles'
+                },
+                {
+                    component: 'Cross-Platform Mobile App',
+                    details: 'Flutter application with GetX state management, custom UI components, and accessibility-focused design for visually impaired users'
+                },
+                {
+                    component: 'Security & Data Management',
+                    details: 'Encrypted local storage system with secure beacon data handling and privacy-focused permission management'
+                }
+            ]
+        }
+    }
+];
+
+// Side Projects (Remaining projects)
+export const sideProjects: Project[] = [
+    {
         title: 'Solva',
         description: 'A reward-based Q&A platform where users post questions with monetary incentives and verified experts compete to provide the best answers, featuring time-limited responses and delayed comment visibility.',
-        technologies: ['Flutter'],
+        technologies: ['Flutter', 'Dart', 'Firebase', 'BLoC'],
         imgSrc: '/solva-home.png',
         slug: 'solva',
         details: {
@@ -243,27 +446,43 @@ export const projects: Project[] = [
             },
             technicalDetails: [
                 {
-                    title: 'Core Features',
+                    title: 'App Architecture & Code Organization',
                     points: [
-                        'Reward-based question posting with customizable monetary incentives',
-                        'Time-limited expert response periods with automatic expiration',
-                        'Verified expert system with document-based authentication',
-                        'Dual account mode switching between user and expert roles',
-                        'Real-time chat system for direct user-to-expert communication',
-                        'Content clipping and bookmarking for saving valuable posts',
-                        'Multi-tag categorization system for improved content discovery'
+                        'Clean Code Structure: Built the app using a 3-layer architecture that separates business logic, data handling, and user interface - making the code maintainable and scalable',
+                        'Data Management Pattern: Created a systematic approach to handle data from 25+ different features like chat, payments, and user accounts with consistent interfaces',
+                        'Business Logic Layer: Developed 200+ reusable components that handle complex tasks like real-time messaging, expert verification, and payment processing',
+                        'Smart State Management: Used BLoC pattern to manage app state efficiently - handling real-time chat, user verification workflows, payment processing, and search functionality with proper loading and error states',
+                        'Organized State Flow: Created well-structured state management with clear transitions, comprehensive error handling, and proper loading indicators across all app features'
                     ]
                 },
                 {
-                    title: 'System Architecture',
+                    title: 'Core App Features & Implementation',
                     points: [
-                        'Secure payment processing with escrow functionality',
-                        'Time-based content visibility management',
-                        'Real-time messaging infrastructure using Socket.io',
-                        'Document verification and approval workflow system',
-                        'Advanced search and filtering capabilities',
-                        'User engagement tracking and analytics',
-                        'Responsive design optimized for all device types'
+                        'Real-Time Chat System: Built instant messaging using WebSocket technology with Supabase backend - includes message delivery confirmations, automatic image compression, offline message storage, and push notifications',
+                        'Smart Message Loading: Implemented efficient message pagination that loads 20 messages at a time with smooth infinite scrolling experience',
+                        'Chat User Management: Created advanced participant management with different user roles and customizable notification settings',
+                        'Multiple Login Options: Integrated 4 different login methods (Google, Apple, Kakao, Naver) for user convenience',
+                        'Dual User Accounts: Built a system where users can seamlessly switch between regular user mode and expert mode with different capabilities',
+                        'Advanced Payment System: Developed comprehensive payment handling supporting in-app purchases, receipt verification, digital wallet features, and automatic expert earnings distribution with transparent fee calculation',
+                    ]
+                },
+                {
+                    title: 'Performance & Speed Optimization',
+                    points: [
+                        'Smart Caching System: Implemented intelligent data storage including question cache with automatic cleanup (5-minute refresh), offline chat storage, bookmarked content cache, and user profile caching with smart updates',
+                        'Faster Loading: Built content prediction system that loads data in advance, reducing loading times by 20%',
+                        'Reliable Connections: Created robust connection management with automatic reconnection (up to 5 retries), connection monitoring, and smooth performance even with poor internet',
+                        'Efficient Data Updates: Optimized real-time data subscriptions with smart filtering and processing pipelines',
+                        'Memory Optimization: Implemented smart loading for large content lists and optimized image handling with automatic format selection for best performance'
+                    ]
+                },
+                {
+                    title: 'Backend Services & Infrastructure',
+                    points: [
+                        'Database Integration: Connected with Supabase database using real-time data streams, serverless functions for image processing and notifications, security rules for data protection, and automated database workflows',
+                        'Analytics & Monitoring: Integrated Firebase services for user analytics, crash reporting, and push messaging with detailed user behavior tracking',
+                        'Error Management: Built comprehensive error handling with custom error types, detailed logging system, automatic crash reporting with user context, and backup systems for critical app functions',
+                        'Cloud Functions: Developed serverless functions for push notifications via Firebase, automated image processing and optimization, payment webhook processing, and automated content filtering'
                     ]
                 }
             ],
@@ -272,11 +491,6 @@ export const projects: Project[] = [
                     src: '/solva-home.png',
                     caption: 'Home page displaying categorized questions and articles with tag-based filtering',
                     alt: 'Solva home page showing question categories and tags'
-                },
-                {
-                    src: '/solva-create_post.png',
-                    caption: 'Question creation interface with reward setting, duration selection, and multi-tag categorization',
-                    alt: 'Create question form with reward and timing options'
                 },
                 {
                     src: '/solva-post.png',
@@ -664,3 +878,6 @@ export const projects: Project[] = [
         }
     }
 ];
+
+// Combined export for backward compatibility
+export const projects: Project[] = [...workProjects, ...sideProjects];

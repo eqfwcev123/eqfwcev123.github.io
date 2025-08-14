@@ -216,6 +216,28 @@ const ProjectPage = ({ params, searchParams }: ProjectPageProps) => {
                         </section>
                     )}
 
+                    {/* Technical Details */}
+                    {project.details.technicalDetails && project.details.technicalDetails.length > 0 && (
+                        <section>
+                            <h2 className="text-2xl font-bold mb-6">Technical Details</h2>
+                            <div className="space-y-8">
+                                {project.details.technicalDetails.map((section, index) => (
+                                    <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-gray-900">{section.title}</h3>
+                                        <ul className="space-y-3">
+                                            {section.points.map((point, pointIndex) => (
+                                                <li key={pointIndex} className="flex items-start space-x-3">
+                                                    <div className="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                                                    <span className="text-gray-700 leading-relaxed">{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
                     {/* Gallery */}
                     {project.details.gallery && project.details.gallery.length > 0 && (
                         <section>
