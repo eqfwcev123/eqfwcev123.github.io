@@ -43,7 +43,7 @@ const Hero = () => {
         <div className="relative mb-6 md:mb-8">
           <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden ring-4 ring-white/20 shadow-2xl backdrop-blur-sm">
             <Image
-              src="/self.webp"
+              src="/self2.webp"
               alt="Profile photo"
               fill
               className="object-cover transition-transform duration-300 hover:scale-105"

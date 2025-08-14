@@ -11,7 +11,7 @@ const publicDir = join(__dirname, 'public');
 // Files to compress
 const imagesToCompress = [
     { input: 'hk.jpg', output: 'hk.webp', width: 1920, quality: 80 },
-    { input: 'self.jpg', output: 'self.webp', width: 400, quality: 85 },
+    { input: 'self2.jpg', output: 'self2.webp', width: 400, quality: 85 },
     // Add other large images here
 ];
 
