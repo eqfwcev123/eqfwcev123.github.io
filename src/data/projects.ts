@@ -471,8 +471,6 @@ export const sideProjects: Project[] = [
                     points: [
                         'Smart Caching System: Implemented intelligent data storage including question cache with automatic cleanup (5-minute refresh), offline chat storage, bookmarked content cache, and user profile caching with smart updates',
                         'Faster Loading: Built content prediction system that loads data in advance, reducing loading times by 20%',
-                        'Reliable Connections: Created robust connection management with automatic reconnection (up to 5 retries), connection monitoring, and smooth performance even with poor internet',
-                        'Efficient Data Updates: Optimized real-time data subscriptions with smart filtering and processing pipelines',
                         'Memory Optimization: Implemented smart loading for large content lists and optimized image handling with automatic format selection for best performance'
                     ]
                 },
