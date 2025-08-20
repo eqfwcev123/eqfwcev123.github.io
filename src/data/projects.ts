@@ -477,7 +477,7 @@ export const sideProjects: Project[] = [
                 {
                     title: 'Backend Services & Infrastructure',
                     points: [
-                        'Database Integration: Connected with Supabase database using real-time data streams, serverless functions for image processing and notifications, security rules for data protection, and automated database workflows',
+                        'Database Integration: Connected with Supabase database using real-time data streams for instant updates and efficient data handling',
                         'Analytics & Monitoring: Integrated Firebase services for user analytics, crash reporting, and push messaging with detailed user behavior tracking',
                         'Error Management: Built comprehensive error handling with custom error types, detailed logging system, automatic crash reporting with user context, and backup systems for critical app functions',
                         'Cloud Functions: Developed serverless functions for push notifications via Firebase, automated image processing and optimization, payment webhook processing, and automated content filtering'
