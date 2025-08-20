@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   const handleDownloadCV = () => {
-    const cvPath = '/robert_cv.pdf';
+    const cvPath = '/robert_cv_latest.pdf';
     
     const link = document.createElement('a');
     link.href = cvPath;
