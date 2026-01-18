@@ -1,165 +1,218 @@
-'use client';
+"use client";
+import { motion } from "motion/react";
+import { useInView } from "@/hooks/useInView";
+import { ExternalLink, Briefcase, Code2 } from "lucide-react";
+import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { workProjects, sideProjects } from '@/data/projects';
+export function Projects() {
+  const [ref, isInView] = useInView({ threshold: 0.1 });
 
-const Projects = () => {
+  const workProjects = [
+    {
+      title: "SSDMS - Smart Sensor Data Management System",
+      description:
+        "A comprehensive dashboard platform for visualizing real-time sensor data from multiple outdoor sensors, with location mapping.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      tags: ["Flutter", "Dart", "Firebase"],
+      type: "work",
+    },
+    {
+      title: "Autonomous Defect Inspection System",
+      description:
+        "AI-powered quality assurance system for construction materials using Mask-RCNN and computer vision techniques to automate inspection.",
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+      tags: ["Python", "OpenCV", "Mask-RCNN", "+1 more"],
+      type: "work",
+    },
+    {
+      title: "Smart Traffic Control System",
+      description:
+        "An intelligent traffic management system that dynamically adjusts traffic signals based on real-time vehicle and pedestrian detection data.",
+      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80",
+      tags: ["Node.js", "Express.js", "WebSocket"],
+      type: "work",
+    },
+    {
+      title: "Color Change Detection System",
+      description:
+        "Environmental monitoring system using advanced image processing to detect water pollution and assess construction impact on environment.",
+      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
+      tags: ["Python", "OpenCV", "NumPy", "+2 more"],
+      type: "work",
+    },
+    {
+      title: "IBB Beacon Scanning - Smart Crossing Assistant",
+      description:
+        "An innovative mobile application that alerts visually impaired users about approaching vehicles at zebra crossings using Bluetooth technology.",
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80",
+      tags: ["Flutter", "Dart"],
+      type: "work",
+    },
+  ];
 
-  const ProjectGrid = ({ projects }: { projects: typeof workProjects }) => (
-    <div className="mb-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {projects.map((project, index) => (
-          <div 
-            key={index} 
-            className="group relative bg-white rounded-3xl overflow-hidden flex flex-col shadow-md hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-2 border border-gray-100"
-          >
-            <Link href={`/projects/${project.slug}`} className="flex flex-col flex-grow">
-              {/* Image Area with Material Design treatment */}
-              <div className="relative w-full h-56 bg-gray-50 overflow-hidden">
-                {project.imgSrc ? (
-                  <Image
-                    src={project.imgSrc}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={index < 3}
-                  />
-                ) : (
-                  // Icon for projects without images (like accessibility/assistive tech projects)
-                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-                    <div className="text-center space-y-3">
-                      {/* Accessibility icon for assistive technology projects */}
-                      <svg 
-                        className="w-16 h-16 mx-auto text-blue-600" 
-                        fill="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 5.5V6.5L16.5 7V8.5L15.5 7.5C15.09 7.15 14.5 7 14 7H10C9.5 7 8.91 7.15 8.5 7.5L7.5 8.5V7L9 6.5V5.5L3 7V9L5 8V19H7V14H8V19H10V17L11 15.5V19H13V15.5L14 17V19H16V14H17V19H19V8L21 9ZM12 13.5C11.2 13.5 10.5 14.2 10.5 15S11.2 16.5 12 16.5 13.5 15.8 13.5 15 12.8 13.5 12 13.5Z"/>
-                      </svg>
-                      <div className="text-sm font-medium text-blue-700">
-                        Assistive Technology
-                      </div>
-                    </div>
-                  </div>
-                )}
-                
-                {/* Material Design overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                
-                {/* Floating status indicator */}
-                <div className="absolute top-4 right-4 px-3 py-1 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-medium rounded-full shadow-lg">
-                  Project
-                </div>
-              </div>
-              
-              {/* Content Area with Material spacing */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow space-y-4">
-                <div className="space-y-3">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base line-clamp-3">
-                    {project.description}
-                  </p>
-                </div>
-                
-                {/* Technology tags with Material Design chips */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 rounded-full border border-blue-200 hover:bg-blue-100 transition-colors duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-gray-500 bg-gray-100 rounded-full">
-                      +{project.technologies.length - 3} more
-                    </span>
-                  )}
-                </div>
-              </div>
-            </Link>
+  const sideProjects = [
+    {
+      title: "Solva",
+      description:
+        "A reward-based Q&A platform where users post questions with monetary incentives and verified experts compete to provide solutions.",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+      tags: ["Flutter", "Dart", "Firebase", "+1 more"],
+      type: "side",
+    },
+    {
+      title: "Enus.ai",
+      description:
+        "An AI-powered news summarization platform that delivers personalized news briefings and enables interactive discussions through an intelligent chatbot.",
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
+      tags: ["Java", "Spring Boot", "Python", "+4 more"],
+      type: "side",
+    },
+    {
+      title: "Crypto Backtesting Platform",
+      description:
+        "A user-friendly platform that democratizes algorithmic trading by enabling non-programmers to create, test, and analyze cryptocurrency trading strategies.",
+      image: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=800&q=80",
+      tags: ["TypeScript", "Next.js", "Nest.JS", "+2 more"],
+      type: "side",
+    },
+  ];
 
-            {/* Material Design action area */}
-            <div className="px-6 md:px-8 pb-6 md:pb-8 mt-auto">
-              <Link
-                href={`/projects/${project.slug}`}
-                className="group/link inline-flex items-center justify-center w-full px-6 py-3 text-sm font-medium text-blue-600 bg-blue-50 rounded-2xl hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all duration-200 ease-out"
-              >
-                <span className="mr-2">View Details</span>
-                <svg 
-                  className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-200" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-            </div>
+  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-transparent"
+    >
+      {/* Image */}
+      <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
+        <ImageWithFallback
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        
+        {/* Badge */}
+        <div className="absolute top-4 right-4">
+          <div className="px-3 py-1.5 rounded-full bg-blue-600 text-white text-sm font-medium flex items-center gap-1.5">
+            {project.type === "work" ? (
+              <>
+                <Briefcase className="w-3.5 h-3.5" />
+                Project
+              </>
+            ) : (
+              <>
+                <Code2 className="w-3.5 h-3.5" />
+                Project
+              </>
+            )}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag: string) => (
+            <span
+              key={tag}
+              className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* View Details Link */}
+        <button className="flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all duration-300">
+          View Details
+          <ExternalLink className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Decorative gradient line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+    </motion.div>
   );
 
   return (
-    <section id="projects" className="py-16 md:py-24 px-4 w-full bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto max-w-7xl">
-        {/* Material Design section header */}
-        <div className="text-center mb-16 md:mb-20">
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-              Projects & Portfolio
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Explore my work across different domains, from AI-powered systems to mobile applications
-            </p>
-          </div>
-          <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mt-6"></div>
-        </div>
-        
-        {/* Work Projects Section */}
-        <div className="mb-20">
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
-                </svg>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
-                Work Projects
-              </h3>
+    <section
+      id="projects"
+      ref={ref}
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50"
+    >
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+            Projects & Portfolio
+          </h2>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            Explore my work across different domains, from AI-powered systems to
+            mobile applications
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6 rounded-full" />
+        </motion.div>
+
+        {/* Work Projects */}
+        <div className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="flex items-center gap-3 mb-8"
+          >
+            <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600">
+              <Briefcase className="w-6 h-6 text-white" />
             </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Work Projects
+            </h3>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {workProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
+            ))}
           </div>
-          <ProjectGrid projects={workProjects} />
         </div>
 
-        {/* Side Projects Section */}
+        {/* Side Projects */}
         <div>
-          <div className="flex items-center justify-center mb-12">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
-                Side Projects
-              </h3>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="flex items-center gap-3 mb-8"
+          >
+            <div className="p-2 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600">
+              <Code2 className="w-6 h-6 text-white" />
             </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Side Projects
+            </h3>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sideProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
+            ))}
           </div>
-          <ProjectGrid projects={sideProjects} />
         </div>
       </div>
     </section>
   );
-};
-
-export default Projects; 
+}
