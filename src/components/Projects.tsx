@@ -77,7 +77,7 @@ export function Projects() {
     },
   ];
 
-  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  const ProjectCard = ({ project, index }: { project: { title: string; description: string; image: string; tags: string[]; type: string; link?: string }; index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}

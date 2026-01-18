@@ -261,11 +261,11 @@ export function BoldTheme() {
               <Star className="w-20 h-20 text-pink-500 animate-spin" style={{ animationDuration: "3s" }} />
             </div>
             <h2 className="text-7xl md:text-9xl font-black mb-6">
-              LET'S TALK
+              LET&apos;S TALK
               <span className="text-pink-500">!</span>
             </h2>
             <p className="text-2xl font-bold mb-12">
-              Got an exciting project? Let's make it happen! 🚀
+              Got an exciting project? Let&apos;s make it happen! 🚀
             </p>
             <a
               href="mailto:dohyeonee95@hotmail.com"

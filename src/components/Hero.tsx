@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import { Download, MapPin } from "lucide-react";
 import heroImage from "../assets/8bfdf2af588b37d7be795e0a03d73d33b41d6e53.png";
+import Image from 'next/image';
 
 export function Hero() {
   return (
@@ -11,7 +12,7 @@ export function Hero() {
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src={heroImage.src}
           alt="Hong Kong Skyline"
           className="w-full h-full object-cover"

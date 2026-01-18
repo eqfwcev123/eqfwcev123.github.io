@@ -94,7 +94,7 @@ export function Expertise() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto"
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
               className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 text-center overflow-hidden group hover:shadow-lg transition-shadow duration-300"
