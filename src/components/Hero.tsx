@@ -1,110 +1,126 @@
 "use client";
 import { motion } from "motion/react";
-import { Download, MapPin } from "lucide-react";
+import { Briefcase, Download, MapPin, Sparkles } from "lucide-react";
 import heroImage from "../assets/8bfdf2af588b37d7be795e0a03d73d33b41d6e53.png";
 import Image from 'next/image';
+import { useInView } from "@/hooks/useInView";
 
 export function Hero() {
+  const [heroRef, heroInView] = useInView({ threshold: 0.1 });
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
-    >
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={heroImage.src}
-          alt="Hong Kong Skyline"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-      </div>
+    <section id="hero" ref={heroRef} className="pt-32 pb-12 px-6 relative overflow-hidden">
+          {/* Parallax Background Elements */}
+          <motion.div
+            style={{ y: scrollY * 0.5 }}
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl"
+          />
+          <motion.div
+            style={{ y: scrollY * 0.3 }}
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl"
+          />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 inline-block"
-        >
-          <div className="relative">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
-              <div className="w-full h-full rounded-full bg-white p-1">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center overflow-hidden">
-                  <div className="w-28 h-28 rounded-full bg-cover bg-center" 
-                       style={{ backgroundImage: `url(${heroImage.src})` }} />
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-12 gap-4 auto-rows-auto">
+              {/* Main Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6 }}
+                className="col-span-12 md:col-span-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-12 text-white relative overflow-hidden group min-h-[400px]"
+              >
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32 group-hover:scale-150 transition-transform duration-700" />
+                <div className="relative z-10 flex flex-col justify-center h-full">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.2 }}
+                    className="text-sm mb-4 opacity-90 font-medium tracking-wide"
+                  >
+                    SOFTWARE ENGINEER
+                  </motion.div>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.3 }}
+                    className="text-6xl md:text-7xl font-bold mb-6 leading-tight"
+                  >
+                    Robert
+                    <br />
+                    Lee
+                  </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.4 }}
+                    className="text-xl opacity-90 max-w-xl mb-8"
+                  >
+                    Backend & Mobile Developer crafting scalable solutions with AI
+                  </motion.p>
+                  <motion.a
+                    href="/robert_cv.pdf"
+                    download
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-orange-600 rounded-full font-medium hover:bg-orange-50 transition-colors w-fit shadow-lg shadow-orange-900/10"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download CV
+                  </motion.a>
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Location Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+                className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden min-h-[200px] border border-gray-200 hover:shadow-xl transition-all group"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: "url('/hk.webp')" }}
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                  <h3 className="text-xl font-medium mb-1 opacity-90">Based in</h3>
+                  <p className="text-3xl font-bold">Hong Kong</p>
+                </div>
+              </motion.div>
+
+              {/* Experience Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+                className="col-span-6 md:col-span-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-8 text-white hover:shadow-xl transition-all flex flex-col justify-center min-h-[200px]"
+              >
+                <Sparkles className="w-8 h-8 mb-4 opacity-80" />
+                <div className="text-5xl font-bold mb-2">
+                  4.5<span className="text-3xl">+</span>
+                </div>
+                <p className="text-white/90">Years Experience</p>
+              </motion.div>
+
+              {/* Current Role Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+                className="col-span-12 md:col-span-8 bg-gray-900 rounded-3xl p-8 text-white hover:shadow-xl transition-all flex flex-col justify-center min-h-[200px]"
+              >
+                <Briefcase className="w-8 h-8 mb-4 text-orange-400" />
+                <h3 className="text-2xl font-bold mb-2">Software Engineer</h3>
+                <p className="text-gray-400 mb-1">LSCM Research & Development Centre</p>
+                <p className="text-sm text-gray-500">2020 – Present</p>
+              </motion.div>
             </div>
-            <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
-              <span className="text-white text-lg">👋</span>
-            </div>
           </div>
-        </motion.div>
-
-        <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-white mb-4"
-        >
-          <span className="text-xl md:text-2xl font-normal mb-2 block">
-            Hi! I&apos;m Robert 👋
-          </span>
-          <span className="text-4xl md:text-6xl lg:text-7xl font-bold block bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
-            Software Engineer
-          </span>
-          <span className="text-2xl md:text-3xl lg:text-4xl font-light mt-2 block text-blue-300">
-            in Hong Kong
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
-        >
-          I specialize in backend and mobile development, crafting reliable
-          server-side logic, APIs, and database solutions to drive application
-          functionality.
-        </motion.p>
-
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
-            <Download className="w-5 h-5 group-hover:animate-bounce" />
-            Download CV
-            <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
-
-          <div className="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
-            <MapPin className="w-5 h-5 text-blue-400" />
-            <span>Hong Kong</span>
-          </div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-white rounded-full"
-            />
-          </div>
-        </motion.div>
-      </div>
-    </section>
+        </section>
   );
 }

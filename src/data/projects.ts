@@ -658,8 +658,8 @@ export const sideProjects: Project[] = [
     },
     {
         title: 'Crypto Backtesting Platform',
-        description: 'A user-friendly platform that democratizes algorithmic trading by enabling non-programmers to create, test, and analyze cryptocurrency trading strategies without coding knowledge.',
-        technologies: ['TypeScript', 'Next.js', 'Nest.JS', 'MongoDB', 'Python'],
+        description: 'A high-performance algorithmic trading platform featuring a microservices architecture, allowing non-programmers to backtest and optimize cryptocurrency strategies using advanced vectorized analytics.',
+        technologies: ['Next.js', 'NestJS', 'Python', 'Redis', 'MongoDB', 'Docker'],
         imgSrc: '/backtest.jpg',
         slug: 'crypto-backtesting',
         details: {
@@ -673,117 +673,115 @@ export const sideProjects: Project[] = [
                     url: 'https://github.com/ggomruk/client'
                 }
             ],
-            overview: 'We developed an algorithmic backtesting platform to democratize cryptocurrency trading strategies for users without programming expertise. The platform simplifies the process of creating and testing trading algorithms by providing an intuitive interface for combining established strategies with customizable parameters, making algorithmic trading accessible to everyone.',
+            overview: 'A sophisticated algorithmic trading platform built on a microservices architecture. It enables users to design, backtest, and optimize trading strategies without writing code. The platform leverages a high-performance Python analytics engine for vectorized backtesting, handles real-time data processing via Redis Pub/Sub, and provides a seamless user experience through a Next.js frontend.',
             challenges: [
-                'Creating an intuitive interface that simplifies complex trading concepts for non-technical users',
-                'Processing and analyzing large volumes of historical cryptocurrency data efficiently',
-                'Implementing complex trading algorithms with customizable parameters',
-                'Balancing feature complexity with user accessibility',
-                'Addressing technical and regulatory challenges in real-time trading implementation'
+                'Architecting a scalable microservices system to handle intensive computational tasks',
+                'Implementing a high-performance vectorized backtesting engine to process thousands of strategy combinations in seconds',
+                'Ensuring low-latency communication between the API server and analytics engine using Redis',
+                'Managing complex state and consistency across distributed services (Frontend, API, Analytics, Data)',
+                'Designing an intuitive interface for complex parameter optimization and strategy composition'
             ],
             solutions: [
-                'Developed a user-friendly interface for combining multiple trading strategies without coding',
-                'Implemented popular trading indicators (MACD, Bollinger Bands, SMA) with customizable parameters',
-                'Created an efficient backtesting engine for historical performance analysis',
-                'Built comprehensive performance metrics visualization',
-                'Designed an intuitive parameter optimization system'
+                'Adopted a containerized microservices architecture (Docker) for independent scaling and deployment',
+                'Developed a custom Python analytics engine using NumPy broadcasting for vectorized grid search optimization',
+                'Implemented an event-driven architecture with Redis Pub/Sub for real-time task distribution and progress updates',
+                'Built a robust API gateway using NestJS to orchestrate requests and manage data flow',
+                'Created a deeply interactive dashboard with Next.js for visualizing backtest results and performance metrics'
             ],
             technicalDetails: [
                 {
-                    title: 'Key Features',
+                    title: 'System Architecture',
                     points: [
-                        'Accessible backtesting interface requiring no coding knowledge',
-                        'Customizable strategy combination system',
-                        'Comprehensive performance metrics analysis',
-                        'Parameter optimization tools',
-                        'User-friendly visualization of results'
+                        'Microservices: Decomposed into API Server (NestJS), Analytics Engine (Python), and Data Server',
+                        'Event-Driven Communication: Utilized Redis Pub/Sub for asynchronous task processing and real-time updates',
+                        'Containerization: Fully dockerized environment for consistent development and production deployment',
+                        'Database: MongoDB for flexible storage of strategy configurations and user data'
                     ]
                 },
                 {
-                    title: 'Analysis Metrics',
+                    title: 'Analytics Engine',
                     points: [
-                        'Return rates and profit analysis',
-                        'Volume volatility measurements',
-                        'Parameter sensitivity testing',
-                        'Strategy combination effectiveness',
-                        'Risk assessment metrics'
+                        'Vectorized Optimization: Leverages NumPy broadcasting to evaluate thousands of parameter sets simultaneously',
+                        'Async Processing: Custom async Python server handling concurrent backtest requests',
+                        'Performance Metrics: Calculates Sharpe ratio, MDD, volatility, and returns with high precision',
+                        'Scalability: Designed to scale horizontally with increased computational demand'
                     ]
                 }
             ],
             methodology: [
                 {
-                    phase: 'Initial Vision',
-                    description: 'Originally planned as a complete trading platform with real-time execution capabilities'
+                    phase: 'Architecture Design',
+                    description: 'Designed a microservices-based system to separate concerns between heavy computation and user interaction'
                 },
                 {
-                    phase: 'Market Analysis',
-                    description: 'Identified gap in market for accessible trading tools for non-programmers'
+                    phase: 'Core Engine Development',
+                    description: 'Built the vectorized backtesting engine in Python for maximum performance'
                 },
                 {
-                    phase: 'Strategic Pivot',
-                    description: 'Shifted focus to backtesting and strategy development due to technical, regulatory, and capital constraints'
+                    phase: 'Integration',
+                    description: 'Connected services using Redis and developed the API layer with NestJS'
                 },
                 {
-                    phase: 'Implementation',
-                    description: 'Developed user-friendly interface and comprehensive backtesting capabilities'
+                    phase: 'Frontend Implementation',
+                    description: 'Developed the Next.js client for strategy composition and result visualization'
                 }
             ],
             outcome: {
                 status: 'Completed',
                 currentMilestones: [
                     {
-                        title: 'Strategy Builder Interface',
+                        title: 'Microservices Infrastructure',
                         status: 'Completed',
-                        details: 'Successfully developed an intuitive interface for non-programmers to create and combine trading strategies without coding knowledge'
+                        details: 'Successfully deployed Dockerized services with Redis integration'
                     },
                     {
-                        title: 'Backtesting Engine',
+                        title: 'High-Performance Engine',
                         status: 'Completed',
-                        details: 'Built a comprehensive backtesting system with support for multiple trading indicators (MACD, Bollinger Bands, SMA) and customizable parameters'
+                        details: 'Achieved sub-second latency for complex backtesting scenarios using vectorization'
                     },
                     {
-                        title: 'Performance Analytics',
+                        title: 'Strategy Optimization',
                         status: 'Completed',
-                        details: 'Implemented detailed performance metrics visualization and analysis tools for strategy evaluation'
+                        details: 'Implemented grid search capabilities to find optimal trading parameters'
                     },
                     {
-                        title: 'Parameter Optimization',
+                        title: 'User Interface',
                         status: 'Completed',
-                        details: 'Created an intuitive system for optimizing strategy parameters based on historical performance'
+                        details: 'Launched a responsive Next.js application for seamless user interaction'
                     }
                 ],
                 upcomingMilestones: [
                     {
-                        title: 'Real-time Trading Integration',
-                        description: 'Future consideration: Integration with exchanges for live trading (pending regulatory and technical requirements)'
+                        title: 'Live Trading Support',
+                        description: 'Integration with exchange APIs for real-time strategy execution'
                     },
                     {
-                        title: 'Advanced Strategy Templates',
-                        description: 'Expand library of pre-built strategies and combinations for users to customize'
+                        title: 'Machine Learning Strategies',
+                        description: 'Incorporating AI models for predictive trend analysis'
                     },
                     {
-                        title: 'Machine Learning Integration',
-                        description: 'Add AI-powered strategy optimization and parameter suggestions'
+                        title: 'Advanced Reporting',
+                        description: 'Generative PDF reports for backtest performance'
                     }
                 ],
-                targetCompletion: 'Initial Version Completed'
+                targetCompletion: 'Version 1.0 Released'
             },
             implementation: [
                 {
-                    component: 'Strategy Builder',
-                    details: 'Visual interface for combining multiple trading strategies and customizing parameters without coding'
+                    component: 'Analytics Service',
+                    details: 'Python-based service utilizing NumPy for vectorized processing of market data'
                 },
                 {
-                    component: 'Backtesting Engine',
-                    details: 'Comprehensive system for testing strategies against historical data with multiple performance metrics'
+                    component: 'API Server',
+                    details: 'NestJS application handling user authentication, strategy management, and orchestration'
                 },
                 {
-                    component: 'Analysis Dashboard',
-                    details: 'Interactive visualization of backtest results including returns, volatility, and optimization opportunities'
+                    component: 'Message Broker',
+                    details: 'Redis implementation for Pub/Sub messaging and caching'
                 },
                 {
-                    component: 'Parameter Optimizer',
-                    details: 'Tool for finding optimal strategy parameters based on historical performance'
+                    component: 'Frontend Client',
+                    details: 'Next.js application providing the visual strategy builder and analytical dashboards'
                 }
             ]
         }
