@@ -110,11 +110,24 @@ export function TechStack() {
             transition={{ delay: 0.4 }}
             className="col-span-12 md:col-span-8 bg-gray-900 rounded-3xl p-8 text-white hover:shadow-xl transition-all"
           >
-            <h3 className="text-xl font-bold mb-4">Key Achievement</h3>
-            <p className="text-gray-300">
-              Designed computer vision pipeline that automated quality control,
-              <span className="text-orange-400 font-bold"> reducing processing time by 75%</span>
+            <h3 className="text-xl font-bold mb-4">What I Care About</h3>
+            <p className="text-gray-300 leading-relaxed">
+              I care about building fast, well-designed products and writing reliable code in
+              resource-constrained environments.
             </p>
+
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {[
+                { title: "Optimization", desc: "Latency, throughput, and cost-aware systems" },
+                { title: "Design", desc: "Polished UX with clean, maintainable UI" },
+                { title: "Constraints", desc: "Ship reliably with limited CPU/memory" }
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl bg-white/5 p-4 border border-white/10">
+                  <span className="text-orange-400 font-bold">{item.title}</span>
+                  <div className="mt-1 text-sm text-gray-300">{item.desc}</div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

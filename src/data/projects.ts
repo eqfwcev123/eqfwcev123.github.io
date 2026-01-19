@@ -379,6 +379,153 @@ export const workProjects: Project[] = [
 // Side Projects (Remaining projects)
 export const sideProjects: Project[] = [
     {
+        title: 'Crypto Backtesting Platform',
+        description: 'A high-performance algorithmic trading platform featuring a microservices architecture, allowing non-programmers to backtest and optimize cryptocurrency strategies using advanced vectorized analytics.',
+        technologies: ['Next.js', 'NestJS', 'Python', 'Redis', 'MongoDB', 'Docker'],
+        imgSrc: '/stratyix_dashboard.png',
+        slug: 'crypto-backtesting',
+        details: {
+            links: [
+                {
+                    title: "Live Application",
+                    url: 'https://www.stratyix.com/app'
+                },
+                {
+                    title: "Api Server Repository",
+                    url: 'https://github.com/ggomruk/ggomruk_api_server'
+                },
+                {
+                    title: "Web Client Repository",
+                    url: 'https://github.com/ggomruk/client'
+                }
+            ],
+            overview: 'A sophisticated algorithmic trading platform built on a microservices architecture. It enables users to design, backtest, and optimize trading strategies without writing code. The platform leverages a high-performance Python analytics engine for vectorized backtesting, handles real-time data processing via Redis Pub/Sub, and provides a seamless user experience through a Next.js frontend.',
+            challenges: [
+                'Architecting a scalable microservices system to handle intensive computational tasks',
+                'Implementing a high-performance vectorized backtesting engine to process thousands of strategy combinations in seconds',
+                'Ensuring low-latency communication between the API server and analytics engine using Redis',
+                'Managing complex state and consistency across distributed services (Frontend, API, Analytics, Data)',
+                'Designing an intuitive interface for complex parameter optimization and strategy composition'
+            ],
+            solutions: [
+                'Adopted a containerized microservices architecture (Docker) for independent scaling and deployment',
+                'Developed a custom Python analytics engine using NumPy broadcasting for vectorized grid search optimization',
+                'Implemented an event-driven architecture with Redis Pub/Sub for real-time task distribution and progress updates',
+                'Built a robust API gateway using NestJS to orchestrate requests and manage data flow',
+                'Created a deeply interactive dashboard with Next.js for visualizing backtest results and performance metrics'
+            ],
+            technicalDetails: [
+                {
+                    title: 'System Architecture',
+                    points: [
+                        'Microservices: Decomposed into API Server (NestJS), Analytics Engine (Python), and Data Server',
+                        'Event-Driven Communication: Utilized Redis Pub/Sub for asynchronous task processing and real-time updates',
+                        'Containerization: Fully dockerized environment for consistent development and production deployment',
+                        'Database: MongoDB for flexible storage of strategy configurations and user data'
+                    ]
+                },
+                {
+                    title: 'Analytics Engine',
+                    points: [
+                        'Vectorized Optimization: Leverages NumPy broadcasting to evaluate thousands of parameter sets simultaneously',
+                        'Async Processing: Custom async Python server handling concurrent backtest requests',
+                        'Performance Metrics: Calculates Sharpe ratio, MDD, volatility, and returns with high precision',
+                        'Scalability: Designed to scale horizontally with increased computational demand'
+                    ]
+                }
+            ],
+            methodology: [
+                {
+                    phase: 'Architecture Design',
+                    description: 'Designed a microservices-based system to separate concerns between heavy computation and user interaction'
+                },
+                {
+                    phase: 'Core Engine Development',
+                    description: 'Built the vectorized backtesting engine in Python for maximum performance'
+                },
+                {
+                    phase: 'Integration',
+                    description: 'Connected services using Redis and developed the API layer with NestJS'
+                },
+                {
+                    phase: 'Frontend Implementation',
+                    description: 'Developed the Next.js client for strategy composition and result visualization'
+                }
+            ],
+            outcome: {
+                status: 'Completed',
+                currentMilestones: [
+                    {
+                        title: 'Microservices Infrastructure',
+                        status: 'Completed',
+                        details: 'Successfully deployed Dockerized services with Redis integration'
+                    },
+                    {
+                        title: 'High-Performance Engine',
+                        status: 'Completed',
+                        details: 'Achieved sub-second latency for complex backtesting scenarios using vectorization'
+                    },
+                    {
+                        title: 'User Interface',
+                        status: 'Completed',
+                        details: 'Launched a responsive Next.js application for seamless user interaction'
+                    }
+                ],
+                upcomingMilestones: [
+                    {
+                        title: 'On-chain Analysis Integration',
+                        description: 'Integrating real-time blockchain data metrics, such as whale transaction tracking and exchange flow analysis, to provide deeper market insights and enhanced signal accuracy.'
+                    },
+                    {
+                        title: 'Advanced Strategy Optimizer',
+                        description: 'Developing a genetic algorithm-based optimization engine to automatically evolve trading parameters and identify robust strategy combinations across different market conditions.'
+                    }
+                ],
+                targetCompletion: 'Version 1.0 Released'
+            },
+            implementation: [
+                {
+                    component: 'Analytics Service',
+                    details: 'Python-based service utilizing NumPy for vectorized processing of market data'
+                },
+                {
+                    component: 'API Server',
+                    details: 'NestJS application handling user authentication, strategy management, and orchestration'
+                },
+                {
+                    component: 'Message Broker',
+                    details: 'Redis implementation for Pub/Sub messaging and caching'
+                },
+                {
+                    component: 'Frontend Client',
+                    details: 'Next.js application providing the visual strategy builder and analytical dashboards'
+                }
+            ],
+            gallery: [
+                {
+                    src: '/stratyix_dashboard.png',
+                    caption: 'Performance analytics dashboard showing equity curve, monthly returns, and key metrics',
+                    alt: 'Stratyix analytics dashboard'
+                },
+                {
+                    src: '/stratyix_chart.png',
+                    caption: 'Interactive price chart with technical indicators and trade execution markers',
+                    alt: 'Strategy price chart visualization'
+                },
+                {
+                    src: '/stratyix_history.png',
+                    caption: 'Detailed trade history log with profit/loss analysis',
+                    alt: 'Trade history table'
+                },
+                {
+                    src: '/stratyix_compare.png',
+                    caption: 'Strategy comparison tool allowing side-by-side performance evaluation',
+                    alt: 'Strategy comparison view'
+                }
+            ]
+        }
+    },
+    {
         title: 'Solva',
         description: 'A reward-based Q&A platform where users post questions with monetary incentives and verified experts compete to provide the best answers, featuring time-limited responses and delayed comment visibility.',
         technologies: ['Flutter', 'Dart', 'Firebase', 'BLoC'],
@@ -652,136 +799,6 @@ export const sideProjects: Project[] = [
                 {
                     title: 'Web Client Repository',
                     url: 'https://github.com/enus-corp/enus-web'
-                }
-            ]
-        }
-    },
-    {
-        title: 'Crypto Backtesting Platform',
-        description: 'A high-performance algorithmic trading platform featuring a microservices architecture, allowing non-programmers to backtest and optimize cryptocurrency strategies using advanced vectorized analytics.',
-        technologies: ['Next.js', 'NestJS', 'Python', 'Redis', 'MongoDB', 'Docker'],
-        imgSrc: '/backtest.jpg',
-        slug: 'crypto-backtesting',
-        details: {
-            links: [
-                {
-                    title: "Api Server Repository",
-                    url: 'https://github.com/ggomruk/ggomruk_api_server'
-                },
-                {
-                    title: "Web Client Repository",
-                    url: 'https://github.com/ggomruk/client'
-                }
-            ],
-            overview: 'A sophisticated algorithmic trading platform built on a microservices architecture. It enables users to design, backtest, and optimize trading strategies without writing code. The platform leverages a high-performance Python analytics engine for vectorized backtesting, handles real-time data processing via Redis Pub/Sub, and provides a seamless user experience through a Next.js frontend.',
-            challenges: [
-                'Architecting a scalable microservices system to handle intensive computational tasks',
-                'Implementing a high-performance vectorized backtesting engine to process thousands of strategy combinations in seconds',
-                'Ensuring low-latency communication between the API server and analytics engine using Redis',
-                'Managing complex state and consistency across distributed services (Frontend, API, Analytics, Data)',
-                'Designing an intuitive interface for complex parameter optimization and strategy composition'
-            ],
-            solutions: [
-                'Adopted a containerized microservices architecture (Docker) for independent scaling and deployment',
-                'Developed a custom Python analytics engine using NumPy broadcasting for vectorized grid search optimization',
-                'Implemented an event-driven architecture with Redis Pub/Sub for real-time task distribution and progress updates',
-                'Built a robust API gateway using NestJS to orchestrate requests and manage data flow',
-                'Created a deeply interactive dashboard with Next.js for visualizing backtest results and performance metrics'
-            ],
-            technicalDetails: [
-                {
-                    title: 'System Architecture',
-                    points: [
-                        'Microservices: Decomposed into API Server (NestJS), Analytics Engine (Python), and Data Server',
-                        'Event-Driven Communication: Utilized Redis Pub/Sub for asynchronous task processing and real-time updates',
-                        'Containerization: Fully dockerized environment for consistent development and production deployment',
-                        'Database: MongoDB for flexible storage of strategy configurations and user data'
-                    ]
-                },
-                {
-                    title: 'Analytics Engine',
-                    points: [
-                        'Vectorized Optimization: Leverages NumPy broadcasting to evaluate thousands of parameter sets simultaneously',
-                        'Async Processing: Custom async Python server handling concurrent backtest requests',
-                        'Performance Metrics: Calculates Sharpe ratio, MDD, volatility, and returns with high precision',
-                        'Scalability: Designed to scale horizontally with increased computational demand'
-                    ]
-                }
-            ],
-            methodology: [
-                {
-                    phase: 'Architecture Design',
-                    description: 'Designed a microservices-based system to separate concerns between heavy computation and user interaction'
-                },
-                {
-                    phase: 'Core Engine Development',
-                    description: 'Built the vectorized backtesting engine in Python for maximum performance'
-                },
-                {
-                    phase: 'Integration',
-                    description: 'Connected services using Redis and developed the API layer with NestJS'
-                },
-                {
-                    phase: 'Frontend Implementation',
-                    description: 'Developed the Next.js client for strategy composition and result visualization'
-                }
-            ],
-            outcome: {
-                status: 'Completed',
-                currentMilestones: [
-                    {
-                        title: 'Microservices Infrastructure',
-                        status: 'Completed',
-                        details: 'Successfully deployed Dockerized services with Redis integration'
-                    },
-                    {
-                        title: 'High-Performance Engine',
-                        status: 'Completed',
-                        details: 'Achieved sub-second latency for complex backtesting scenarios using vectorization'
-                    },
-                    {
-                        title: 'Strategy Optimization',
-                        status: 'Completed',
-                        details: 'Implemented grid search capabilities to find optimal trading parameters'
-                    },
-                    {
-                        title: 'User Interface',
-                        status: 'Completed',
-                        details: 'Launched a responsive Next.js application for seamless user interaction'
-                    }
-                ],
-                upcomingMilestones: [
-                    {
-                        title: 'Live Trading Support',
-                        description: 'Integration with exchange APIs for real-time strategy execution'
-                    },
-                    {
-                        title: 'Machine Learning Strategies',
-                        description: 'Incorporating AI models for predictive trend analysis'
-                    },
-                    {
-                        title: 'Advanced Reporting',
-                        description: 'Generative PDF reports for backtest performance'
-                    }
-                ],
-                targetCompletion: 'Version 1.0 Released'
-            },
-            implementation: [
-                {
-                    component: 'Analytics Service',
-                    details: 'Python-based service utilizing NumPy for vectorized processing of market data'
-                },
-                {
-                    component: 'API Server',
-                    details: 'NestJS application handling user authentication, strategy management, and orchestration'
-                },
-                {
-                    component: 'Message Broker',
-                    details: 'Redis implementation for Pub/Sub messaging and caching'
-                },
-                {
-                    component: 'Frontend Client',
-                    details: 'Next.js application providing the visual strategy builder and analytical dashboards'
                 }
             ]
         }
