@@ -1,21 +1,22 @@
 "use client";
-import { motion } from "motion/react";
-import { Briefcase, Download, MapPin, Sparkles } from "lucide-react";
-import heroImage from "../assets/8bfdf2af588b37d7be795e0a03d73d33b41d6e53.png";
-import Image from 'next/image';
+import { motion, useScroll, useTransform } from "motion/react";
+import { Briefcase, Download, Sparkles } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 export function Hero() {
   const [heroRef, heroInView] = useInView({ threshold: 0.1 });
+  const { scrollY } = useScroll();
+  const parallaxOrange = useTransform(scrollY, (value) => value * 0.5);
+  const parallaxPurple = useTransform(scrollY, (value) => value * 0.3);
   return (
     <section id="hero" ref={heroRef} className="pt-32 pb-12 px-6 relative overflow-hidden">
           {/* Parallax Background Elements */}
           <motion.div
-            style={{ y: scrollY * 0.5 }}
+            style={{ y: parallaxOrange }}
             className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl"
           />
           <motion.div
-            style={{ y: scrollY * 0.3 }}
+            style={{ y: parallaxPurple }}
             className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl"
           />
 
